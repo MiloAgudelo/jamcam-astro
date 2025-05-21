@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 const locale = Astro.currentLocale;
 
 interface Props {
@@ -17,7 +18,6 @@ const schemaDescription = pageDescription;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{pageTitle}</title>
@@ -46,7 +46,7 @@ const schemaDescription = pageDescription;
 						"addressCountry": "CO"
 					}
 				},
-				"image": "https://www.jamcam2025.com/assets/og-image.jpg",
+				"image": "/og-image.jpg",
 				"description": schemaDescription,
 				"organizer": {
 					"@type": "Organization",
@@ -61,7 +61,7 @@ const schemaDescription = pageDescription;
 		<meta property="og:type" content="website">
 		<meta property="og:title" content={pageTitle}>
 		<meta property="og:description" content={pageDescription}>
-		<meta property="og:image" content="https://www.jamcam2025.com/assets/og-image.jpg">
+		<meta property="og:image" content={`${Astro.site}/og-image.jpg`}>
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		<meta property="og:site_name" content="JamCam 2025">
@@ -74,17 +74,16 @@ const schemaDescription = pageDescription;
 		<meta property="twitter:url" content={Astro.url.toString()}>
 		<meta name="twitter:title" content={pageTitle}>
 		<meta name="twitter:description" content={pageDescription}>
-		<meta name="twitter:image" content="https://www.jamcam2025.com/assets/og-image.jpg">
+		<meta name="twitter:image" content={`${Astro.site}/og-image.jpg`}>
 
 		<!-- Favicon -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-		<link rel="icon" href="/assets/favicon/favicon.ico">
-		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-		<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-chrome-192x192.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/android-chrome-512x512.png">
-		<link rel="manifest" href="/assets/favicon/site.webmanifest">
-		<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#58238B">
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+		<link rel="icon" href="/favicon/favicon.ico">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
+		<link rel="manifest" href="/favicon/site.webmanifest">
 		<meta name="msapplication-TileColor" content="#58238B">
 		<meta name="theme-color" content="#ffffff">
 
@@ -101,5 +100,6 @@ const schemaDescription = pageDescription;
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: 'Noto Sans', sans-serif;
 	}
 </style>

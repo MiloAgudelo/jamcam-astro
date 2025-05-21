@@ -1,11 +1,94 @@
+---
+const locale = Astro.currentLocale;
+
+interface Props {
+	pageTitle: string;
+	pageDescription: string;
+
+}
+
+const { pageTitle, pageDescription }: Props = Astro.props;
+
+const schemaDescription = pageDescription;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+
+		<!-- Self referencing canonical tag -->
+		<link rel="canonical" href={Astro.url.toString()} />
+
+
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Event",
+				"name": "JamCam 2025",
+				"startDate": "2025-12-26",
+				"endDate": "2026-01-02",
+				"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+				"eventStatus": "https://schema.org/EventScheduled",
+				"location": {
+					"@type": "Place",
+					"name": "Centro Recreativo y Deportivo Comfandi Pance",
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Cali, Valle del Cauca",
+						"addressCountry": "CO"
+					}
+				},
+				"image": "https://www.jamcam2025.com/assets/og-image.jpg",
+				"description": schemaDescription,
+				"organizer": {
+					"@type": "Organization",
+					"name": "Asociación Scouts de Colombia",
+					"url": "https://www.scout.org.co"
+				}
+			})}
+		</script>
+
+		<!-- Open Graph Meta Tags -->
+		<meta property="og:url" content={Astro.url.toString()}>
+		<meta property="og:type" content="website">
+		<meta property="og:title" content={pageTitle}>
+		<meta property="og:description" content={pageDescription}>
+		<meta property="og:image" content="https://www.jamcam2025.com/assets/og-image.jpg">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:site_name" content="JamCam 2025">
+		<meta property="og:locale" content={locale}>
+
+		<!-- Twitter Meta Tags -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@ScoutsColombia">
+		<meta name="twitter:creator" content="@ScoutsColombia">
+		<meta property="twitter:url" content={Astro.url.toString()}>
+		<meta name="twitter:title" content={pageTitle}>
+		<meta name="twitter:description" content={pageDescription}>
+		<meta name="twitter:image" content="https://www.jamcam2025.com/assets/og-image.jpg">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+		<link rel="icon" href="/assets/favicon/favicon.ico">
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/android-chrome-512x512.png">
+		<link rel="manifest" href="/assets/favicon/site.webmanifest">
+		<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#58238B">
+		<meta name="msapplication-TileColor" content="#58238B">
+		<meta name="theme-color" content="#ffffff">
+
+
 	</head>
 	<body>
 		<slot />

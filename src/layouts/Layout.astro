@@ -1,16 +1,12 @@
 ---
 import '../styles/global.css';
-const locale = Astro.currentLocale;
+import { getTranslations } from '../i18n';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale); 
 
-interface Props {
-	pageTitle: string;
-	pageDescription: string;
-
-}
-
-const { pageTitle, pageDescription }: Props = Astro.props;
-
-const schemaDescription = pageDescription;
+const schemaDescription = t.description;
 ---
 
 <!doctype html>
@@ -19,9 +15,10 @@ const schemaDescription = pageDescription;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="google" content="notranslate" />
 
-		<title>{pageTitle}</title>
-		<meta name="description" content={pageDescription} />
+		<title>{t.title}</title>
+		<meta name="description" content={t.description} />
 
 		<!-- Self referencing canonical tag -->
 		<link rel="canonical" href={Astro.url.toString()} />
@@ -59,8 +56,8 @@ const schemaDescription = pageDescription;
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:url" content={Astro.url.toString()}>
 		<meta property="og:type" content="website">
-		<meta property="og:title" content={pageTitle}>
-		<meta property="og:description" content={pageDescription}>
+		<meta property="og:title" content={t.title}>
+		<meta property="og:description" content={t.description}>
 		<meta property="og:image" content={`${Astro.site}/og-image.jpg`}>
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
@@ -72,8 +69,8 @@ const schemaDescription = pageDescription;
 		<meta name="twitter:site" content="@ScoutsColombia">
 		<meta name="twitter:creator" content="@ScoutsColombia">
 		<meta property="twitter:url" content={Astro.url.toString()}>
-		<meta name="twitter:title" content={pageTitle}>
-		<meta name="twitter:description" content={pageDescription}>
+		<meta name="twitter:title" content={t.title}>
+		<meta name="twitter:description" content={t.description}>
 		<meta name="twitter:image" content={`${Astro.site}/og-image.jpg`}>
 
 		<!-- Favicon -->
@@ -91,6 +88,7 @@ const schemaDescription = pageDescription;
 	</head>
 	<body>
 		<slot />
+		<Footer />
 	</body>
 </html>
 

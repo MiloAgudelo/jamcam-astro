@@ -1,0 +1,41 @@
+---
+interface Props {
+  showLogo?: boolean;
+}
+
+const { showLogo = false } = Astro.props;
+const locale = Astro.currentLocale || 'es';
+
+// Construir las rutas de las imágenes basándose en el locale
+const mobileImage = `/src/assets/banner-home-mobile-${locale}.webp`;
+const desktopImage = `/src/assets/banner-home-desktop-${locale}.webp`;
+const logoImage = "/src/assets/logo-jamcam-white.svg";
+---
+
+<section class="banner-container w-full h-screen relative overflow-hidden">
+  <!-- Imagen de fondo responsive -->
+  <picture class="absolute inset-0 w-full h-full">
+    <!-- Desktop -->
+    <source 
+      media="(min-width: 1024px)" 
+      srcset={desktopImage}
+    />
+    <!-- Mobile -->
+    <img 
+      src={mobileImage}
+      alt="Banner JamCam 2025"
+      class="w-full h-full object-cover"
+    />
+  </picture>
+
+  <!-- Logo opcional centrado -->
+  {showLogo && (
+    <div class="absolute inset-0 flex items-start justify-center z-10 pt-[20vh] lg:pt-[15vh]">
+      <img 
+        src={logoImage}
+        alt="Logo JamCam 2025"
+        class="h-[280px] lg:h-[320px] w-auto object-contain"
+      />
+    </div>
+  )}
+</section>

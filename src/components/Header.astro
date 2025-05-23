@@ -47,8 +47,8 @@ const menuItems = [
 ---
 
 <header>
-  <nav class="fixed top-0 left-0 w-screen h-nav-main-mobile lg:h-nav-main bg-background-color shadow-nav-shadow z-[1000] overflow-x-hidden">
-    <div class="w-full h-full max-w-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
+  <nav class="relative w-full h-[98px] lg:h-[125px] bg-background-color shadow-nav-shadow z-[1000]">
+    <div class="w-full h-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
       <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto lg:h-[130px] w-auto">
         <img src="/src/assets/logo-jamcam-color.svg" alt="Logo JamCam 2025" class="h-[80px] lg:h-[130px] w-auto object-contain" />
       </a>
@@ -60,9 +60,9 @@ const menuItems = [
       </button>
 
       <ul id="navbar-menu" class="
-        fixed lg:static 
-        top-[106px] lg:top-auto left-0 lg:right-0 
-        w-screen lg:w-auto
+        absolute lg:static 
+        top-full lg:top-auto left-0 lg:right-0 
+        w-full lg:w-auto
         bg-white lg:bg-transparent
         border-t border-gray-200 lg:border-none
         shadow-lg lg:shadow-none

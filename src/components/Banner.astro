@@ -6,9 +6,36 @@ interface Props {
 const { showLogo = false } = Astro.props;
 const locale = Astro.currentLocale || 'es';
 
-// Construir las rutas de las imágenes basándose en el locale
-const mobileImage = `/src/assets/banner-home-mobile-${locale}.webp`;
-const desktopImage = `/src/assets/banner-home-desktop-${locale}.webp`;
+// Obtener la ruta actual
+const currentPath = Astro.url.pathname;
+
+// Detectar si estamos en la página home (considerando prefijos de idioma)
+const isHomePage = currentPath === '/' || currentPath.match(/^\/[a-z]{2}\/?$/);
+
+// Determinar el nombre de la ruta
+let routeName: string;
+if (isHomePage) {
+  routeName = 'home';
+} else {
+  // Extraer el nombre de la ruta removiendo el prefijo de idioma si existe
+  const pathWithoutLocale = currentPath.replace(/^\/[a-z]{2}\//, '/').replace(/^\/+|\/+$/g, '');
+  routeName = pathWithoutLocale.split('/')[0] || 'home';
+}
+
+// Construir las rutas de las imágenes basándose en la ruta y locale
+let mobileImage: string;
+let desktopImage: string;
+
+if (isHomePage) {
+  // Para la página home, usar el patrón original
+  mobileImage = `/src/assets/banner-home-mobile.webp`;
+  desktopImage = `/src/assets/banner-home-desktop.webp`;
+} else {
+  // Para otras rutas, usar el nuevo patrón
+  mobileImage = `/src/assets/banner-${routeName}-mobile.webp`;
+  desktopImage = `/src/assets/banner-${routeName}-desktop-${locale}.webp`;
+}
+
 const logoImage = "/src/assets/logo-jamcam-white.svg";
 ---
 

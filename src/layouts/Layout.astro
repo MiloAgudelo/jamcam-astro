@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { getTranslations } from '../i18n';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale); 
 
@@ -92,6 +93,7 @@ const schemaDescription = t.description;
 			<slot />
 		</main>
 		<Footer />
+		<LanguageSwitcher />
 	</body>
 </html>
 

@@ -1,0 +1,185 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Language configuration with flags and labels
+const languages = [
+  {
+    code: 'es',
+    label: 'ES',
+    flag: '/src/assets/flags/co.svg',
+    alt: 'Colombia Flag',
+    ariaLabel: 'Seleccionar Español'
+  },
+  {
+    code: 'en',
+    label: 'EN',
+    flag: '/src/assets/flags/us.svg',
+    alt: 'USA Flag',
+    ariaLabel: 'Select English'
+  },
+  {
+    code: 'pt',
+    label: 'PT',
+    flag: '/src/assets/flags/br.svg',
+    alt: 'Brazil Flag',
+    ariaLabel: 'Selecionar Português'
+  },
+  {
+    code: 'fr',
+    label: 'FR',
+    flag: '/src/assets/flags/ca.svg',
+    alt: 'Canada Flag',
+    ariaLabel: 'Sélectionner Français'
+  }
+];
+
+const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
+const otherLanguages = languages.filter(lang => lang.code !== locale);
+
+function getLocalizedPath(path: string, targetLocale: string): string {
+  const currentPath = Astro.url.pathname;
+  
+  // Remove current locale from path if it exists
+  const pathWithoutLocale = currentPath.replace(/^\/(en|pt|fr)/, '') || '/';
+  
+  if (targetLocale === 'es') {
+    return pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+  }
+  return pathWithoutLocale === '/' ? `/${targetLocale}/` : `/${targetLocale}${pathWithoutLocale}`;
+}
+
+---
+
+<div class="language-selector fixed bottom-5 right-5 z-[99] transition-opacity duration-300 ease-linear">
+  <button 
+    id="language-button"
+    class="language-button w-[50px] h-[50px] rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 bg-white relative"
+    aria-label={currentLanguage.ariaLabel}
+    aria-expanded="false"
+    aria-controls="language-options"
+  >
+    <img 
+      src={currentLanguage.flag} 
+      alt={currentLanguage.alt}
+      class="w-full h-full object-cover rounded-full"
+    />
+  </button>
+  
+  <div 
+    id="language-options"
+    class="language-options absolute bottom-[60px] right-0 flex flex-col gap-[15px] opacity-0 transform translate-y-5 transition-all duration-300 ease-linear pointer-events-none md:bottom-[60px] md:gap-[15px]"
+  >
+    {otherLanguages.map((language) => (
+      <a
+        href={getLocalizedPath(Astro.url.pathname, language.code)}
+        class="language-option w-[50px] h-[50px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 bg-white relative hover:scale-110 hover:shadow-xl"
+        aria-label={language.ariaLabel}
+      >
+        <img 
+          src={language.flag} 
+          alt={language.alt}
+          class="w-full h-full object-cover rounded-full"
+        />
+        <span class="language-label absolute bottom-0 left-0 right-0 py-[15px] pb-2 bg-gradient-to-t from-black/70 to-transparent text-white font-bold text-[13px] text-center pointer-events-none z-[2] rounded-b-[30px] tracking-wide md:py-[12px] md:pb-[6px] md:text-[11px]">
+          {language.label}
+        </span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  const languageButton = document.getElementById('language-button');
+  const languageOptions = document.getElementById('language-options');
+  let isPinned = false;
+
+  if (languageButton && languageOptions) {
+    // Handle click/touch events
+    languageButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = languageOptions.classList.contains('active');
+      
+      if (isActive && isPinned) {
+        closeLanguageMenu();
+        isPinned = false;
+      } else {
+        openLanguageMenu();
+        isPinned = true;
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!languageButton.contains(e.target as Node) && !languageOptions.contains(e.target as Node)) {
+        closeLanguageMenu();
+        isPinned = false;
+      }
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && languageOptions.classList.contains('active')) {
+        closeLanguageMenu();
+        isPinned = false;
+      }
+    });
+
+    // Handle mouse enter/leave for desktop hover (only if not pinned)
+    const languageSelector = document.querySelector('.language-selector');
+    if (languageSelector && window.matchMedia('(hover: hover)').matches) {
+      languageSelector.addEventListener('mouseenter', () => {
+        if (!isPinned) {
+          openLanguageMenu();
+        }
+      });
+      
+      languageSelector.addEventListener('mouseleave', () => {
+        if (!isPinned) {
+          closeLanguageMenu();
+        }
+      });
+    }
+
+    function openLanguageMenu() {
+      if (languageOptions && languageButton) {
+        languageOptions.classList.add('active');
+        languageOptions.classList.remove('opacity-0', 'translate-y-5', 'pointer-events-none');
+        languageOptions.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        languageButton.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function closeLanguageMenu() {
+      if (languageOptions && languageButton) {
+        languageOptions.classList.remove('active');
+        languageOptions.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        languageOptions.classList.add('opacity-0', 'translate-y-5', 'pointer-events-none');
+        languageButton.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+</script>
+
+<style>
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .language-selector {
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .language-button,
+    .language-option {
+      width: 60px;
+      height: 60px;
+    }
+
+    .language-options {
+      bottom: 70px;
+      gap: 12px;
+    }
+  }
+</style> 

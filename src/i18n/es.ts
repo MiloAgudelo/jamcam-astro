@@ -13,5 +13,11 @@ export default {
         rights: "Todos los derechos reservados",
         designed: "Diseñado por",
         developed: "Desarrollado por",
+    },
+    countdown: {
+        days: "Días",
+        hours: "Horas",
+        minutes: "Minutos",
+        seconds: "Segundos"
     }
 }

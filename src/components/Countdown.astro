@@ -1,0 +1,275 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Target date: December 27, 2025 00:00 GMT-5 (COT - Colombia Time)
+const targetDate = "2025-12-27T00:00:00-05:00";
+
+// Decorative SVG
+const decorativeSVG = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.09 19.36">
+  <g>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="2.07" y1="17.29" x2="17.26" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="17.26" y1="17.29" x2="32.46" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="17.26" y1="2.07" x2="17.26" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="32.46" y1="17.29" x2="47.66" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="32.46" y1="2.07" x2="32.46" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="47.66" y1="17.29" x2="62.85" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="47.66" y1="2.07" x2="47.66" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="62.85" y1="17.29" x2="78.05" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="62.85" y1="2.07" x2="62.85" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="78.05" y1="17.29" x2="93.25" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="78.05" y1="2.07" x2="78.05" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="93.25" y1="17.29" x2="108.45" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="93.25" y1="2.07" x2="93.25" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="108.45" y1="17.29" x2="123.64" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="108.45" y1="2.07" x2="108.45" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="123.64" y1="17.29" x2="138.84" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="123.64" y1="2.07" x2="123.64" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="138.84" y1="17.29" x2="154.04" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="138.84" y1="2.07" x2="138.84" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="154.04" y1="17.29" x2="169.23" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="154.04" y1="2.07" x2="154.04" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="169.23" y1="17.29" x2="184.43" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="169.23" y1="2.07" x2="169.23" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="184.43" y1="17.29" x2="199.63" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="184.43" y1="2.07" x2="184.43" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="199.63" y1="17.29" x2="214.82" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="199.63" y1="2.07" x2="199.63" y2="17.29"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="214.82" y1="17.29" x2="230.02" y2="2.07"/>
+    <line stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.13" x1="214.82" y1="2.07" x2="214.82" y2="17.29"/>
+  </g>
+</svg>
+`;
+---
+
+<section class="pt-[120px] pb-[140px] px-5 lg:pt-[140px] lg:pb-[160px] lg:px-5 bg-white">
+  <div class="w-full max-w-[1200px] mx-auto px-5 lg:px-5">
+    <!-- Desktop layout -->
+    <div class="hidden md:flex justify-center gap-5 lg:gap-5">
+      <!-- Days -->
+      <div class="countdown-item relative w-64 h-36 text-center rounded-[10px] bg-green-jm">
+        <div class="countdown-svg absolute w-[120px] h-auto pointer-events-none text-white right-[185px] bottom-[75px] rotate-90" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.5rem] font-bold text-white tabular-nums" 
+          id="days"
+          value="000"
+        ></number-flow>
+        <div class="countdown-label absolute left-1/2 transform -translate-x-1/2 text-xl font-semibold text-green-jm bottom-[-30px]">{t.countdown.days}</div>
+      </div>
+
+      <!-- Hours -->
+      <div class="countdown-item relative w-64 h-36 text-center rounded-[10px] bg-salmon-jm">
+        <div class="countdown-svg absolute w-[120px] h-auto pointer-events-none text-white right-[130px] bottom-[130px]" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.5rem] font-bold text-white tabular-nums" 
+          id="hours"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute left-1/2 transform -translate-x-1/2 text-xl font-semibold text-green-jm bottom-[-30px]">{t.countdown.hours}</div>
+      </div>
+
+      <!-- Minutes -->
+      <div class="countdown-item relative w-64 h-36 text-center rounded-[10px] bg-purple-jm">
+        <div class="countdown-svg absolute w-[120px] h-auto pointer-events-none text-white right-[8px] bottom-[8px]" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.5rem] font-bold text-white tabular-nums" 
+          id="minutes"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute left-1/2 transform -translate-x-1/2 text-xl font-semibold text-green-jm bottom-[-30px]">{t.countdown.minutes}</div>
+      </div>
+
+      <!-- Seconds -->
+      <div class="countdown-item relative w-64 h-36 text-center rounded-[10px] bg-yellow-jm">
+        <div class="countdown-svg absolute w-[120px] h-auto pointer-events-none text-white right-[-48px] bottom-[62px] rotate-90" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.5rem] font-bold text-white tabular-nums" 
+          id="seconds"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute left-1/2 transform -translate-x-1/2 text-xl font-semibold text-green-jm bottom-[-30px]">{t.countdown.seconds}</div>
+      </div>
+    </div>
+
+    <!-- Mobile layout -->
+    <div class="flex md:hidden flex-col items-center gap-[10px]">
+      <!-- Days -->
+      <div class="countdown-item relative w-[200px] h-[170px] text-center rounded-[10px] bg-green-jm">
+        <div class="countdown-svg absolute w-[140px] h-auto pointer-events-none text-white right-[55px] bottom-[155px]" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-[43%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.2rem] font-bold text-white tabular-nums" 
+          id="days-mobile"
+          value="000"
+        ></number-flow>
+        <div class="countdown-label absolute top-[60%] left-1/2 transform -translate-x-1/2 text-base font-normal text-white">{t.countdown.days}</div>
+      </div>
+
+      <!-- Hours -->
+      <div class="countdown-item relative w-[200px] h-[170px] text-center rounded-[10px] bg-salmon-jm">
+        <div class="countdown-svg absolute w-[140px] h-auto pointer-events-none text-white right-[120px] bottom-[80px] rotate-90" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-[43%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.2rem] font-bold text-white tabular-nums" 
+          id="hours-mobile"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute top-[60%] left-1/2 transform -translate-x-1/2 text-base font-normal text-white">{t.countdown.hours}</div>
+      </div>
+
+      <!-- Minutes -->
+      <div class="countdown-item relative w-[200px] h-[170px] text-center rounded-[10px] bg-purple-jm">
+        <div class="countdown-svg absolute w-[140px] h-auto pointer-events-none text-white right-[-55px] bottom-[80px] rotate-90" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-[43%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.2rem] font-bold text-white tabular-nums" 
+          id="minutes-mobile"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute top-[60%] left-1/2 transform -translate-x-1/2 text-base font-normal text-white">{t.countdown.minutes}</div>
+      </div>
+
+      <!-- Seconds -->
+      <div class="countdown-item relative w-[200px] h-[170px] text-center rounded-[10px] bg-yellow-jm">
+        <div class="countdown-svg absolute w-[140px] h-auto pointer-events-none text-white right-[10px] bottom-[10px]" set:html={decorativeSVG}></div>
+        <number-flow 
+          class="countdown-value absolute top-[43%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3.2rem] font-bold text-white tabular-nums" 
+          id="seconds-mobile"
+          value="00"
+        ></number-flow>
+        <div class="countdown-label absolute top-[60%] left-1/2 transform -translate-x-1/2 text-base font-normal text-white">{t.countdown.seconds}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // Import number-flow from CDN (as suggested in the docs when not using a bundler)
+  import 'https://esm.sh/number-flow';
+</script>
+
+<script define:vars={{ targetDate }}>
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const target = new Date(targetDate).getTime();
+    const difference = target - now;
+
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      // Desktop elements
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      // Mobile elements
+      const daysMobileEl = document.getElementById('days-mobile');
+      const hoursMobileEl = document.getElementById('hours-mobile');
+      const minutesMobileEl = document.getElementById('minutes-mobile');
+      const secondsMobileEl = document.getElementById('seconds-mobile');
+
+      function updateNumberFlow(element, newValue, formatLength = 2) {
+        if (element && typeof element.update === 'function') {
+          const formatted = String(newValue).padStart(formatLength, '0');
+          element.update(formatted);
+        }
+      }
+
+      // Update desktop
+      updateNumberFlow(daysEl, days, 3);
+      updateNumberFlow(hoursEl, hours, 2);
+      updateNumberFlow(minutesEl, minutes, 2);
+      updateNumberFlow(secondsEl, seconds, 2);
+
+      // Update mobile
+      updateNumberFlow(daysMobileEl, days, 3);
+      updateNumberFlow(hoursMobileEl, hours, 2);
+      updateNumberFlow(minutesMobileEl, minutes, 2);
+      updateNumberFlow(secondsMobileEl, seconds, 2);
+    } else {
+      // Event has started - show zeros
+      const elements = ['days', 'hours', 'minutes', 'seconds', 'days-mobile', 'hours-mobile', 'minutes-mobile', 'seconds-mobile'];
+      elements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && typeof el.update === 'function') {
+          el.update(id.includes('days') ? '000' : '00');
+        }
+      });
+    }
+  }
+
+  // Wait for number-flow to be loaded
+  function initCountdown() {
+    // Initialize all number-flow elements
+    const elements = ['days', 'hours', 'minutes', 'seconds', 'days-mobile', 'hours-mobile', 'minutes-mobile', 'seconds-mobile'];
+    elements.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && typeof el.update === 'function') {
+        el.update(id.includes('days') ? '000' : '00');
+      }
+    });
+
+    // Start countdown
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Wait for custom elements to be defined
+  if (customElements.get('number-flow')) {
+    initCountdown();
+  } else {
+    customElements.whenDefined('number-flow').then(initCountdown);
+  }
+</script>
+
+<style>
+  /* Remove the old CSS animation since we're using number-flow now */
+  
+  /* Tablet responsive adjustments */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    .countdown-item {
+      width: 220px;
+      height: 130px;
+    }
+
+    .countdown-value {
+      font-size: 2.8rem;
+    }
+
+    .countdown-svg {
+      width: 100px;
+    }
+
+    /* Adjust SVG positions for tablet */
+    .countdown-item:nth-child(1) .countdown-svg {
+      right: 160px;
+      bottom: 65px;
+    }
+    
+    .countdown-item:nth-child(2) .countdown-svg {
+      right: 110px;
+      bottom: 120px;
+    }
+    
+    .countdown-item:nth-child(3) .countdown-svg {
+      right: 10px;
+      bottom: 10px;
+    }
+    
+    .countdown-item:nth-child(4) .countdown-svg {
+      right: -35px;
+      bottom: 65px;
+    }
+  }
+
+  /* Ensure proper styling for number-flow elements */
+  number-flow {
+    display: inline-block;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+</style> 

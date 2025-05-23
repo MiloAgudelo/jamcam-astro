@@ -1,0 +1,155 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+function getLocalizedPath(path: string): string {
+  if (locale === 'es') {
+    return path === '/' ? '/' : path;
+  }
+  return path === '/' ? `/${locale}/` : `/${locale}${path}`;
+}
+
+// Carousel images
+const carouselImages = [
+  {
+    src: "/src/assets/info-carousel-1.webp",
+    alt: `${t.infoSection.imageAlt} #1`
+  },
+  {
+    src: "/src/assets/info-carousel-2.webp", 
+    alt: `${t.infoSection.imageAlt} #2`
+  },
+  {
+    src: "/src/assets/info-carousel-3.webp",
+    alt: `${t.infoSection.imageAlt} #3`
+  },
+  {
+    src: "/src/assets/info-carousel-4.webp",
+    alt: `${t.infoSection.imageAlt} #4`
+  },
+  {
+    src: "/src/assets/info-carousel-5.webp",
+    alt: `${t.infoSection.imageAlt} #5`
+  },
+  {
+    src: "/src/assets/info-carousel-6.webp",
+    alt: `${t.infoSection.imageAlt} #6`
+  }
+];
+
+---
+
+<section 
+  class="info-section min-h-screen flex items-center bg-no-repeat bg-top bg-cover xl:bg-[length:100%_auto] lg:bg-cover"
+  style="background-image: url('/src/assets/info-background.svg')"
+>
+<div class="info-container w-full mx-auto px-5 py-[20px_20px_40px] pt-20 pb-12 sm:pt-32 md:pt-72 md:pb-48 xl:pb-16 xl:px-20 lg:px-10 grid lg:grid-cols-[1.4fr_1fr] sm:grid-cols-1 gap-15 xl:gap-12 lg:gap-12 md:gap-9 items-center">
+    
+    <!-- Text Column -->
+    <div class="info-text-column flex flex-col gap-9 xl:gap-7 lg:gap-7 md:gap-2.5 text-center lg:text-left mt-16 lg:mt-0">
+      
+      <!-- Title and Subtitle -->
+      <div class="text-row text-white">
+        <h1 class="text-[1.8rem] sm:text-[2.1rem] md:text-[2.1rem] lg:text-[2.4rem] xl:text-[2.8rem] 2xl:text-[3.4rem] font-bold mb-4 leading-tight">
+          {t.infoSection.title}
+        </h1>
+        <h2 class="text-[1.4rem] sm:text-[1.7rem] md:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.1rem] 2xl:text-[2.4rem] font-bold mb-4 leading-tight">
+          {t.infoSection.subtitle}
+        </h2>
+      </div>
+
+      <!-- Description -->
+      <div class="text-row text-white">
+        <p class="text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.4rem] 2xl:text-[1.6rem] leading-[1.6] font-light">
+          {t.infoSection.description}
+        </p>
+      </div>
+
+      <!-- Button -->
+      <div class="text-row flex justify-center lg:justify-start">
+        <a 
+          href={getLocalizedPath('/about')}
+          class="inline-flex items-center gap-2.5 bg-white text-green-jm px-6 py-3 mt-5 font-semibold no-underline cursor-pointer rounded-none transition-all duration-300 ease-linear shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:scale-105 hover:shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
+        >
+          {t.infoSection.buttonText}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-green-jm">
+            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Image Column / Carousel -->
+    <div class="info-image-column flex justify-center items-center w-full max-w-[600px] mx-auto md:max-w-[500px] pt-5 aspect-square">
+      <div id="info-carousel" class="carousel relative w-full h-full rounded-lg overflow-hidden">
+        <div class="carousel-container relative w-full h-full">
+          {carouselImages.map((image, index) => (
+            <div 
+              class={`carousel-slide absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              data-slide-index={index}
+            >
+              <img 
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById('info-carousel');
+  const slides = carousel?.querySelectorAll('.carousel-slide');
+  
+  if (slides && slides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    function showSlide(index: number) {
+      if (slides) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove('opacity-0');
+            slide.classList.add('opacity-100');
+          } else {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+          }
+        });
+      }
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+    
+    // Auto-rotate every 3 seconds
+    setInterval(nextSlide, 3000);
+  }
+</script>
+
+<style>
+  @media (max-width: 1280px) {
+    .info-section {
+      background-size: cover;
+      background-position: top center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .info-section {
+      background-image: url('/src/assets/info-background-mobile.svg') !important;
+      background-size: 160% auto !important;
+      min-height: auto;
+      background-position: top center !important;
+    }
+  }
+</style> 

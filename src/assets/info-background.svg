@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1348.04">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #f2a516;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 5px;
+      }
+
+      .cls-2, .cls-4 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5 {
+        fill: #0094B4;
+      }
+
+      .cls-3 {
+        stroke: #f25c5c;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4 {
+        stroke: #58238c;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="1613.56" width="306.44" height="328.94"/>
+    </clipPath>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <rect class="cls-4" x="901.57" y="171.82" width="143.95" height="143.95" transform="translate(1644.65 -502.42) rotate(117.91)"/>
+      <polygon class="cls-2" points="1086.59 297.35 1130.27 372.99 1320.46 263.18 1276.79 187.53 1149.99 187.53 1086.59 297.35"/>
+      <polygon class="cls-3" points="1283.09 335.14 1383.37 283.67 1442.21 187.53 1436.45 340.9 1283.09 335.14"/>
+      <g class="cls-6">
+        <polygon class="cls-2" points="1749.88 184.51 1826.48 62.63 1920 121.41 1948.35 139.23 1871.75 261.11 1749.88 184.51"/>
+      </g>
+      <circle class="cls-4" cx="269.57" cy="151.7" r="79.58"/>
+      <polygon class="cls-4" points="1715.79 189.78 1617.9 128.26 1515.68 182.27 1511.34 297.8 1609.23 359.33 1711.45 305.32 1715.79 189.78"/>
+      <polygon class="cls-3" points="857.11 168.97 802.62 82.07 699.43 86.25 650.74 177.32 705.23 264.22 808.42 260.05 857.11 168.97"/>
+      <polygon class="cls-2" points="465.04 175.66 591.74 170.54 650.65 58.25 397.25 68.5 465.04 175.66"/>
+      <path class="cls-3" d="M123.53,339.48c-61.13-2.3-108.82-53.71-106.52-114.84s53.71-108.82,114.84-106.52l-8.31,221.36Z"/>
+      <path class="cls-5" d="M0,254.43s260.65-102.73,391.24-102.73c290.83,0,568.26,164.47,903.53,164.47s625.23-164.47,625.23-164.47v1020.51H0V254.43Z"/>
+    </g>
+  </g>
+</svg>

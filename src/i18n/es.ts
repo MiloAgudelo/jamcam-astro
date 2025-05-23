@@ -19,5 +19,12 @@ export default {
         hours: "Horas",
         minutes: "Minutos",
         seconds: "Segundos"
+    },
+    infoSection: {
+        title: "JamCam 2025 - Américas Unidas por la Paz",
+        subtitle: "Descubre la aventura del JamCam 2025",
+        description: "El JamCam 2025 no es solo un evento, es una experiencia transformadora donde miles de jóvenes de toda América se reunirán para celebrar la hermandad, la diversidad y la aventura. A través de actividades diseñadas para promover la inclusión, la sostenibilidad y la paz, este evento marcará un antes y un después en la vida de cada participante.",
+        buttonText: "Ver más",
+        imageAlt: "Foto de la experiencia del JamCam"
     }
 }

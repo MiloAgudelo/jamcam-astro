@@ -1,0 +1,211 @@
+---
+import '../styles/global.css';
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+function getLocalizedPath(path: string): string {
+  if (locale === 'es') {
+    return path === '/' ? '/' : path;
+  }
+  return path === '/' ? `/${locale}/` : `/${locale}${path}`;
+}
+
+const menuItems = [
+  {
+    text: t.header.about,
+    href: getLocalizedPath('/about'),
+    afterColorClass: "lg:after:bg-purple-jm"
+  },
+  {
+    text: t.header.participate,
+    href: getLocalizedPath('/participate'),
+    afterColorClass: "lg:after:bg-salmon-jm"
+  },
+  {
+    text: t.header.program,
+    href: getLocalizedPath('/program'),
+    afterColorClass: "lg:after:bg-green-jm"
+  },
+  {
+    text: t.header.blog,
+    href: getLocalizedPath('/blog'),
+    afterColorClass: "lg:after:bg-orange-jm"
+  },
+  {
+    text: t.header.info,
+    href: getLocalizedPath('/info'),
+    afterColorClass: "lg:after:bg-pink-jm"
+  },
+  {
+    text: t.header.contacts,
+    href: getLocalizedPath('/contacts'),
+    isButton: true
+  }
+];
+---
+
+<header>
+  <nav class="fixed top-0 left-0 w-screen h-nav-main-mobile lg:h-nav-main bg-background-color shadow-nav-shadow z-[1000] overflow-x-hidden">
+    <div class="w-full h-full max-w-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
+      <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto lg:h-[130px] w-auto">
+        <img src="/src/assets/logo-jamcam-color.svg" alt="Logo JamCam 2025" class="h-[80px] lg:h-[130px] w-auto object-contain" />
+      </a>
+
+      <button id="navbar-toggle" class="lg:hidden p-2.5 text-orange-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8 fill-current">
+          <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+        </svg>
+      </button>
+
+      <ul id="navbar-menu" class="
+        fixed lg:static 
+        top-[106px] lg:top-auto left-0 lg:right-0 
+        w-screen lg:w-auto
+        bg-white lg:bg-transparent
+        border-t border-gray-200 lg:border-none
+        shadow-lg lg:shadow-none
+        flex-col lg:flex-row items-stretch lg:items-center lg:justify-end
+        py-2 lg:py-0 gap-0 lg:gap-5
+        opacity-0 lg:opacity-100 invisible lg:visible 
+        transform -translate-y-full lg:translate-x-0 lg:translate-y-0 scale-95 lg:scale-100
+        transition-all duration-200 ease-in-out lg:transition-none
+        pointer-events-none lg:pointer-events-auto
+        flex list-none m-0 p-0 z-[1000]
+        overflow-hidden lg:overflow-visible
+      ">
+        {menuItems.map((item, index) => (
+          <li
+            class={`
+              w-full lg:w-auto text-center 
+              opacity-0 lg:opacity-100 transform -translate-y-2.5 lg:translate-y-0 
+              transition-all duration-150 ease-in-out
+              ${index < menuItems.length - 1 ? 'border-b border-gray-100 lg:border-none' : ''}
+            `}
+            style={{ transitionDelay: `calc(var(--is-active, 0) * ${index * 50}ms)` }}
+            data-menu-item
+          >
+            {item.isButton ? ( // Este es el botón
+              <a
+                href={item.href}
+                class="
+                  block whitespace-nowrap 
+                  py-3 px-6 lg:py-3 lg:px-6
+                  mx-4 lg:mx-0 my-2 lg:my-0
+                  text-[1rem] lg:text-[1.1rem]
+                  font-medium lg:font-bold
+                  text-white lg:text-white
+                  bg-salmon-jm lg:bg-salmon-jm
+                  border-salmon-jm lg:border-[2px] lg:border-salmon-jm
+                  rounded-none
+                  transition-all duration-150 ease-linear
+                  hover:bg-salmon-jm/90 lg:hover:scale-105 
+                  lg:shadow-button-shadow lg:hover:shadow-button-hover-shadow
+                  leading-normal lg:leading-[1.3em]
+                  active:scale-95 lg:active:scale-100
+                "
+              >
+                {item.text}
+              </a>
+            ) : (
+              <a
+                href={item.href}
+                class={`
+                  block whitespace-nowrap relative
+                  py-2 px-6 lg:py-2 lg:px-2
+                  text-[1rem] lg:text-[1.1rem]
+                  font-medium lg:font-semibold
+                  text-text-color
+                  transition-all duration-150 ease-linear
+                  hover:bg-gray-50 lg:hover:bg-transparent lg:hover:-translate-y-0.5
+                  active:bg-gray-100 lg:active:bg-transparent
+                  lg:after:content-[''] lg:after:absolute lg:after:h-[2px] lg:after:bottom-0 lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:w-0 lg:after:transition-all lg:after:duration-150 lg:after:ease-linear
+                  ${item.afterColorClass || ''}
+                  lg:hover:after:w-[calc(100%-24px)]
+                `}
+              >
+                {item.text}
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggleButton = document.getElementById('navbar-toggle');
+  const menu = document.getElementById('navbar-menu');
+  const menuItemsElements = document.querySelectorAll('[data-menu-item]');
+
+  function closeMenu() {
+    if (!menu || !toggleButton) return;
+    
+    menu.classList.remove('menu-active-state');
+    menu.classList.add('opacity-0', 'invisible', '-translate-y-full', 'scale-95', 'pointer-events-none');
+    menu.classList.remove('opacity-100', 'visible', 'translate-y-0', 'scale-100', 'pointer-events-auto');
+    
+    menu.style.setProperty('--is-active', '0');
+    toggleButton.setAttribute('aria-expanded', 'false');
+    
+    menuItemsElements.forEach(item => {
+      item.classList.add('opacity-0', '-translate-y-2.5');
+      item.classList.remove('opacity-100', 'translate-y-0');
+    });
+  }
+
+  function openMenu() {
+    if (!menu || !toggleButton) return;
+    
+    menu.classList.add('menu-active-state');
+    menu.classList.remove('opacity-0', 'invisible', '-translate-y-full', 'scale-95', 'pointer-events-none');
+    menu.classList.add('opacity-100', 'visible', 'translate-y-0', 'scale-100', 'pointer-events-auto');
+    
+    menu.style.setProperty('--is-active', '1');
+    toggleButton.setAttribute('aria-expanded', 'true');
+    
+    menuItemsElements.forEach(item => {
+      item.classList.remove('opacity-0', '-translate-y-2.5');
+      item.classList.add('opacity-100', 'translate-y-0');
+    });
+  }
+
+  if (toggleButton && menu) {
+    toggleButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpening = !menu.classList.contains('menu-active-state');
+
+      if (isOpening) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    });
+
+    // Cerrar el menú cuando se hace click en un enlace
+    menuItemsElements.forEach(item => {
+      const link = item.querySelector('a');
+      if (link) {
+        link.addEventListener('click', () => {
+          // Pequeño delay para permitir la navegación
+          setTimeout(closeMenu, 100);
+        });
+      }
+    });
+
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('menu-active-state')) {
+        closeMenu();
+      }
+    });
+
+    // Prevenir que los clicks dentro del menú cierren el menú
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+</script>

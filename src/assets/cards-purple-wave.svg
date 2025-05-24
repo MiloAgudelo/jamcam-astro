@@ -2,7 +2,9 @@
 <svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 2200">
   <defs>
     <style>
-      
+      .cls-1 {
+        opacity: .4;
+      }
 
       .cls-2 {
         fill: #decdff;

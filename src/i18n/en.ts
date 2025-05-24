@@ -27,6 +27,13 @@ export default {
         buttonText: "Learn more",
         imageAlt: "Picture of the JamCam Experience"
     },
+    discoverSection: {
+        title: "Cali, Colombia:",
+        subtitle: "The Heart of JamCam 2025",
+        description: "Cali, known as the world capital of salsa, is a vibrant city with a deep history and incomparable culture. Its hospitality and festive spirit make it the perfect destination for this great Scouting event.",
+        buttonText: "Discover Cali",
+        imageAlt: "Image of Cali"
+    },
     infoCards: {
         title: "Americas United for Peace: A Purposeful Event",
         cards: {

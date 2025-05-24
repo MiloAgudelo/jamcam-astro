@@ -1,0 +1,133 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+function getLocalizedPath(path: string): string {
+  if (locale === 'es') {
+    return path === '/' ? '/' : path;
+  }
+  return path === '/' ? `/${locale}/` : `/${locale}${path}`;
+}
+
+// Gallery images
+const galleryImages = [
+  {
+    src: "/src/assets/cali-1.webp",
+    alt: `${t.discoverSection.imageAlt} #1`
+  },
+  {
+    src: "/src/assets/cali-2.webp", 
+    alt: `${t.discoverSection.imageAlt} #2`
+  },
+  {
+    src: "/src/assets/cali-3.webp",
+    alt: `${t.discoverSection.imageAlt} #3`
+  },
+  {
+    src: "/src/assets/cali-4.webp",
+    alt: `${t.discoverSection.imageAlt} #4`
+  },
+  {
+    src: "/src/assets/cali-5.webp",
+    alt: `${t.discoverSection.imageAlt} #5`
+  }
+];
+---
+
+<section class="discover-section py-12 px-5 md:py-20 md:px-5 bg-background-color">
+  <div class="discover-content w-full max-w-6xl mx-auto">
+    
+    <!-- Text Section -->
+    <div class="discover-text text-center mb-8 md:mb-12">
+      <h2 class="discover-title text-[2rem] md:text-[3rem] font-bold text-purple-jm mb-2.5 leading-tight">
+        {t.discoverSection.title}
+      </h2>
+      <h3 class="discover-subtitle text-[1.8rem] md:text-[2.5rem] font-bold text-orange-jm mb-7.5 md:mb-10 leading-tight">
+        {t.discoverSection.subtitle}
+      </h3>
+      <p class="discover-description text-[1.1rem] md:text-[1.5rem] leading-[1.6] text-gray-800 max-w-4xl mx-auto">
+        {t.discoverSection.description}
+      </p>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery flex flex-col gap-2 md:gap-3 mb-6 md:mb-10">
+      <!-- First Row - 2 images -->
+      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center">
+        {galleryImages.slice(0, 2).map((image) => (
+          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_25px_rgba(0,0,0,0.15)]">
+            <img 
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+      
+      <!-- Second Row - 3 images -->
+      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center">
+        {galleryImages.slice(2, 5).map((image) => (
+          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_25px_rgba(0,0,0,0.15)]">
+            <img 
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="discover-button-container flex justify-center">
+      <a 
+        href={getLocalizedPath('/about')}
+        class="discover-btn inline-flex items-center gap-2.5 bg-green-jm text-white px-6 py-3 font-semibold no-underline cursor-pointer rounded-none transition-all duration-200 ease-linear shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:scale-105 hover:shadow-[0_4px_8px_rgba(0,0,0,0.2)] border-2 border-green-jm"
+      >
+        {t.discoverSection.buttonText}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-white">
+          <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Custom background color variable for consistency */
+  .discover-section {
+    background: linear-gradient(to bottom, var(--background-color, #f8f6ff) 0%, var(--background-color, #f8f6ff) 70%, #faf9f6 100%);
+  }
+
+  @media (max-width: 768px) {
+    .discover-section {
+      padding: 50px 20px;
+    }
+
+    .discover-text {
+      margin-bottom: 25px;
+      padding: 0 10px;
+    }
+
+    .gallery {
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-row {
+      gap: 6px;
+    }
+
+    .gallery-item {
+      border-radius: 4px;
+    }
+
+    .discover-button-container {
+      margin-top: 15px;
+    }
+  }
+</style> 

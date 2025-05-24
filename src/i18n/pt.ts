@@ -27,6 +27,13 @@ export default {
         buttonText: "Saiba mais",
         imageAlt: "Foto da experiência do JamCam"
     },
+    discoverSection: {
+        title: "Cali, Colômbia:",
+        subtitle: "O Coração do JamCam 2025",
+        description: "Cali, conhecida como a capital mundial da salsa, é uma cidade vibrante com uma profunda história e uma cultura incomparável. Sua hospitalidade e espírito festivo a tornam o destino perfeito para este grande evento escoteiro.",
+        buttonText: "Descubra Cali",
+        imageAlt: "Imagem de Cali"
+    },
     infoCards: {
         title: "Américas Unidas pela Paz: Um Evento com Propósito",
         cards: {

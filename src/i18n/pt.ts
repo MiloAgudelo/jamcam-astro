@@ -26,5 +26,22 @@ export default {
         description: "O JamCam 2025 não é só um evento, é uma experiência que vai mudar a vida onde milhares de jovens de todas as Américas vão se juntar pra celebrar a amizade, a diversidade e curtir altas aventuras. Por meio de atividades projetadas para promover a inclusão, sustentabilidade e paz, este evento marcará um divisor de águas na vida de cada participante.",
         buttonText: "Saiba mais",
         imageAlt: "Foto da experiência do JamCam"
+    },
+    infoCards: {
+        title: "Américas Unidas pela Paz: Um Evento com Propósito",
+        cards: {
+            explore: {
+                title: "Explore e descubra",
+                description: "Mergulhe na aventura do JamCam 2025. Este é o momento de abrir os olhos para novas experiências, aprender sobre outras culturas e se conectar com a natureza. Explore o que está ao seu redor, faça novos amigos e se prepare para dias cheios de emoção e aprendizado."
+            },
+            share: {
+                title: "Compartilhe e construa",
+                description: "Cada história, cada ideia e cada ação podem fazer a diferença. Compartilhe o que você sabe, aprenda com os outros e trabalhe em equipe para criar momentos inesquecíveis. Juntos, construiremos um ambiente de respeito, solidariedade e crescimento."
+            },
+            transform: {
+                title: "Transforme e deixe sua marca",
+                description: "A mudança começa com pequenas ações. Inspire-se com suas experiências e leve-as além do acampamento. Aplique o que você aprender em sua comunidade e torne-se um agente da paz. Seu impacto pode chegar mais longe do que você imagina."
+            }
+        }
     }
 }

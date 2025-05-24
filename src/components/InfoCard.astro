@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  cardNumber: number;
+}
+
+const { icon, title, description, cardNumber } = Astro.props;
+
+// Determine background color based on card number using global.css colors
+const getCardBgColor = (num: number) => {
+  switch (num) {
+    case 1:
+      return 'bg-pink-jm';
+    case 2:
+      return 'bg-green-jm';
+    case 3:
+      return 'bg-red-jm';
+    default:
+      return 'bg-pink-jm';
+  }
+};
+
+const cardBgColor = getCardBgColor(cardNumber);
+---
+
+<div class={`flex items-center gap-8 md:gap-8 py-12 px-5 md:py-12 md:px-16 rounded-2xl md:rounded-[27px] shadow-[0px_4px_80px_0px_rgba(0,0,0,0.18)] relative overflow-hidden ${cardBgColor} flex-col md:flex-row text-center md:text-left`}>
+  <!-- Card Icon -->
+  <div class="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mr-2 md:mr-4">
+    <img 
+      src={icon} 
+      alt={`${title} icon`}
+      class="w-full h-full object-contain filter brightness-0 invert"
+    />
+  </div>
+
+  <!-- Card Content -->
+  <div class="flex-1 flex flex-col gap-2 md:gap-3">
+    <h3 class="text-2xl md:text-3xl font-bold text-white leading-tight">
+      {title}
+    </h3>
+    <p class="text-sm md:text-base leading-relaxed text-white">
+      {description}
+    </p>
+  </div>
+
+  <!-- Decorative SVG -->
+  <svg
+  class="absolute bottom-0 right-0 w-44 md:w-52 h-auto pointer-events-none mr-4 mb-4 md:mr-5 md:mb-5"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 232.09 19.36"
+  >
+    <defs>
+      <style>
+        .cls-1 {
+          stroke: #FFFFFF;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: 4.13px;
+        }
+      </style>
+    </defs>
+    <g>
+      <line class="cls-1" x1="2.07" y1="17.29" x2="17.26" y2="2.07" />
+      <line class="cls-1" x1="17.26" y1="17.29" x2="32.46" y2="2.07" />
+      <line class="cls-1" x1="17.26" y1="2.07" x2="17.26" y2="17.29" />
+      <line class="cls-1" x1="32.46" y1="17.29" x2="47.66" y2="2.07" />
+      <line class="cls-1" x1="32.46" y1="2.07" x2="32.46" y2="17.29" />
+      <line class="cls-1" x1="47.66" y1="17.29" x2="62.85" y2="2.07" />
+      <line class="cls-1" x1="47.66" y1="2.07" x2="47.66" y2="17.29" />
+      <line class="cls-1" x1="62.85" y1="17.29" x2="78.05" y2="2.07" />
+      <line class="cls-1" x1="62.85" y1="2.07" x2="62.85" y2="17.29" />
+      <line class="cls-1" x1="78.05" y1="17.29" x2="93.25" y2="2.07" />
+      <line class="cls-1" x1="78.05" y1="2.07" x2="78.05" y2="17.29" />
+      <line class="cls-1" x1="93.25" y1="17.29" x2="108.45" y2="2.07" />
+      <line class="cls-1" x1="93.25" y1="2.07" x2="93.25" y2="17.29" />
+      <line class="cls-1" x1="108.45" y1="17.29" x2="123.64" y2="2.07" />
+      <line class="cls-1" x1="108.45" y1="2.07" x2="108.45" y2="17.29" />
+      <line class="cls-1" x1="123.64" y1="17.29" x2="138.84" y2="2.07" />
+      <line class="cls-1" x1="123.64" y1="2.07" x2="123.64" y2="17.29" />
+      <line class="cls-1" x1="138.84" y1="17.29" x2="154.04" y2="2.07" />
+      <line class="cls-1" x1="138.84" y1="2.07" x2="138.84" y2="17.29" />
+      <line class="cls-1" x1="154.04" y1="17.29" x2="169.23" y2="2.07" />
+      <line class="cls-1" x1="154.04" y1="2.07" x2="154.04" y2="17.29" />
+      <line class="cls-1" x1="169.23" y1="17.29" x2="184.43" y2="2.07" />
+      <line class="cls-1" x1="169.23" y1="2.07" x2="169.23" y2="17.29" />
+      <line class="cls-1" x1="184.43" y1="17.29" x2="199.63" y2="2.07" />
+      <line class="cls-1" x1="184.43" y1="2.07" x2="184.43" y2="17.29" />
+      <line class="cls-1" x1="199.63" y1="17.29" x2="214.82" y2="2.07" />
+      <line class="cls-1" x1="199.63" y1="2.07" x2="199.63" y2="17.29" />
+      <line class="cls-1" x1="214.82" y1="17.29" x2="230.02" y2="2.07" />
+      <line class="cls-1" x1="214.82" y1="2.07" x2="214.82" y2="17.29" />
+    </g>
+  </svg>
+
+</div> 

@@ -1,0 +1,76 @@
+---
+import InfoCard from './InfoCard.astro';
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Title images based on locale
+const titleDesktopImage = `/src/assets/cards-title-desktop-${locale}.webp`;
+const titleMobileImage = `/src/assets/cards-title-mobile-${locale}.webp`;
+
+// Background SVG
+const backgroundSvg = '/src/assets/cards-purple-wave.svg';
+
+// Card icons from assets directory
+const cardIcons = {
+  explore: '/src/assets/card-icon-1.svg',
+  share: '/src/assets/card-icon-2.svg',
+  transform: '/src/assets/card-icon-3.svg'
+};
+
+// Get translations from the translation system
+const cardsData = [
+  {
+    title: t.infoCards.cards.explore.title,
+    description: t.infoCards.cards.explore.description,
+    icon: cardIcons.explore
+  },
+  {
+    title: t.infoCards.cards.share.title,
+    description: t.infoCards.cards.share.description,
+    icon: cardIcons.share
+  },
+  {
+    title: t.infoCards.cards.transform.title,
+    description: t.infoCards.cards.transform.description,
+    icon: cardIcons.transform
+  }
+];
+---
+
+<section 
+  class="relative py-12 px-5 pb-44 md:pb-44 xl:pb-48 md:py-16 md:px-5 bg-cover bg-bottom bg-no-repeat"
+  style={`background-image: url('${backgroundSvg}');`}
+>
+  <!-- Title Image -->
+  <div class="w-full max-w-7xl mx-auto mb-16">
+    <picture class="block w-full">
+      <!-- Desktop -->
+      <source 
+        media="(min-width: 1024px)" 
+        srcset={titleDesktopImage}
+      />
+      <!-- Mobile -->
+      <img 
+        src={titleMobileImage}
+        alt={t.infoCards.title}
+        class="w-full h-auto object-contain mx-auto"
+      />
+    </picture>
+  </div>
+
+  <!-- Cards Container -->
+  <div class="w-full max-w-[1200px] mx-auto px-3 md:px-5">
+    <div class="flex flex-col gap-5 md:gap-8">
+      {cardsData.map((card, index) => (
+        <InfoCard
+          icon={card.icon}
+          title={card.title}
+          description={card.description}
+          cardNumber={index + 1}
+        />
+      ))}
+    </div>
+  </div>
+</section> 

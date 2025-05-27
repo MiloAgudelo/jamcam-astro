@@ -14,6 +14,9 @@ export default {
         designed: "Projetado por",
         developed: "Desenvolvido por",
     },
+    resources: {
+        brandManual: "Manual de marca",
+    },
     countdown: {
         days: "Dias",
         hours: "Horas",

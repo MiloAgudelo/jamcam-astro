@@ -1,0 +1,90 @@
+---
+import { getTranslations } from '../i18n';
+import BulletinIcon from '../assets/bulletin.svg?raw';
+import TrademarkIcon from '../assets/trademark.svg?raw';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<section class="resources-section py-12 md:py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4 lg:px-8">
+    
+    <!-- Resources Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      
+      <!-- Boletín #1 -->
+      <a 
+        href="/src/assets/docs/boletin-jamcam-1.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="resource-card group block bg-salmon-jm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={BulletinIcon} />
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-white">Boletín #1</h3>
+        </div>
+      </a>
+
+      <!-- Newsletter #1 -->
+      <a 
+        href="/src/assets/docs/newsletter-jamcam-1.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="resource-card group block bg-orange-jm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={BulletinIcon} />
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-white">Newsletter #1</h3>
+        </div>
+      </a>
+
+      <!-- Boletín #2 -->
+      <a 
+        href="/src/assets/docs/boletin-jamcam-2.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="resource-card group block bg-purple-jm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={BulletinIcon} />
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-white">Boletín #2</h3>
+        </div>
+      </a>
+
+      <!-- Newsletter #2 -->
+      <a 
+        href="/src/assets/docs/newsletter-jamcam-2.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="resource-card group block bg-green-jm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      >
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={BulletinIcon} />
+          </div>
+          <h3 class="text-lg md:text-xl font-bold text-white">Newsletter #2</h3>
+        </div>
+      </a>
+
+      <!-- Manual de Marca -->
+      <div class="resource-card group col-span-1 md:col-span-2 bg-yellow-jm rounded-2xl p-6 md:p-8 shadow-lg opacity-60 cursor-not-allowed">
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
+            <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={TrademarkIcon} />
+          </div>
+          <div>
+            <h3 class="text-lg md:text-xl font-bold text-white">{t.resources.brandManual}</h3>
+            <span class="text-white/80 text-sm">Próximamente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

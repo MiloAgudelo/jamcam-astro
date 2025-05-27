@@ -6,7 +6,7 @@ export default {
         participate: "Je veux participer",
         program: "Programme",
         blog: "Blog",
-        info: "Info",
+        resources: "Ressources",
         contacts: "Contacts",
     },
     footer: {

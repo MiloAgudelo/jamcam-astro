@@ -1,0 +1,140 @@
+---
+// Contact component with social media information and parrot illustration
+---
+
+<section class="contact-section py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+  <div class="flex justify-center items-center min-h-[70vh] px-4">
+    
+    <!-- Central Container Square -->
+    <div class="contact-container relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 max-w-5xl w-full overflow-hidden">
+      
+      <!-- Mobile Background SVG (behind content with low opacity) -->
+      <div class="absolute inset-0 lg:hidden flex items-center justify-end pointer-events-none">
+        <img 
+          src="/src/assets/cholao-midbody.svg" 
+          alt="Cholao - Mascota JamCam 2025"
+          class="w-80 h-auto object-contain object-right opacity-20"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center relative z-10">
+        
+        <!-- Left side - Contact Information -->
+        <div class="contact-info lg:col-span-2">
+          <div class="space-y-6 contact-list">
+            
+            <!-- Email -->
+            <a href="mailto:jamcam2025@scout.org.co" class="contact-item group block first-item">
+              <div class="flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 hover:bg-purple-jm/10 hover:scale-105 item-content">
+                <div class="icon-wrapper bg-purple-jm rounded-xl p-3 flex items-center justify-center min-w-16 h-16 shadow-lg group-hover:shadow-purple-jm/30 transition-all duration-300 group-hover:scale-110">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <span class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-purple-jm transition-colors duration-300 item-text">jamcam2025@scout.org.co</span>
+              </div>
+            </a>
+
+            <!-- Website -->
+            <a href="https://www.jamcam2025.com" target="_blank" rel="noopener noreferrer" class="contact-item group block">
+              <div class="flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 hover:bg-orange-jm/10 hover:scale-105">
+                <div class="icon-wrapper bg-orange-jm rounded-xl p-3 flex items-center justify-center min-w-16 h-16 shadow-lg group-hover:shadow-orange-jm/30 transition-all duration-300 group-hover:scale-110">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  </svg>
+                </div>
+                <span class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-orange-jm transition-colors duration-300">www.jamcam2025.com</span>
+              </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/jamcamofficial" target="_blank" rel="noopener noreferrer" class="contact-item group block">
+              <div class="flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 hover:bg-salmon-jm/10 hover:scale-105">
+                <div class="icon-wrapper bg-salmon-jm rounded-xl p-3 flex items-center justify-center min-w-16 h-16 shadow-lg group-hover:shadow-salmon-jm/30 transition-all duration-300 group-hover:scale-110">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                  </svg>
+                </div>
+                <span class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-salmon-jm transition-colors duration-300">@JamCamOfficial</span>
+              </div>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://facebook.com/jamcamofficial" target="_blank" rel="noopener noreferrer" class="contact-item group block">
+              <div class="flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 hover:bg-green-jm/10 hover:scale-105">
+                <div class="icon-wrapper bg-green-jm rounded-xl p-3 flex items-center justify-center min-w-16 h-16 shadow-lg group-hover:shadow-green-jm/30 transition-all duration-300 group-hover:scale-110">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <span class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-green-jm transition-colors duration-300">JamCamOfficial</span>
+              </div>
+            </a>
+
+            <!-- Hashtags -->
+            <div class="contact-item group">
+              <div class="flex items-center gap-4 p-3 rounded-2xl transition-all duration-300 hover:bg-pink-jm/10 hover:scale-105">
+                <div class="icon-wrapper bg-pink-jm rounded-xl p-3 flex items-center justify-center min-w-16 h-16 shadow-lg group-hover:shadow-pink-jm/30 transition-all duration-300 group-hover:scale-110">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M5.41 21L6.12 17H2.12L2.47 15H6.47L7.53 9H3.53L3.88 7H7.88L8.59 3H10.59L9.88 7H15.88L16.59 3H18.59L17.88 7H21.88L21.53 9H17.53L16.47 15H20.47L20.12 17H16.12L15.41 21H13.41L14.12 17H8.12L7.41 21H5.41M9.53 9L8.47 15H14.47L15.53 9H9.53Z"/>
+                  </svg>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-pink-jm transition-colors duration-300">#JamCam2025</span>
+                  <span class="text-base lg:text-lg font-semibold text-gray-600 group-hover:text-pink-jm/80 transition-colors duration-300">#AmericasUnidasPorLaPaz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Right side - Parrot Illustration -->
+        <div class="parrot-container hidden lg:flex justify-end items-center h-full absolute -right-12 top-0 bottom-0">
+          <img 
+            src="/src/assets/cholao-midbody.svg" 
+            alt="Cholao - Mascota JamCam 2025"
+            class="w-80 h-auto object-contain object-right max-h-full transform transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-jm/10 to-transparent rounded-full transform translate-x-16 -translate-y-16"></div>
+  <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-jm/10 to-transparent rounded-full transform -translate-x-12 translate-y-12"></div>
+</section>
+
+<style>
+  /* Desktop only: First item appears hovered by default */
+  @media (min-width: 1024px) {
+    .contact-list .first-item .item-content {
+      background-color: rgb(98 37 153 / 0.1); /* bg-purple-jm/10 */
+      transform: scale(1.05);
+    }
+    
+    .contact-list .first-item .icon-wrapper {
+      box-shadow: 0 25px 50px -12px rgb(98 37 153 / 0.3); /* shadow-purple-jm/30 */
+      transform: scale(1.1);
+    }
+    
+    .contact-list .first-item .item-text {
+      color: rgb(98 37 153); /* text-purple-jm */
+    }
+    
+    /* Reset first item when hovering any other item */
+    .contact-list:hover .first-item:not(:hover) .item-content {
+      background-color: transparent;
+      transform: scale(1);
+    }
+    
+    .contact-list:hover .first-item:not(:hover) .icon-wrapper {
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05); /* shadow-lg */
+      transform: scale(1);
+    }
+    
+    .contact-list:hover .first-item:not(:hover) .item-text {
+      color: rgb(31 41 55); /* text-gray-800 */
+    }
+  }
+</style> 

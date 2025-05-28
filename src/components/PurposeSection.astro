@@ -1,0 +1,137 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Carousel images
+const carouselImages = [
+  {
+    src: "/src/assets/purpose-carousel-1.webp",
+    alt: `${t.purposeSection.imageAlt} #1`
+  },
+  {
+    src: "/src/assets/purpose-carousel-2.webp", 
+    alt: `${t.purposeSection.imageAlt} #2`
+  },
+  {
+    src: "/src/assets/purpose-carousel-3.webp",
+    alt: `${t.purposeSection.imageAlt} #3`
+  },
+  {
+    src: "/src/assets/purpose-carousel-4.webp",
+    alt: `${t.purposeSection.imageAlt} #4`
+  },
+  {
+    src: "/src/assets/purpose-carousel-5.webp",
+    alt: `${t.purposeSection.imageAlt} #5`
+  }
+];
+---
+
+<section 
+  class="purpose-section min-h-[92vh] flex items-center bg-no-repeat bg-top bg-cover lg:bg-cover relative"
+  style="background-image: url('/src/assets/program-pink-wave.svg')"
+>
+  <!-- Background SVG wrapper -->
+  <div class="absolute inset-0 z-0" style="background-image: url('/src/assets/program-pink-wave.svg'); background-size: cover; background-position: top center;"></div>
+  
+  <!-- Green line that spans full width -->
+  <div id="title-line" class="absolute left-0 right-0 h-20 bg-green-jm z-10"></div>
+  
+  <div class="purpose-container relative w-full mx-auto px-5 pb-16 md:pb-10 xl:pb-4 xl:px-20 xl:pb-10 lg:px-10 md:pb-20 grid lg:grid-cols-[1fr_1.4fr] sm:grid-cols-1 gap-15 xl:gap-12 lg:gap-12 md:gap-9 items-center">
+    
+    <!-- Image Column / Carousel -->
+    <div class="purpose-image-column relative z-30 flex justify-center items-center w-full max-w-[600px] mx-auto md:max-w-[500px] pt-5 aspect-square order-2 lg:order-1">
+      <div id="purpose-carousel" class="carousel relative w-full h-full rounded-lg overflow-hidden">
+        <div class="carousel-container relative w-full h-full">
+          {carouselImages.map((image, index) => (
+            <div 
+              class={`carousel-slide absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              data-slide-index={index}
+            >
+              <img 
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Column -->
+    <div class="purpose-text-column relative z-30 flex flex-col gap-9 xl:gap-7 lg:gap-7 md:gap-2.5 text-center lg:text-left tmd:mt-0 lg:mt-0 order-1 lg:order-2">
+      
+      <!-- Title -->
+      <div class="text-row text-white relative">
+        <h2 class="text-[1.8rem] sm:text-[2.1rem] md:text-[2.1rem] lg:text-[2.4rem] xl:text-[2.2rem] 2xl:text-[2.6rem] font-bold mb-4 leading-tight relative z-20">
+          {t.purposeSection.title}
+        </h2>
+      </div>
+
+      <!-- Description -->
+      <div class="text-row text-grey">
+        <p class="text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.2rem] 2xl:text-[1.3rem] leading-[1.6] font-light">
+          {t.purposeSection.description}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById('purpose-carousel');
+  const slides = carousel?.querySelectorAll('.carousel-slide');
+  
+  // Add code to position the line
+  const titleLine = document.getElementById('title-line');
+  const titleElement = document.querySelector('.text-row h2');
+  
+  function updateLinePosition() {
+    if (titleLine && titleElement) {
+      const titleRect = titleElement.getBoundingClientRect();
+      const sectionRect = document.querySelector('.purpose-section')?.getBoundingClientRect();
+      
+      if (sectionRect) {
+        const relativeTop = titleRect.top - sectionRect.top + (titleRect.height / 2);
+        titleLine.style.top = `${relativeTop}px`;
+        titleLine.style.transform = 'translateY(-50%)';
+      }
+    }
+  }
+  
+  // Update position on load and resize
+  window.addEventListener('load', updateLinePosition);
+  window.addEventListener('resize', updateLinePosition);
+  
+  if (slides && slides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    function showSlide(index: number) {
+      if (slides) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove('opacity-0');
+            slide.classList.add('opacity-100');
+          } else {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+          }
+        });
+      }
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+    
+    // Auto-rotate every 3 seconds
+    setInterval(nextSlide, 3000);
+  }
+</script>

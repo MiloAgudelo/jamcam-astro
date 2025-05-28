@@ -23,6 +23,25 @@ export default {
         minutes: "Minutos",
         seconds: "Segundos"
     },
+    program: {
+        description: "A JamCam 2025 oferece um programa completo com atividades para todas as faixas etárias. Serão organizados rodízios e espaços permanentes para que cada participante possa explorar de acordo com seus interesses.",
+        mainActivitiesTitle: "Principais atividades",
+        activities: {
+            cultural: "Atividades culturais e artísticas",
+            adventure: "Circuitos de aventura e esportes radicais",
+            inclusion: "Dinâmicas de inclusão e diversidade",
+            exploration: "Exploração da cidade e sua história",
+            village: "Aldeia Interamericana de Desenvolvimento e Objetivos de Desenvolvimento Sustentável",
+            ceremonies: "Cerimônias, espetáculos e celebrações noturnas",
+            newYear: "Grande celebração de Ano Novo",
+            service: "Atividades de serviço"
+        }
+    },
+    purposeSection: {
+        title: "Proposta Educativa",
+        description: "O programa educativo do JamCam 2025 se inspira em quatro valores fundamentais: cooperação, empatia, solidariedade e liberdade. Por meio de metodologias ativas, os participantes viverão experiências significativas que promovem a paz, a ação comunitária e o desenvolvimento pessoal. A narrativa simbólica do evento gira em torno de \"Cholao\", uma arara que representa a unidade.",
+        imageAlt: "Imagem da proposta educativa do JamCam"
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas pela Paz",
         subtitle: "Descubra a aventura do JamCam 2025",

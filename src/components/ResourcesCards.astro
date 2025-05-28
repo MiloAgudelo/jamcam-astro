@@ -74,17 +74,21 @@ const t = getTranslations(locale);
       </a>
 
       <!-- Manual de Marca -->
-      <div class="resource-card group col-span-1 md:col-span-2 bg-yellow-jm rounded-2xl p-6 md:p-8 shadow-lg opacity-60 cursor-not-allowed">
+      <a 
+        href="/src/assets/docs/manualdemarca.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="resource-card group col-span-1 md:col-span-2 bg-yellow-jm rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      >
         <div class="flex items-center gap-4 md:gap-6">
           <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center flex-shrink-0">
             <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center" set:html={TrademarkIcon} />
           </div>
           <div>
             <h3 class="text-lg md:text-xl font-bold text-white">{t.resources.brandManual}</h3>
-            <span class="text-white/80 text-sm">Próximamente</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section> 

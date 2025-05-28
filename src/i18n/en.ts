@@ -23,6 +23,25 @@ export default {
         minutes: "Minutes",
         seconds: "Seconds"
     },
+    program: {
+        description: "JamCam 2025 offers a full programme with activities for every age group. Rotations and permanent spaces will be organised to allow each participant to explore according to their interests.",
+        mainActivitiesTitle: "Main Activities",
+        activities: {
+            cultural: "Cultural and artistic activities",
+            adventure: "Adventure circuits and extreme sports",
+            inclusion: "Inclusion and diversity dynamics",
+            exploration: "Exploration of the city and its history",
+            village: "Inter-American Development Village and Sustainable Development Goals",
+            ceremonies: "Ceremonies, shows and night celebrations",
+            newYear: "Grand New Year celebration",
+            service: "Service Activities"
+        }
+    },
+    purposeSection: {
+        title: "Educational Approach",
+        description: "The educational program of JamCam 2025 is inspired by four fundamental values: cooperation, empathy, solidarity and freedom. Through active methodologies, participants will live meaningful experiences that foster peace, community action and personal development. The symbolic narrative of the event revolves around \"Cholao\", a macaw that represents unity.",
+        imageAlt: "Image of JamCam educational approach"
+    },
     infoSection: {
         title: "JamCam 2025 - Americas United for Peace",
         subtitle: "Discover the adventure of JamCam 2025",

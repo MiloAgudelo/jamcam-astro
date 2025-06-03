@@ -32,16 +32,16 @@ if (isHomePage) {
   desktopImage = `/src/assets/banner-home-desktop.webp`;
 } else {
   // Para otras rutas, usar el nuevo patrón
-  mobileImage = `/src/assets/banner-${routeName}-mobile.webp`;
+  mobileImage = `/src/assets/banner-${routeName}-mobile-${locale}.webp`;
   desktopImage = `/src/assets/banner-${routeName}-desktop-${locale}.webp`;
 }
 
 const logoImage = "/src/assets/logo-jamcam-white.svg";
 ---
 
-<section class="banner-container w-full h-screen relative overflow-hidden">
+<section class="banner-container w-full relative overflow-hidden">
   <!-- Imagen de fondo responsive -->
-  <picture class="absolute inset-0 w-full h-full">
+  <picture class="block w-full">
     <!-- Desktop -->
     <source 
       media="(min-width: 1024px)" 
@@ -51,7 +51,7 @@ const logoImage = "/src/assets/logo-jamcam-white.svg";
     <img 
       src={mobileImage}
       alt="Banner JamCam 2025"
-      class="w-full h-full object-cover"
+      class="w-full h-auto object-contain"
     />
   </picture>
 

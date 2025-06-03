@@ -1,0 +1,162 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Styling & Design System Guide
+
+## Overview
+This project uses Tailwind CSS v4 with a custom design system featuring JamCam brand colors, Noto Sans typography, and responsive design patterns.
+
+## Configuration
+- **CSS Framework**: Tailwind CSS v4 (via [@tailwindcss/vite](mdc:https:/tailwindcss.com/docs/v4-beta#vite))
+- **Global Styles**: [src/styles/global.css](mdc:src/styles/global.css)
+- **Import Pattern**: Import global.css in components that need styling
+
+## Custom Theme Variables
+
+### Brand Colors
+Defined in [global.css](mdc:src/styles/global.css) `@theme` block:
+
+```css
+@theme {
+  --color-purple-jm: #622599;
+  --color-orange-jm: #e46e27;
+  --color-salmon-jm: #F15857;
+  --color-pink-jm: #F499C1;
+  --color-yellow-jm: #FCB813;
+  --color-green-jm: #0094B4;
+  --color-red-jm: #c72528;
+}
+```
+
+### Usage in Classes
+- `bg-purple-jm`, `text-purple-jm`, `border-purple-jm`
+- `bg-salmon-jm`, `text-salmon-jm`, `border-salmon-jm`
+- `bg-orange-jm`, `text-orange-jm`, `border-orange-jm`
+- And so on for all custom colors...
+
+### Layout Variables
+```css
+--nav-height: 145px;          /* Desktop navigation height */
+--nav-height-mobile: 98px;    /* Mobile navigation height */
+```
+
+## Typography System
+
+### Font Family: Noto Sans
+- **Weights Available**: 300 (Light), 400 (Regular), 600 (SemiBold), 700 (Bold)
+- **Format**: WOFF2 for optimal performance
+- **Font Display**: `swap` for better loading performance
+
+### Font Loading
+All font faces are defined in [global.css](mdc:src/styles/global.css) with proper `font-display: swap` for performance.
+
+## Component Styling Patterns
+
+### Navigation (Header.astro Example)
+Based on [Header.astro](mdc:src/components/Header.astro):
+
+```css
+/* Mobile-first responsive navigation */
+.nav-menu {
+  @apply absolute lg:static 
+         top-full lg:top-auto left-0 lg:right-0 
+         w-full lg:w-auto
+         bg-white lg:bg-transparent
+         opacity-0 lg:opacity-100 invisible lg:visible;
+}
+
+/* Button styling with JamCam colors */
+.cta-button {
+  @apply bg-salmon-jm text-white font-bold
+         hover:bg-salmon-jm/90 lg:hover:scale-105
+         transition-all duration-150 ease-linear;
+}
+```
+
+### Responsive Design Patterns
+
+#### Breakpoints (Tailwind defaults)
+- `sm`: 640px and up
+- `md`: 768px and up  
+- `lg`: 1024px and up
+- `xl`: 1280px and up
+- `2xl`: 1536px and up
+
+#### Common Patterns
+```css
+/* Mobile-first spacing */
+.container {
+  @apply px-4 md:px-5 lg:px-[100px];
+}
+
+/* Responsive typography */
+.heading {
+  @apply text-[1rem] lg:text-[1.1rem];
+}
+
+/* Mobile menu transitions */
+.mobile-menu-item {
+  @apply opacity-0 lg:opacity-100 
+         transform -translate-y-2.5 lg:translate-y-0 
+         transition-all duration-150 ease-in-out;
+}
+```
+
+## Animation & Transitions
+
+### Standard Durations
+- **Fast interactions**: `duration-150` (150ms)
+- **Medium transitions**: `duration-200` (200ms)
+- **Slow animations**: `duration-300` (300ms)
+
+### Easing Functions
+- **Linear**: `ease-linear` - For simple state changes
+- **In-Out**: `ease-in-out` - For smooth entry/exit animations
+
+### Common Animation Patterns
+```css
+/* Hover effects */
+.hover-lift {
+  @apply transition-all duration-150 ease-linear
+         hover:-translate-y-0.5 hover:scale-105;
+}
+
+/* Mobile menu animations */
+.menu-enter {
+  @apply transition-all duration-200 ease-in-out
+         opacity-0 invisible -translate-y-full scale-95
+         lg:opacity-100 lg:visible lg:translate-y-0 lg:scale-100;
+}
+```
+
+## Best Practices
+
+1. **Import global.css** in components that need custom theme variables
+2. **Use mobile-first approach** with `lg:` prefixes for desktop styles
+3. **Leverage custom color variables** instead of arbitrary values
+4. **Maintain consistent spacing** using Tailwind's spacing scale
+5. **Use semantic color names** from the JamCam palette
+6. **Optimize animations** with appropriate durations and easing
+7. **Test responsive behavior** at all breakpoints
+
+## Shadow System
+```css
+/* Custom shadows for navigation and buttons */
+.nav-shadow {
+  @apply shadow-nav-shadow;
+}
+
+.button-shadow {
+  @apply shadow-button-shadow hover:shadow-button-hover-shadow;
+}
+```
+
+## Accessibility Considerations
+- High contrast ratios with custom colors
+- Focus states for interactive elements
+- Semantic HTML structure
+- ARIA attributes for complex components
+- Keyboard navigation support
+

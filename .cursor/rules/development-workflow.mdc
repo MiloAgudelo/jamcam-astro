@@ -1,0 +1,199 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Development Workflow Guide
+
+## Overview
+This guide covers the development workflow for the JamCam 2025 Astro project, including local development, build processes, and deployment to Vercel.
+
+## Development Environment Setup
+
+### Prerequisites
+- **Node.js**: Version 18+ recommended
+- **Package Manager**: pnpm (configured in project)
+- **IDE**: VS Code with Astro extension recommended
+
+### Initial Setup
+```bash
+# Clone and install dependencies
+git clone <repository-url>
+cd jamcam-astro
+pnpm install
+```
+
+### Available Scripts
+From [package.json](mdc:package.json):
+
+```bash
+pnpm dev        # Start development server
+pnpm build      # Build for production
+pnpm preview    # Preview production build locally
+pnpm astro      # Run Astro CLI commands
+```
+
+## Development Server
+
+### Local Development
+```bash
+pnpm dev
+```
+- Runs on `http://localhost:4321` by default
+- Hot reload enabled for .astro, .ts, and .css files
+- Supports all i18n routes (`/`, `/en/`, `/pt/`, `/fr/`)
+
+### Testing Localized Routes
+- **Spanish (default)**: `http://localhost:4321/`
+- **English**: `http://localhost:4321/en/`
+- **Portuguese**: `http://localhost:4321/pt/`
+- **French**: `http://localhost:4321/fr/`
+
+## Build Process
+
+### Production Build
+```bash
+pnpm build
+```
+
+### Build Output
+- **Adapter**: Vercel (configured in [astro.config.mjs](mdc:astro.config.mjs))
+- **Output**: Server-side rendering enabled
+- **Static Assets**: Optimized and bundled
+- **Fonts**: Preloaded for performance
+
+### Preview Production Build
+```bash
+pnpm preview
+```
+Test the production build locally before deployment.
+
+## File Structure & Conventions
+
+### Component Development
+1. Create components in `src/components/`
+2. Use `.astro` extension for Astro components
+3. Import [global.css](mdc:src/styles/global.css) when using custom theme variables
+4. Follow TypeScript patterns for props
+
+### Page Development
+1. **Spanish (default)**: Create in `src/pages/`
+2. **Other languages**: Create in `src/pages/[locale]/`
+3. Maintain consistent page structure across locales
+
+### i18n Workflow
+1. Add translations to all language files:
+   - [src/i18n/es.ts](mdc:src/i18n/es.ts)
+   - [src/i18n/en.ts](mdc:src/i18n/en.ts)  
+   - [src/i18n/pt.ts](mdc:src/i18n/pt.ts)
+   - [src/i18n/fr.ts](mdc:src/i18n/fr.ts)
+2. Use consistent key structure across all files
+3. Test with `getTranslations(locale)` function
+
+## Code Quality & Standards
+
+### TypeScript
+- Use TypeScript for type safety
+- Define interfaces for component props
+- Leverage type checking from translation files
+
+### Styling Standards
+- **Mobile-first approach** with Tailwind CSS
+- **Custom color palette** from JamCam design system
+- **Consistent spacing** using Tailwind scale
+- **Accessible design** with proper contrast ratios
+
+### Performance Guidelines
+- **Optimize images** with proper formats and sizes
+- **Minimize JavaScript** - use client scripts only when necessary
+- **Font optimization** with preloading and font-display: swap
+- **CSS optimization** through Tailwind purging
+
+## Deployment Workflow
+
+### Vercel Configuration
+Based on [astro.config.mjs](mdc:astro.config.mjs):
+- **Adapter**: `@astrojs/vercel`
+- **Output**: `server` (SSR enabled)
+- **Site URL**: `https://jamcam2025.com`
+
+### Deployment Process
+1. **Automatic deployment** from main branch to production
+2. **Preview deployments** for pull requests
+3. **Environment variables** managed in Vercel dashboard
+4. **Domain configuration** for jamcam2025.com
+
+### Pre-deployment Checklist
+- [ ] All translations updated across languages
+- [ ] Responsive design tested on multiple devices
+- [ ] Navigation and interactive elements working
+- [ ] SEO meta tags configured
+- [ ] Performance optimized (fonts, images, etc.)
+- [ ] Accessibility compliance verified
+
+## Testing Strategy
+
+### Manual Testing
+1. **Cross-browser testing** (Chrome, Firefox, Safari, Edge)
+2. **Responsive testing** across device sizes
+3. **i18n functionality** on all language routes
+4. **Interactive elements** (navigation, forms, etc.)
+5. **Performance testing** with Lighthouse
+
+### Automated Checks
+- TypeScript compilation
+- Build process validation
+- Link checking for internal navigation
+
+## Common Development Tasks
+
+### Adding a New Page
+1. Create Spanish version in `src/pages/new-page.astro`
+2. Create localized versions in `src/pages/[locale]/new-page.astro`
+3. Add navigation links using `getLocalizedPath()`
+4. Update translations in all language files
+
+### Adding a New Component
+1. Create component in `src/components/NewComponent.astro`
+2. Import and use in relevant pages
+3. Follow established patterns for styling and i18n
+4. Test responsive behavior
+
+### Updating Translations
+1. Update [src/i18n/es.ts](mdc:src/i18n/es.ts) (base file)
+2. Update corresponding keys in en.ts, pt.ts, fr.ts
+3. Maintain consistent key structure
+4. Test all language versions
+
+## Environment Management
+
+### Local Development
+- No environment variables required for basic development
+- Fonts and assets served from `/public/` directory
+
+### Production Environment
+- Vercel manages build and deployment environment
+- Custom domain configuration for jamcam2025.com
+- SSL/TLS handled automatically by Vercel
+
+## Troubleshooting
+
+### Common Issues
+1. **Build failures**: Check TypeScript errors and import paths
+2. **Styling not applied**: Ensure global.css is imported
+3. **i18n routes not working**: Verify astro.config.mjs i18n setup
+4. **Mobile menu not working**: Check JavaScript event listeners
+5. **Font loading issues**: Verify font files in `/public/fonts/`
+
+### Debug Commands
+```bash
+# Check for TypeScript errors
+pnpm astro check
+
+# Build with verbose output
+pnpm build --verbose
+
+# Preview with specific locale
+# Navigate to localhost:4321/[locale]/ in browser
+```
+

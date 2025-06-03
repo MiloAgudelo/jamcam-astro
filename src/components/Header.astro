@@ -54,43 +54,48 @@ const menuItems = [
       </a>
 
       <button id="navbar-toggle" class="lg:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-8 h-8 fill-current">
-          <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
-        </svg>
+        <div class="relative w-8 h-8">
+          <!-- Hamburger Icon -->
+          <svg 
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 448 512" 
+            class="w-8 h-8 fill-current absolute inset-0 transition-all duration-300 ease-in-out opacity-100 rotate-0"
+          >
+            <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+          </svg>
+          
+          <!-- Close (X) Icon -->
+          <svg 
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 384 512" 
+            class="w-8 h-8 fill-current absolute inset-0 transition-all duration-300 ease-in-out opacity-0 rotate-90"
+          >
+            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+          </svg>
+        </div>
       </button>
 
       <ul id="navbar-menu" class="
         absolute lg:static 
         top-full lg:top-auto left-0 lg:right-0 
         w-full lg:w-auto
-        bg-white lg:bg-transparent
-        border-t border-gray-200 lg:border-none
-        shadow-lg lg:shadow-none
+        bg-[#faf9f6] lg:bg-transparent
         flex-col lg:flex-row items-stretch lg:items-center lg:justify-end
-        py-2 lg:py-0 gap-0 lg:gap-5
+        py-4 lg:py-0 gap-0 lg:gap-5
         opacity-0 lg:opacity-100 invisible lg:visible 
-        transform -translate-y-full lg:translate-x-0 lg:translate-y-0 scale-95 lg:scale-100
-        transition-all duration-200 ease-in-out lg:transition-none
+        transition-opacity duration-200 ease-in-out lg:transition-none
         pointer-events-none lg:pointer-events-auto
         flex list-none m-0 p-0 z-[1000]
-        overflow-hidden lg:overflow-visible
       ">
         {menuItems.map((item, index) => (
-          <li
-            class={`
-              w-full lg:w-auto text-center 
-              opacity-0 lg:opacity-100 transform -translate-y-2.5 lg:translate-y-0 
-              transition-all duration-150 ease-in-out
-              ${index < menuItems.length - 1 ? 'border-b border-gray-100 lg:border-none' : ''}
-            `}
-            style={{ transitionDelay: `calc(var(--is-active, 0) * ${index * 50}ms)` }}
-            data-menu-item
-          >
-            {item.isButton ? ( // Este es el botón
+          <li class="w-full lg:w-auto">
+            {item.isButton ? (
               <a
                 href={item.href}
                 class="
-                  block whitespace-nowrap 
+                  block text-center
                   py-3 px-6 lg:py-3 lg:px-6
                   mx-4 lg:mx-0 my-2 lg:my-0
                   text-[1rem] lg:text-[1.1rem]
@@ -112,8 +117,8 @@ const menuItems = [
               <a
                 href={item.href}
                 class={`
-                  block whitespace-nowrap relative
-                  py-2 px-6 lg:py-2 lg:px-2
+                  block text-center lg:text-left relative
+                  py-4 px-6 lg:py-2 lg:px-2
                   text-[1rem] lg:text-[1.1rem]
                   font-medium lg:font-semibold
                   text-text-color
@@ -138,74 +143,75 @@ const menuItems = [
 <script>
   const toggleButton = document.getElementById('navbar-toggle');
   const menu = document.getElementById('navbar-menu');
-  const menuItemsElements = document.querySelectorAll('[data-menu-item]');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
 
   function closeMenu() {
     if (!menu || !toggleButton) return;
     
-    menu.classList.remove('menu-active-state');
-    menu.classList.add('opacity-0', 'invisible', '-translate-y-full', 'scale-95', 'pointer-events-none');
-    menu.classList.remove('opacity-100', 'visible', 'translate-y-0', 'scale-100', 'pointer-events-auto');
-    
-    menu.style.setProperty('--is-active', '0');
+    menu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+    menu.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
     toggleButton.setAttribute('aria-expanded', 'false');
     
-    menuItemsElements.forEach(item => {
-      item.classList.add('opacity-0', '-translate-y-2.5');
-      item.classList.remove('opacity-100', 'translate-y-0');
-    });
+    // Animate back to hamburger icon
+    if (hamburgerIcon && closeIcon) {
+      hamburgerIcon.classList.remove('opacity-0', 'rotate-90');
+      hamburgerIcon.classList.add('opacity-100', 'rotate-0');
+      closeIcon.classList.remove('opacity-100', 'rotate-0');
+      closeIcon.classList.add('opacity-0', 'rotate-90');
+    }
   }
 
   function openMenu() {
     if (!menu || !toggleButton) return;
     
-    menu.classList.add('menu-active-state');
-    menu.classList.remove('opacity-0', 'invisible', '-translate-y-full', 'scale-95', 'pointer-events-none');
-    menu.classList.add('opacity-100', 'visible', 'translate-y-0', 'scale-100', 'pointer-events-auto');
-    
-    menu.style.setProperty('--is-active', '1');
+    menu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+    menu.classList.add('opacity-100', 'visible', 'pointer-events-auto');
     toggleButton.setAttribute('aria-expanded', 'true');
     
-    menuItemsElements.forEach(item => {
-      item.classList.remove('opacity-0', '-translate-y-2.5');
-      item.classList.add('opacity-100', 'translate-y-0');
-    });
+    // Animate to close icon
+    if (hamburgerIcon && closeIcon) {
+      hamburgerIcon.classList.remove('opacity-100', 'rotate-0');
+      hamburgerIcon.classList.add('opacity-0', 'rotate-90');
+      closeIcon.classList.remove('opacity-0', 'rotate-90');
+      closeIcon.classList.add('opacity-100', 'rotate-0');
+    }
   }
 
   if (toggleButton && menu) {
     toggleButton.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const isOpening = !menu.classList.contains('menu-active-state');
+      const isMenuVisible = menu.classList.contains('opacity-100');
 
-      if (isOpening) {
-        openMenu();
-      } else {
+      if (isMenuVisible) {
         closeMenu();
+      } else {
+        openMenu();
       }
     });
 
     // Cerrar el menú cuando se hace click en un enlace
-    menuItemsElements.forEach(item => {
-      const link = item.querySelector('a');
-      if (link) {
-        link.addEventListener('click', () => {
-          // Pequeño delay para permitir la navegación
-          setTimeout(closeMenu, 100);
-        });
-      }
+    const menuLinks = menu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(closeMenu, 100);
+      });
     });
 
     // Cerrar menú con tecla Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('menu-active-state')) {
+      if (e.key === 'Escape' && menu.classList.contains('opacity-100')) {
         closeMenu();
       }
     });
 
-    // Prevenir que los clicks dentro del menú cierren el menú
-    menu.addEventListener('click', (e) => {
-      e.stopPropagation();
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!menu.contains(target) && !toggleButton.contains(target)) {
+        closeMenu();
+      }
     });
   }
 </script>

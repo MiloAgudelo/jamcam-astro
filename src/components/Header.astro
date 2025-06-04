@@ -16,27 +16,27 @@ const menuItems = [
   {
     text: t.header.about,
     href: getLocalizedPath('/about'),
-    afterColorClass: "lg:after:bg-purple-jm"
+    afterColorClass: "xl:after:bg-purple-jm"
   },
   {
     text: t.header.participate,
     href: getLocalizedPath('/participate'),
-    afterColorClass: "lg:after:bg-salmon-jm"
+    afterColorClass: "xl:after:bg-salmon-jm"
+  },
+  {
+    text: t.header.serviceTeam,
+    href: getLocalizedPath('/service-team'),
+    afterColorClass: "xl:after:bg-orange-jm"
   },
   {
     text: t.header.program,
     href: getLocalizedPath('/program'),
-    afterColorClass: "lg:after:bg-green-jm"
-  },
-  {
-    text: t.header.blog,
-    href: getLocalizedPath('/blog'),
-    afterColorClass: "lg:after:bg-orange-jm"
+    afterColorClass: "xl:after:bg-green-jm"
   },
   {
     text: t.header.resources,
     href: getLocalizedPath('/resources'),
-    afterColorClass: "lg:after:bg-pink-jm"
+    afterColorClass: "xl:after:bg-pink-jm"
   },
   {
     text: t.header.contacts,
@@ -47,13 +47,13 @@ const menuItems = [
 ---
 
 <header>
-  <nav class="relative w-full h-[98px] lg:h-[125px] bg-background-color shadow-nav-shadow z-[1000]">
+  <nav class="relative w-full h-[98px] xl:h-[125px] bg-background-color shadow-nav-shadow z-[1000]">
     <div class="w-full h-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
-      <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto lg:h-[130px] w-auto">
-        <img src="/src/assets/logo-jamcam-color.svg" alt="Logo JamCam 2025" class="h-[80px] lg:h-[130px] w-auto object-contain" />
+      <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto xl:h-[130px] w-auto">
+        <img src="/src/assets/logo-jamcam-color.svg" alt="Logo JamCam 2025" class="h-[80px] xl:h-[130px] w-auto object-contain" />
       </a>
 
-      <button id="navbar-toggle" class="lg:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
+      <button id="navbar-toggle" class="xl:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
         <div class="relative w-8 h-8">
           <!-- Hamburger Icon -->
           <svg 
@@ -78,15 +78,15 @@ const menuItems = [
       </button>
 
       <ul id="navbar-menu" class="
-        absolute lg:static 
-        top-full lg:top-auto left-0 lg:right-0 
-        w-full lg:w-auto
-        bg-[#faf9f6] lg:bg-transparent
-        flex-col lg:flex-row items-stretch lg:items-center lg:justify-end
-        py-4 lg:py-0 gap-0 lg:gap-5
-        opacity-0 lg:opacity-100 invisible lg:visible 
-        transition-opacity duration-200 ease-in-out lg:transition-none
-        pointer-events-none lg:pointer-events-auto
+        absolute xl:static 
+        top-full xl:top-auto left-0 xl:right-0 
+        w-full xl:w-auto
+        bg-[#faf9f6] xl:bg-transparent
+        flex-col xl:flex-row items-stretch xl:items-center xl:justify-end
+        py-4 xl:py-0 gap-0 xl:gap-5
+        opacity-0 xl:opacity-100 invisible xl:visible 
+        transition-opacity duration-200 ease-in-out xl:transition-none
+        pointer-events-none xl:pointer-events-auto
         flex list-none m-0 p-0 z-[1000]
       ">
         {menuItems.map((item, index) => (
@@ -96,19 +96,19 @@ const menuItems = [
                 href={item.href}
                 class="
                   block text-center
-                  py-3 px-6 lg:py-3 lg:px-6
-                  mx-4 lg:mx-0 my-2 lg:my-0
-                  text-[1rem] lg:text-[1.1rem]
-                  font-medium lg:font-bold
-                  text-white lg:text-white
-                  bg-salmon-jm lg:bg-salmon-jm
-                  border-salmon-jm lg:border-[2px] lg:border-salmon-jm
+                  py-3 px-6 xl:py-3 xl:px-6
+                  mx-4 xl:mx-0 my-2 xl:my-0
+                  text-[1rem] xl:text-[1.1rem]
+                  font-medium xl:font-bold
+                  text-white xl:text-white
+                  bg-salmon-jm xl:bg-salmon-jm
+                  border-salmon-jm xl:border-[2px] xl:border-salmon-jm
                   rounded-none
                   transition-all duration-150 ease-linear
-                  hover:bg-salmon-jm/90 lg:hover:scale-105 
-                  lg:shadow-button-shadow lg:hover:shadow-button-hover-shadow
-                  leading-normal lg:leading-[1.3em]
-                  active:scale-95 lg:active:scale-100
+                  hover:bg-salmon-jm/90 xl:hover:scale-105 
+                  xl:shadow-button-shadow xl:hover:shadow-button-hover-shadow
+                  leading-normal xl:leading-[1.3em]
+                  active:scale-95 xl:active:scale-100
                 "
               >
                 {item.text}
@@ -117,17 +117,17 @@ const menuItems = [
               <a
                 href={item.href}
                 class={`
-                  block text-center lg:text-left relative
-                  py-4 px-6 lg:py-2 lg:px-2
-                  text-[1rem] lg:text-[1.1rem]
-                  font-medium lg:font-semibold
+                  block text-center xl:text-left relative
+                  py-4 px-6 xl:py-2 xl:px-2
+                  text-[1rem] xl:text-[1.1rem]
+                  font-medium xl:font-semibold
                   text-text-color
                   transition-all duration-150 ease-linear
-                  hover:bg-gray-50 lg:hover:bg-transparent lg:hover:-translate-y-0.5
-                  active:bg-gray-100 lg:active:bg-transparent
-                  lg:after:content-[''] lg:after:absolute lg:after:h-[2px] lg:after:bottom-0 lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:w-0 lg:after:transition-all lg:after:duration-150 lg:after:ease-linear
+                  hover:bg-gray-50 xl:hover:bg-transparent xl:hover:-translate-y-0.5
+                  active:bg-gray-100 xl:active:bg-transparent
+                  xl:after:content-[''] xl:after:absolute xl:after:h-[2px] xl:after:bottom-0 xl:after:left-1/2 xl:after:-translate-x-1/2 xl:after:w-0 xl:after:transition-all xl:after:duration-150 xl:after:ease-linear
                   ${item.afterColorClass || ''}
-                  lg:hover:after:w-[calc(100%-24px)]
+                  xl:hover:after:w-[calc(100%-24px)]
                 `}
               >
                 {item.text}

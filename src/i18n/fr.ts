@@ -4,8 +4,8 @@ export default {
     header: {
         about: "À propos de JamCam",
         participate: "Je veux participer",
+        serviceTeam: "Équipe de Service",
         program: "Programme",
-        blog: "Blog",
         resources: "Ressources",
         contacts: "Contacts",
     },

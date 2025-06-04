@@ -104,4 +104,45 @@ const schemaDescription = t.description;
 		font-family: 'Noto Sans', sans-serif;
 		background-color: #faf9f6;
 	}
+
+	/* Custom scrollbar for better UX */
+	/* Hide scrollbar on mobile devices for cleaner look */
+	@media (max-width: 768px) {
+		::-webkit-scrollbar {
+			display: none;
+		}
+		
+		/* For Firefox mobile */
+		* {
+			scrollbar-width: none;
+		}
+	}
+
+	/* Custom scrollbar for desktop */
+	@media (min-width: 769px) {
+		::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: #f1f1f1;
+			border-radius: 3px;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: rgba(98, 37, 153, 0.3); /* purple-jm with opacity */
+			border-radius: 3px;
+			transition: background 0.2s ease;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background: rgba(98, 37, 153, 0.5); /* darker on hover */
+		}
+
+		/* For Firefox desktop */
+		* {
+			scrollbar-width: thin;
+			scrollbar-color: rgba(98, 37, 153, 0.3) #f1f1f1;
+		}
+	}
 </style>

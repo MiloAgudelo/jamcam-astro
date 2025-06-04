@@ -1,5 +1,6 @@
 ---
 import { getTranslations } from '../i18n';
+import '../styles/global.css';
 
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
@@ -29,109 +30,154 @@ const carouselImages = [
 ];
 ---
 
-<section 
-  class="purpose-section min-h-[92vh] flex items-center bg-no-repeat bg-top bg-cover lg:bg-cover relative"
-  style="background-image: url('/src/assets/program-pink-wave.svg')"
->
-  <!-- Background SVG wrapper -->
-  <div class="absolute inset-0 z-0" style="background-image: url('/src/assets/program-pink-wave.svg'); background-size: cover; background-position: top center;"></div>
+<section class="purpose-section relative overflow-hidden min-h-screen flex items-center justify-center">
+  <!-- Pink Wave Background -->
+  <div 
+    class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/src/assets/program-pink-wave.svg')"
+  ></div>
   
-  <!-- Green line that spans full width -->
-  <div id="title-line" class="absolute left-0 right-0 h-20 bg-green-jm z-10"></div>
-  
-  <div class="purpose-container relative w-full mx-auto px-5 pb-16 md:pb-10 xl:pb-4 xl:px-20 xl:pb-10 lg:px-10 md:pb-20 grid lg:grid-cols-[1fr_1.4fr] sm:grid-cols-1 gap-15 xl:gap-12 lg:gap-12 md:gap-9 items-center">
-    
-    <!-- Image Column / Carousel -->
-    <div class="purpose-image-column relative z-30 flex justify-center items-center w-full max-w-[600px] mx-auto md:max-w-[500px] pt-5 aspect-square order-2 lg:order-1">
-      <div id="purpose-carousel" class="carousel relative w-full h-full rounded-lg overflow-hidden">
-        <div class="carousel-container relative w-full h-full">
-          {carouselImages.map((image, index) => (
-            <div 
-              class={`carousel-slide absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-              data-slide-index={index}
-            >
-              <img 
-                src={image.src}
-                alt={image.alt}
-                class="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-          ))}
+  <!-- Main Content Container -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-16">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Carousel Section -->
+      <div class="order-1 flex justify-center lg:justify-start">
+        <div class="relative">
+          <!-- Main Carousel Container -->
+          <div 
+            id="purpose-carousel" 
+            class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-lg overflow-hidden"
+          >
+            <!-- Image Slides -->
+            {carouselImages.map((image, index) => (
+              <div 
+                class={`carousel-slide absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                  index === 0 ? 'opacity-100' : 'opacity-0'
+                }`}
+                data-slide-index={index}
+              >
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Text Column -->
-    <div class="purpose-text-column relative z-30 flex flex-col gap-9 xl:gap-7 lg:gap-7 md:gap-2.5 text-center lg:text-left tmd:mt-0 lg:mt-0 order-1 lg:order-2">
+      <!-- Text Content -->
+      <div class="text-center lg:text-left space-y-8 order-2 relative">
+        <!-- Title with Background Line -->
+        <div class="relative">
+          <!-- Background Line Behind Title -->
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-10 md:h-16 lg:h-20 bg-green-jm -z-10" style="width: 100vw;"></div>
+          
+          <!-- Title -->
+          <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight relative z-10 title-shadow">
+            {t.purposeSection.title}
+          </h2>
+        </div>
+        
+        <!-- Description -->
+        <div class="space-y-6">
+          <p class="text-base md:text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0 text-shadow">
+            {t.purposeSection.description}
+          </p>
+        </div>
+      </div>
       
-      <!-- Title -->
-      <div class="text-row text-white relative">
-        <h2 class="text-[1.8rem] sm:text-[2.1rem] md:text-[2.1rem] lg:text-[2.4rem] xl:text-[2.2rem] 2xl:text-[2.6rem] font-bold mb-4 leading-tight relative z-20">
-          {t.purposeSection.title}
-        </h2>
-      </div>
-
-      <!-- Description -->
-      <div class="text-row text-grey">
-        <p class="text-[1rem] sm:text-[1.1rem] md:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.2rem] 2xl:text-[1.3rem] leading-[1.6] font-light">
-          {t.purposeSection.description}
-        </p>
-      </div>
-
     </div>
-
   </div>
 </section>
 
 <script>
-  const carousel = document.getElementById('purpose-carousel');
-  const slides = carousel?.querySelectorAll('.carousel-slide');
-  
-  // Add code to position the line
-  const titleLine = document.getElementById('title-line');
-  const titleElement = document.querySelector('.text-row h2');
-  
-  function updateLinePosition() {
-    if (titleLine && titleElement) {
-      const titleRect = titleElement.getBoundingClientRect();
-      const sectionRect = document.querySelector('.purpose-section')?.getBoundingClientRect();
+  class PurposeCarousel {
+    private carousel: HTMLElement | null;
+    private slides: NodeListOf<Element>;
+    private currentSlide: number = 0;
+    private totalSlides: number;
+    private intervalId: number | null = null;
+
+    constructor() {
+      this.carousel = document.getElementById('purpose-carousel');
+      this.slides = document.querySelectorAll('.carousel-slide');
+      this.totalSlides = this.slides.length;
       
-      if (sectionRect) {
-        const relativeTop = titleRect.top - sectionRect.top + (titleRect.height / 2);
-        titleLine.style.top = `${relativeTop}px`;
-        titleLine.style.transform = 'translateY(-50%)';
+      if (this.carousel && this.slides.length > 0) {
+        this.init();
+      }
+    }
+
+    init() {
+      // Start auto-rotation
+      this.startAutoRotation();
+    }
+
+    showSlide(index: number) {
+      // Update slides
+      this.slides.forEach((slide, i) => {
+        const slideElement = slide as HTMLElement;
+        if (i === index) {
+          slideElement.classList.remove('opacity-0');
+          slideElement.classList.add('opacity-100');
+        } else {
+          slideElement.classList.remove('opacity-100');
+          slideElement.classList.add('opacity-0');
+        }
+      });
+    }
+
+    nextSlide() {
+      this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+      this.showSlide(this.currentSlide);
+    }
+
+    startAutoRotation() {
+      this.pauseAutoRotation();
+      this.intervalId = window.setInterval(() => {
+        this.nextSlide();
+      }, 4000);
+    }
+
+    pauseAutoRotation() {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
       }
     }
   }
-  
-  // Update position on load and resize
-  window.addEventListener('load', updateLinePosition);
-  window.addEventListener('resize', updateLinePosition);
-  
-  if (slides && slides.length > 0) {
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    
-    function showSlide(index: number) {
-      if (slides) {
-        slides.forEach((slide, i) => {
-          if (i === index) {
-            slide.classList.remove('opacity-0');
-            slide.classList.add('opacity-100');
-          } else {
-            slide.classList.remove('opacity-100');
-            slide.classList.add('opacity-0');
-          }
-        });
-      }
-    }
-    
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }
-    
-    // Auto-rotate every 3 seconds
-    setInterval(nextSlide, 3000);
-  }
+
+  // Initialize carousel when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new PurposeCarousel();
+  });
 </script>
+
+<style>
+  .purpose-section {
+    min-height: 100vh;
+  }
+
+  .carousel-slide {
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .title-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 0px 0px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 1024px) {
+    .purpose-section {
+      min-height: auto;
+      padding: 4rem 0;
+    }
+  }
+</style>

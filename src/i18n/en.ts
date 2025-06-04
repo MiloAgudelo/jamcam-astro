@@ -31,7 +31,7 @@ export default {
             adventure: "Adventure circuits and extreme sports",
             inclusion: "Inclusion and diversity dynamics",
             exploration: "Exploration of the city and its history",
-            village: "Inter-American Development Village and Sustainable Development Goals",
+            village: "Inter-American Development Village and SDGs",
             ceremonies: "Ceremonies, shows and night celebrations",
             newYear: "Grand New Year celebration",
             service: "Service Activities"
@@ -72,5 +72,58 @@ export default {
                 description: "Change starts with small actions. Be inspired by your experiences and take them beyond the camp. Apply what you learn in your community and become an agent of peace. Your impact can reach farther than you can imagine."
             }
         }
+    },
+    calendar: {
+        months: [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ],
+        daysShort: ["S", "M", "T", "W", "T", "F", "S"],
+        daysLong: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        eventsTitle: "Today's Events",
+        events: {
+            "2025-01-15": [
+                "Pre-registration Opens",
+                "Official Website Launch"
+            ],
+            "2025-03-30": [
+                "Early Pre-registration Closes",
+                "Regular Rates Begin"
+            ],
+            "2025-04-30": [
+                "Contingent Confirmation",
+                "Early Bird Payment Deadline"
+            ],
+            "2025-06-15": [
+                "Regular Registration Opens",
+                "Detailed Program Release"
+            ],
+            "2025-09-30": [
+                "Regular Registration Closes",
+                "Special Request Deadline"
+            ],
+            "2025-11-15": [
+                "Final Participant Confirmation",
+                "Welcome Kits Sent"
+            ],
+            "2025-12-26": [
+                "JAMCAM 2025 BEGINS!",
+                "Opening Ceremony"
+            ],
+            "2025-12-27": [
+                "First Full Day of Activities",
+                "Cultural and Sports Activities"
+            ],
+            "2025-12-31": [
+                "New Year's Eve Celebration",
+                "Multicultural Party"
+            ],
+            "2026-01-02": [
+                "Closing Ceremony",
+                "Farewell and See You Soon"
+            ]
+        } as Record<string, string[]>,
+        noEventsMessage: "No events scheduled for this date",
+        selectedDateFormat: "{month} {day}, {year}"
     }
 }

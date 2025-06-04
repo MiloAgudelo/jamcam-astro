@@ -31,7 +31,7 @@ export default {
             adventure: "Circuitos de aventura y deportes extremos",
             inclusion: "Dinámicas de inclusión y diversidad",
             exploration: "Exploración de la ciudad y su historia",
-            village: "Aldea Interamericana de Desarrollo y Objetivos de Desarrollo Sostenible",
+            village: "Aldea Interamericana de Desarrollo y ODS",
             ceremonies: "Ceremonias, espectáculos y celebraciones nocturnas",
             newYear: "Gran celebración de año nuevo",
             service: "Actividades de servicio"
@@ -72,5 +72,58 @@ export default {
                 description: "El cambio comienza con pequeñas acciones. Inspírate con tus experiencias y llévalas más allá del campamento. Aplica lo que aprendas en tu comunidad y conviértete en un agente de paz. Tu impacto puede llegar más lejos de lo que imaginas."
             }
         }
+    },
+    calendar: {
+        months: [
+            "enero", "febrero", "marzo", "abril", "mayo", "junio",
+            "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+        ],
+        daysShort: ["D", "L", "M", "M", "J", "V", "S"],
+        daysLong: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+        eventsTitle: "Eventos del día",
+        events: {
+            "2025-01-15": [
+                "Apertura de Pre-inscripciones",
+                "Lanzamiento oficial del sitio web"
+            ],
+            "2025-03-30": [
+                "Cierre de Pre-inscripciones Tempranas",
+                "Inicio de tarifas regulares"
+            ],
+            "2025-04-30": [
+                "Confirmación de Contingentes",
+                "Pago de Inscripción Anticipada"
+            ],
+            "2025-06-15": [
+                "Apertura de Inscripciones Regulares",
+                "Publicación del programa detallado"
+            ],
+            "2025-09-30": [
+                "Cierre de Inscripciones Regulares",
+                "Fecha límite para solicitudes especiales"
+            ],
+            "2025-11-15": [
+                "Confirmación final de participantes",
+                "Envío de kits de bienvenida"
+            ],
+            "2025-12-26": [
+                "¡COMIENZA JAMCAM 2025!",
+                "Ceremonia de apertura"
+            ],
+            "2025-12-27": [
+                "Primer día completo de actividades",
+                "Actividades culturales y deportivas"
+            ],
+            "2025-12-31": [
+                "Celebración de Año Nuevo",
+                "Fiesta multicultural"
+            ],
+            "2026-01-02": [
+                "Ceremonia de clausura",
+                "Despedida y hasta la vista"
+            ]
+        } as Record<string, string[]>,
+        noEventsMessage: "No hay eventos programados para esta fecha",
+        selectedDateFormat: "{day} de {month} de {year}"
     }
 }

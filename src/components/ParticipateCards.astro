@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { getTranslations } from '../i18n';
+import ParticipateCard from './ParticipateCard.astro';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Card configuration with icons and card numbers for colors
+const cardData = [
+  {
+    icon: '/src/assets/participate-card-icon-1.svg',
+    title: t.participateCards.youth.title,
+    description: t.participateCards.youth.description,
+    cardNumber: 1
+  },
+  {
+    icon: '/src/assets/participate-card-icon-2.svg',
+    title: t.participateCards.adults.title,
+    description: t.participateCards.adults.description,
+    cardNumber: 2
+  },
+  {
+    icon: '/src/assets/participate-card-icon-3.svg',
+    title: t.participateCards.eis.title,
+    description: t.participateCards.eis.description,
+    cardNumber: 3
+  }
+];
+---
+
+<section class="py-16 px-4 md:px-5 lg:px-[100px]">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8 justify-items-center max-w-5xl mx-auto">
+      {cardData.map((card) => (
+        <ParticipateCard
+          icon={card.icon}
+          title={card.title}
+          description={card.description}
+          cardNumber={card.cardNumber}
+        />
+      ))}
+    </div>
+  </div>
+</section> 

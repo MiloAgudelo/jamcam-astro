@@ -73,6 +73,20 @@ export default {
             }
         }
     },
+    participateCards: {
+        youth: {
+            title: "Participantes Jovens",
+            description: "Crianças e adolescentes entre 11 e 17 anos, organizados em patrulhas ou equipes de acordo com sua idade."
+        },
+        adults: {
+            title: "Adultos Responsáveis e CMT",
+            description: "Maiores de 18 anos que acompanham as equipes juvenis."
+        },
+        eis: {
+            title: "Equipe Internacional de Serviço (EIS)",
+            description: "Voluntários maiores de 18 anos que apoiam o desenvolvimento do evento em logística, programa, serviço e suporte."
+        }
+    },
     calendar: {
         months: [
             "janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -125,5 +139,32 @@ export default {
         } as Record<string, string[]>,
         noEventsMessage: "Nenhum evento programado para esta data",
         selectedDateFormat: "{day} de {month} de {year}"
+    },
+    registration: {
+        mainTitle: "Taxas de Inscrição",
+        participants: {
+            title: "Participantes / Adultos / CMT",
+            tiers: [
+                { label: "A", early: 166, regular: 175, late: 193 },
+                { label: "B", early: 332, regular: 349, late: 384 },
+                { label: "C", early: 498, regular: 524, late: 576 },
+                { label: "D", early: 663, regular: 698, late: 768 }
+            ]
+        },
+        eis: {
+            title: "Equipe Internacional de Serviço (EIS)",
+            tiers: [
+                { label: "A", early: 144, regular: 152, late: 167 },
+                { label: "B", early: 289, regular: 304, late: 334 },
+                { label: "C", early: 433, regular: 456, late: 502 },
+                { label: "D", early: 608, regular: 608, late: 669 }
+            ]
+        },
+        columnHeaders: {
+            early: "Antecipada",
+            regular: "Regular",
+            late: "Extraordinária"
+        },
+        currency: "USD"
     }
 }

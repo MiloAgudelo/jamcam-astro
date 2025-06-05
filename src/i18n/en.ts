@@ -73,6 +73,20 @@ export default {
             }
         }
     },
+    participateCards: {
+        youth: {
+            title: "Youth Participants",
+            description: "Children and adolescents between 11 and 17 years old, organized in patrols or teams according to their age."
+        },
+        adults: {
+            title: "Responsible Adults and CMT",
+            description: "Adults over 18 years old who accompany youth teams."
+        },
+        eis: {
+            title: "International Service Team (IST)",
+            description: "Volunteers over 18 years old who support the event development in logistics, program, service and support."
+        }
+    },
     calendar: {
         months: [
             "January", "February", "March", "April", "May", "June",
@@ -125,5 +139,32 @@ export default {
         } as Record<string, string[]>,
         noEventsMessage: "No events scheduled for this date",
         selectedDateFormat: "{month} {day}, {year}"
+    },
+    registration: {
+        mainTitle: "Registration Fees",
+        participants: {
+            title: "Participants / Adults / CMT",
+            tiers: [
+                { label: "A", early: 166, regular: 175, late: 193 },
+                { label: "B", early: 332, regular: 349, late: 384 },
+                { label: "C", early: 498, regular: 524, late: 576 },
+                { label: "D", early: 663, regular: 698, late: 768 }
+            ]
+        },
+        eis: {
+            title: "International Service Team (IST)",
+            tiers: [
+                { label: "A", early: 144, regular: 152, late: 167 },
+                { label: "B", early: 289, regular: 304, late: 334 },
+                { label: "C", early: 433, regular: 456, late: 502 },
+                { label: "D", early: 608, regular: 608, late: 669 }
+            ]
+        },
+        columnHeaders: {
+            early: "Early",
+            regular: "Regular",
+            late: "Late"
+        },
+        currency: "USD"
     }
 }

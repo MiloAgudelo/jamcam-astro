@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  cardNumber: number;
+}
+
+const { icon, title, description, cardNumber } = Astro.props;
+
+// Determine background color based on card number using global.css colors
+const getCardBgColor = (num: number) => {
+  switch (num) {
+    case 1:
+      return 'bg-orange-jm';
+    case 2:
+      return 'bg-purple-jm';
+    case 3:
+      return 'bg-green-jm';
+    default:
+      return 'bg-orange-jm';
+  }
+};
+
+const cardBgColor = getCardBgColor(cardNumber);
+---
+
+<div class={`flex flex-col items-center text-center rounded-1xl md:rounded-[17px] shadow-[0px_4px_80px_0px_rgba(0,0,0,0.18)] overflow-hidden bg-white max-w-xs mx-auto min-h-[400px] md:min-h-[450px]`}>
+  <!-- Card Icon Section -->
+  <div class={`w-full flex items-center justify-center py-14 px-6 ${cardBgColor}`}>
+    <div class="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+      <img 
+        src={icon} 
+        alt={`${title} icon`}
+        class="w-full h-full object-contain filter brightness-0 invert"
+      />
+    </div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="p-6 flex flex-col gap-6 flex-1 justify-center">
+    <!-- Title with background -->
+    <div class={`inline-block px-4 py-3 rounded-xl ${cardBgColor} mx-auto`}>
+      <h3 class="text-base md:text-lg font-bold text-white leading-tight text-center">
+        {title}
+      </h3>
+    </div>
+    
+    <!-- Description -->
+    <p class="text-sm md:text-base leading-relaxed text-gray-700 text-center px-2">
+      {description}
+    </p>
+  </div>
+</div> 

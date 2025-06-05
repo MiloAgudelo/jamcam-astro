@@ -73,6 +73,20 @@ export default {
             }
         }
     },
+    participateCards: {
+        youth: {
+            title: "Participantes Juveniles",
+            description: "Niños y adolescentes entre 11 y 17 años, organizados en patrullas o equipos según su edad."
+        },
+        adults: {
+            title: "Adultos Responsables y CMT",
+            description: "Mayores de 18 años que acompañan a los equipos juveniles."
+        },
+        eis: {
+            title: "Equipo Internacional de Servicio (EIS)",
+            description: "Voluntarios mayores de 18 años que apoyan el desarrollo del evento en logística, programa, servicio y soporte."
+        }
+    },
     calendar: {
         months: [
             "enero", "febrero", "marzo", "abril", "mayo", "junio",
@@ -125,5 +139,32 @@ export default {
         } as Record<string, string[]>,
         noEventsMessage: "No hay eventos programados para esta fecha",
         selectedDateFormat: "{day} de {month} de {year}"
+    },
+    registration: {
+        mainTitle: "Cuotas de Inscripción",
+        participants: {
+            title: "Participantes / Adultos / CMT",
+            tiers: [
+                { label: "A", early: 166, regular: 175, late: 193 },
+                { label: "B", early: 332, regular: 349, late: 384 },
+                { label: "C", early: 498, regular: 524, late: 576 },
+                { label: "D", early: 663, regular: 698, late: 768 }
+            ]
+        },
+        eis: {
+            title: "Equipo Internacional de Servicio (EIS)",
+            tiers: [
+                { label: "A", early: 144, regular: 152, late: 167 },
+                { label: "B", early: 289, regular: 304, late: 334 },
+                { label: "C", early: 433, regular: 456, late: 502 },
+                { label: "D", early: 608, regular: 608, late: 669 }
+            ]
+        },
+        columnHeaders: {
+            early: "Anticipada",
+            regular: "Regular", 
+            late: "Extraordinaria"
+        },
+        currency: "USD"
     }
-}
+};

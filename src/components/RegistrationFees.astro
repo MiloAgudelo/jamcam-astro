@@ -1,0 +1,248 @@
+---
+import { getTranslations } from '../i18n';
+import '../styles/global.css';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<!-- Decorative Dotted Line -->
+<div class="w-full py-8 md:py-12">
+  <div class="w-screen h-1.5 md:h-1.5 rounded dotted-line"></div>
+</div>
+
+<section class="relative overflow-hidden min-h-screen md:min-h-screen flex items-center justify-center py-6 md:py-0">
+  <!-- Wave Background -->
+  <div 
+    class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/src/assets/registration-fees-wave.svg')"
+  ></div>
+  
+  <!-- Main Content Container -->
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 lg:px-12 py-8 md:py-16">
+    <!-- Main Title -->
+    <div class="text-center mb-8 md:mb-16">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+        {t.registration.mainTitle}
+      </h1>
+    </div>
+
+    <!-- Registration Tables Container -->
+    <div class="space-y-24 md:space-y-40">
+      
+      <!-- Participants Table -->
+      <div class="registration-table-section">
+        <!-- Section Title with Background Line -->
+        <div class="relative mb-4 md:mb-8">
+          <!-- Background Line Behind Title -->
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-10 md:h-14 lg:h-16 bg-green-jm -z-10" style="width: 100vw;"></div>
+          
+          <!-- Title -->
+          <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight relative z-10 text-center">
+            {t.registration.participants.title}
+          </h2>
+        </div>
+
+        <!-- Participants Price Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full max-w-4xl mx-auto border-collapse border-spacing-2 md:border-spacing-2">
+            <!-- Table Header -->
+            <thead>
+              <tr>
+                <th class="w-20 px-2 py-4"></th> <!-- Empty space for tier circles -->
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-purple-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.early}
+                  </span>
+                </th>
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-purple-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.regular}
+                  </span>
+                </th>
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-purple-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.late}
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <!-- Table Body -->
+            <tbody>
+              {t.registration.participants.tiers.map((tier) => (
+                <tr>
+                  <td class="w-20 px-2 py-2 text-center align-middle">
+                    <div class="rounded-full bg-participants-purple text-black w-8 h-8 md:w-12 md:h-12 flex items-center justify-center font-bold text-xs md:text-lg mx-auto">
+                      {tier.label}
+                    </div>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-yellow-jm text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.early} {t.registration.currency}
+                    </span>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-yellow-jm text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.regular} {t.registration.currency}
+                    </span>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-yellow-jm text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.late} {t.registration.currency}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EIS Table -->
+      <div class="registration-table-section">
+        <!-- Section Title with Background Line -->
+        <div class="relative mb-4 md:mb-8">
+          <!-- Background Line Behind Title -->
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-10 md:h-14 lg:h-16 bg-yellow-jm -z-10" style="width: 100vw;"></div>
+          
+          <!-- Title -->
+          <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-black leading-tight relative z-10 text-center">
+            {t.registration.eis.title}
+          </h2>
+        </div>
+
+        <!-- EIS Price Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full max-w-4xl mx-auto border-collapse border-spacing-2 md:border-spacing-2">
+            <!-- Table Header -->
+            <thead>
+              <tr>
+                <th class="w-20 px-2 py-4"></th> <!-- Empty space for tier circles -->
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-green-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.early}
+                  </span>
+                </th>
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-green-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.regular}
+                  </span>
+                </th>
+                <th class="w-1/3 px-2 py-4 text-center">
+                  <span class="inline-block bg-green-jm text-white font-bold py-3 rounded-lg w-full text-sm md:text-base">
+                    {t.registration.columnHeaders.late}
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <!-- Table Body -->
+            <tbody>
+              {t.registration.eis.tiers.map((tier) => (
+                <tr>
+                  <td class="w-20 px-2 py-2 text-center align-middle">
+                    <div class="rounded-full bg-eis-cyan text-black w-8 h-8 md:w-12 md:h-12 flex items-center justify-center font-bold text-xs md:text-lg mx-auto">
+                      {tier.label}
+                    </div>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-eis-purple text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.early} {t.registration.currency}
+                    </span>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-eis-purple text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.regular} {t.registration.currency}
+                    </span>
+                  </td>
+                  <td class="w-1/3 px-2 py-2 text-center">
+                    <span class="inline-block bg-eis-purple text-black font-semibold py-2 md:py-3 rounded-lg text-sm md:text-lg w-full">
+                      {tier.late} {t.registration.currency}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    table {
+      border-spacing: 4px !important;
+    }
+    
+    th, td {
+      padding: 0.25rem 0.125rem !important;
+    }
+    
+    .w-20 {
+      width: 2.5rem !important;
+    }
+    
+    /* Reduce table header padding in mobile */
+    th {
+      padding: 0.5rem 0.125rem !important;
+    }
+  }
+
+  /* Ensure table cells have consistent appearance */
+  .bg-yellow-jm {
+    background-color: var(--color-yellow-jm);
+  }
+  
+  .bg-purple-jm {
+    background-color: var(--color-purple-jm);
+  }
+  
+  .bg-eis-purple {
+    background-color: #decdff;
+  }
+  
+  .bg-participants-purple {
+    background-color: #decdff;
+  }
+  
+  .bg-eis-cyan {
+    background-color: #68c0ca;
+  }
+  
+  .text-purple-jm {
+    color: var(--color-purple-jm);
+  }
+
+  .bg-green-jm {
+    background-color: var(--color-green-jm);
+  }
+
+  /* Decorative Dotted Line */
+  .dotted-line {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-purple-jm) 0px,
+      var(--color-purple-jm) 30px,
+      transparent 30px,
+      transparent 50px
+    );
+  }
+
+  @media (max-width: 768px) {
+    .dotted-line {
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--color-purple-jm) 0px,
+        var(--color-purple-jm) 20px,
+        transparent 20px,
+        transparent 35px
+      );
+    }
+  }
+</style>
+

@@ -73,6 +73,20 @@ export default {
             }
         }
     },
+    participateCards: {
+        youth: {
+            title: "Participants Jeunes",
+            description: "Enfants et adolescents âgés de 11 à 17 ans, organisés en patrouilles ou équipes selon leur âge."
+        },
+        adults: {
+            title: "Adultes Responsables et CMT",
+            description: "Adultes de plus de 18 ans qui accompagnent les équipes de jeunes."
+        },
+        eis: {
+            title: "Équipe Internationale de Service (EIS)",
+            description: "Bénévoles de plus de 18 ans qui soutiennent le développement de l'événement en logistique, programme, service et support."
+        }
+    },
     calendar: {
         months: [
             "janvier", "février", "mars", "avril", "mai", "juin",
@@ -125,5 +139,32 @@ export default {
         } as Record<string, string[]>,
         noEventsMessage: "Aucun événement programmé pour cette date",
         selectedDateFormat: "{day} {month} {year}"
+    },
+    registration: {
+        mainTitle: "Frais d'Inscription",
+        participants: {
+            title: "Participants / Adultes / CMT",
+            tiers: [
+                { label: "A", early: 166, regular: 175, late: 193 },
+                { label: "B", early: 332, regular: 349, late: 384 },
+                { label: "C", early: 498, regular: 524, late: 576 },
+                { label: "D", early: 663, regular: 698, late: 768 }
+            ]
+        },
+        eis: {
+            title: "Équipe Internationale de Service (EIS)",
+            tiers: [
+                { label: "A", early: 144, regular: 152, late: 167 },
+                { label: "B", early: 289, regular: 304, late: 334 },
+                { label: "C", early: 433, regular: 456, late: 502 },
+                { label: "D", early: 608, regular: 608, late: 669 }
+            ]
+        },
+        columnHeaders: {
+            early: "Anticipée",
+            regular: "Régulière",
+            late: "Extraordinaire"
+        },
+        currency: "USD"
     }
 }

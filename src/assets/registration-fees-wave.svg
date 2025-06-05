@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 2330.46">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #68c0ca; /* Este es el color verde/azul actual */
+      }
+
+      .cls-2 {
+        fill: #58238c; /* Este es el color morado actual */
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <!-- El rectángulo morado ahora comienza en ~49% de la altura y tiene una altura que representa el 51% del total -->
+      <!-- Empieza en 2330.46 - 1188.5346 = 1141.9254 -->
+      <rect class="cls-2" y="1141.9254" width="1920" height="1188.5346"/>
+
+      <!-- La forma de la ola (verde) ahora se extiende más abajo para cubrir el 49% de la altura -->
+      <!-- El valor "v" (vertical line to) se ajusta para que la ola "cierre" en la nueva altura -->
+      <path class="cls-1" d="M1920,0H0v1260.18s294.41-64.54,627.59-64.54,612.7,98.41,903.53,98.41c130.59,0,388.88-72.34,388.88-72.34V0Z"/>
+    </g>
+  </g>
+</svg>

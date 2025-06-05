@@ -48,6 +48,18 @@ export default {
         description: "Cada Organização Escoteira Nacional (OEN) deve formar um contingente oficial. Os interessados devem contatar sua OEN, realizar o processo de inscrição e cumprir os requisitos de participação de acordo com seu papel.",
         imageAlt: "Imagem do processo de participação"
     },
+    serviceTeamIntroSection: {
+        description1: "Se você tem 18 anos ou mais no início do JamCam 2025, esta é sua oportunidade de viver uma experiência inesquecível como parte da Equipe Internacional de Serviço (EIS)!",
+        description2: "A EIS é essencial para o desenvolvimento bem-sucedido do evento e é formada por voluntários Escoteiros de toda a Região Interamericana que desejam contribuir com sua energia, atitude positiva e compromisso.",
+        imageAlt: "Imagem da Equipe Internacional de Serviço"
+    },
+    serviceTeamInfoSection: {
+        whatIsTitle: "O que é a Equipe Internacional de Serviço?",
+        whatIsDescription: "A EIS do JamCam 2025 é composta por adultos escoteiros que trabalham voluntariamente em diversas áreas do evento, garantindo que todos os participantes tenham uma experiência segura, divertida e significativa. Desde a logística até o programa educativo, os membros da EIS desempenham um papel vital no funcionamento harmonioso do acampamento.",
+        whoCanParticipateTitle: "Quem pode participar?",
+        whoCanParticipateDescription: "Qualquer pessoa maior de 18 anos no início do evento, que esteja registrada como parte do contingente de uma Organização Escoteira Nacional (OEN), pode se candidatar para fazer parte da EIS. A participação deve ser previamente aprovada por sua OEN antes que seja feita a designação final de funções.",
+        imageAlt: "Atividades da Equipe Internacional de Serviço"
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas pela Paz",
         subtitle: "Descubra a aventura do JamCam 2025",

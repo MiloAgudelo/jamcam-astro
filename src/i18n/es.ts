@@ -48,6 +48,18 @@ export default {
         description: "Cada Organización Scout Nacional (OSN) debe conformar un contingente oficial. Los interesados deben contactar a su OSN, realizar el proceso de inscripción y cumplir con los requisitos de participación según su rol.",
         imageAlt: "Imagen del proceso de participación"
     },
+    serviceTeamIntroSection: {
+        description1: "Si tienes 18 años o más al inicio del JamCam 2025, ¡esta es tu oportunidad para vivir una experiencia inolvidable como parte del Equipo Internacional de Servicio (EIS)!",
+        description2: "El EIS es esencial para el desarrollo exitoso del evento y está conformado por voluntarios Scouts de toda la Región Interamericana que desean aportar con su energía, actitud positiva y compromiso.",
+        imageAlt: "Imagen del Equipo Internacional de Servicio"
+    },
+    serviceTeamInfoSection: {
+        whatIsTitle: "¿Qué es el Equipo Internacional de Servicio?",
+        whatIsDescription: "El EIS del JamCam 2025 está compuesto por adultos scouts que trabajan voluntariamente en diversas áreas del evento, asegurando que todos los participantes vivan una experiencia segura, divertida y significativa. Desde la logística hasta el programa educativo, los miembros del EIS desempeñan un papel vital en el funcionamiento armonioso del campamento.",
+        whoCanParticipateTitle: "¿Quiénes pueden participar?",
+        whoCanParticipateDescription: "Cualquier persona mayor de 18 años al inicio del evento, que esté registrada como parte del contingente de una Organización Scout Nacional (OSN), puede aplicar para ser parte del EIS. La participación debe ser aprobada previamente por su OSN antes de que se realice la asignación final de roles.",
+        imageAlt: "Actividades del Equipo Internacional de Servicio"
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas por la Paz",
         subtitle: "Descubre la aventura del JamCam 2025",

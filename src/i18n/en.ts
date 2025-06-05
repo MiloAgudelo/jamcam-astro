@@ -48,6 +48,18 @@ export default {
         description: "Each National Scout Organization (NSO) must form an official contingent. Those interested should contact their NSO, complete the registration process and meet the participation requirements according to their role.",
         imageAlt: "Image of the participation process"
     },
+    serviceTeamIntroSection: {
+        description1: "If you are 18 years old or older at the start of JamCam 2025, this is your opportunity to live an unforgettable experience as part of the International Service Team (IST)!",
+        description2: "The IST is essential for the successful development of the event and is made up of Scout volunteers from throughout the Inter-American Region who want to contribute with their energy, positive attitude and commitment.",
+        imageAlt: "Image of the International Service Team"
+    },
+    serviceTeamInfoSection: {
+        whatIsTitle: "What is the International Service Team?",
+        whatIsDescription: "The IST of JamCam 2025 is composed of adult scouts who work voluntarily in various areas of the event, ensuring that all participants have a safe, fun and meaningful experience. From logistics to the educational program, IST members play a vital role in the harmonious functioning of the camp.",
+        whoCanParticipateTitle: "Who can participate?",
+        whoCanParticipateDescription: "Anyone over 18 years of age at the start of the event, who is registered as part of the contingent of a National Scout Organization (NSO), can apply to be part of the IST. Participation must be previously approved by their NSO before the final assignment of roles is made.",
+        imageAlt: "International Service Team activities"
+    },
     infoSection: {
         title: "JamCam 2025 - Americas United for Peace",
         subtitle: "Discover the adventure of JamCam 2025",

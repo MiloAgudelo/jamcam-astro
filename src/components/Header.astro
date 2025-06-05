@@ -130,9 +130,9 @@ const menuItems = [
                   transition-all duration-150 ease-linear
                   hover:bg-gray-50 xl:hover:bg-transparent xl:hover:-translate-y-0.5
                   active:bg-gray-100 xl:active:bg-transparent
-                  xl:after:content-[''] xl:after:absolute xl:after:h-[2px] xl:after:bottom-0 xl:after:left-1/2 xl:after:-translate-x-1/2 xl:after:w-0 xl:after:transition-all xl:after:duration-150 xl:after:ease-linear
+                  xl:after:content-[''] xl:after:absolute xl:after:h-[2px] xl:after:bottom-0 xl:after:left-0 xl:after:right-0 xl:after:mx-auto xl:after:w-0 xl:after:transition-all xl:after:duration-150 xl:after:ease-linear
                   ${item.afterColorClass || ''}
-                  xl:hover:after:w-[calc(100%-24px)]
+                  xl:hover:after:w-[90%]
                 `}
               >
                 {item.text}

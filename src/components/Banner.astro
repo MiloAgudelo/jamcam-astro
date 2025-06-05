@@ -25,21 +25,33 @@ if (isHomePage) {
 // Construir las rutas de las imágenes basándose en la ruta y locale
 let mobileImage: string;
 let desktopImage: string;
+let mobileWidth: number;
+let mobileHeight: number;
+let desktopWidth: number;
+let desktopHeight: number;
 
 if (isHomePage) {
-  // Para la página home, usar el patrón original
+  // Para la página home, usar el patrón original con dimensiones específicas
   mobileImage = `/images/banner-home-mobile.webp`;
   desktopImage = `/images/banner-home-desktop.webp`;
+  mobileWidth = 768;
+  mobileHeight = 432;
+  desktopWidth = 1920;
+  desktopHeight = 600;
 } else {
   // Para otras rutas, usar el nuevo patrón
   mobileImage = `/images/banner-${routeName}-mobile-${locale}.webp`;
   desktopImage = `/images/banner-${routeName}-desktop-${locale}.webp`;
+  mobileWidth = 768;
+  mobileHeight = 432;
+  desktopWidth = 1920;
+  desktopHeight = 600;
 }
 
 const logoImage = "/images/logo-jamcam-white.svg";
 ---
 
-<section class="banner-container w-full relative overflow-hidden">
+<section class="banner-container w-full relative">
   <!-- Imagen de fondo responsive con optimizaciones de rendimiento -->
   <picture class="banner-picture">
     <!-- Desktop -->
@@ -47,6 +59,8 @@ const logoImage = "/images/logo-jamcam-white.svg";
       media="(min-width: 1024px)" 
       srcset={desktopImage}
       type="image/webp"
+      width={desktopWidth}
+      height={desktopHeight}
     />
     <!-- Mobile -->
     <img 
@@ -56,8 +70,8 @@ const logoImage = "/images/logo-jamcam-white.svg";
       loading="eager"
       fetchpriority="high"
       decoding="sync"
-      width="768"
-      height="432"
+      width={mobileWidth}
+      height={mobileHeight}
     />
   </picture>
 
@@ -68,8 +82,9 @@ const logoImage = "/images/logo-jamcam-white.svg";
         src={logoImage}
         alt="Logo JamCam 2025"
         class="logo-image"
-        loading="lazy"
-        decoding="async"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
         width="280"
         height="320"
       />
@@ -78,26 +93,6 @@ const logoImage = "/images/logo-jamcam-white.svg";
 </section>
 
 <style>
-  .banner-container {
-    /* Prevent layout shift by setting minimum height */
-    min-height: 250px; /* Mobile */
-    contain: layout style paint;
-  }
-
-  .banner-picture {
-    display: block;
-    width: 100%;
-  }
-
-  .banner-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    /* Optimize rendering */
-    will-change: auto;
-    transform: translateZ(0); /* Force GPU acceleration */
-  }
-
   .logo-overlay {
     position: absolute;
     inset: 0;
@@ -112,27 +107,15 @@ const logoImage = "/images/logo-jamcam-white.svg";
     height: 280px;
     width: auto;
     object-fit: contain;
-    transform: translateZ(0); /* Force GPU acceleration */
   }
 
   @media (min-width: 1024px) {
-    .banner-container {
-      min-height: 400px; /* Desktop */
-    }
-
     .logo-overlay {
       padding-top: 15vh;
     }
 
     .logo-image {
       height: 320px;
-    }
-  }
-
-  /* Optimize for faster repaints */
-  @media (hover: hover) {
-    .banner-image:hover {
-      transform: translateZ(0);
     }
   }
 </style>

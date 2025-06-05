@@ -22,6 +22,11 @@ if (isHomePage) {
 }
 ---
 
-<!-- Preload critical banner images -->
-<link rel="preload" href={mobileImage} as="image" type="image/webp" media="(max-width: 1023px)">
-<link rel="preload" href={desktopImage} as="image" type="image/webp" media="(min-width: 1024px)"> 
+<!-- Preload critical banner images with highest priority -->
+<link rel="preload" href={mobileImage} as="image" type="image/webp" media="(max-width: 1023px)" fetchpriority="high">
+<link rel="preload" href={desktopImage} as="image" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">
+
+<!-- Only for home page, also preload the logo that appears over the banner -->
+{isHomePage && (
+  <link rel="preload" href="/images/logo-jamcam-white.svg" as="image" fetchpriority="high">
+)} 

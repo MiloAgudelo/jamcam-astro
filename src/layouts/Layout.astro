@@ -27,6 +27,16 @@ const schemaDescription = t.description;
 		<!-- Self referencing canonical tag -->
 		<link rel="canonical" href={Astro.url.toString()} />
 
+		<!-- CRITICAL: Inline CSS for LCP banner optimization -->
+		<style>
+			.banner-container{width:100%;position:relative;min-height:250px;contain:layout style;}
+			.banner-picture{display:block;width:100%;}
+			.banner-image{width:100%;height:auto;object-fit:contain;content-visibility:auto;}
+			@media (min-width:1024px){.banner-container{min-height:400px;}}
+		</style>
+
+		<!-- CRITICAL: Preload banner images first for faster LCP -->
+		<BannerPreloader />
 
 		<!-- Structured Data -->
 		<script type="application/ld+json">
@@ -87,19 +97,16 @@ const schemaDescription = t.description;
 		<link rel="manifest" href="/favicon/site.webmanifest">
 		<meta name="msapplication-TileColor" content="#58238B">
 		<meta name="theme-color" content="#ffffff">
-
-		<!-- Critical resource preloading for better LCP -->
-		<BannerPreloader />
 		
 		<!-- DNS prefetch for external resources -->
 		<link rel="dns-prefetch" href="//fonts.googleapis.com">
 		<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
 		
-		<!-- Optimize font loading -->
-		<link rel="preload" href="/fonts/noto-sans-v36-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+		<!-- Font preloading - moved after critical banner resources -->
 		<link rel="preload" href="/fonts/noto-sans-v36-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/noto-sans-v36-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/noto-sans-v36-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/noto-sans-v36-latin-300.woff2" as="font" type="font/woff2" crossorigin>
 
 		<!-- Vercel Analytics and Speed Insights -->
 		<Analytics />

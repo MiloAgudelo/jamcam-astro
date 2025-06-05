@@ -5,6 +5,7 @@ export default {
         about: "Acerca de JamCam",
         participate: "Quiero participar",
         serviceTeam: "Equipo de Servicio",
+        cali: "Cali",
         program: "Programa",
         resources: "Recursos",
         contacts: "Contactos",

@@ -6,17 +6,17 @@ const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
 
 // Title images based on locale
-const titleDesktopImage = `/src/assets/cards-title-desktop-${locale}.webp`;
-const titleMobileImage = `/src/assets/cards-title-mobile-${locale}.webp`;
+const titleDesktopImage = `/images/cards-title-desktop-${locale}.webp`;
+const titleMobileImage = `/images/cards-title-mobile-${locale}.webp`;
 
 // Background SVG
-const backgroundSvg = '/src/assets/cards-purple-wave.svg';
+const backgroundSvg = '/images/cards-purple-wave.svg';
 
 // Card icons from assets directory
 const cardIcons = {
-  explore: '/src/assets/card-icon-1.svg',
-  share: '/src/assets/card-icon-2.svg',
-  transform: '/src/assets/card-icon-3.svg'
+  explore: '/images/card-icon-1.svg',
+  share: '/images/card-icon-2.svg',
+  transform: '/images/card-icon-3.svg'
 };
 
 // Get translations from the translation system

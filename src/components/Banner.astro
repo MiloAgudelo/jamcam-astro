@@ -28,15 +28,15 @@ let desktopImage: string;
 
 if (isHomePage) {
   // Para la página home, usar el patrón original
-  mobileImage = `/src/assets/banner-home-mobile.webp`;
-  desktopImage = `/src/assets/banner-home-desktop.webp`;
+  mobileImage = `/images/banner-home-mobile.webp`;
+  desktopImage = `/images/banner-home-desktop.webp`;
 } else {
   // Para otras rutas, usar el nuevo patrón
-  mobileImage = `/src/assets/banner-${routeName}-mobile-${locale}.webp`;
-  desktopImage = `/src/assets/banner-${routeName}-desktop-${locale}.webp`;
+  mobileImage = `/images/banner-${routeName}-mobile-${locale}.webp`;
+  desktopImage = `/images/banner-${routeName}-desktop-${locale}.webp`;
 }
 
-const logoImage = "/src/assets/logo-jamcam-white.svg";
+const logoImage = "/images/logo-jamcam-white.svg";
 ---
 
 <section class="banner-container w-full relative overflow-hidden">

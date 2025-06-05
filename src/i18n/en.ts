@@ -318,5 +318,30 @@ export default {
             "Access to all program activities",
             "Accommodation at the camp"
         ]
+    },
+    cali: {
+        mapSection: {
+            description: "Cali is an emblematic city in southwestern Colombia, known for its rich history, cultural heritage, biodiversity and passion for music. The event will take place at Centro Campestre Comfandi Pance, a natural space suitable for hosting large-format activities, surrounded by mountains, rivers and trails.",
+            airportInfo: "Alfonso Bonilla Aragón International Airport (located in Palmira, Valle del Cauca) is outside the city of Cali. However, transportation from the airport to the camp site is included in your JamCam 2025 registration.",
+            recommendationsTitle: "Arrival Recommendations:",
+            recommendations: [
+                {
+                    title: "Flight Coordination:",
+                    description: "Participants are recommended to schedule their arrival within the hours established by the organization to ensure optimal transportation coordination."
+                },
+                {
+                    title: "Staff Identification:",
+                    description: "Upon arrival, look for staff identified with official JamCam 2025 badges, who will be located in the airport arrival areas to assist you."
+                },
+                {
+                    title: "Luggage:",
+                    description: "Make sure to tag your luggage with your full name and country of origin to facilitate identification and handling during transfer."
+                },
+                {
+                    title: "Documentation:",
+                    description: "Keep your identity document and event registration receipt handy for any necessary verification."
+                }
+            ]
+        }
     }
 }

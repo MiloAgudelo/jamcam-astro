@@ -318,5 +318,30 @@ export default {
             "Acesso a todas as atividades do programa",
             "Alojamento no acampamento"
         ]
+    },
+    cali: {
+        mapSection: {
+            description: "Cali é uma cidade emblemática do sudoeste colombiano, conhecida por sua rica história, herança cultural, biodiversidade e paixão pela música. O evento será realizado no Centro Campestre Comfandi Pance, um espaço natural adequado para acolher atividades de grande formato, cercado por montanhas, rios e trilhas.",
+            airportInfo: "O Aeroporto Internacional Alfonso Bonilla Aragón (localizado em Palmira, Valle del Cauca) fica fora da cidade de Cali. No entanto, o transporte do aeroporto até o local do acampamento está incluído em sua inscrição no JamCam 2025.",
+            recommendationsTitle: "Recomendações para a Chegada:",
+            recommendations: [
+                {
+                    title: "Coordenação de Voos:",
+                    description: "Recomenda-se aos participantes programar sua chegada dentro dos horários estabelecidos pela organização para garantir uma coordenação ótima do transporte."
+                },
+                {
+                    title: "Identificação da Equipe:",
+                    description: "Na chegada, procure pela equipe identificada com distintivos oficiais do JamCam 2025, que estará localizada nas áreas de chegada do aeroporto para ajudá-lo."
+                },
+                {
+                    title: "Bagagem:",
+                    description: "Certifique-se de etiquetar sua bagagem com seu nome completo e país de origem para facilitar a identificação e manuseio durante o traslado."
+                },
+                {
+                    title: "Documentação:",
+                    description: "Tenha em mãos seu documento de identidade e comprovante de inscrição no evento para qualquer verificação necessária."
+                }
+            ]
+        }
     }
 }

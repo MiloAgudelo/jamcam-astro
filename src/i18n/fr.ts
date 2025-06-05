@@ -318,5 +318,30 @@ export default {
             "Accès à toutes les activités du programme",
             "Hébergement au camp"
         ]
+    },
+    cali: {
+        mapSection: {
+            description: "Cali est une ville emblématique du sud-ouest colombien, connue pour sa riche histoire, son patrimoine culturel, sa biodiversité et sa passion pour la musique. L'événement se déroulera au Centro Campestre Comfandi Pance, un espace naturel adapté pour accueillir des activités de grand format, entouré de montagnes, de rivières et de sentiers.",
+            airportInfo: "L'Aéroport International Alfonso Bonilla Aragón (situé à Palmira, Valle del Cauca) se trouve en dehors de la ville de Cali. Cependant, le transport de l'aéroport au site du campement est inclus dans votre inscription au JamCam 2025.",
+            recommendationsTitle: "Recommandations pour l'Arrivée:",
+            recommendations: [
+                {
+                    title: "Coordination des Vols:",
+                    description: "Il est recommandé aux participants de programmer leur arrivée dans les horaires établis par l'organisation pour garantir une coordination optimale du transport."
+                },
+                {
+                    title: "Identification du Personnel:",
+                    description: "À votre arrivée, cherchez le personnel identifié avec les badges officiels du JamCam 2025, qui sera situé dans les zones d'arrivée de l'aéroport pour vous aider."
+                },
+                {
+                    title: "Bagages:",
+                    description: "Assurez-vous d'étiqueter vos bagages avec votre nom complet et pays d'origine pour faciliter l'identification et la manipulation pendant le transfert."
+                },
+                {
+                    title: "Documentation:",
+                    description: "Ayez à portée de main votre document d'identité et reçu d'inscription à l'événement pour toute vérification nécessaire."
+                }
+            ]
+        }
     }
 }

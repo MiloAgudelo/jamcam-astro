@@ -48,6 +48,75 @@ export default {
         description: "Chaque Organisation Scoute Nationale (OSN) doit former un contingent officiel. Les personnes intéressées doivent contacter leur OSN, effectuer le processus d'inscription et répondre aux exigences de participation selon leur rôle.",
         imageAlt: "Image du processus de participation"
     },
+    aboutSection: {
+        title: "Qu'est-ce que le JamCam ?",
+        description: "Le JamCam 2025 est une activité officielle de l'Organisation Mondiale du Mouvement Scout (OMMS) - Région Interaméricaine, organisée en collaboration avec l'Association des Scouts de Colombie. Cet événement combine le Jamboree (15-17 ans) et le Camporee (11-14 ans), permettant à des milliers de scouts de vivre une expérience enrichissante dans un environnement multiculturel.",
+        imageAlt: "Image sur le JamCam"
+    },
+    cholaoTheme: {
+        mainTitle: "Avez-vous déjà entendu le secret que gardent les cieux de l'Amérique ?",
+        mainSubtitle: "Préparez-vous pour une aventure incroyable !",
+        sections: [
+            {
+                text: "Il y a longtemps, très haut dans le ciel bleu, les oiseaux n'étaient pas de simples créatures à plumes, c'étaient d'authentiques super-héroïnes avec des *pouvoirs spéciaux !* Chacune protégeait une valeur super importante qui maintenait unies toutes les nations du continent. Mais quelque chose de terrible se passait…",
+                hasImage: true,
+                className: "intro-section"
+            },
+            {
+                text: "Pendant ce temps, le *Perroquet à Tête Bleue* secouait ses plumes colorées totalement frustré : \"Personne ne se met à la place de l'autre ! L'empathie disparaît plus vite qu'une glace en été\". Le *Tangara Bleu Grisâtre*, petit mais courageux, sautait de branche en branche en criant : \"Les célébrations communautaires sont presque vides ! Où est passé cet esprit de 'tous pour un et un pour tous' ?\"",
+                hasImage: true,
+                className: "birds-crisis-section"
+            },
+            {
+                text: "L'*Ani à Bec Lisse,* avec son plumage noir brillant, volait d'un côté à l'autre très inquiet : \"Les communautés ne veulent plus travailler ensemble ! Elles oublient à quel point il est formidable de coopérer !\" Et le *Canard de Moscovie,* avec son regard sérieux, observait tout ce chaos en murmurant : \"Si cela continue, la liberté de choisir notre propre chemin ne sera qu'un souvenir. Ce n'est pas bien !\"",
+                hasImage: true,
+                className: "values-lost-section"
+            },
+            {
+                text: "D'entre les arbres les plus anciens et mystérieux du continent surgit une figure si colorée qu'elle faisait presque mal aux yeux. C'était *CHOLAO !* Un légendaire ara spectaculaire dont les plumes brillaient de toutes les couleurs des drapeaux américains. *C'était comme un arc-en-ciel vivant avec une attitude de rockstar !*",
+                hasImage: false,
+                className: "cholao-appearance-section"
+            },
+            {
+                text: "Cholao n'était pas un oiseau comme les autres. Il était né de tous les rêves et espoirs que les peuples d'Amérique avaient partagés autrefois. Pendant des siècles (oui, des siècles !), il avait volé incognito du nord au sud, observant l'évolution des cultures, apprenant de chaque tradition et gardant dans sa mémoire les histoires d'*union et de fraternité* qui furent autrefois le trésor le plus précieux du continent.",
+                hasImage: true,
+                className: "cholao-backstory-section"
+            },
+            {
+                text: "Les quatre oiseaux messagers reconnurent en Cholao le légendaire *gardien de la paix*, le messager parfait qui convoquerait les jeunes scouts pour réunir à nouveau les pays du continent. Avec son vol vibrant et son appel symphonique, Cholao a le pouvoir d'éveiller dans chaque cœur jeune le souvenir ancestral que toutes les nations appartenaient à la même grande famille : *l'Amérique.*",
+                hasImage: false,
+                className: "recognition-section"
+            },
+            {
+                text: "Alors, chacun des oiseaux remit à Cholao la valeur qu'ils gardaient : L'Ani à Bec Lisse lui confia *\"la coopération\"*, pour que les jeunes travaillent à nouveau ensemble ; le Perroquet à Tête Bleue lui accorda *\"l'empathie\"*, pour que les cœurs se comprennent à nouveau ; Le Tangara Bleu Grisâtre offrit *\"la solidarité\"*, pour qu'ils profitent de la vie en communauté ; et enfin, le Canard de Moscovie accorda *\"la liberté\"*, pour qu'ils n'oublient jamais que chaque être a le droit de choisir son propre vol.",
+                hasImage: true,
+                className: "values-transfer-section"
+            },
+            {
+                text: "Cholao prit toutes ces offrandes et les garda dans son plumage faisant briller ses couleurs encore plus, leva son bec vers le ciel et à ce moment son appel résonna depuis les forêts, les montagnes et les rivières : il était temps de rassembler *les jeunes d'Amérique* pour restaurer la fraternité. Chacun d'eux, comme les oiseaux, apporterait avec lui *la sagesse et la force* de son foyer pour la partager avec les autres, maintenant les jeunes scouts deviendront les nouveaux gardiens de *l'union des peuples.*",
+                hasImage: false,
+                className: "call-to-action-section"
+            },
+            {
+                text: "*Cholao,* avec les quatre oiseaux gardiens, guideront les participants pendant les six jours du *JamCam 2025*, partageant leur sagesse ancestrale et leur rappelant que, tout comme leurs plumes brillantes forment un tout harmonieux malgré la différence de leurs couleurs, les nations d'Amérique peuvent créer ensemble un avenir où *la coopération, l'empathie, la solidarité et la liberté* sont les valeurs qui nous élèvent vers un vol commun. Ainsi naquit *'Amériques Unies pour la Paix'*, une rencontre où les jeunes exploreront, apprendront et démontreront que, quand ils travaillent ensemble, ils peuvent voler plus haut. Pendant *six jours,* les participants seront guidés par les oiseaux vers une aventure unique où chaque activité et expérience sera une opportunité de construire *un monde meilleur.*",
+                hasImage: true,
+                className: "conclusion-section"
+            }
+        ],
+        images: {
+            cholao: "Cholao, l'ara légendaire",
+            loro: "Perroquet à Tête Bleue",
+            ani: "Ani à Bec Lisse",
+            tangara: "Tangara Bleu Grisâtre",
+            pato: "Canard de Moscovie",
+            guacamaya: "Ara gardien"
+        }
+    },
+    officialThemeSection: {
+        title: "Thème Officiel",
+        subtitle: "Amériques Unies pour la Paix",
+        description: "Inspiré par la déclaration de l'ONU de 2025 comme Année Internationale de la Paix et de la Confiance, le JamCam 2025 cherche à renforcer la coopération et le respect interculturel à travers un programme éducatif basé sur les valeurs et l'action."
+    },
     serviceTeamIntroSection: {
         description1: "Si vous avez 18 ans ou plus au début du JamCam 2025, c'est votre opportunité de vivre une expérience inoubliable en tant que membre de l'Équipe Internationale de Service (EIS) !",
         description2: "L'EIS est essentielle pour le développement réussi de l'événement et est composée de bénévoles scouts de toute la Région interaméricaine qui souhaitent contribuer avec leur énergie, leur attitude positive et leur engagement.",

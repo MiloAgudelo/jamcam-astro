@@ -48,6 +48,75 @@ export default {
         description: "Cada Organização Escoteira Nacional (OEN) deve formar um contingente oficial. Os interessados devem contatar sua OEN, realizar o processo de inscrição e cumprir os requisitos de participação de acordo com seu papel.",
         imageAlt: "Imagem do processo de participação"
     },
+    aboutSection: {
+        title: "O que é o JamCam?",
+        description: "O JamCam 2025 é uma atividade oficial da Organização Mundial do Movimento Escoteiro (OMME) - Região Interamericana, organizado em colaboração com a Associação Escoteiros da Colômbia. Este evento combina o Jamboree (15-17 anos) e o Camporee (11-14 anos), permitindo que milhares de escoteiros vivam uma experiência enriquecedora em um ambiente multicultural.",
+        imageAlt: "Imagem sobre o JamCam"
+    },
+    cholaoTheme: {
+        mainTitle: "Você já ouviu alguma vez o segredo que guardam os céus da América?",
+        mainSubtitle: "Prepare-se para uma aventura incrível!",
+        sections: [
+            {
+                text: "Há muito tempo, bem alto no céu azul, as aves não eram simples criaturas emplumadas, eram autênticas super-heroínas com *poderes especiais!* Cada uma protegia um valor super importante que mantinha unidas todas as nações do continente. Mas algo terrível estava acontecendo…",
+                hasImage: true,
+                className: "intro-section"
+            },
+            {
+                text: "Enquanto isso, o *Papagaio de Cabeça Azul* balançava suas penas coloridas totalmente frustrado: \"Ninguém se coloca no lugar do outro! A empatia está desaparecendo mais rápido que sorvete no verão\". A *Tangará Azul Acinzentada*, pequena mas valente, saltava de galho em galho gritando: \"As celebrações comunitárias estão quase vazias! Onde ficou esse espírito de 'todos por um e um por todos'?\"",
+                hasImage: true,
+                className: "birds-crisis-section"
+            },
+            {
+                text: "O *Anu de Bico Liso,* com sua plumagem preta brilhante, voava de um lado a outro muito preocupado: \"As comunidades já não querem trabalhar juntas! Estão esquecendo o quão incrível é cooperar!\" E o *Pato de Moscovia,* com seu olhar sério, observava todo o caos murmurando: \"Se isso continuar, a liberdade de escolher nosso próprio caminho será apenas uma lembrança. Isso não está certo!\"",
+                hasImage: true,
+                className: "values-lost-section"
+            },
+            {
+                text: "De entre as árvores mais antigas e misteriosas do continente surgiu uma figura tão colorida que quase machucava os olhos ao olhar. Era *CHOLAO!* Uma lendária arara espetacular cujas penas brilhavam com todas as cores das bandeiras americanas. *Era como um arco-íris vivo com atitude de rockstar!*",
+                hasImage: false,
+                className: "cholao-appearance-section"
+            },
+            {
+                text: "Cholao não era uma ave qualquer. Havia nascido de todos os sonhos e esperanças que os povos da América haviam compartilhado alguma vez. Durante séculos (sim, séculos!), havia estado voando incógnito de norte a sul, observando a evolução das culturas, aprendendo de cada tradição e guardando em sua memória as histórias de *união e fraternidade* que uma vez foram o tesouro mais precioso do continente.",
+                hasImage: true,
+                className: "cholao-backstory-section"
+            },
+            {
+                text: "As quatro aves mensageiras reconheceram em Cholao o lendário *guardião da paz*, o mensageiro perfeito que convocaria os jovens escoteiros para voltar a unir os países do continente. Com seu voo vibrante e seu chamado sinfônico, Cholao tem o poder de despertar em cada coração jovem a lembrança ancestral de que todas as nações pertenciam à mesma grande família: *América.*",
+                hasImage: false,
+                className: "recognition-section"
+            },
+            {
+                text: "Então, cada uma das aves entregou a Cholao o valor que custodiavam: O Anu de Bico Liso lhe encarregou *\"a cooperação\"*, para que os jovens voltem a trabalhar unidos; o Papagaio de Cabeça Azul lhe outorgou *\"a empatia\"*, para que os corações voltem a se compreender; A Tangará Azul Acinzentada ofereceu *\"a solidariedade\"*, para que desfrutem a vida em comunidade; e finalmente, o Pato de Moscovia concedeu *\"a liberdade\"*, para que nunca esqueçam que cada ser tem direito a escolher seu próprio voo.",
+                hasImage: true,
+                className: "values-transfer-section"
+            },
+            {
+                text: "Cholao tomou todas essas oferendas e as guardou em sua plumagem fazendo suas cores brilharem ainda mais, ergueu seu bico ao céu e nesse momento seu chamado ressoou desde as florestas, montanhas e rios: era hora de reunir *os jovens da América* para restaurar a fraternidade. Cada um deles, como as aves, traria consigo *a sabedoria e a força* de seu lar para compartilhar com os demais, agora os jovens escoteiros se converterão nos novos guardiões *da união dos povos.*",
+                hasImage: false,
+                className: "call-to-action-section"
+            },
+            {
+                text: "*Cholao,* junto às quatro aves guardiãs, guiarão os participantes durante os seis dias do *JamCam 2025*, compartilhando sua sabedoria ancestral e lembrando-lhes que, assim como suas penas brilhantes formam um todo harmonioso sem importar a diferença de suas cores, as nações da América podem criar juntas um futuro onde *a cooperação, a empatia, a solidariedade e a liberdade* sejam os valores que nos elevem rumo a um voo comum. Assim nasceu *'Américas Unidas Pela Paz'*, um encontro onde os jovens explorarão, aprenderão e demonstrarão que, quando trabalham juntos, podem voar mais alto. Durante *seis dias,* os participantes serão guiados pelas aves rumo a uma aventura única onde cada atividade e experiência será uma oportunidade para construir *um mundo melhor.*",
+                hasImage: true,
+                className: "conclusion-section"
+            }
+        ],
+        images: {
+            cholao: "Cholao, a arara lendária",
+            loro: "Papagaio de Cabeça Azul",
+            ani: "Anu de Bico Liso",
+            tangara: "Tangará Azul Acinzentada",
+            pato: "Pato de Moscovia",
+            guacamaya: "Arara guardiã"
+        }
+    },
+    officialThemeSection: {
+        title: "Tema Oficial",
+        subtitle: "Américas Unidas pela Paz",
+        description: "Inspirado na declaração da ONU de 2025 como o Ano Internacional da Paz e da Confiança, o JamCam 2025 busca fortalecer a cooperação e o respeito intercultural através de um programa educativo baseado em valores e ação."
+    },
     serviceTeamIntroSection: {
         description1: "Se você tem 18 anos ou mais no início do JamCam 2025, esta é sua oportunidade de viver uma experiência inesquecível como parte da Equipe Internacional de Serviço (EIS)!",
         description2: "A EIS é essencial para o desenvolvimento bem-sucedido do evento e é formada por voluntários Escoteiros de toda a Região Interamericana que desejam contribuir com sua energia, atitude positiva e compromisso.",

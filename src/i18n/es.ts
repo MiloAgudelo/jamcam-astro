@@ -48,6 +48,75 @@ export default {
         description: "Cada Organización Scout Nacional (OSN) debe conformar un contingente oficial. Los interesados deben contactar a su OSN, realizar el proceso de inscripción y cumplir con los requisitos de participación según su rol.",
         imageAlt: "Imagen del proceso de participación"
     },
+    aboutSection: {
+        title: "¿Qué es el JamCam?",
+        description: "El JamCam 2025 es una actividad oficial de la Organización Mundial del Movimiento Scout (OMMS) - Región Interamericana, organizado en colaboración con la Asociación Scouts de Colombia. Este evento combina el Jamboree (15-17 años) y el Camporee (11-14 años), permitiendo que miles de scouts vivan una experiencia enriquecedora en un ambiente multicultural.",
+        imageAlt: "Imagen sobre el JamCam"
+    },
+    cholaoTheme: {
+        mainTitle: "¿Has escuchado alguna vez el secreto que guardan los cielos de América?",
+        mainSubtitle: "¡Prepárate para una aventura increíble!",
+        sections: [
+            {
+                text: "Hace mucho tiempo, muy arriba en el cielo azul, las aves no eran simples criaturas emplumadas, ¡eran auténticas superheroínas con *poderes especiales!* Cada una protegía un valor súper importante que mantenía unidas a todas las naciones del continente. Pero algo terrible estaba pasando…",
+                hasImage: true,
+                className: "intro-section"
+            },
+            {
+                text: "Mientras tanto, el *Loro de Cabeza Azul* sacudía sus plumas coloridas totalmente frustrado: \"¡Nadie se pone en los zapatos del otro! La empatía está desapareciendo más rápido que un helado en verano\". La *Tangara Azul Grisácea*, pequeña pero valiente, saltaba de rama en rama gritando: \"¡Las celebraciones comunitarias están casi vacías! ¿Dónde quedó ese espíritu de 'todos para uno y uno para todos'?\"",
+                hasImage: true,
+                className: "birds-crisis-section"
+            },
+            {
+                text: "El *Aní de Pico Liso,* con su plumaje negro brillante, volaba de un lado a otro muy preocupado: \"¡Las comunidades ya no quieren trabajar juntas! ¡Están olvidando lo asombroso que es cooperar!\" Y el *Pato de Moscovia,* con su mirada seria, observaba todo el caos murmurando: \"Si esto sigue así, la libertad de elegir nuestro propio camino será solo un recuerdo, ¡Eso no está bien!\"",
+                hasImage: true,
+                className: "values-lost-section"
+            },
+            {
+                text: "De entre los árboles más antiguos y misteriosos del continente surgió una figura tan colorida que casi lastimaba los ojos al mirarla. Era *¡CHOLAO!* Una legendaria guacamaya espectacular cuyas plumas brillaban con todos los colores de las banderas americanas. *¡Era como un arcoíris viviente con actitud de rockstar!*",
+                hasImage: false,
+                className: "cholao-appearance-section"
+            },
+            {
+                text: "Cholao no era un ave cualquiera. Había nacido de todos los sueños y esperanzas que los pueblos de América habían compartido alguna vez. Durante siglos (¡sí, siglos!), había estado volando de incógnito de norte a sur, observando la evolución de las culturas, aprendiendo de cada tradición y guardando en su memoria las historias de *unión y hermandad* que alguna vez fueron el tesoro más preciado del continente.",
+                hasImage: true,
+                className: "cholao-backstory-section"
+            },
+            {
+                text: "Las cuatro aves mensajeras reconocieron en Cholao, al legendario *guardián de la paz*, el mensajero perfecto que convocaría a los jóvenes scouts para volver a unir a los países del continente. Con su vuelo vibrante y su llamado sinfónico, Cholao tiene el poder de despertar en cada corazón joven el recuerdo ancestral de que todas las naciones pertenecían a una misma gran familia: *América.*",
+                hasImage: false,
+                className: "recognition-section"
+            },
+            {
+                text: "Así entonces, cada una de las aves le entregó a Cholao el valor que custodiaban: El Aní de Pico Liso le encargó *\"la cooperación\"*, para que los jóvenes vuelvan a trabajar unidos; el Loro de Cabeza Azul, le otorgó *\"la empatía\"*, para que los corazones vuelvan a comprenderse; La Tangara Azul Grisácea, ofreció *\"la solidaridad\"*, para que disfruten la vida en comunidad; y finalmente, el Pato de Moscovia, concedió *\"la libertad\"*, para que nunca olviden que cada ser tiene derecho a elegir su propio vuelo.",
+                hasImage: true,
+                className: "values-transfer-section"
+            },
+            {
+                text: "Cholao tomó todas estas ofrendas y las guardó en su plumaje haciendo que sus colores brillaran aún más, alzó su pico al cielo y en ese momento su llamado resonó desde los bosques, las montañas y los ríos: era hora de reunir a *los jóvenes de América* para restaurar la hermandad. Cada uno de ellos, al igual que las aves, traería consigo *la sabiduría y la fuerza* de su hogar para compartirla con los demás, ahora los jóvenes scouts se convertirán en los nuevos guardianes de *la unión de los pueblos.*",
+                hasImage: false,
+                className: "call-to-action-section"
+            },
+            {
+                text: "*Cholao,* junto a las cuatro aves guardianas, guiarán a los participantes durante los seis días del *JamCam 2025*, compartiendo su sabiduría ancestral y recordándoles que, así como sus plumas brillantes forman un todo armonioso sin importar la diferencia de sus colores, las naciones de América pueden crear juntas un futuro donde *la cooperación, la empatía, la solidaridad y la libertad* sean los valores que nos eleven hacia un vuelo común. Así nació *'Américas Unidas Por La Paz'*, un encuentro donde los jóvenes explorarán, aprenderán y demostrarán que, cuando trabajan juntos, pueden volar más alto. Durante *seis días,* los participantes serán guiados por las aves, hacia una aventura única donde cada actividad y experiencia será una oportunidad para construir *un mundo mejor.*",
+                hasImage: true,
+                className: "conclusion-section"
+            }
+        ],
+        images: {
+            cholao: "Cholao, la guacamaya legendaria",
+            loro: "Loro de Cabeza Azul",
+            ani: "Aní de Pico Liso", 
+            tangara: "Tangara Azul Grisácea",
+            pato: "Pato de Moscovia",
+            guacamaya: "Guacamaya guardiana"
+        }
+    },
+    officialThemeSection: {
+        title: "Tema Oficial",
+        subtitle: "Américas Unidas por la paz",
+        description: "Inspirado en la declaratoria de la ONU del 2025 como el Año Internacional de la Paz y la Confianza, el JamCam 2025 busca fortalecer la cooperación y el respeto intercultural a través de un programa educativo basado en valores y acción."
+    },
     serviceTeamIntroSection: {
         description1: "Si tienes 18 años o más al inicio del JamCam 2025, ¡esta es tu oportunidad para vivir una experiencia inolvidable como parte del Equipo Internacional de Servicio (EIS)!",
         description2: "El EIS es esencial para el desarrollo exitoso del evento y está conformado por voluntarios Scouts de toda la Región Interamericana que desean aportar con su energía, actitud positiva y compromiso.",

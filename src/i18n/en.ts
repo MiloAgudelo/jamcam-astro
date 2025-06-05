@@ -48,6 +48,75 @@ export default {
         description: "Each National Scout Organization (NSO) must form an official contingent. Those interested should contact their NSO, complete the registration process and meet the participation requirements according to their role.",
         imageAlt: "Image of the participation process"
     },
+    aboutSection: {
+        title: "What is JamCam?",
+        description: "JamCam 2025 is an official activity of the World Organization of the Scout Movement (WOSM) - Interamerican Region, organized in collaboration with the Scout Association of Colombia. This event combines the Jamboree (15-17 years) and the Camporee (11-14 years), allowing thousands of scouts to live an enriching experience in a multicultural environment.",
+        imageAlt: "Image about JamCam"
+    },
+    cholaoTheme: {
+        mainTitle: "Have you ever heard the secret that the skies of America keep?",
+        mainSubtitle: "Get ready for an incredible adventure!",
+        sections: [
+            {
+                text: "Long ago, high up in the blue sky, birds were not simple feathered creatures, they were authentic superheroines with *special powers!* Each one protected a super important value that kept all the nations of the continent united. But something terrible was happening...",
+                hasImage: true,
+                className: "intro-section"
+            },
+            {
+                text: "Meanwhile, the *Blue-headed Parrot* shook its colorful feathers totally frustrated: \"Nobody puts themselves in another's shoes! Empathy is disappearing faster than ice cream in summer\". The *Gray-blue Tanager*, small but brave, jumped from branch to branch shouting: \"Community celebrations are almost empty! Where did that spirit of 'all for one and one for all' go?\"",
+                hasImage: true,
+                className: "birds-crisis-section"
+            },
+            {
+                text: "The *Smooth-billed Ani,* with its brilliant black plumage, flew from one side to another very worried: \"Communities no longer want to work together! They are forgetting how amazing it is to cooperate!\" And the *Muscovy Duck,* with its serious gaze, observed all the chaos murmuring: \"If this continues, the freedom to choose our own path will be just a memory. That's not right!\"",
+                hasImage: true,
+                className: "values-lost-section"
+            },
+            {
+                text: "From among the oldest and most mysterious trees of the continent emerged a figure so colorful it almost hurt to look at. It was *CHOLAO!* A legendary spectacular macaw whose feathers shone with all the colors of American flags. *It was like a living rainbow with rockstar attitude!*",
+                hasImage: false,
+                className: "cholao-appearance-section"
+            },
+            {
+                text: "Cholao was not just any bird. It had been born from all the dreams and hopes that the peoples of America had once shared. For centuries (yes, centuries!), it had been flying incognito from north to south, observing the evolution of cultures, learning from each tradition and keeping in its memory the stories of *union and brotherhood* that were once the most precious treasure of the continent.",
+                hasImage: true,
+                className: "cholao-backstory-section"
+            },
+            {
+                text: "The four messenger birds recognized in Cholao the legendary *guardian of peace*, the perfect messenger who would summon young scouts to unite the countries of the continent again. With its vibrant flight and symphonic call, Cholao has the power to awaken in each young heart the ancestral memory that all nations belonged to the same great family: *America.*",
+                hasImage: false,
+                className: "recognition-section"
+            },
+            {
+                text: "So then, each of the birds gave Cholao the value they guarded: The Smooth-billed Ani entrusted it with *\"cooperation\"*, so that young people would work together again; the Blue-headed Parrot granted it *\"empathy\"*, so that hearts would understand each other again; The Gray-blue Tanager offered *\"solidarity\"*, so they could enjoy life in community; and finally, the Muscovy Duck granted *\"freedom\"*, so they would never forget that every being has the right to choose its own flight.",
+                hasImage: true,
+                className: "values-transfer-section"
+            },
+            {
+                text: "Cholao took all these offerings and kept them in its plumage making its colors shine even brighter, raised its beak to the sky and at that moment its call resonated from the forests, mountains and rivers: it was time to gather *the youth of America* to restore brotherhood. Each of them, like the birds, would bring with them *the wisdom and strength* of their home to share with others, now the young scouts will become the new guardians of *the union of peoples.*",
+                hasImage: false,
+                className: "call-to-action-section"
+            },
+            {
+                text: "*Cholao,* together with the four guardian birds, will guide participants during the six days of *JamCam 2025*, sharing their ancestral wisdom and reminding them that, just as their bright feathers form a harmonious whole regardless of the difference in their colors, the nations of America can create together a future where *cooperation, empathy, solidarity and freedom* are the values that lift us toward a common flight. Thus was born *'Americas United for Peace'*, a gathering where young people will explore, learn and demonstrate that when they work together, they can fly higher. For *six days,* participants will be guided by the birds toward a unique adventure where each activity and experience will be an opportunity to build *a better world.*",
+                hasImage: true,
+                className: "conclusion-section"
+            }
+        ],
+        images: {
+            cholao: "Cholao, the legendary macaw",
+            loro: "Blue-headed Parrot",
+            ani: "Smooth-billed Ani",
+            tangara: "Gray-blue Tanager",
+            pato: "Muscovy Duck",
+            guacamaya: "Guardian Macaw"
+        }
+    },
+    officialThemeSection: {
+        title: "Official Theme",
+        subtitle: "Americas United for Peace",
+        description: "Inspired by the UN declaration of 2025 as the International Year of Peace and Trust, JamCam 2025 seeks to strengthen cooperation and intercultural respect through an educational program based on values and action."
+    },
     serviceTeamIntroSection: {
         description1: "If you are 18 years old or older at the start of JamCam 2025, this is your opportunity to live an unforgettable experience as part of the International Service Team (IST)!",
         description2: "The IST is essential for the successful development of the event and is made up of Scout volunteers from throughout the Inter-American Region who want to contribute with their energy, positive attitude and commitment.",

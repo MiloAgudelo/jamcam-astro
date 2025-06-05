@@ -1,0 +1,176 @@
+---
+import { getTranslations } from '../i18n';
+import '../styles/global.css';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Helper function to process text with orange highlights
+function processText(text: string): string {
+  return text.replace(/\*(.*?)\*/g, '<span class="text-orange-jm font-medium">$1</span>');
+}
+
+// Images data with specific mobile sizes
+const images = [
+  { src: "/src/assets/cholao.svg", alt: t.cholaoTheme.images.cholao, position: "right", size: "large", mobileSize: "w-3/4" },
+  { src: "/src/assets/loro-cabeza-azul.webp", alt: t.cholaoTheme.images.loro, position: "left", size: "normal", mobileSize: "w-2/3" },
+  { src: "/src/assets/ani-pico-liso.webp", alt: t.cholaoTheme.images.ani, position: "right", size: "large", mobileSize: "w-3/4" },
+  { src: "/src/assets/tangara.webp", alt: t.cholaoTheme.images.tangara, position: "left", size: "large", mobileSize: "w-2/3" },
+  { src: "/src/assets/pato-moscovia.webp", alt: t.cholaoTheme.images.pato, position: "right", size: "normal", mobileSize: "w-3/4" },
+  { src: "/src/assets/guacamaya.webp", alt: t.cholaoTheme.images.guacamaya, position: "left", size: "large", mobileSize: "w-3/4" }
+];
+---
+
+<section class="cholao-theme-section relative md:-mt-35">
+  <!-- SVG Background Wave -->
+  <div class="absolute top-0 left-0 w-full h-full z-0">
+    <!-- Mobile Background -->
+    <img 
+      src="/src/assets/about-purple-wave-mobile.svg" 
+      alt="" 
+      class="lg:hidden w-full h-full object-cover object-top"
+      role="presentation"
+    />
+    <!-- Desktop Background -->
+    <img 
+      src="/src/assets/about-purple-wave.svg" 
+      alt="" 
+      class="hidden lg:block w-full h-full object-cover object-top"
+      role="presentation"
+    />
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 w-full py-8 lg:py-12 mt-30">
+
+    <!-- Story Sections with Images -->
+    <div class="space-y-6 lg:space-y-8">
+      {t.cholaoTheme.sections.map((section, index) => {
+        let imageIndex = 0;
+        let currentImageIndex = 0;
+        
+        // Count images up to current section
+        for (let i = 0; i < index; i++) {
+          if (t.cholaoTheme.sections[i].hasImage) {
+            currentImageIndex++;
+          }
+        }
+        
+        if (section.hasImage) {
+          const image = images[currentImageIndex];
+          const isImageRight = image.position === 'right';
+          const isFirstSection = index === 0;
+          
+          return (
+            <div class={`relative ${index === 0 ? '-mt-10' : index === 1 ? '-mt-8 lg:-mt-30 md:-mt-20' : index === 2 ? '-mt-8 lg:-mt-20' : index === 3 ? '-mt-8 lg:-mt-20' : index === 6 ? '-mt-8 lg:-mt-20' : index === 7 ? '-mt-8 lg:-mt-20' : ''}`}>
+              
+              <!-- Mobile Background Image (hidden on desktop) -->
+              <div class={`absolute ${isImageRight ? 'top-0 right-0 bottom-0' : 'top-0 left-0 bottom-0'} lg:hidden flex items-center ${isImageRight ? 'justify-end' : 'justify-start'} z-0`}>
+                <img 
+                  src={image.src}
+                  alt=""
+                  class={`h-full ${image.mobileSize} object-contain opacity-25`}
+                  role="presentation"
+                />
+              </div>
+
+              <!-- Desktop Grid Layout -->
+              <div class={`hidden lg:grid ${isImageRight ? 'lg:grid-cols-[70%_30%]' : 'lg:grid-cols-[30%_70%]'} items-center gap-4`}>
+                
+                <!-- Text Content Desktop -->
+                <div class={`${isImageRight ? 'lg:order-1' : 'lg:order-2'} px-4 py-4`}>
+                  <div class={`text-left mx-6 lg:mx-0 ${isImageRight ? 'lg:mr-8 lg:ml-6' : 'lg:ml-8 lg:mr-6'} ${isFirstSection ? 'ml-100' : ''}`}>
+                    {isFirstSection && (
+                      <div class="mb-6 lg:mb-8">
+                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-jm leading-tight mb-3">
+                          {t.cholaoTheme.mainTitle}
+                        </h1>
+                        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-orange-jm mb-4">
+                          {t.cholaoTheme.mainSubtitle}
+                        </h2>
+                      </div>
+                    )}
+                    <div 
+                      class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light"
+                      set:html={processText(section.text)}
+                    />
+                  </div>
+                </div>
+
+                <!-- Image Desktop -->
+                <div class={`${isImageRight ? 'lg:order-2' : 'lg:order-1'} flex ${isImageRight ? 'justify-end' : 'justify-start'}`}>
+                  <div class={`${image.size === 'large' ? 'w-48 lg:w-60 xl:w-72' : 'w-40 lg:w-48 xl:w-56'} flex-shrink-0`}>
+                    <img 
+                      src={image.src}
+                      alt={image.alt}
+                      class="w-full h-auto object-contain"
+                    />
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Mobile Layout with Background Image -->
+              <div class="lg:hidden relative z-10 px-4 py-6">
+                <div class="text-center lg:text-left mx-6">
+                  {isFirstSection && (
+                    <div class="mb-6">
+                      <h1 class="text-2xl md:text-3xl font-bold text-purple-jm leading-tight mb-3 text-center">
+                        {t.cholaoTheme.mainTitle}
+                      </h1>
+                      <h2 class="text-lg md:text-xl font-semibold text-orange-jm mb-4 text-center">
+                        {t.cholaoTheme.mainSubtitle}
+                      </h2>
+                    </div>
+                  )}
+                  <div 
+                    class="text-base md:text-lg text-black leading-relaxed font-light text-center lg:text-left"
+                    set:html={processText(section.text)}
+                  />
+                </div>
+              </div>
+
+            </div>
+          );
+        } else {
+          // Full width text section
+          return (
+            <div class={`px-4 py-6 flex justify-center ${index === 0 ? '-mt-10' : index === 1 ? '-mt-8 lg:-mt-40' : index === 2 ? '-mt-8 lg:-mt-20' : index === 3 ? '-mt-8 lg:-mt-20' : index === 6 ? '-mt-8 lg:-mt-40' : index === 7 ? '-mt-8 lg:-mt-20' : ''}`}>
+              <div class="text-center max-w-4xl">
+                <div 
+                  class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light"
+                  set:html={processText(section.text)}
+                />
+              </div>
+            </div>
+          );
+        }
+      })}
+    </div>
+
+  </div>
+</section>
+
+<!-- Official Theme Section -->
+<section class="official-theme-section py-8 lg:py-12">
+  <div class="container px-4 lg:px-[100px] flex justify-end">
+    <div class="text-center max-w-4xl">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-jm leading-tight mb-3">
+        {t.officialThemeSection.title}
+      </h2>
+      <h3 class="text-lg md:text-xl lg:text-2xl font-semibold text-orange-jm mb-6">
+        {t.officialThemeSection.subtitle}
+      </h3>
+      <p class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light">
+        {t.officialThemeSection.description}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cholao-theme-section {
+    min-height: 100vh;
+    overflow: hidden;
+  }
+</style> 

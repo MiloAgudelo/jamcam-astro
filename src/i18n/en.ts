@@ -42,6 +42,11 @@ export default {
         description: "The educational program of JamCam 2025 is inspired by four fundamental values: cooperation, empathy, solidarity and freedom. Through active methodologies, participants will live meaningful experiences that foster peace, community action and personal development. The symbolic narrative of the event revolves around \"Cholao\", a macaw that represents unity.",
         imageAlt: "Image of JamCam educational approach"
     },
+    participationSection: {
+        title: "How to Participate?",
+        description: "Each National Scout Organization (NSO) must form an official contingent. Those interested should contact their NSO, complete the registration process and meet the participation requirements according to their role.",
+        imageAlt: "Image of the participation process"
+    },
     infoSection: {
         title: "JamCam 2025 - Americas United for Peace",
         subtitle: "Discover the adventure of JamCam 2025",
@@ -166,5 +171,15 @@ export default {
             late: "Late"
         },
         currency: "USD"
+    },
+    includes: {
+        title: "Includes",
+        items: [
+            "Transportation to and from the airport",
+            "Full meals during the event",
+            "Participant kit (neckerchief, badge, hat, wristband, identification)",
+            "Access to all program activities",
+            "Accommodation at the camp"
+        ]
     }
 }

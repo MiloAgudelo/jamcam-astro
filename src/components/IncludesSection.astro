@@ -1,0 +1,182 @@
+---
+import { getTranslations } from '../i18n';
+import '../styles/global.css';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<!-- Decorative Dotted Line in green-jm -->
+<div class="w-full py-8 md:py-12">
+  <div class="w-screen h-1.5 md:h-1.5 rounded dotted-line-green"></div>
+</div>
+
+<!-- Main Section with yellow-jm background with 12% opacity -->
+<section class="bg-yellow-jm-12 py-12 md:py-20">
+  <div class="container max-w-6xl mx-auto px-6 lg:px-12">
+    
+    <!-- Title with decorative SVGs -->
+    <div class="flex items-center justify-center gap-8 md:gap-12 mb-8 md:mb-12">
+      
+      <!-- Left SVG -->
+      <svg
+        class="w-48 md:w-72 lg:w-96 h-auto flex-shrink-0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 232.09 19.36"
+      >
+        <defs>
+          <style>
+            .cls-left {
+              stroke: var(--color-pink-jm);
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 4.13px;
+            }
+          </style>
+        </defs>
+        <g>
+          <line class="cls-left" x1="2.07" y1="17.29" x2="17.26" y2="2.07" />
+          <line class="cls-left" x1="17.26" y1="17.29" x2="32.46" y2="2.07" />
+          <line class="cls-left" x1="17.26" y1="2.07" x2="17.26" y2="17.29" />
+          <line class="cls-left" x1="32.46" y1="17.29" x2="47.66" y2="2.07" />
+          <line class="cls-left" x1="32.46" y1="2.07" x2="32.46" y2="17.29" />
+          <line class="cls-left" x1="47.66" y1="17.29" x2="62.85" y2="2.07" />
+          <line class="cls-left" x1="47.66" y1="2.07" x2="47.66" y2="17.29" />
+          <line class="cls-left" x1="62.85" y1="17.29" x2="78.05" y2="2.07" />
+          <line class="cls-left" x1="62.85" y1="2.07" x2="62.85" y2="17.29" />
+          <line class="cls-left" x1="78.05" y1="17.29" x2="93.25" y2="2.07" />
+          <line class="cls-left" x1="78.05" y1="2.07" x2="78.05" y2="17.29" />
+          <line class="cls-left" x1="93.25" y1="17.29" x2="108.45" y2="2.07" />
+          <line class="cls-left" x1="93.25" y1="2.07" x2="93.25" y2="17.29" />
+          <line class="cls-left" x1="108.45" y1="17.29" x2="123.64" y2="2.07" />
+          <line class="cls-left" x1="108.45" y1="2.07" x2="108.45" y2="17.29" />
+          <line class="cls-left" x1="123.64" y1="17.29" x2="138.84" y2="2.07" />
+          <line class="cls-left" x1="123.64" y1="2.07" x2="123.64" y2="17.29" />
+          <line class="cls-left" x1="138.84" y1="17.29" x2="154.04" y2="2.07" />
+          <line class="cls-left" x1="138.84" y1="2.07" x2="138.84" y2="17.29" />
+          <line class="cls-left" x1="154.04" y1="17.29" x2="169.23" y2="2.07" />
+          <line class="cls-left" x1="154.04" y1="2.07" x2="154.04" y2="17.29" />
+          <line class="cls-left" x1="169.23" y1="17.29" x2="184.43" y2="2.07" />
+          <line class="cls-left" x1="169.23" y1="2.07" x2="169.23" y2="17.29" />
+          <line class="cls-left" x1="184.43" y1="17.29" x2="199.63" y2="2.07" />
+          <line class="cls-left" x1="184.43" y1="2.07" x2="184.43" y2="17.29" />
+          <line class="cls-left" x1="199.63" y1="17.29" x2="214.82" y2="2.07" />
+          <line class="cls-left" x1="199.63" y1="2.07" x2="199.63" y2="17.29" />
+          <line class="cls-left" x1="214.82" y1="17.29" x2="230.02" y2="2.07" />
+          <line class="cls-left" x1="214.82" y1="2.07" x2="214.82" y2="17.29" />
+        </g>
+      </svg>
+
+      <!-- Title -->
+      <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-800 text-center">
+        {t.includes.title}
+      </h2>
+
+      <!-- Right SVG -->
+      <svg
+        class="w-48 md:w-72 lg:w-96 h-auto flex-shrink-0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 232.09 19.36"
+      >
+        <defs>
+          <style>
+            .cls-right {
+              stroke: var(--color-pink-jm);
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 4.13px;
+            }
+          </style>
+        </defs>
+        <g>
+          <line class="cls-right" x1="2.07" y1="17.29" x2="17.26" y2="2.07" />
+          <line class="cls-right" x1="17.26" y1="17.29" x2="32.46" y2="2.07" />
+          <line class="cls-right" x1="17.26" y1="2.07" x2="17.26" y2="17.29" />
+          <line class="cls-right" x1="32.46" y1="17.29" x2="47.66" y2="2.07" />
+          <line class="cls-right" x1="32.46" y1="2.07" x2="32.46" y2="17.29" />
+          <line class="cls-right" x1="47.66" y1="17.29" x2="62.85" y2="2.07" />
+          <line class="cls-right" x1="47.66" y1="2.07" x2="47.66" y2="17.29" />
+          <line class="cls-right" x1="62.85" y1="17.29" x2="78.05" y2="2.07" />
+          <line class="cls-right" x1="62.85" y1="2.07" x2="62.85" y2="17.29" />
+          <line class="cls-right" x1="78.05" y1="17.29" x2="93.25" y2="2.07" />
+          <line class="cls-right" x1="78.05" y1="2.07" x2="78.05" y2="17.29" />
+          <line class="cls-right" x1="93.25" y1="17.29" x2="108.45" y2="2.07" />
+          <line class="cls-right" x1="93.25" y1="2.07" x2="93.25" y2="17.29" />
+          <line class="cls-right" x1="108.45" y1="17.29" x2="123.64" y2="2.07" />
+          <line class="cls-right" x1="108.45" y1="2.07" x2="108.45" y2="17.29" />
+          <line class="cls-right" x1="123.64" y1="17.29" x2="138.84" y2="2.07" />
+          <line class="cls-right" x1="123.64" y1="2.07" x2="123.64" y2="17.29" />
+          <line class="cls-right" x1="138.84" y1="17.29" x2="154.04" y2="2.07" />
+          <line class="cls-right" x1="138.84" y1="2.07" x2="138.84" y2="17.29" />
+          <line class="cls-right" x1="154.04" y1="17.29" x2="169.23" y2="2.07" />
+          <line class="cls-right" x1="154.04" y1="2.07" x2="154.04" y2="17.29" />
+          <line class="cls-right" x1="169.23" y1="17.29" x2="184.43" y2="2.07" />
+          <line class="cls-right" x1="169.23" y1="2.07" x2="169.23" y2="17.29" />
+          <line class="cls-right" x1="184.43" y1="17.29" x2="199.63" y2="2.07" />
+          <line class="cls-right" x1="184.43" y1="2.07" x2="184.43" y2="17.29" />
+          <line class="cls-right" x1="199.63" y1="17.29" x2="214.82" y2="2.07" />
+          <line class="cls-right" x1="199.63" y1="2.07" x2="199.63" y2="17.29" />
+          <line class="cls-right" x1="214.82" y1="17.29" x2="230.02" y2="2.07" />
+          <line class="cls-right" x1="214.82" y1="2.07" x2="214.82" y2="17.29" />
+        </g>
+      </svg>
+
+    </div>
+
+    <!-- List with green chevrons -->
+    <div class="flex justify-center">
+      <ul class="space-y-4 md:space-y-6 text-left">
+        {t.includes.items.map((item) => (
+          <li class="flex items-start gap-4 md:gap-6">
+            <!-- Font Awesome check circle icon -->
+            <div class="flex-shrink-0 w-6 h-6 md:w-8 md:h-8 mt-1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-full h-full" style="fill: #73a16d;">
+                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+              </svg>
+            </div>
+            <!-- List item text -->
+            <span class="text-lg md:text-xl text-gray-700 leading-relaxed font-medium">
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Decorative Dotted Line in green-jm at the end -->
+<div class="w-full py-8 md:py-12">
+  <div class="w-screen h-1.5 md:h-1.5 rounded dotted-line-green"></div>
+</div>
+
+<style>
+  /* Decorative Dotted Line in green-jm */
+  .dotted-line-green {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-green-jm) 0px,
+      var(--color-green-jm) 30px,
+      transparent 30px,
+      transparent 50px
+    );
+  }
+
+  @media (max-width: 768px) {
+    .dotted-line-green {
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--color-green-jm) 0px,
+        var(--color-green-jm) 20px,
+        transparent 20px,
+        transparent 35px
+      );
+    }
+  }
+
+  /* Custom background with yellow-jm at 12% opacity */
+  .bg-yellow-jm-12 {
+    background-color: rgba(252, 184, 19, 0.12); /* --color-yellow-jm with 12% opacity */
+  }
+</style> 

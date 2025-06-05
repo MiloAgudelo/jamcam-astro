@@ -42,6 +42,11 @@ export default {
         description: "O programa educativo do JamCam 2025 se inspira em quatro valores fundamentais: cooperação, empatia, solidariedade e liberdade. Por meio de metodologias ativas, os participantes viverão experiências significativas que promovem a paz, a ação comunitária e o desenvolvimento pessoal. A narrativa simbólica do evento gira em torno de \"Cholao\", uma arara que representa a unidade.",
         imageAlt: "Imagem da proposta educativa do JamCam"
     },
+    participationSection: {
+        title: "Como Participar?",
+        description: "Cada Organização Escoteira Nacional (OEN) deve formar um contingente oficial. Os interessados devem contatar sua OEN, realizar o processo de inscrição e cumprir os requisitos de participação de acordo com seu papel.",
+        imageAlt: "Imagem do processo de participação"
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas pela Paz",
         subtitle: "Descubra a aventura do JamCam 2025",
@@ -166,5 +171,15 @@ export default {
             late: "Extraordinária"
         },
         currency: "USD"
+    },
+    includes: {
+        title: "Inclui",
+        items: [
+            "Transporte de ida e volta do aeroporto",
+            "Alimentação completa durante o evento",
+            "Kit do participante (lenço, distintivo, chapéu, pulseira, identificação)",
+            "Acesso a todas as atividades do programa",
+            "Alojamento no acampamento"
+        ]
     }
 }

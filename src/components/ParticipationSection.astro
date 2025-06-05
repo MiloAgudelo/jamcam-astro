@@ -1,0 +1,156 @@
+---
+import { getTranslations } from '../i18n';
+import '../styles/global.css';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Carousel images
+const carouselImages = [
+  {
+    src: "/src/assets/participate-carousel-1.webp",
+    alt: `${t.participationSection.imageAlt} #1`
+  },
+  {
+    src: "/src/assets/participate-carousel-2.webp", 
+    alt: `${t.participationSection.imageAlt} #2`
+  },
+  {
+    src: "/src/assets/participate-carousel-3.webp",
+    alt: `${t.participationSection.imageAlt} #3`
+  },
+  {
+    src: "/src/assets/participate-carousel-4.webp",
+    alt: `${t.participationSection.imageAlt} #4`
+  },
+  {
+    src: "/src/assets/participate-carousel-5.webp",
+    alt: `${t.participationSection.imageAlt} #5`
+  }
+];
+---
+
+<section class="participation-section relative overflow-hidden">
+  <!-- Main Content Container -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Carousel Section -->
+      <div class="order-1 flex justify-center lg:justify-start">
+        <div class="relative">
+          <!-- Main Carousel Container -->
+          <div 
+            id="participation-carousel" 
+            class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-lg overflow-hidden"
+          >
+            <!-- Image Slides -->
+            {carouselImages.map((image, index) => (
+              <div 
+                class={`carousel-slide absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                  index === 0 ? 'opacity-100' : 'opacity-0'
+                }`}
+                data-slide-index={index}
+              >
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Content -->
+      <div class="text-center lg:text-left space-y-10 order-2 relative">
+        <!-- Title -->
+        <div class="relative">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-purple-jm leading-tight whitespace-nowrap">
+            {t.participationSection.title}
+          </h2>
+          <!-- Decorative underline -->
+          <div class="hidden md:block absolute bottom-0 left-0 w-10 md:w-20 lg:w-21 h-1 bg-green-jm mt-2 ml-8"></div>
+        </div>
+        
+        <!-- Description -->
+        <div class="space-y-6">
+          <p class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light max-w-2xl mx-auto lg:mx-0">
+            {t.participationSection.description}
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<script>
+  class ParticipationCarousel {
+    private carousel: HTMLElement | null;
+    private slides: NodeListOf<Element>;
+    private currentSlide: number = 0;
+    private totalSlides: number;
+    private intervalId: number | null = null;
+
+    constructor() {
+      this.carousel = document.getElementById('participation-carousel');
+      this.slides = document.querySelectorAll('#participation-carousel .carousel-slide');
+      this.totalSlides = this.slides.length;
+      
+      if (this.carousel && this.slides.length > 0) {
+        this.init();
+      }
+    }
+
+    init() {
+      // Start auto-rotation
+      this.startAutoRotation();
+    }
+
+    showSlide(index: number) {
+      // Update slides
+      this.slides.forEach((slide, i) => {
+        const slideElement = slide as HTMLElement;
+        if (i === index) {
+          slideElement.classList.remove('opacity-0');
+          slideElement.classList.add('opacity-100');
+        } else {
+          slideElement.classList.remove('opacity-100');
+          slideElement.classList.add('opacity-0');
+        }
+      });
+    }
+
+    nextSlide() {
+      this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+      this.showSlide(this.currentSlide);
+    }
+
+    startAutoRotation() {
+      this.pauseAutoRotation();
+      this.intervalId = window.setInterval(() => {
+        this.nextSlide();
+      }, 4000);
+    }
+
+    pauseAutoRotation() {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+      }
+    }
+  }
+
+  // Initialize carousel when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ParticipationCarousel();
+  });
+</script>
+
+<style>
+  .carousel-slide {
+    transition: opacity 500ms ease-in-out;
+  }
+</style>

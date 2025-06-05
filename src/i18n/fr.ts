@@ -42,6 +42,11 @@ export default {
         description: "Le programme éducatif de JamCam 2025 s'inspire de quatre valeurs fondamentales : coopération, empathie, solidarité et liberté. À travers des méthodologies actives, les participants vivront des expériences significatives qui favorisent la paix, l'action communautaire et le développement personnel. Le récit symbolique de l'événement tourne autour de \"Cholao\", un ara qui représente l'unité.",
         imageAlt: "Image de la proposition éducative de JamCam"
     },
+    participationSection: {
+        title: "Comment Participer ?",
+        description: "Chaque Organisation Scoute Nationale (OSN) doit former un contingent officiel. Les personnes intéressées doivent contacter leur OSN, effectuer le processus d'inscription et répondre aux exigences de participation selon leur rôle.",
+        imageAlt: "Image du processus de participation"
+    },
     infoSection: {
         title: "JamCam 2025 - Amériques Unies pour la Paix",
         subtitle: "Découvrez l'aventure du JamCam 2025",
@@ -166,5 +171,15 @@ export default {
             late: "Extraordinaire"
         },
         currency: "USD"
+    },
+    includes: {
+        title: "Inclut",
+        items: [
+            "Transport aller-retour de l'aéroport",
+            "Alimentation complète pendant l'événement",
+            "Kit du participant (foulard, insigne, chapeau, bracelet, identification)",
+            "Accès à toutes les activités du programme",
+            "Hébergement au camp"
+        ]
     }
 }

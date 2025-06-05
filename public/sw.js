@@ -1,16 +1,16 @@
 // Service Worker para optimizar el cache de recursos críticos
-const CACHE_NAME = 'jamcam-2025-v1';
-const BANNER_CACHE = 'jamcam-banners-v1';
+const CACHE_NAME = 'jamcam-2025-v2';
+const BANNER_CACHE = 'jamcam-banners-v2';
 
 // Recursos críticos para cachear inmediatamente
 const CRITICAL_RESOURCES = [
   '/images/banner-home-mobile.webp',
   '/images/banner-home-desktop.webp',
   '/images/logo-jamcam-white.svg',
-  '/fonts/noto-sans-v36-latin-300.woff2',
-  '/fonts/noto-sans-v36-latin-regular.woff2',
-  '/fonts/noto-sans-v36-latin-600.woff2',
-  '/fonts/noto-sans-v36-latin-700.woff2'
+  '/fonts/noto-sans-v39-latin-300.woff2',
+  '/fonts/noto-sans-v39-latin-regular.woff2',
+  '/fonts/noto-sans-v39-latin-600.woff2',
+  '/fonts/noto-sans-v39-latin-700.woff2'
 ];
 
 // Banners de otras páginas para pre-cache

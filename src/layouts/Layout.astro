@@ -4,6 +4,7 @@ import { getTranslations } from '../i18n';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import Analytics from '../components/Analytics.astro';
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale); 
 
@@ -85,6 +86,8 @@ const schemaDescription = t.description;
 		<meta name="msapplication-TileColor" content="#58238B">
 		<meta name="theme-color" content="#ffffff">
 
+		<!-- Vercel Analytics and Speed Insights -->
+		<Analytics />
 
 	</head>
 	<body>

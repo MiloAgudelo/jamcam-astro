@@ -1,0 +1,27 @@
+---
+// Vercel Analytics and Speed Insights component
+// This component handles both analytics tracking and performance monitoring
+
+// Check if we're in development or production
+const isDev = import.meta.env.DEV;
+---
+
+<!-- Only load analytics in production -->
+{!isDev && (
+  <script is:inline>
+    // Vercel Analytics
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  
+  <script>
+    // Import and initialize Vercel Analytics
+    import { inject } from '@vercel/analytics';
+    inject();
+  </script>
+
+  <script>
+    // Import and initialize Vercel Speed Insights
+    import { injectSpeedInsights } from '@vercel/speed-insights';
+    injectSpeedInsights();
+  </script>
+)} 

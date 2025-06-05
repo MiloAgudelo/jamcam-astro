@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jamcam2025.com/sitemap-index.xml
+
+# Optimización para motores de búsqueda
+Crawl-delay: 1 

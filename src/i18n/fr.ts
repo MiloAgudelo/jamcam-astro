@@ -177,7 +177,41 @@ export default {
         subtitle: "Le Cœur du JamCam 2025",
         description: "Cali, connue comme la capitale mondiale de la salsa, est une ville vibrante avec une histoire profonde et une culture incomparable. Son hospitalité et son esprit festif en font la destination parfaite pour ce grand événement scout.",
         buttonText: "Découvrir Cali",
-        imageAlt: "Image de Cali"
+        imageAlt: "Image de Cali",
+        funFactLabel: "Fait Intéressant",
+        mapsButtonText: "Voir sur Google Maps",
+        places: [
+            {
+                name: "Cathédrale Métropolitaine de Saint-Pierre",
+                description: "Située sur la Plaza de Caycedo, cette cathédrale est l'un des temples les plus importants de la ville. D'architecture néoclassique, c'est un point central dans la vie religieuse et culturelle de Cali.",
+                funFact: "Sa construction a commencé en 1772 et a pris plus de 100 ans à terminer • À l'intérieur se trouvent des œuvres d'art sacré de grande valeur historique et culturelle • L'horloge de sa tour a été apportée de France.",
+                mapsUrl: "https://maps.app.goo.gl/A5sm3PtTvGn5UPTD6"
+            },
+            {
+                name: "Cerro de las Tres Cruces",
+                description: "Cette colline est une destination populaire pour les randonnées et l'exercice en plein air. Du sommet, on peut voir les trois croix qui donnent leur nom au lieu, ainsi que profiter d'une vue privilégiée sur Cali.",
+                funFact: "Les croix ont été placées en 1937 comme symbole de protection pour la ville • C'est un lieu habituel pour faire du sport le week-end, spécialement la randonnée et le cyclisme • Pendant la Semaine Sainte, il devient un site de pèlerinage.",
+                mapsUrl: "https://maps.app.goo.gl/oZr1S8EWUkibbHb88"
+            },
+            {
+                name: "Tour de Cali",
+                description: "Avec 183 mètres de hauteur, la Tour de Cali est le bâtiment le plus haut de la ville. C'est une icône du développement urbain et elle abrite des bureaux, un hôtel et des belvédères avec des vues impressionnantes.",
+                funFact: "C'était le bâtiment le plus haut de Colombie jusqu'en 2008 • Il a 44 étages et un belvédère public en haut • Sa construction s'est terminée en 1979 et reste une icône du skyline de Cali.",
+                mapsUrl: "https://maps.app.goo.gl/PVMEadfFJKJUF4ig7"
+            },
+            {
+                name: "Plaza de Caycedo",
+                description: "C'est la place principale du centre historique de Cali. Entourée de palmiers royaux, de bâtiments coloniaux et de la cathédrale, c'est un point de rencontre et de référence culturelle pour les habitants et les touristes.",
+                funFact: "Elle porte le nom de Joaquín de Caycedo y Cuero, héros de l'indépendance • Elle est connue comme le 'cœur de Cali' • Des activités culturelles et artistiques y sont fréquemment organisées.",
+                mapsUrl: "https://maps.app.goo.gl/7ZB9uY6Smh9JU99g6"
+            },
+            {
+                name: "Cristo Rey",
+                description: "Le Cristo Rey est l'un des monuments les plus emblématiques de Cali. Située sur le cerro de los Cristales, cette statue de 26 mètres de haut offre une vue panoramique spectaculaire de la ville. C'est un site touristique très visité et symbole de paix.",
+                funFact: "La statue a été inaugurée en 1953 pour commémorer les 50 ans de paix après la Guerre des Mille Jours • Elle est faite de fer et de béton et pèse plus de 400 tonnes • Sur le chemin vers le monument il y a des sculptures sculptées par l'artiste Carlos Andrés Gómez.",
+                mapsUrl: "https://maps.app.goo.gl/qbafwNxqH7fnQd6A7"
+            }
+        ]
     },
     infoCards: {
         title: "Amériques Unies pour la Paix : Un Événement avec un Objectif",

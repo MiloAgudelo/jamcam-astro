@@ -177,7 +177,41 @@ export default {
         subtitle: "The Heart of JamCam 2025",
         description: "Cali, known as the world capital of salsa, is a vibrant city with a deep history and incomparable culture. Its hospitality and festive spirit make it the perfect destination for this great Scouting event.",
         buttonText: "Discover Cali",
-        imageAlt: "Image of Cali"
+        imageAlt: "Image of Cali",
+        funFactLabel: "Fun Fact",
+        mapsButtonText: "View on Google Maps",
+        places: [
+            {
+                name: "San Pedro Metropolitan Cathedral",
+                description: "Located in Plaza de Caycedo, this cathedral is one of the most important temples in the city. With neoclassical architecture, it is a central point in the religious and cultural life of Cali.",
+                funFact: "Its construction began in 1772 and took more than 100 years to complete • Inside there are sacred art works of great historical and cultural value • The clock in its tower was brought from France.",
+                mapsUrl: "https://maps.app.goo.gl/A5sm3PtTvGn5UPTD6"
+            },
+            {
+                name: "Cerro de las Tres Cruces",
+                description: "This hill is a popular destination for hiking and outdoor exercise. From the top you can see the three crosses that give the place its name, as well as enjoy a privileged view of Cali.",
+                funFact: "The crosses were placed in 1937 as a symbol of protection for the city • It is a usual place for sports on weekends, especially hiking and cycling • During Holy Week it becomes a pilgrimage site.",
+                mapsUrl: "https://maps.app.goo.gl/oZr1S8EWUkibbHb88"
+            },
+            {
+                name: "Cali Tower",
+                description: "Standing 183 meters tall, the Cali Tower is the tallest building in the city. It is an icon of urban development and houses offices, a hotel and viewpoints with impressive views.",
+                funFact: "It was the tallest building in Colombia until 2008 • It has 44 floors and a public viewpoint at the top • Its construction was completed in 1979 and it remains an icon of Cali's skyline.",
+                mapsUrl: "https://maps.app.goo.gl/PVMEadfFJKJUF4ig7"
+            },
+            {
+                name: "Plaza de Caycedo",
+                description: "It is the main square of Cali's historic center. Surrounded by royal palms, colonial buildings and the cathedral, it is a meeting point and cultural reference for locals and tourists.",
+                funFact: "It is named after Joaquín de Caycedo y Cuero, hero of independence • It is known as the 'heart of Cali' • Cultural and artistic activities are frequently held here.",
+                mapsUrl: "https://maps.app.goo.gl/7ZB9uY6Smh9JU99g6"
+            },
+            {
+                name: "Cristo Rey",
+                description: "Cristo Rey is one of Cali's most emblematic monuments. Located on the Cerro de los Cristales, this 26-meter tall statue offers a spectacular panoramic view of the city. It is a highly visited tourist site and symbol of peace.",
+                funFact: "The statue was inaugurated in 1953 to commemorate 50 years of peace after the Thousand Days' War • It is made of iron and concrete and weighs more than 400 tons • On the way to the monument there are sculptures carved by artist Carlos Andrés Gómez.",
+                mapsUrl: "https://maps.app.goo.gl/qbafwNxqH7fnQd6A7"
+            }
+        ]
     },
     infoCards: {
         title: "Americas United for Peace: A Purposeful Event",

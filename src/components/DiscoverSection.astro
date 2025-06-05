@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import { getTranslations } from '../i18n';
 
 const locale = Astro.currentLocale || 'es';
@@ -11,36 +12,41 @@ function getLocalizedPath(path: string): string {
   return path === '/' ? `/${locale}/` : `/${locale}${path}`;
 }
 
-// Gallery images
+// Gallery images with place information
 const galleryImages = [
   {
     src: "/src/assets/cali-1.webp",
-    alt: `${t.discoverSection.imageAlt} #1`
+    alt: `${t.discoverSection.imageAlt} #1`,
+    place: t.discoverSection.places[0]
   },
   {
     src: "/src/assets/cali-2.webp", 
-    alt: `${t.discoverSection.imageAlt} #2`
+    alt: `${t.discoverSection.imageAlt} #2`,
+    place: t.discoverSection.places[1]
   },
   {
     src: "/src/assets/cali-3.webp",
-    alt: `${t.discoverSection.imageAlt} #3`
+    alt: `${t.discoverSection.imageAlt} #3`,
+    place: t.discoverSection.places[2]
   },
   {
     src: "/src/assets/cali-4.webp",
-    alt: `${t.discoverSection.imageAlt} #4`
+    alt: `${t.discoverSection.imageAlt} #4`,
+    place: t.discoverSection.places[3]
   },
   {
     src: "/src/assets/cali-5.webp",
-    alt: `${t.discoverSection.imageAlt} #5`
+    alt: `${t.discoverSection.imageAlt} #5`,
+    place: t.discoverSection.places[4]
   }
 ];
 ---
 
-<section class="discover-section pt-12 pb-6 px-5 md:pt-20 md:pb-10 md:px-5 bg-background-color">
+<section class="discover-section pt-12 pb-6 px-5 md:pt-20 md:pb-10 md:px-5 bg-background-color sm:py-[50px] sm:px-5">
   <div class="discover-content w-full max-w-6xl mx-auto">
     
     <!-- Text Section -->
-    <div class="discover-text text-center mb-8 md:mb-12">
+    <div class="discover-text text-center mb-8 md:mb-12 sm:mb-[25px] sm:px-[10px]">
       <h2 class="discover-title text-[2rem] md:text-[3rem] font-bold text-purple-jm mb-2.5 leading-tight">
         {t.discoverSection.title}
       </h2>
@@ -53,11 +59,12 @@ const galleryImages = [
     </div>
 
     <!-- Gallery -->
-    <div class="gallery flex flex-col gap-2 md:gap-3 mb-6 md:mb-10">
+    <div class="gallery flex flex-col gap-2 md:gap-3 mb-6 md:mb-10 sm:gap-1.5 sm:mb-5">
       <!-- First Row - 2 images -->
-      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center">
-        {galleryImages.slice(0, 2).map((image) => (
-          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_25px_rgba(0,0,0,0.15)]">
+      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center sm:gap-1.5">
+        {galleryImages.slice(0, 2).map((image, index) => (
+          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] cursor-pointer sm:rounded" 
+               data-image-index={index}>
             <img 
               src={image.src}
               alt={image.alt}
@@ -68,9 +75,10 @@ const galleryImages = [
       </div>
       
       <!-- Second Row - 3 images -->
-      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center">
-        {galleryImages.slice(2, 5).map((image) => (
-          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-shadow duration-200 hover:shadow-[0_6px_25px_rgba(0,0,0,0.15)]">
+      <div class="gallery-row flex flex-col md:flex-row gap-2 md:gap-3 justify-center sm:gap-1.5">
+        {galleryImages.slice(2, 5).map((image, index) => (
+          <div class="gallery-item flex-1 max-w-full md:max-w-[600px] aspect-video overflow-hidden rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all duration-300 ease-out hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] cursor-pointer sm:rounded" 
+               data-image-index={index + 2}>
             <img 
               src={image.src}
               alt={image.alt}
@@ -82,9 +90,9 @@ const galleryImages = [
     </div>
 
     <!-- Button -->
-    <div class="discover-button-container flex justify-center">
+    <div class="discover-button-container flex justify-center sm:mt-[15px]">
       <a 
-        href={getLocalizedPath('/about')}
+        href={getLocalizedPath('/cali')}
         class="discover-btn inline-flex items-center gap-2.5 bg-green-jm text-white px-6 py-3 font-semibold no-underline cursor-pointer rounded-none transition-all duration-200 ease-linear shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:scale-105 hover:shadow-[0_4px_8px_rgba(0,0,0,0.2)] border-2 border-green-jm"
       >
         {t.discoverSection.buttonText}
@@ -97,37 +105,323 @@ const galleryImages = [
   </div>
 </section>
 
+<!-- Image Modal -->
+<div id="image-modal" class="modal-overlay fixed inset-0 bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 transition-all duration-300 ease-out sm:p-2 md:p-6 lg:p-8">
+  
+  <!-- Navigation Controls - Floating Outside Modal -->
+  <button id="prev-modal" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white transition-all duration-200 shadow-lg border border-gray-200 group cursor-pointer sm:left-2">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 md:w-7 md:h-7 group-hover:scale-110 transition-transform">
+      <path d="M15 18L9 12L15 6"/>
+    </svg>
+  </button>
+
+  <button id="next-modal" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-[60] w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white transition-all duration-200 shadow-lg border border-gray-200 group cursor-pointer sm:right-2">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 md:w-7 md:h-7 group-hover:scale-110 transition-transform">
+      <path d="M9 18L15 12L9 6"/>
+    </svg>
+  </button>
+
+  <!-- Modal Content -->
+  <div class="modal-content relative bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-100 w-full md:h-full max-w-[1200px] max-h-[90vh] sm:max-w-[100vw] sm:max-h-[70vh] sm:h-auto sm:rounded-2xl md:max-w-[95vw] md:max-h-[85vh] md:h-[85vh] lg:max-w-[1200px] lg:max-h-[85vh] lg:h-[80vh]">
+    
+    <!-- Close Button - Floating -->
+    <button id="close-modal" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-white transition-all duration-200 shadow-lg border border-gray-200 group cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:scale-110 transition-transform">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Modal Content Layout -->
+    <div class="flex flex-col md:flex-row md:h-full overflow-hidden">
+      
+      <!-- Image Section -->
+      <div class="relative md:w-1/2 h-48 md:h-auto flex-shrink-0 overflow-hidden">
+        <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+       
+       <!-- Image Overlay with Location -->
+       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+         <div class="absolute bottom-4 left-4 flex items-center gap-2">
+           <div class="p-2 bg-orange-jm rounded-full">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-4 h-4 fill-white">
+               <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+             </svg>
+           </div>
+           <span class="text-white font-medium text-sm bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">Cali, Colombia</span>
+         </div>
+       </div>
+     </div>
+     
+     <!-- Content Section -->
+     <div class="md:w-1/2 flex flex-col min-h-0 md:flex-1">
+       
+       <!-- Header -->
+       <div class="p-3 md:p-6 pb-2 md:pb-4 pr-12 md:pr-16 border-b border-gray-100 flex-shrink-0">
+         <h3 id="modal-title" class="text-xl md:text-2xl lg:text-3xl font-bold text-purple-jm mb-2 leading-tight text-center md:text-left"></h3>
+       </div>
+       
+       <!-- Scrollable Content -->
+       <div class="flex-shrink overflow-y-auto p-3 md:p-6 space-y-2 md:space-y-6 min-h-0 md:flex-1">
+         
+         <!-- Description -->
+         <div>
+           <p id="modal-description" class="text-gray-700 text-sm md:text-base leading-relaxed text-center md:text-left"></p>
+         </div>
+         
+         <!-- Fun Fact Card -->
+         <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-jm/5 to-purple-jm/10 p-4 md:p-5 border border-purple-jm/20">
+           <!-- Background Pattern -->
+           <div class="absolute inset-0 opacity-5">
+             <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+               <defs>
+                 <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                   <circle cx="10" cy="10" r="1.5" fill="currentColor"/>
+                 </pattern>
+               </defs>
+               <rect width="100%" height="100%" fill="url(#dots)" class="text-purple-jm"/>
+             </svg>
+           </div>
+           
+           <div class="relative">
+             <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+               <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-purple-jm rounded-xl flex items-center justify-center">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 md:w-5 md:h-5 text-white">
+                   <circle cx="12" cy="12" r="10"/>
+                   <path d="M12 6v6l4 2"/>
+                 </svg>
+               </div>
+               <h4 id="modal-fun-fact-label" class="font-bold text-purple-jm text-xs md:text-sm uppercase tracking-wider">{t.discoverSection.funFactLabel}</h4>
+             </div>
+             <ul id="modal-fun-fact" class="text-gray-700 text-xs md:text-sm leading-relaxed pl-0 md:pl-13 space-y-1 text-center md:text-left"></ul>
+           </div>
+         </div>
+         
+       </div>
+       
+       <!-- Footer with Maps Button -->
+       <div class="p-3 md:p-6 pt-1 md:pt-4 border-t border-gray-100 flex-shrink-0">
+         <a id="modal-maps-link" href="#" target="_blank" rel="noopener noreferrer" 
+            class="group flex items-center justify-center gap-2 md:gap-3 w-full bg-gradient-to-r from-green-jm to-green-jm/90 hover:from-green-jm/90 hover:to-green-jm text-white px-4 md:px-6 py-3 md:py-4 rounded-xl font-semibold no-underline cursor-pointer transition-all duration-300 ease-out shadow-lg hover:shadow-xl hover:scale-[1.02] border border-green-jm/20">
+           <div class="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors flex-shrink-0">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3 md:w-4 md:h-4 group-hover:scale-110 transition-transform">
+               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+               <circle cx="12" cy="10" r="3"/>
+             </svg>
+           </div>
+           <span id="modal-maps-text" class="font-medium text-sm md:text-base text-center leading-tight">{t.discoverSection.mapsButtonText}</span>
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform flex-shrink-0">
+             <path d="M5 12h14"/>
+             <path d="M12 5l7 7-7 7"/>
+           </svg>
+         </a>
+       </div>
+       
+     </div>
+   </div>
+  </div>
+</div>
+
+<script define:vars={{ places: t.discoverSection.places, funFactLabel: t.discoverSection.funFactLabel, mapsButtonText: t.discoverSection.mapsButtonText }}>
+  // Gallery modal functionality - uses server-side data
+  const galleryImages = [
+    {
+      src: "/src/assets/cali-1.webp",
+      place: places[0]
+    },
+    {
+      src: "/src/assets/cali-2.webp",
+      place: places[1]
+    },
+    {
+      src: "/src/assets/cali-3.webp",
+      place: places[2]
+    },
+    {
+      src: "/src/assets/cali-4.webp",
+      place: places[3]
+    },
+    {
+      src: "/src/assets/cali-5.webp",
+      place: places[4]
+    }
+  ];
+
+  // Get modal elements
+  const modal = document.getElementById('image-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDescription = document.getElementById('modal-description');
+  const modalFunFact = document.getElementById('modal-fun-fact');
+  const modalMapsLink = document.getElementById('modal-maps-link');
+  const closeModalBtn = document.getElementById('close-modal');
+  const prevModalBtn = document.getElementById('prev-modal');
+  const nextModalBtn = document.getElementById('next-modal');
+  
+  // Get all gallery items
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentImageIndex = 0;
+
+  // Function to update modal content
+  function updateModalContent(imageIndex) {
+    currentImageIndex = imageIndex;
+    const imageData = galleryImages[imageIndex];
+    
+    if (modalImage && modalTitle && modalDescription && modalFunFact && modalMapsLink && imageData) {
+      modalImage.src = imageData.src;
+      modalImage.alt = imageData.place.name;
+      modalTitle.textContent = imageData.place.name;
+      modalDescription.textContent = imageData.place.description;
+      
+      // Format fun fact as list with periods at the end
+      modalFunFact.innerHTML = '';
+      const funFactItems = imageData.place.funFact.split('•').filter(item => item.trim());
+      funFactItems.forEach(item => {
+        const li = document.createElement('li');
+        let trimmedItem = item.trim();
+        // Add period if it doesn't end with punctuation
+        if (trimmedItem && !trimmedItem.match(/[.!?]$/)) {
+          trimmedItem += '.';
+        }
+        li.className = 'flex items-start justify-center md:justify-start gap-2';
+        li.innerHTML = `<span class="w-1.5 h-1.5 bg-purple-jm rounded-full mt-2 flex-shrink-0"></span><span>${trimmedItem}</span>`;
+        modalFunFact.appendChild(li);
+      });
+      
+      modalMapsLink.href = imageData.place.mapsUrl;
+    }
+  }
+
+  // Add click event to each gallery item
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const imageIndex = parseInt(item.getAttribute('data-image-index') || '0');
+      updateModalContent(imageIndex);
+      
+      // Show modal with animation
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        // Trigger entrance animation
+        requestAnimationFrame(() => {
+          modal.classList.add('modal-enter');
+        });
+      }
+    });
+  });
+
+  // Navigation functions
+  function navigateModal(direction) {
+    if (direction === 'prev') {
+      currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : galleryImages.length - 1;
+    } else if (direction === 'next') {
+      currentImageIndex = currentImageIndex < galleryImages.length - 1 ? currentImageIndex + 1 : 0;
+    }
+    updateModalContent(currentImageIndex);
+  }
+
+  // Close modal functionality
+  function closeModal() {
+    if (modal) {
+      modal.classList.add('modal-exit');
+      
+      // Wait for animation before hiding
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('modal-enter', 'modal-exit');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+  }
+
+  // Modal event listeners
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+
+  if (prevModalBtn) {
+    prevModalBtn.addEventListener('click', () => navigateModal('prev'));
+  }
+
+  if (nextModalBtn) {
+    nextModalBtn.addEventListener('click', () => navigateModal('next'));
+  }
+  
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (modal && !modal.classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateModal('prev');
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateModal('next');
+      }
+    }
+  });
+</script>
+
 <style>
   /* Custom background color variable for consistency */
   .discover-section {
     background: linear-gradient(to bottom, var(--background-color, #f8f6ff) 0%, var(--background-color, #f8f6ff) 70%, #faf9f6 100%);
   }
 
+  /* Modal animations */
+  .modal-content {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+
+  .modal-enter .modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  .modal-exit .modal-content {
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+
+  /* Gallery hover effects moved to Tailwind classes */
+
+  /* Scrollbar styling for modal content */
+  .modal-content ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .modal-content ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .modal-content ::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 3px;
+  }
+
+  .modal-content ::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+
+  /* Mobile specific styles */
   @media (max-width: 768px) {
-    .discover-section {
-      padding: 50px 20px 30px 20px;
-    }
-
-    .discover-text {
-      margin-bottom: 25px;
-      padding: 0 10px;
-    }
-
-    .gallery {
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .gallery-row {
-      gap: 6px;
-    }
-
-    .gallery-item {
-      border-radius: 4px;
-    }
-
-    .discover-button-container {
-      margin-top: 15px;
+    /* Ensure proper scrolling on mobile */
+    .modal-content .overflow-y-auto {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
+
+  /* Tablet and Desktop styles moved to Tailwind classes */
 </style> 

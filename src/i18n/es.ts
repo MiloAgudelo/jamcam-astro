@@ -177,7 +177,41 @@ export default {
         subtitle: "El Corazón del JamCam 2025",
         description: "Cali, conocida como la capital mundial de la salsa, es una ciudad vibrante con una profunda historia y una cultura incomparable. Su hospitalidad y espíritu festivo la convierten en el destino perfecto para este gran evento scout.",
         buttonText: "Descubre Cali",
-        imageAlt: "Imagen de Cali"
+        imageAlt: "Imagen de Cali",
+        funFactLabel: "Dato Curioso",
+        mapsButtonText: "Ver en Google Maps",
+        places: [
+            {
+                name: "Catedral Metropolitana de San Pedro",
+                description: "Situada en la Plaza de Caycedo, esta catedral es uno de los templos más importantes de la ciudad. De arquitectura neoclásica, es un punto central en la vida religiosa y cultural de Cali.",
+                funFact: "Su construcción comenzó en 1772 y tardó más de 100 años en finalizarse • Dentro se encuentran obras de arte sacro de gran valor histórico y cultural • El reloj de su torre fue traído desde Francia.",
+                mapsUrl: "https://maps.app.goo.gl/A5sm3PtTvGn5UPTD6"
+            },
+            {
+                name: "Cerro de las Tres Cruces",
+                description: "Este cerro es un popular destino para caminatas y ejercicio al aire libre. Desde la cima se pueden ver las tres cruces que dan nombre al lugar, así como disfrutar de una vista privilegiada de Cali.",
+                funFact: "Las cruces fueron colocadas en 1937 como símbolo de protección para la ciudad • Es un lugar habitual para hacer deporte los fines de semana, especialmente senderismo y ciclismo • En Semana Santa se convierte en un sitio de peregrinación.",
+                mapsUrl: "https://maps.app.goo.gl/oZr1S8EWUkibbHb88"
+            },
+            {
+                name: "Torre de Cali",
+                description: "Con 183 metros de altura, la Torre de Cali es el edificio más alto de la ciudad. Es un ícono del desarrollo urbano y alberga oficinas, un hotel y miradores con vistas impresionantes.",
+                funFact: "Fue el edificio más alto de Colombia hasta 2008 • Tiene 44 pisos y un mirador público en la parte alta • Su construcción terminó en 1979 y sigue siendo un ícono del skyline caleño.",
+                mapsUrl: "https://maps.app.goo.gl/PVMEadfFJKJUF4ig7"
+            },
+            {
+                name: "Plaza de Cayzedo",
+                description: "Es la plaza principal del centro histórico de Cali. Rodeada de palmeras reales, edificios coloniales y la catedral, es un punto de encuentro y referencia cultural para locales y turistas.",
+                funFact: "Lleva el nombre de Joaquín de Caycedo y Cuero, prócer de la independencia • Es conocida como el 'corazón de Cali' • Aquí se realizan actividades culturales y artísticas frecuentemente.",
+                mapsUrl: "https://maps.app.goo.gl/7ZB9uY6Smh9JU99g6"
+            },
+            {
+                name: "Cristo Rey",
+                description: "El Cristo Rey es uno de los monumentos más emblemáticos de Cali. Ubicado en el cerro de los Cristales, esta estatua de 26 metros de altura ofrece una vista panorámica espectacular de la ciudad. Es un sitio turístico muy visitado y símbolo de paz.",
+                funFact: "La estatua fue inaugurada en 1953 para conmemorar los 50 años de paz después de la Guerra de los Mil Días • Está hecha de hierro y concreto y pesa más de 400 toneladas • En el camino hacia el monumento hay esculturas talladas por el artista Carlos Andrés Gómez.",
+                mapsUrl: "https://maps.app.goo.gl/qbafwNxqH7fnQd6A7"
+            }
+        ]
     },
     infoCards: {
         title: "Américas Unidas por la Paz: Un Evento con Propósito",

@@ -5,6 +5,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import Analytics from '../components/Analytics.astro';
+import BannerPreloader from '../components/BannerPreloader.astro';
+import ImagePreloader from '../components/ImagePreloader.astro';
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale); 
 
@@ -86,6 +88,19 @@ const schemaDescription = t.description;
 		<meta name="msapplication-TileColor" content="#58238B">
 		<meta name="theme-color" content="#ffffff">
 
+		<!-- Critical resource preloading for better LCP -->
+		<BannerPreloader />
+		
+		<!-- DNS prefetch for external resources -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+		
+		<!-- Optimize font loading -->
+		<link rel="preload" href="/fonts/noto-sans-v36-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/noto-sans-v36-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/noto-sans-v36-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/noto-sans-v36-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
 		<!-- Vercel Analytics and Speed Insights -->
 		<Analytics />
 
@@ -95,6 +110,31 @@ const schemaDescription = t.description;
 			<slot />
 		<Footer />
 		<LanguageSwitcher />
+		<ImagePreloader />
+		
+		<!-- Service Worker Registration -->
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/sw.js')
+						.then((registration) => {
+							console.log('SW registered: ', registration);
+							
+							// Pre-cache banners for current locale
+							const locale = document.documentElement.lang || 'es';
+							if (registration.active) {
+								registration.active.postMessage({
+									type: 'PRECACHE_BANNERS',
+									locale: locale
+								});
+							}
+						})
+						.catch((registrationError) => {
+							console.log('SW registration failed: ', registrationError);
+						});
+				});
+			}
+		</script>
 	</body>
 </html>
 

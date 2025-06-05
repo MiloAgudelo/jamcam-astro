@@ -40,29 +40,99 @@ const logoImage = "/images/logo-jamcam-white.svg";
 ---
 
 <section class="banner-container w-full relative overflow-hidden">
-  <!-- Imagen de fondo responsive -->
-  <picture class="block w-full">
+  <!-- Imagen de fondo responsive con optimizaciones de rendimiento -->
+  <picture class="banner-picture">
     <!-- Desktop -->
     <source 
       media="(min-width: 1024px)" 
       srcset={desktopImage}
+      type="image/webp"
     />
     <!-- Mobile -->
     <img 
       src={mobileImage}
       alt="Banner JamCam 2025"
-      class="w-full h-auto object-contain"
+      class="banner-image"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+      width="768"
+      height="432"
     />
   </picture>
 
   <!-- Logo opcional centrado -->
   {showLogo && (
-    <div class="absolute inset-0 flex items-start justify-center z-10 pt-[20vh] lg:pt-[15vh]">
+    <div class="logo-overlay">
       <img 
         src={logoImage}
         alt="Logo JamCam 2025"
-        class="h-[280px] lg:h-[320px] w-auto object-contain"
+        class="logo-image"
+        loading="lazy"
+        decoding="async"
+        width="280"
+        height="320"
       />
     </div>
   )}
 </section>
+
+<style>
+  .banner-container {
+    /* Prevent layout shift by setting minimum height */
+    min-height: 250px; /* Mobile */
+    contain: layout style paint;
+  }
+
+  .banner-picture {
+    display: block;
+    width: 100%;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Optimize rendering */
+    will-change: auto;
+    transform: translateZ(0); /* Force GPU acceleration */
+  }
+
+  .logo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 10;
+    padding-top: 20vh;
+  }
+
+  .logo-image {
+    height: 280px;
+    width: auto;
+    object-fit: contain;
+    transform: translateZ(0); /* Force GPU acceleration */
+  }
+
+  @media (min-width: 1024px) {
+    .banner-container {
+      min-height: 400px; /* Desktop */
+    }
+
+    .logo-overlay {
+      padding-top: 15vh;
+    }
+
+    .logo-image {
+      height: 320px;
+    }
+  }
+
+  /* Optimize for faster repaints */
+  @media (hover: hover) {
+    .banner-image:hover {
+      transform: translateZ(0);
+    }
+  }
+</style>

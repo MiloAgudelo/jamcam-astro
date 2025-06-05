@@ -1,0 +1,98 @@
+---
+// Componente para precargar imágenes de manera inteligente
+const locale = Astro.currentLocale || 'es';
+---
+
+<script define:vars={{ locale }}>
+  // Preload images when browser is idle
+  function preloadCriticalImages() {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        preloadImages();
+      });
+    } else {
+      // Fallback for browsers that don't support requestIdleCallback
+      setTimeout(preloadImages, 2000);
+    }
+  }
+
+  function preloadImages() {
+    const imagesToPreload = [
+      `/images/banner-about-mobile-${locale}.webp`,
+      `/images/banner-about-desktop-${locale}.webp`,
+      `/images/banner-program-mobile-${locale}.webp`,
+      `/images/banner-program-desktop-${locale}.webp`
+    ];
+
+    imagesToPreload.forEach((src) => {
+      // Only preload if not already cached
+      if (!document.querySelector(`link[href="${src}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = src;
+        link.as = 'image';
+        link.type = 'image/webp';
+        document.head.appendChild(link);
+      }
+    });
+  }
+
+  // Start preloading after page load
+  if (document.readyState === 'complete') {
+    preloadCriticalImages();
+  } else {
+    window.addEventListener('load', preloadCriticalImages);
+  }
+
+  // Preload on hover over navigation links
+  function setupHoverPreloading() {
+    const navLinks = document.querySelectorAll('nav a[href]');
+    
+    navLinks.forEach((link) => {
+      let hasPreloaded = false;
+      
+      link.addEventListener('mouseenter', () => {
+        if (!hasPreloaded) {
+          hasPreloaded = true;
+          const href = link.getAttribute('href');
+          
+          if (href) {
+            // Determine what page this link goes to
+            let pageName = '';
+            if (href.includes('/about') || href.includes('/acerca')) {
+              pageName = 'about';
+            } else if (href.includes('/program') || href.includes('/programa')) {
+              pageName = 'program';
+            } else if (href.includes('/resources') || href.includes('/recursos')) {
+              pageName = 'resources';
+            } else if (href.includes('/contacts') || href.includes('/contactos')) {
+              pageName = 'contacts';
+            }
+
+            if (pageName) {
+              // Preload banner for that page
+              const mobileImg = `/images/banner-${pageName}-mobile-${locale}.webp`;
+              const desktopImg = `/images/banner-${pageName}-desktop-${locale}.webp`;
+              
+              [mobileImg, desktopImg].forEach((src) => {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = src;
+                link.as = 'image';
+                link.type = 'image/webp';
+                document.head.appendChild(link);
+              });
+            }
+          }
+        }
+      }, { once: true });
+    });
+  }
+
+  // Setup hover preloading when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupHoverPreloading);
+  } else {
+    setupHoverPreloading();
+  }
+</script> 

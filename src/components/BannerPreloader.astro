@@ -1,0 +1,27 @@
+---
+// Component para precargar banners dinámicamente según la ruta
+const locale = Astro.currentLocale || 'es';
+const currentPath = Astro.url.pathname;
+
+// Detectar si estamos en la página home
+const isHomePage = currentPath === '/' || currentPath.match(/^\/[a-z]{2}\/?$/);
+
+let mobileImage: string;
+let desktopImage: string;
+
+if (isHomePage) {
+  // Para la página home
+  mobileImage = `/images/banner-home-mobile.webp`;
+  desktopImage = `/images/banner-home-desktop.webp`;
+} else {
+  // Para otras rutas
+  const pathWithoutLocale = currentPath.replace(/^\/[a-z]{2}\//, '/').replace(/^\/+|\/+$/g, '');
+  const routeName = pathWithoutLocale.split('/')[0] || 'home';
+  mobileImage = `/images/banner-${routeName}-mobile-${locale}.webp`;
+  desktopImage = `/images/banner-${routeName}-desktop-${locale}.webp`;
+}
+---
+
+<!-- Preload critical banner images -->
+<link rel="preload" href={mobileImage} as="image" type="image/webp" media="(max-width: 1023px)">
+<link rel="preload" href={desktopImage} as="image" type="image/webp" media="(min-width: 1024px)"> 

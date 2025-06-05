@@ -170,7 +170,7 @@ export default {
         subtitle: "Découvrez l'aventure du JamCam 2025",
         description: "JamCam 2025 n'est pas qu'un simple événement, c'est une expérience transformatrice où des milliers de jeunes de toutes les Amériques se réuniront pour célébrer la fraternité, la diversité et l'aventure. À travers des activités conçues pour promouvoir l'inclusion, la durabilité et la paix, cet événement marquera un avant et un après dans la vie de chaque participant.",
         buttonText: "En savoir plus",
-        imageAlt: "Foto de la expérience du JamCam"
+        imageAlt: "Photo de l'expérience du JamCam"
     },
     discoverSection: {
         title: "Cali, Colombie:",

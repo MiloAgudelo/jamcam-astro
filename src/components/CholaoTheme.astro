@@ -82,16 +82,16 @@ const images = [
                   <div class={`text-left mx-6 lg:mx-0 ${isImageRight ? 'lg:mr-8 lg:ml-6' : 'lg:ml-8 lg:mr-6'} ${isFirstSection ? 'ml-100' : ''}`}>
                     {isFirstSection && (
                       <div class="mb-6 lg:mb-8">
-                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-jm leading-tight mb-3">
+                        <h1 class="text-[1.3rem] md:text-[1.8rem] font-bold text-purple-jm leading-tight mb-3">
                           {t.cholaoTheme.mainTitle}
                         </h1>
-                        <h2 class="text-lg md:text-xl lg:text-2xl font-semibold text-orange-jm mb-4">
+                        <h2 class="text-[1.1rem] md:text-[1.3rem] font-semibold text-orange-jm mb-4">
                           {t.cholaoTheme.mainSubtitle}
                         </h2>
                       </div>
                     )}
                     <div 
-                      class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light"
+                      class="text-[1.1rem] md:text-[1.5rem] text-black leading-relaxed font-light"
                       set:html={processText(section.text)}
                     />
                   </div>
@@ -115,16 +115,16 @@ const images = [
                 <div class="text-center lg:text-left mx-6">
                   {isFirstSection && (
                     <div class="mb-6">
-                      <h1 class="text-2xl md:text-3xl font-bold text-purple-jm leading-tight mb-3 text-center">
+                      <h1 class="text-[1.3rem] md:text-[1.8rem] font-bold text-purple-jm leading-tight mb-3 text-center">
                         {t.cholaoTheme.mainTitle}
                       </h1>
-                      <h2 class="text-lg md:text-xl font-semibold text-orange-jm mb-4 text-center">
+                      <h2 class="text-[1.1rem] md:text-[1.3rem] font-semibold text-orange-jm mb-4 text-center">
                         {t.cholaoTheme.mainSubtitle}
                       </h2>
                     </div>
                   )}
                   <div 
-                    class="text-base md:text-lg text-black leading-relaxed font-light text-center lg:text-left"
+                    class="text-[1.1rem] md:text-[1.5rem] text-black leading-relaxed font-light text-center lg:text-left"
                     set:html={processText(section.text)}
                   />
                 </div>
@@ -138,7 +138,7 @@ const images = [
             <div class={`px-4 py-6 flex justify-center ${index === 0 ? '-mt-10' : index === 1 ? '-mt-8 lg:-mt-40' : index === 2 ? '-mt-8 lg:-mt-20' : index === 3 ? '-mt-8 lg:-mt-20' : index === 6 ? '-mt-8 lg:-mt-40' : index === 7 ? '-mt-8 lg:-mt-20' : ''}`}>
               <div class="text-center max-w-4xl">
                 <div 
-                  class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light"
+                  class="text-[1.1rem] md:text-[1.5rem] text-black leading-relaxed font-light"
                   set:html={processText(section.text)}
                 />
               </div>
@@ -157,17 +157,17 @@ const images = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-4xl mx-auto">
       <h2
-        class="text-2xl md:text-3xl lg:text-4xl font-bold text-purple-jm leading-tight mb-3"
+        class="text-[1.3rem] md:text-[1.8rem] font-bold text-purple-jm leading-tight mb-3"
       >
         {t.officialThemeSection.title}
       </h2>
       <h3
-        class="text-lg md:text-xl lg:text-2xl font-semibold text-orange-jm mb-6"
+        class="text-[1.1rem] md:text-[1.3rem] font-semibold text-orange-jm mb-6"
       >
         {t.officialThemeSection.subtitle}
       </h3>
       <p
-        class="text-base md:text-lg lg:text-xl text-black leading-relaxed font-light"
+        class="text-[1.1rem] md:text-[1.5rem] text-black leading-relaxed font-light"
       >
         {t.officialThemeSection.description}
       </p>

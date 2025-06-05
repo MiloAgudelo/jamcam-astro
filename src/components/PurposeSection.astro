@@ -1,6 +1,7 @@
 ---
 import { getTranslations } from '../i18n';
 import '../styles/global.css';
+import Carousel from './Carousel.astro';
 
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
@@ -42,31 +43,12 @@ const carouselImages = [
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       
       <!-- Carousel Section -->
-      <div class="order-1 flex justify-center lg:justify-start">
-        <div class="relative">
-          <!-- Main Carousel Container -->
-          <div 
-            id="purpose-carousel" 
-            class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-lg overflow-hidden"
-          >
-            <!-- Image Slides -->
-            {carouselImages.map((image, index) => (
-              <div 
-                class={`carousel-slide absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                  index === 0 ? 'opacity-100' : 'opacity-0'
-                }`}
-                data-slide-index={index}
-              >
-                <img 
-                  src={image.src}
-                  alt={image.alt}
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="order-1">
+        <Carousel 
+          images={carouselImages}
+          carouselId="purpose-carousel"
+          className="lg:justify-start"
+        />
       </div>
 
       <!-- Text Content -->
@@ -94,77 +76,14 @@ const carouselImages = [
   </div>
 </section>
 
-<script>
-  class PurposeCarousel {
-    private carousel: HTMLElement | null;
-    private slides: NodeListOf<Element>;
-    private currentSlide: number = 0;
-    private totalSlides: number;
-    private intervalId: number | null = null;
 
-    constructor() {
-      this.carousel = document.getElementById('purpose-carousel');
-      this.slides = document.querySelectorAll('.carousel-slide');
-      this.totalSlides = this.slides.length;
-      
-      if (this.carousel && this.slides.length > 0) {
-        this.init();
-      }
-    }
-
-    init() {
-      // Start auto-rotation
-      this.startAutoRotation();
-    }
-
-    showSlide(index: number) {
-      // Update slides
-      this.slides.forEach((slide, i) => {
-        const slideElement = slide as HTMLElement;
-        if (i === index) {
-          slideElement.classList.remove('opacity-0');
-          slideElement.classList.add('opacity-100');
-        } else {
-          slideElement.classList.remove('opacity-100');
-          slideElement.classList.add('opacity-0');
-        }
-      });
-    }
-
-    nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-      this.showSlide(this.currentSlide);
-    }
-
-    startAutoRotation() {
-      this.pauseAutoRotation();
-      this.intervalId = window.setInterval(() => {
-        this.nextSlide();
-      }, 4000);
-    }
-
-    pauseAutoRotation() {
-      if (this.intervalId) {
-        clearInterval(this.intervalId);
-        this.intervalId = null;
-      }
-    }
-  }
-
-  // Initialize carousel when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new PurposeCarousel();
-  });
-</script>
 
 <style>
   .purpose-section {
     min-height: 100vh;
   }
 
-  .carousel-slide {
-    transition: opacity 500ms ease-in-out;
-  }
+
 
   .title-shadow {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 0px 0px 1px rgba(0, 0, 0, 0.3);

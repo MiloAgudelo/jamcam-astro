@@ -1,6 +1,7 @@
 ---
 import { getTranslations } from '../i18n';
 import '../styles/global.css';
+import Carousel from './Carousel.astro';
 
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
@@ -63,102 +64,16 @@ const carouselImages = [
       </div>
 
       <!-- Second Column - Carousel Section -->
-      <div class="order-2 flex justify-center lg:justify-end">
-        <div class="relative">
-          <!-- Main Carousel Container -->
-          <div 
-            id="service-team-info-carousel" 
-            class="relative w-80 h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] rounded-lg overflow-hidden"
-          >
-            <!-- Image Slides -->
-            {carouselImages.map((image, index) => (
-              <div 
-                class={`carousel-slide absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                  index === 0 ? 'opacity-100' : 'opacity-0'
-                }`}
-                data-slide-index={index}
-              >
-                <img 
-                  src={image.src}
-                  alt={image.alt}
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+      <div class="order-2">
+        <Carousel 
+          images={carouselImages}
+          carouselId="service-team-info-carousel"
+          className="lg:justify-end"
+        />
       </div>
       
     </div>
   </div>
 </section>
 
-<script>
-  class ServiceTeamInfoCarousel {
-    private carousel: HTMLElement | null;
-    private slides: NodeListOf<Element>;
-    private currentSlide: number = 0;
-    private totalSlides: number;
-    private intervalId: number | null = null;
-
-    constructor() {
-      this.carousel = document.getElementById('service-team-info-carousel');
-      this.slides = document.querySelectorAll('#service-team-info-carousel .carousel-slide');
-      this.totalSlides = this.slides.length;
-      
-      if (this.carousel && this.slides.length > 0) {
-        this.init();
-      }
-    }
-
-    init() {
-      // Start auto-rotation
-      this.startAutoRotation();
-    }
-
-    showSlide(index: number) {
-      // Update slides
-      this.slides.forEach((slide, i) => {
-        const slideElement = slide as HTMLElement;
-        if (i === index) {
-          slideElement.classList.remove('opacity-0');
-          slideElement.classList.add('opacity-100');
-        } else {
-          slideElement.classList.remove('opacity-100');
-          slideElement.classList.add('opacity-0');
-        }
-      });
-    }
-
-    nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-      this.showSlide(this.currentSlide);
-    }
-
-    startAutoRotation() {
-      this.pauseAutoRotation();
-      this.intervalId = window.setInterval(() => {
-        this.nextSlide();
-      }, 4000);
-    }
-
-    pauseAutoRotation() {
-      if (this.intervalId) {
-        clearInterval(this.intervalId);
-        this.intervalId = null;
-      }
-    }
-  }
-
-  // Initialize carousel when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new ServiceTeamInfoCarousel();
-  });
-</script>
-
-<style>
-  .carousel-slide {
-    transition: opacity 500ms ease-in-out;
-  }
-</style> 
+ 

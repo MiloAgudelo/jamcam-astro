@@ -81,6 +81,21 @@ export default {
             date: "2 de enero de 2026"
         }
     },
+    serviceTeamBenefitsSection: {
+        title: "¿Por qué ser parte del EIS?",
+        description: "Ser miembro del Equipo Internacional de Servicio es una experiencia única para:",
+        benefits: [
+            "Contribuir activamente al Movimiento Scout",
+            "Vivir una experiencia multicultural e interamericana",
+            "Desarrollar habilidades de liderazgo y servicio",
+            "Crear amistades para toda la vida",
+            "Inspirar a Jóvenes Scouts y dejar huella en sus vidas"
+        ]
+    },
+    serviceTeamJoinSection: {
+        title: "Inscríbete y sé parte de la historia del JamCam 2025",
+        description: "¡El JamCam 2025 te necesita! Si estás listo para vivir el espíritu scout en acción y apoyar el evento scout más importante de la Región Interamericana, aplica como voluntario del EIS. Sé parte de un equipo comprometido que hará posible una experiencia inolvidable para miles de jóvenes scouts."
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas por la Paz",
         subtitle: "Descubre la aventura del JamCam 2025",

@@ -1,0 +1,34 @@
+---
+import { getTranslations } from '../i18n';
+import '../styles/global.css';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<section class="relative w-full py-18 lg:py-28 overflow-hidden">
+  <!-- Background SVG -->
+  <div class="absolute inset-0 w-full h-full">
+    <img 
+      src="/src/assets/service-team-pink-wave.svg" 
+      alt="Pink wave background" 
+      class="w-full h-full object-cover"
+    />
+  </div>
+  
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 lg:px-8 mt-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <!-- Title with blue underline -->
+      <h2 class="text-white text-3xl lg:text-4xl font-bold mb-6 relative inline-block lg:whitespace-nowrap">
+        {t.serviceTeamJoinSection.title}
+        <span class="absolute -bottom-2 left-0 w-full h-1 bg-green-jm rounded-full"></span>
+      </h2>
+      
+      <!-- Description text -->
+      <p class="text-black text-lg lg:text-xl leading-relaxed font-medium">
+        {t.serviceTeamJoinSection.description}
+      </p>
+    </div>
+  </div>
+</section>

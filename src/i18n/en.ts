@@ -81,6 +81,21 @@ export default {
             date: "January 2, 2026"
         }
     },
+    serviceTeamBenefitsSection: {
+        title: "Why be part of the IST?",
+        description: "Being a member of the International Service Team is a unique experience to:",
+        benefits: [
+            "Actively contribute to the Scout Movement",
+            "Live a multicultural and inter-American experience",
+            "Develop leadership and service skills",
+            "Create friendships for life",
+            "Inspire young Scouts and leave a mark on their lives"
+        ]
+    },
+    serviceTeamJoinSection: {
+        title: "Register and be part of JamCam 2025 history",
+        description: "JamCam 2025 needs you! If you're ready to live the Scout spirit in action and support the most important Scout event in the Inter-American Region, apply as an IST volunteer. Be part of a committed team that will make an unforgettable experience possible for thousands of young Scouts."
+    },
     infoSection: {
         title: "JamCam 2025 - Americas United for Peace",
         subtitle: "Discover the adventure of JamCam 2025",

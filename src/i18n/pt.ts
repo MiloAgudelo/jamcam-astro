@@ -81,6 +81,21 @@ export default {
             date: "2 de janeiro de 2026"
         }
     },
+    serviceTeamBenefitsSection: {
+        title: "Por que fazer parte da EIS?",
+        description: "Ser membro da Equipe Internacional de Serviço é uma experiência única para:",
+        benefits: [
+            "Contribuir ativamente para o Movimento Escoteiro",
+            "Viver uma experiência multicultural e interamericana",
+            "Desenvolver habilidades de liderança e serviço",
+            "Criar amizades para toda a vida",
+            "Inspirar jovens escoteiros e deixar sua marca em suas vidas"
+        ]
+    },
+    serviceTeamJoinSection: {
+        title: "Inscreva-se e faça parte da história do JamCam 2025",
+        description: "O JamCam 2025 precisa de você! Se você está pronto para viver o espírito escoteiro em ação e apoiar o evento escoteiro mais importante da Região Interamericana, candidate-se como voluntário da EIS. Faça parte de uma equipe comprometida que tornará possível uma experiência inesquecível para milhares de jovens escoteiros."
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas pela Paz",
         subtitle: "Descubra a aventura do JamCam 2025",

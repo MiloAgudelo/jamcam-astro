@@ -135,45 +135,30 @@ export default {
         daysLong: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         eventsTitle: "Today's Events",
         events: {
-            "2025-01-15": [
-                "Pre-registration Opens",
-                "Official Website Launch"
-            ],
-            "2025-03-30": [
-                "Early Pre-registration Closes",
-                "Regular Rates Begin"
-            ],
             "2025-04-30": [
-                "Contingent Confirmation",
-                "Early Bird Payment Deadline"
+                "Deadline for contingent confirmation",
+                "Deadline for early registration payment"
             ],
-            "2025-06-15": [
-                "Regular Registration Opens",
-                "Detailed Program Release"
+            "2025-06-28": [
+                "In-person meeting of Contingent Leaders"
+            ],
+            "2025-08-30": [
+                "Deadline for regular registration payment"
+            ],
+            "2025-09-01": [
+                "Publication - Bulletin 3"
             ],
             "2025-09-30": [
-                "Regular Registration Closes",
-                "Special Request Deadline"
-            ],
-            "2025-11-15": [
-                "Final Participant Confirmation",
-                "Welcome Kits Sent"
+                "Deadline for late registration payment"
             ],
             "2025-12-26": [
-                "JAMCAM 2025 BEGINS!",
-                "Opening Ceremony"
+                "IST and CMT members arrival at JamCam 2025 site"
             ],
             "2025-12-27": [
-                "First Full Day of Activities",
-                "Cultural and Sports Activities"
-            ],
-            "2025-12-31": [
-                "New Year's Eve Celebration",
-                "Multicultural Party"
+                "Participants arrival at JamCam 2025 site"
             ],
             "2026-01-02": [
-                "Closing Ceremony",
-                "Farewell and See You Soon"
+                "Departure of participants, IST and CMT from JamCam 2025 site"
             ]
         } as Record<string, string[]>,
         noEventsMessage: "No events scheduled for this date",

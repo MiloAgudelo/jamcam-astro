@@ -135,45 +135,47 @@ export default {
         daysLong: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
         eventsTitle: "Eventos del día",
         events: {
-            "2025-01-15": [
-                "Apertura de Pre-inscripciones",
-                "Lanzamiento oficial del sitio web"
-            ],
-            "2025-03-30": [
-                "Cierre de Pre-inscripciones Tempranas",
-                "Inicio de tarifas regulares"
-            ],
             "2025-04-30": [
-                "Confirmación de Contingentes",
-                "Pago de Inscripción Anticipada"
+                "Fecha límite para confirmación de contingentes",
+                "Fecha límite para el pago de inscripción anticipada"
             ],
-            "2025-06-15": [
-                "Apertura de Inscripciones Regulares",
-                "Publicación del programa detallado"
+            "2025-06-28": [
+                "Reunión presencial de Jefes de Contingentes"
+            ],
+            "2025-08-30": [
+                "Fecha límite para el pago de la inscripción regular"
+            ],
+            "2025-09-01": [
+                "Publicación - Boletín 3"
             ],
             "2025-09-30": [
-                "Cierre de Inscripciones Regulares",
-                "Fecha límite para solicitudes especiales"
-            ],
-            "2025-11-15": [
-                "Confirmación final de participantes",
-                "Envío de kits de bienvenida"
+                "Fecha límite para el pago de inscripción tardía"
             ],
             "2025-12-26": [
-                "¡COMIENZA JAMCAM 2025!",
-                "Ceremonia de apertura"
+                "Ingreso miembros EIS y CMT al sitio de JamCam 2025"
             ],
             "2025-12-27": [
-                "Primer día completo de actividades",
-                "Actividades culturales y deportivas"
+                "JamCam 2025 🏕️🤝🌎",
+                "Ingreso participantes al sitio de JamCam 2025"
+            ],
+            "2025-12-28": [
+                "JamCam 2025 🏕️🤝🌎"
+            ],
+            "2025-12-29": [
+                "JamCam 2025 🏕️🤝🌎"
+            ],
+            "2025-12-30": [
+                "JamCam 2025 🏕️🤝🌎"
             ],
             "2025-12-31": [
-                "Celebración de Año Nuevo",
-                "Fiesta multicultural"
+                "JamCam 2025 🏕️🤝🌎"
+            ],
+            "2026-01-01": [
+                "JamCam 2025 🏕️🤝🌎"
             ],
             "2026-01-02": [
-                "Ceremonia de clausura",
-                "Despedida y hasta la vista"
+                "JamCam 2025 🏕️🤝🌎",
+                "Salida de los participantes, EIS y CMT del sitio de JamCam 2025"
             ]
         } as Record<string, string[]>,
         noEventsMessage: "No hay eventos programados para esta fecha",

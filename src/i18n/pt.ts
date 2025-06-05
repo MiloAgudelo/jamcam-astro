@@ -60,6 +60,27 @@ export default {
         whoCanParticipateDescription: "Qualquer pessoa maior de 18 anos no início do evento, que esteja registrada como parte do contingente de uma Organização Escoteira Nacional (OEN), pode se candidatar para fazer parte da EIS. A participação deve ser previamente aprovada por sua OEN antes que seja feita a designação final de funções.",
         imageAlt: "Atividades da Equipe Internacional de Serviço"
     },
+    serviceTeamRolesSection: {
+        title: "Processo de Registro e Preferências de Voluntariado",
+        description1: "Durante o registro, você terá a oportunidade de escolher até três papéis de sua preferência. Para ajudá-lo nesta decisão, será fornecido um manual de papéis e funções, onde você poderá conhecer as responsabilidades de cada posição e as habilidades necessárias.",
+        description2: "Alguns papéis podem incluir trabalho noturno ou longas jornadas, mas não se preocupe! O evento oferece espaços adequados para seu descanso e um programa exclusivo para a EIS, com atividades culturais, recreativas, desafiadoras e de turismo, ideais para aproveitar ao máximo sua experiência quando não estiver em serviço.",
+        imageAlt: "Papéis da Equipe Internacional de Serviço"
+    },
+    serviceTeamKeyDatesSection: {
+        title: "Datas Importantes",
+        eisArrival: {
+            title: "Chegada da EIS",
+            date: "26 de dezembro de 2025"
+        },
+        jamcamStart: {
+            title: "Início oficial do JamCam 2025",
+            date: "27 de dezembro de 2025"
+        },
+        eisDeparture: {
+            title: "Encerramento e partida da EIS",
+            date: "2 de janeiro de 2026"
+        }
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas pela Paz",
         subtitle: "Descubra a aventura do JamCam 2025",

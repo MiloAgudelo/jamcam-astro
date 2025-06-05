@@ -60,6 +60,27 @@ export default {
         whoCanParticipateDescription: "Cualquier persona mayor de 18 años al inicio del evento, que esté registrada como parte del contingente de una Organización Scout Nacional (OSN), puede aplicar para ser parte del EIS. La participación debe ser aprobada previamente por su OSN antes de que se realice la asignación final de roles.",
         imageAlt: "Actividades del Equipo Internacional de Servicio"
     },
+    serviceTeamRolesSection: {
+        title: "Proceso de Registro y Preferencias de Voluntariados",
+        description1: "Durante el registro, tendrás la posibilidad de elegir hasta tres roles de tu preferencia. Para ayudarte en esta decisión, se entregará un manual de roles y funciones, donde podrás conocer las responsabilidades de cada puesto y las habilidades requeridas.",
+        description2: "Algunos roles pueden incluir trabajo nocturno o largas jornadas, pero ¡no te preocupes! El evento ofrece espacios adecuados para tu descanso y un programa exclusivo para el EIS, con actividades culturales, recreativas, desafiantes y de turismo, ideales para disfrutar tu experiencia al máximo cuando no estés en turno.",
+        imageAlt: "Roles del Equipo Internacional de Servicio"
+    },
+    serviceTeamKeyDatesSection: {
+        title: "Fechas Clave",
+        eisArrival: {
+            title: "Llegada del EIS",
+            date: "26 de diciembre de 2025"
+        },
+        jamcamStart: {
+            title: "Inicio oficial del JamCam 2025",
+            date: "27 de diciembre de 2025"
+        },
+        eisDeparture: {
+            title: "Finalización y salida del EIS",
+            date: "2 de enero de 2026"
+        }
+    },
     infoSection: {
         title: "JamCam 2025 - Américas Unidas por la Paz",
         subtitle: "Descubre la aventura del JamCam 2025",

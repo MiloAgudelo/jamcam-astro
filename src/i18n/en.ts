@@ -60,6 +60,27 @@ export default {
         whoCanParticipateDescription: "Anyone over 18 years of age at the start of the event, who is registered as part of the contingent of a National Scout Organization (NSO), can apply to be part of the IST. Participation must be previously approved by their NSO before the final assignment of roles is made.",
         imageAlt: "International Service Team activities"
     },
+    serviceTeamRolesSection: {
+        title: "Registration Process and Volunteer Preferences",
+        description1: "During registration, you will have the opportunity to choose up to three roles of your preference. To help you make this decision, a manual of roles and functions will be provided, where you can learn about the responsibilities of each position and the required skills.",
+        description2: "Some roles may include night work or long shifts, but don't worry! The event offers adequate spaces for your rest and an exclusive program for the IST, with cultural, recreational, challenging and tourism activities, ideal for enjoying your experience to the fullest when you're not on duty.",
+        imageAlt: "International Service Team roles"
+    },
+    serviceTeamKeyDatesSection: {
+        title: "Key Dates",
+        eisArrival: {
+            title: "IST Arrival",
+            date: "December 26, 2025"
+        },
+        jamcamStart: {
+            title: "Official Start of JamCam 2025",
+            date: "December 27, 2025"
+        },
+        eisDeparture: {
+            title: "End and IST Departure",
+            date: "January 2, 2026"
+        }
+    },
     infoSection: {
         title: "JamCam 2025 - Americas United for Peace",
         subtitle: "Discover the adventure of JamCam 2025",

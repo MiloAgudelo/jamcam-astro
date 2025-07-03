@@ -25,6 +25,7 @@ if (isHomePage) {
 // Construir las rutas de las imágenes basándose en la ruta y locale
 let mobileImage: string;
 let desktopImage: string;
+let secondDesktopImage: string | null = null;
 let mobileWidth: number;
 let mobileHeight: number;
 let desktopWidth: number;
@@ -34,6 +35,7 @@ if (isHomePage) {
   // Para la página home, usar el patrón original con dimensiones específicas
   mobileImage = `/images/banner-home-mobile.webp`;
   desktopImage = `/images/banner-home-desktop.webp`;
+  secondDesktopImage = `/images/banner-home-invitation-desktop-${locale}.webp`;
   mobileWidth = 768;
   mobileHeight = 432;
   desktopWidth = 1920;
@@ -51,33 +53,90 @@ if (isHomePage) {
 const logoImage = "/images/logo-jamcam-white.svg";
 ---
 
-<section class="banner-container w-full relative">
-  <!-- Imagen de fondo responsive con optimizaciones de rendimiento -->
-  <picture class="banner-picture">
-    <!-- Desktop -->
-    <source 
-      media="(min-width: 1024px)" 
-      srcset={desktopImage}
-      type="image/webp"
-      width={desktopWidth}
-      height={desktopHeight}
-    />
-    <!-- Mobile -->
-    <img 
-      src={mobileImage}
-      alt="Banner JamCam 2025"
-      class="banner-image"
-      loading="eager"
-      fetchpriority="high"
-      decoding="sync"
-      width={mobileWidth}
-      height={mobileHeight}
-    />
-  </picture>
+<section class="banner-container w-full relative overflow-hidden">
+  {isHomePage ? (
+    <!-- Carousel for home page -->
+    <div 
+      class="carousel-wrapper"
+      id="home-carousel-wrapper"
+      data-desktop-image-1={desktopImage}
+      data-desktop-image-2={secondDesktopImage}
+      data-mobile-image={mobileImage}
+    >
+      <!-- First slide -->
+      <div class="carousel-slide active">
+        <picture class="banner-picture">
+          <source
+            media="(min-width: 1024px)"
+            srcset={desktopImage}
+            type="image/webp"
+            width={desktopWidth}
+            height={desktopHeight}
+          />
+          <img 
+            src={mobileImage}
+            alt="Banner JamCam 2025"
+            class="banner-image"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
+            width={mobileWidth}
+            height={mobileHeight}
+          />
+        </picture>
+      </div>
+      
+      <!-- Second slide -->
+      <div class="carousel-slide">
+        <a href="/images/docs/jamcam-global-invitation-letter.pdf" target="_blank" rel="noopener noreferrer" class="banner-link">
+          <picture class="banner-picture">
+            <source
+              media="(min-width: 1024px)"
+              srcset={secondDesktopImage}
+              type="image/webp"
+              width={desktopWidth}
+              height={desktopHeight}
+            />
+            <img 
+              src={mobileImage}
+              alt="Banner JamCam 2025 - Boletín"
+              class="banner-image"
+              loading="eager"
+              fetchpriority="high"
+              decoding="sync"
+              width={mobileWidth}
+              height={mobileHeight}
+            />
+          </picture>
+        </a>
+      </div>
+    </div>
+  ) : (
+    <!-- Single image for other pages -->
+    <picture class="banner-picture">
+      <source
+        media="(min-width: 1024px)"
+        srcset={desktopImage}
+        type="image/webp"
+        width={desktopWidth}
+        height={desktopHeight}
+      />
+      <img 
+        src={mobileImage}
+        alt="Banner JamCam 2025"
+        class="banner-image"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        width={mobileWidth}
+        height={mobileHeight}
+      />
+    </picture>
+  )}
 
   <!-- Logo opcional centrado -->
   {showLogo && (
-    <div class="logo-overlay">
+    <div class="logo-overlay" id={isHomePage ? "logo-overlay" : undefined}>
       <img 
         src={logoImage}
         alt="Logo JamCam 2025"
@@ -92,7 +151,125 @@ const logoImage = "/images/logo-jamcam-white.svg";
   )}
 </section>
 
+<script define:vars={{ isHomePage, showLogo }}>
+  if (isHomePage) {
+    const initBannerCarousel = () => {
+      const carouselWrapper = document.getElementById("home-carousel-wrapper");
+      const logoOverlay = showLogo ? document.getElementById("logo-overlay") : null;
+
+      if (!carouselWrapper) {
+        return;
+      }
+
+      // Check if the carousel is already running to avoid multiple initializations
+      if (carouselWrapper.dataset.carouselActive === "true") {
+        return;
+      }
+      carouselWrapper.dataset.carouselActive = "true";
+
+      const slides = carouselWrapper.querySelectorAll('.carousel-slide');
+      if (slides.length < 2) {
+        return;
+      }
+
+      let currentSlide = 0;
+
+      // Preload the second image
+      const desktopImage2 = carouselWrapper.dataset.desktopImage2;
+      if (desktopImage2) {
+        const preloadImage = new Image();
+        preloadImage.src = desktopImage2;
+      }
+
+      setInterval(() => {
+        const prevSlide = currentSlide;
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Reset all slides
+        slides.forEach(slide => {
+          slide.classList.remove('active', 'prev');
+        });
+        
+        // Set current slide as active (slides in from right)
+        slides[currentSlide].classList.add('active');
+        
+        // Set previous slide to slide out to the left
+        slides[prevSlide].classList.add('prev');
+        
+        // Toggle logo visibility with smooth transition (show only on first slide)
+        if (logoOverlay) {
+          if (currentSlide === 0) {
+            logoOverlay.classList.remove('hidden');
+          } else {
+            logoOverlay.classList.add('hidden');
+          }
+        }
+              }, 6000);
+    };
+
+    // Use a simple timeout to ensure DOM is ready
+    setTimeout(initBannerCarousel, 100);
+    
+    // Also listen for Astro page load events
+    document.addEventListener("astro:page-load", () => {
+      setTimeout(initBannerCarousel, 100);
+    });
+  }
+</script>
+
 <style>
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    transform: translateX(0);
+  }
+
+  .carousel-slide.prev {
+    transform: translateX(-100%);
+  }
+
+  .carousel-slide:first-child {
+    position: relative;
+  }
+
+  .banner-picture {
+    width: 100%;
+    display: block;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .banner-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .banner-link:hover {
+    opacity: 0.95;
+  }
+
   .logo-overlay {
     position: absolute;
     inset: 0;
@@ -101,6 +278,13 @@ const logoImage = "/images/logo-jamcam-white.svg";
     justify-content: center;
     z-index: 10;
     padding-top: 20vh;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .logo-overlay.hidden {
+    opacity: 0;
   }
 
   .logo-image {

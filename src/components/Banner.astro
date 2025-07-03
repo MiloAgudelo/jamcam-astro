@@ -1,4 +1,86 @@
 ---
+import { Image } from 'astro:assets';
+
+// Import all banner images
+import bannerHomeDesktop from '../assets/images/banner/banner-home-desktop.webp';
+import bannerHomeMobile from '../assets/images/banner/banner-home-mobile.webp';
+
+// Home invitation images
+import bannerHomeInvitationDesktopEs from '../assets/images/banner/banner-home-invitation-desktop-es.webp';
+import bannerHomeInvitationDesktopEn from '../assets/images/banner/banner-home-invitation-desktop-en.webp';
+import bannerHomeInvitationDesktopPt from '../assets/images/banner/banner-home-invitation-desktop-pt.webp';
+import bannerHomeInvitationDesktopFr from '../assets/images/banner/banner-home-invitation-desktop-fr.webp';
+
+// About page images
+import bannerAboutDesktopEs from '../assets/images/banner/banner-about-desktop-es.webp';
+import bannerAboutDesktopEn from '../assets/images/banner/banner-about-desktop-en.webp';
+import bannerAboutDesktopPt from '../assets/images/banner/banner-about-desktop-pt.webp';
+import bannerAboutDesktopFr from '../assets/images/banner/banner-about-desktop-fr.webp';
+import bannerAboutMobileEs from '../assets/images/banner/banner-about-mobile-es.webp';
+import bannerAboutMobileEn from '../assets/images/banner/banner-about-mobile-en.webp';
+import bannerAboutMobilePt from '../assets/images/banner/banner-about-mobile-pt.webp';
+import bannerAboutMobileFr from '../assets/images/banner/banner-about-mobile-fr.webp';
+
+// Cali page images
+import bannerCaliDesktopEs from '../assets/images/banner/banner-cali-desktop-es.webp';
+import bannerCaliDesktopEn from '../assets/images/banner/banner-cali-desktop-en.webp';
+import bannerCaliDesktopPt from '../assets/images/banner/banner-cali-desktop-pt.webp';
+import bannerCaliDesktopFr from '../assets/images/banner/banner-cali-desktop-fr.webp';
+import bannerCaliMobileEs from '../assets/images/banner/banner-cali-mobile-es.webp';
+import bannerCaliMobileEn from '../assets/images/banner/banner-cali-mobile-en.webp';
+import bannerCaliMobilePt from '../assets/images/banner/banner-cali-mobile-pt.webp';
+import bannerCaliMobileFr from '../assets/images/banner/banner-cali-mobile-fr.webp';
+
+// Contacts page images
+import bannerContactsDesktopEs from '../assets/images/banner/banner-contacts-desktop-es.webp';
+import bannerContactsDesktopEn from '../assets/images/banner/banner-contacts-desktop-en.webp';
+import bannerContactsDesktopPt from '../assets/images/banner/banner-contacts-desktop-pt.webp';
+import bannerContactsDesktopFr from '../assets/images/banner/banner-contacts-desktop-fr.webp';
+import bannerContactsMobileEs from '../assets/images/banner/banner-contacts-mobile-es.webp';
+import bannerContactsMobileEn from '../assets/images/banner/banner-contacts-mobile-en.webp';
+import bannerContactsMobilePt from '../assets/images/banner/banner-contacts-mobile-pt.webp';
+import bannerContactsMobileFr from '../assets/images/banner/banner-contacts-mobile-fr.webp';
+
+// Participate page images
+import bannerParticipateDesktopEs from '../assets/images/banner/banner-participate-desktop-es.webp';
+import bannerParticipateDesktopEn from '../assets/images/banner/banner-participate-desktop-en.webp';
+import bannerParticipateDesktopPt from '../assets/images/banner/banner-participate-desktop-pt.webp';
+import bannerParticipateDesktopFr from '../assets/images/banner/banner-participate-desktop-fr.webp';
+import bannerParticipateMobileEs from '../assets/images/banner/banner-participate-mobile-es.webp';
+import bannerParticipateMobileEn from '../assets/images/banner/banner-participate-mobile-en.webp';
+import bannerParticipateMobilePt from '../assets/images/banner/banner-participate-mobile-pt.webp';
+import bannerParticipateMobileFr from '../assets/images/banner/banner-participate-mobile-fr.webp';
+
+// Program page images
+import bannerProgramDesktopEs from '../assets/images/banner/banner-program-desktop-es.webp';
+import bannerProgramDesktopEn from '../assets/images/banner/banner-program-desktop-en.webp';
+import bannerProgramDesktopPt from '../assets/images/banner/banner-program-desktop-pt.webp';
+import bannerProgramDesktopFr from '../assets/images/banner/banner-program-desktop-fr.webp';
+import bannerProgramMobileEs from '../assets/images/banner/banner-program-mobile-es.webp';
+import bannerProgramMobileEn from '../assets/images/banner/banner-program-mobile-en.webp';
+import bannerProgramMobilePt from '../assets/images/banner/banner-program-mobile-pt.webp';
+import bannerProgramMobileFr from '../assets/images/banner/banner-program-mobile-fr.webp';
+
+// Resources page images
+import bannerResourcesDesktopEs from '../assets/images/banner/banner-resources-desktop-es.webp';
+import bannerResourcesDesktopEn from '../assets/images/banner/banner-resources-desktop-en.webp';
+import bannerResourcesDesktopPt from '../assets/images/banner/banner-resources-desktop-pt.webp';
+import bannerResourcesDesktopFr from '../assets/images/banner/banner-resources-desktop-fr.webp';
+import bannerResourcesMobileEs from '../assets/images/banner/banner-resources-mobile-es.webp';
+import bannerResourcesMobileEn from '../assets/images/banner/banner-resources-mobile-en.webp';
+import bannerResourcesMobilePt from '../assets/images/banner/banner-resources-mobile-pt.webp';
+import bannerResourcesMobileFr from '../assets/images/banner/banner-resources-mobile-fr.webp';
+
+// Service team page images
+import bannerServiceTeamDesktopEs from '../assets/images/banner/banner-service-team-desktop-es.webp';
+import bannerServiceTeamDesktopEn from '../assets/images/banner/banner-service-team-desktop-en.webp';
+import bannerServiceTeamDesktopPt from '../assets/images/banner/banner-service-team-desktop-pt.webp';
+import bannerServiceTeamDesktopFr from '../assets/images/banner/banner-service-team-desktop-fr.webp';
+import bannerServiceTeamMobileEs from '../assets/images/banner/banner-service-team-mobile-es.webp';
+import bannerServiceTeamMobileEn from '../assets/images/banner/banner-service-team-mobile-en.webp';
+import bannerServiceTeamMobilePt from '../assets/images/banner/banner-service-team-mobile-pt.webp';
+import bannerServiceTeamMobileFr from '../assets/images/banner/banner-service-team-mobile-fr.webp';
+
 interface Props {
   showLogo?: boolean;
 }
@@ -22,32 +104,137 @@ if (isHomePage) {
   routeName = pathWithoutLocale.split('/')[0] || 'home';
 }
 
-// Construir las rutas de las imágenes basándose en la ruta y locale
-let mobileImage: string;
-let desktopImage: string;
-let secondDesktopImage: string | null = null;
-let mobileWidth: number;
-let mobileHeight: number;
-let desktopWidth: number;
-let desktopHeight: number;
+// Create image maps for easy access
+const bannerImages = {
+  home: {
+    desktop: bannerHomeDesktop,
+    mobile: bannerHomeMobile,
+    invitation: {
+      es: bannerHomeInvitationDesktopEs,
+      en: bannerHomeInvitationDesktopEn,
+      pt: bannerHomeInvitationDesktopPt,
+      fr: bannerHomeInvitationDesktopFr,
+    }
+  },
+  about: {
+    desktop: {
+      es: bannerAboutDesktopEs,
+      en: bannerAboutDesktopEn,
+      pt: bannerAboutDesktopPt,
+      fr: bannerAboutDesktopFr,
+    },
+    mobile: {
+      es: bannerAboutMobileEs,
+      en: bannerAboutMobileEn,
+      pt: bannerAboutMobilePt,
+      fr: bannerAboutMobileFr,
+    }
+  },
+  cali: {
+    desktop: {
+      es: bannerCaliDesktopEs,
+      en: bannerCaliDesktopEn,
+      pt: bannerCaliDesktopPt,
+      fr: bannerCaliDesktopFr,
+    },
+    mobile: {
+      es: bannerCaliMobileEs,
+      en: bannerCaliMobileEn,
+      pt: bannerCaliMobilePt,
+      fr: bannerCaliMobileFr,
+    }
+  },
+  contacts: {
+    desktop: {
+      es: bannerContactsDesktopEs,
+      en: bannerContactsDesktopEn,
+      pt: bannerContactsDesktopPt,
+      fr: bannerContactsDesktopFr,
+    },
+    mobile: {
+      es: bannerContactsMobileEs,
+      en: bannerContactsMobileEn,
+      pt: bannerContactsMobilePt,
+      fr: bannerContactsMobileFr,
+    }
+  },
+  participate: {
+    desktop: {
+      es: bannerParticipateDesktopEs,
+      en: bannerParticipateDesktopEn,
+      pt: bannerParticipateDesktopPt,
+      fr: bannerParticipateDesktopFr,
+    },
+    mobile: {
+      es: bannerParticipateMobileEs,
+      en: bannerParticipateMobileEn,
+      pt: bannerParticipateMobilePt,
+      fr: bannerParticipateMobileFr,
+    }
+  },
+  program: {
+    desktop: {
+      es: bannerProgramDesktopEs,
+      en: bannerProgramDesktopEn,
+      pt: bannerProgramDesktopPt,
+      fr: bannerProgramDesktopFr,
+    },
+    mobile: {
+      es: bannerProgramMobileEs,
+      en: bannerProgramMobileEn,
+      pt: bannerProgramMobilePt,
+      fr: bannerProgramMobileFr,
+    }
+  },
+  resources: {
+    desktop: {
+      es: bannerResourcesDesktopEs,
+      en: bannerResourcesDesktopEn,
+      pt: bannerResourcesDesktopPt,
+      fr: bannerResourcesDesktopFr,
+    },
+    mobile: {
+      es: bannerResourcesMobileEs,
+      en: bannerResourcesMobileEn,
+      pt: bannerResourcesMobilePt,
+      fr: bannerResourcesMobileFr,
+    }
+  },
+  'service-team': {
+    desktop: {
+      es: bannerServiceTeamDesktopEs,
+      en: bannerServiceTeamDesktopEn,
+      pt: bannerServiceTeamDesktopPt,
+      fr: bannerServiceTeamDesktopFr,
+    },
+    mobile: {
+      es: bannerServiceTeamMobileEs,
+      en: bannerServiceTeamMobileEn,
+      pt: bannerServiceTeamMobilePt,
+      fr: bannerServiceTeamMobileFr,
+    }
+  }
+};
+
+// Get the appropriate images
+let mobileImage;
+let desktopImage;
+let secondDesktopImage = null;
 
 if (isHomePage) {
-  // Para la página home, usar el patrón original con dimensiones específicas
-  mobileImage = `/images/banner-home-mobile.webp`;
-  desktopImage = `/images/banner-home-desktop.webp`;
-  secondDesktopImage = `/images/banner-home-invitation-desktop-${locale}.webp`;
-  mobileWidth = 768;
-  mobileHeight = 432;
-  desktopWidth = 1920;
-  desktopHeight = 600;
+  mobileImage = bannerImages.home.mobile;
+  desktopImage = bannerImages.home.desktop;
+  secondDesktopImage = bannerImages.home.invitation[locale as keyof typeof bannerImages.home.invitation];
 } else {
-  // Para otras rutas, usar el nuevo patrón
-  mobileImage = `/images/banner-${routeName}-mobile-${locale}.webp`;
-  desktopImage = `/images/banner-${routeName}-desktop-${locale}.webp`;
-  mobileWidth = 768;
-  mobileHeight = 432;
-  desktopWidth = 1920;
-  desktopHeight = 600;
+  const routeImages = bannerImages[routeName as keyof typeof bannerImages];
+  if (routeImages && 'desktop' in routeImages && 'mobile' in routeImages) {
+    mobileImage = routeImages.mobile[locale as keyof typeof routeImages.mobile];
+    desktopImage = routeImages.desktop[locale as keyof typeof routeImages.desktop];
+  } else {
+    // Fallback to home images if route not found
+    mobileImage = bannerImages.home.mobile;
+    desktopImage = bannerImages.home.desktop;
+  }
 }
 
 const logoImage = "/images/logo-jamcam-white.svg";
@@ -59,77 +246,94 @@ const logoImage = "/images/logo-jamcam-white.svg";
     <div 
       class="carousel-wrapper"
       id="home-carousel-wrapper"
-      data-desktop-image-1={desktopImage}
-      data-desktop-image-2={secondDesktopImage}
-      data-mobile-image={mobileImage}
     >
       <!-- First slide -->
       <div class="carousel-slide active">
         <picture class="banner-picture">
           <source
             media="(min-width: 1024px)"
-            srcset={desktopImage}
+            srcset={desktopImage.src}
             type="image/webp"
-            width={desktopWidth}
-            height={desktopHeight}
+            width={desktopImage.width}
+            height={desktopImage.height}
           />
-          <img 
+          <Image 
             src={mobileImage}
             alt="Banner JamCam 2025"
-            class="banner-image"
+            class="banner-image lg:hidden"
             loading="eager"
             fetchpriority="high"
             decoding="sync"
-            width={mobileWidth}
-            height={mobileHeight}
+          />
+          <Image 
+            src={desktopImage}
+            alt="Banner JamCam 2025"
+            class="banner-image hidden lg:block"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
           />
         </picture>
       </div>
       
       <!-- Second slide -->
-      <div class="carousel-slide">
-        <a href="/images/docs/jamcam-global-invitation-letter.pdf" target="_blank" rel="noopener noreferrer" class="banner-link">
-          <picture class="banner-picture">
-            <source
-              media="(min-width: 1024px)"
-              srcset={secondDesktopImage}
-              type="image/webp"
-              width={desktopWidth}
-              height={desktopHeight}
-            />
-            <img 
-              src={mobileImage}
-              alt="Banner JamCam 2025 - Boletín"
-              class="banner-image"
-              loading="eager"
-              fetchpriority="high"
-              decoding="sync"
-              width={mobileWidth}
-              height={mobileHeight}
-            />
-          </picture>
-        </a>
-      </div>
+      {secondDesktopImage && (
+        <div class="carousel-slide">
+          <a href="/images/docs/jamcam-global-invitation-letter.pdf" target="_blank" rel="noopener noreferrer" class="banner-link">
+            <picture class="banner-picture">
+              <source
+                media="(min-width: 1024px)"
+                srcset={secondDesktopImage.src}
+                type="image/webp"
+                width={secondDesktopImage.width}
+                height={secondDesktopImage.height}
+              />
+              <Image 
+                src={mobileImage}
+                alt="Banner JamCam 2025 - Boletín"
+                class="banner-image lg:hidden"
+                loading="eager"
+                fetchpriority="high"
+                decoding="sync"
+              />
+              <Image 
+                src={secondDesktopImage}
+                alt="Banner JamCam 2025 - Boletín"
+                class="banner-image hidden lg:block"
+                loading="eager"
+                fetchpriority="high"
+                decoding="sync"
+              />
+            </picture>
+          </a>
+        </div>
+      )}
     </div>
   ) : (
     <!-- Single image for other pages -->
     <picture class="banner-picture">
       <source
         media="(min-width: 1024px)"
-        srcset={desktopImage}
+        srcset={desktopImage.src}
         type="image/webp"
-        width={desktopWidth}
-        height={desktopHeight}
+        width={desktopImage.width}
+        height={desktopImage.height}
       />
-      <img 
+      <Image 
         src={mobileImage}
         alt="Banner JamCam 2025"
-        class="banner-image"
+        class="banner-image lg:hidden"
         loading="eager"
         fetchpriority="high"
         decoding="sync"
-        width={mobileWidth}
-        height={mobileHeight}
+      />
+      <Image 
+        src={desktopImage}
+        alt="Banner JamCam 2025"
+        class="banner-image hidden lg:block"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
       />
     </picture>
   )}
@@ -174,13 +378,6 @@ const logoImage = "/images/logo-jamcam-white.svg";
 
       let currentSlide = 0;
 
-      // Preload the second image
-      const desktopImage2 = carouselWrapper.dataset.desktopImage2;
-      if (desktopImage2) {
-        const preloadImage = new Image();
-        preloadImage.src = desktopImage2;
-      }
-
       setInterval(() => {
         const prevSlide = currentSlide;
         
@@ -206,7 +403,7 @@ const logoImage = "/images/logo-jamcam-white.svg";
             logoOverlay.classList.add('hidden');
           }
         }
-              }, 6000);
+      }, 6000);
     };
 
     // Use a simple timeout to ensure DOM is ready

@@ -18,7 +18,7 @@ All work on this project has been done on a voluntary basis, embodying the Scout
 
 ## 🚀 Technology Stack
 
-- **Framework**: [Astro 5.7+](https://astro.build/) with TypeScript
+- **Framework**: [Astro 5.11+](https://astro.build/) with TypeScript
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Deployment**: [Vercel](https://vercel.com/) with SSR adapter
 - **Analytics**: Vercel Analytics & Speed Insights
@@ -135,7 +135,7 @@ The website supports four languages with locale-based routing:
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/jamcam-astro.git
+git clone https://github.com/MiloAgudelo/jamcam-astro.git
 cd jamcam-astro
 
 # Install dependencies

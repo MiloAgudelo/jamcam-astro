@@ -260,18 +260,12 @@ const logoImage = "/images/logo-jamcam-white.svg";
           <Image 
             src={mobileImage}
             alt="Banner JamCam 2025"
-            class="banner-image lg:hidden"
+            class="banner-image"
             loading="eager"
             fetchpriority="high"
             decoding="sync"
-          />
-          <Image 
-            src={desktopImage}
-            alt="Banner JamCam 2025"
-            class="banner-image hidden lg:block"
-            loading="eager"
-            fetchpriority="high"
-            decoding="sync"
+            width={mobileImage.width}
+            height={mobileImage.height}
           />
         </picture>
       </div>
@@ -291,18 +285,12 @@ const logoImage = "/images/logo-jamcam-white.svg";
               <Image 
                 src={mobileImage}
                 alt="Banner JamCam 2025 - Boletín"
-                class="banner-image lg:hidden"
+                class="banner-image"
                 loading="eager"
                 fetchpriority="high"
                 decoding="sync"
-              />
-              <Image 
-                src={secondDesktopImage}
-                alt="Banner JamCam 2025 - Boletín"
-                class="banner-image hidden lg:block"
-                loading="eager"
-                fetchpriority="high"
-                decoding="sync"
+                width={mobileImage.width}
+                height={mobileImage.height}
               />
             </picture>
           </a>
@@ -322,18 +310,12 @@ const logoImage = "/images/logo-jamcam-white.svg";
       <Image 
         src={mobileImage}
         alt="Banner JamCam 2025"
-        class="banner-image lg:hidden"
+        class="banner-image"
         loading="eager"
         fetchpriority="high"
         decoding="sync"
-      />
-      <Image 
-        src={desktopImage}
-        alt="Banner JamCam 2025"
-        class="banner-image hidden lg:block"
-        loading="eager"
-        fetchpriority="high"
-        decoding="sync"
+        width={mobileImage.width}
+        height={mobileImage.height}
       />
     </picture>
   )}

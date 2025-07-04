@@ -2,6 +2,9 @@
 import '../styles/global.css';
 import { getTranslations } from '../i18n';
 
+import { Image } from 'astro:assets';
+import JamCamLogoColor from '../assets/images/logos/logo-jamcam-color.svg';
+
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
 

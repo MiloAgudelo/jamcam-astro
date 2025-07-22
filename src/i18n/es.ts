@@ -360,5 +360,20 @@ export default {
                 }
             ]
         }
+    },
+    consoleMessages: {
+        greeting: "¡Ey, qué haces aquí!",
+        cholaoWatching: "¡Cholao te está viendo!",
+        areDeveloper: "¿Eres desarrollador?",
+        checkRepo: "¡Ven y mira el repositorio en GitHub!",
+        giveStar: "¡Danos una estrella en GitHub!",
+        canBeScout: "¡Excelente! También puedes ser Scout",
+        adventureAndCode: "¿Te gusta la aventura y el código?",
+        joinJamCam: "¡Únete a JamCam 2025 en Cali!",
+        dates: "Del 26 de diciembre 2025 al 2 de enero 2026",
+        youthAdventure: "¡Miles de jóvenes, aventura y tecnología!",
+        cholaoSays: 'Cholao dice: "¡El código es genial, pero la aventura JamCam es mejor!"',
+        madeWithLove: "Desarrollado con 💜 para la familia Scout",
+        alwaysServe: "¡Siempre servir!"
     }
 };

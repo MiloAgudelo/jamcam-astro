@@ -152,6 +152,32 @@ const schemaDescription = t.description;
 			<slot />
 		<Footer />
 		<LanguageSwitcher />
+		
+		<!-- Fun Console Log for Curious Developers -->
+		<script define:vars={{ consoleMessages: t.consoleMessages }}>
+			// Fun console messages for curious developers in current language
+			console.log(`%c🦜 ${consoleMessages.greeting} 🦜`, 'color: #622599; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+			
+			console.log(`%c
+	   ╭─────────────────────────────────╮
+	   │        🌟 JamCam 2025 🌟        │
+	   │     ${consoleMessages.cholaoWatching}     │
+	   ╰─────────────────────────────────╯
+			`, 'color: #e46e27; font-weight: bold; font-family: monospace;');
+			
+			console.log(`%c${consoleMessages.areDeveloper} 👨‍💻👩‍💻`, 'color: #F15857; font-size: 18px; font-weight: bold;');
+			console.log(`%c${consoleMessages.checkRepo} 🔗✨`, 'color: #622599; font-size: 16px; font-weight: bold;');
+			console.log('%chttps://github.com/MiloAgudelo/jamcam-astro', 'color: #0094B4; font-size: 14px; text-decoration: underline; font-weight: bold;');
+			console.log(`%c${consoleMessages.giveStar} ⭐🚀`, 'color: #FCB813; font-size: 16px; font-weight: bold;');
+			console.log(`%c
+	🦜 ${consoleMessages.cholaoSays} 🏔️
+			`, 'color: #0094B4; font-size: 14px; font-weight: bold; font-style: italic;');
+			
+			// Final message for developers
+			console.log('%c═══════════════════════════════════', 'color: #e46e27;');
+			console.log(`%c${consoleMessages.madeWithLove}`, 'color: #622599; font-size: 12px; font-style: italic;');
+			console.log(`%c${consoleMessages.alwaysServe} 🦉`, 'color: #F15857; font-size: 14px; font-weight: bold;');
+		</script>
 	</body>
 </html>
 

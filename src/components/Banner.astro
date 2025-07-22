@@ -10,6 +10,10 @@ import bannerHomeInvitationDesktopEs from '../assets/images/banner/banner-home-i
 import bannerHomeInvitationDesktopEn from '../assets/images/banner/banner-home-invitation-desktop-en.webp';
 import bannerHomeInvitationDesktopPt from '../assets/images/banner/banner-home-invitation-desktop-pt.webp';
 import bannerHomeInvitationDesktopFr from '../assets/images/banner/banner-home-invitation-desktop-fr.webp';
+import bannerHomeInvitationMobileEs from '../assets/images/banner/banner-home-invitation-mobile-es.webp';
+import bannerHomeInvitationMobileEn from '../assets/images/banner/banner-home-invitation-mobile-en.webp';
+import bannerHomeInvitationMobilePt from '../assets/images/banner/banner-home-invitation-mobile-pt.webp';
+import bannerHomeInvitationMobileFr from '../assets/images/banner/banner-home-invitation-mobile-fr.webp';
 
 // About page images
 import bannerAboutDesktopEs from '../assets/images/banner/banner-about-desktop-es.webp';
@@ -110,10 +114,18 @@ const bannerImages = {
     desktop: bannerHomeDesktop,
     mobile: bannerHomeMobile,
     invitation: {
-      es: bannerHomeInvitationDesktopEs,
-      en: bannerHomeInvitationDesktopEn,
-      pt: bannerHomeInvitationDesktopPt,
-      fr: bannerHomeInvitationDesktopFr,
+      desktop: {
+        es: bannerHomeInvitationDesktopEs,
+        en: bannerHomeInvitationDesktopEn,
+        pt: bannerHomeInvitationDesktopPt,
+        fr: bannerHomeInvitationDesktopFr,
+      },
+      mobile: {
+        es: bannerHomeInvitationMobileEs,
+        en: bannerHomeInvitationMobileEn,
+        pt: bannerHomeInvitationMobilePt,
+        fr: bannerHomeInvitationMobileFr,
+      }
     }
   },
   about: {
@@ -220,11 +232,13 @@ const bannerImages = {
 let mobileImage;
 let desktopImage;
 let secondDesktopImage = null;
+let secondMobileImage = null;
 
 if (isHomePage) {
   mobileImage = bannerImages.home.mobile;
   desktopImage = bannerImages.home.desktop;
-  secondDesktopImage = bannerImages.home.invitation[locale as keyof typeof bannerImages.home.invitation];
+  secondDesktopImage = bannerImages.home.invitation.desktop[locale as keyof typeof bannerImages.home.invitation.desktop];
+  secondMobileImage = bannerImages.home.invitation.mobile[locale as keyof typeof bannerImages.home.invitation.mobile];
 } else {
   const routeImages = bannerImages[routeName as keyof typeof bannerImages];
   if (routeImages && 'desktop' in routeImages && 'mobile' in routeImages) {
@@ -271,7 +285,7 @@ const logoImage = "/images/logo-jamcam-white.svg";
       </div>
       
       <!-- Second slide -->
-      {secondDesktopImage && (
+      {secondDesktopImage && secondMobileImage && (
         <div class="carousel-slide">
           <a href="/images/docs/jamcam-global-invitation-letter.pdf" target="_blank" rel="noopener noreferrer" class="banner-link">
             <picture class="banner-picture">
@@ -283,14 +297,14 @@ const logoImage = "/images/logo-jamcam-white.svg";
                 height={secondDesktopImage.height}
               />
               <Image 
-                src={mobileImage}
+                src={secondMobileImage}
                 alt="Banner JamCam 2025 - Boletín"
                 class="banner-image"
                 loading="eager"
                 fetchpriority="high"
                 decoding="sync"
-                width={mobileImage.width}
-                height={mobileImage.height}
+                width={secondMobileImage.width}
+                height={secondMobileImage.height}
               />
             </picture>
           </a>

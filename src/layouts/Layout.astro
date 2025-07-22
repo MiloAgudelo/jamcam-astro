@@ -5,8 +5,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import Analytics from '../components/Analytics.astro';
-import BannerPreloader from '../components/BannerPreloader.astro';
-import ImagePreloader from '../components/ImagePreloader.astro';
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale); 
 
@@ -34,9 +32,6 @@ const schemaDescription = t.description;
 			.banner-image{width:100%;height:auto;object-fit:contain;content-visibility:auto;}
 			@media (min-width:1024px){.banner-container{min-height:400px;}}
 		</style>
-
-		<!-- CRITICAL: Preload banner images first for faster LCP -->
-		<BannerPreloader />
 
 		<!-- Structured Data -->
 		<script type="application/ld+json">
@@ -117,31 +112,6 @@ const schemaDescription = t.description;
 			<slot />
 		<Footer />
 		<LanguageSwitcher />
-		<ImagePreloader />
-		
-		<!-- Service Worker Registration -->
-		<script>
-			if ('serviceWorker' in navigator) {
-				window.addEventListener('load', () => {
-					navigator.serviceWorker.register('/sw.js')
-						.then((registration) => {
-							console.log('SW registered: ', registration);
-							
-							// Pre-cache banners for current locale
-							const locale = document.documentElement.lang || 'es';
-							if (registration.active) {
-								registration.active.postMessage({
-									type: 'PRECACHE_BANNERS',
-									locale: locale
-								});
-							}
-						})
-						.catch((registrationError) => {
-							console.log('SW registration failed: ', registrationError);
-						});
-				});
-			}
-		</script>
 	</body>
 </html>
 

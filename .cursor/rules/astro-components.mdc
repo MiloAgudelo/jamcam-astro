@@ -1,0 +1,80 @@
+---
+globs: src/components/*.astro,src/layouts/*.astro,src/pages/*.astro,src/pages/*/*.astro
+---
+
+# Astro Component Development Guidelines
+
+## Component Structure
+Follow this structure for all [.astro components](mdc:src/components/):
+
+```astro
+---
+// TypeScript frontmatter
+import type { Props } from './types';
+import { getTranslation } from '@/i18n';
+
+interface ComponentProps {
+  // Define props with TypeScript
+}
+
+const { prop1, prop2 } = Astro.props;
+const t = getTranslation(Astro.currentLocale);
+---
+
+<!-- HTML template with Tailwind classes -->
+<section class="container mx-auto px-4">
+  <h2>{t.section.title}</h2>
+  <!-- Component content -->
+</section>
+
+<style>
+  /* Component-scoped CSS if needed */
+</style>
+```
+
+## Key Patterns in JAMCAM Components
+
+### Carousel Components
+- Use [Carousel.astro](mdc:src/components/Carousel.astro) for image galleries
+- Support both desktop and mobile layouts
+- Implement smooth scrolling and touch gestures
+
+### Section Components  
+- Prefix section components with descriptive names (e.g., [AboutSection.astro](mdc:src/components/AboutSection.astro))
+- Use consistent container classes: `container mx-auto px-4`
+- Include proper semantic HTML (section, article, aside)
+
+### Card Components
+- Follow [InfoCard.astro](mdc:src/components/InfoCard.astro) patterns for consistent styling
+- Use Tailwind for responsive designs
+- Include hover effects and proper accessibility
+
+### Layout Components
+- [Banner.astro](mdc:src/components/Banner.astro) handles page headers with localized images
+- [Header.astro](mdc:src/components/Header.astro) and [Footer.astro](mdc:src/components/Footer.astro) for site-wide elements
+- [LanguageSwitcher.astro](mdc:src/components/LanguageSwitcher.astro) for i18n navigation
+
+## Performance Considerations
+1. **Optimize images** using Astro's image optimization
+2. **Lazy load** content below the fold
+3. **Minimize JavaScript** - leverage Astro's static generation
+4. **Use WebP format** for images when possible
+5. **Implement proper caching** headers for assets
+
+## Accessibility Requirements
+- Use semantic HTML elements
+- Include proper ARIA labels and descriptions
+- Ensure keyboard navigation works
+- Test with screen readers
+- Maintain color contrast ratios
+- Provide alt text for all images
+
+## Colombian Scouting Branding
+- Use official colors and typography from [global.css](mdc:src/styles/global.css)
+- Include scout logos: [logo-scouts-colombia.png](mdc:public/images/logo-scouts-colombia.png), [logo-world-scouting.png](mdc:public/images/logo-world-scouting.png)
+- Follow brand guidelines for JAMCAM logo usage
+- Respect Colombian cultural elements in design choices
+description:
+globs:
+alwaysApply: false
+---

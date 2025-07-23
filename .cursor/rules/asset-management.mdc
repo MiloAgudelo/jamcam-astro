@@ -1,0 +1,120 @@
+---
+globs: public/**/*,src/assets/**/*,*.astro
+---
+
+# Asset Management Guidelines
+
+## Directory Structure
+
+### Public Assets ([public/](mdc:public/))
+Static assets served directly:
+- **images/** - All static images and graphics
+- **fonts/** - Web font files (Noto Sans variants)
+- **favicon/** - Site icons and manifest
+- **robots.txt** - SEO configuration
+
+### Source Assets ([src/assets/](mdc:src/assets/))
+Assets processed by Astro's build system:
+- **images/banner/** - Localized banner images for pages
+- **images/logos/** - Brand logos and symbols
+
+## Image Asset Organization
+
+### Banner Images
+Localized banner images follow strict naming convention:
+```
+banner-{page}-{device}-{locale}.webp
+
+Examples:
+- banner-home-desktop-es.webp
+- banner-about-mobile-en.webp
+- banner-participate-desktop-pt.webp
+```
+
+Supported pages: home, about, cali, contacts, participate, program, resources, service-team
+
+### Carousel Images
+Organized by section with numbered sequences:
+- **about-carousel-1.webp** through **about-carousel-5.webp**
+- **info-carousel-1.webp** through **info-carousel-6.webp**  
+- **participate-carousel-1.webp** through **participate-carousel-5.webp**
+- **service-team-carousel-1.webp** through **service-team-carousel-15.webp**
+
+### Icon Assets
+- **activity-icon-{1-8}.svg** - Activity type icons
+- **card-icon-{1-3}.svg** - Information card icons
+- **eis-icon-{1-5}.svg** - EIS (Educational Impact Study) icons
+- **participate-card-icon-{1-3}.svg** - Participation process icons
+
+### Cultural and Wildlife Images
+Colombian flora and fauna:
+- **guacamaya.webp** - Macaw parrot
+- **tangara.webp** - Tanager bird  
+- **loro-cabeza-azul.webp** - Blue-headed parrot
+- **pato-moscovia.webp** - Muscovy duck
+- **ani-pico-liso.webp** - Smooth-billed ani
+
+### Cali City Images
+- **cali-{1-5}.webp** - Showcasing host city
+
+## Optimization Guidelines
+
+### Image Formats
+1. **WebP** - Primary format for photographs and complex images
+2. **SVG** - For icons, logos, and simple graphics
+3. **PNG** - Fallback for images requiring transparency
+4. **PDF** - Documents in [public/images/docs/](mdc:public/images/docs/)
+
+### Performance Best Practices
+```astro
+---
+import { Image } from 'astro:assets';
+import bannerImage from '@/assets/images/banner/banner-home-desktop-es.webp';
+---
+
+<!-- Optimized image with Astro -->
+<Image 
+  src={bannerImage} 
+  alt={t.banners.home.alt}
+  width={1200}
+  height={600}
+  class="w-full h-auto"
+  loading="lazy"
+/>
+```
+
+### Asset Loading Strategy
+- **Above-the-fold images**: Load immediately (loading="eager")
+- **Carousel and gallery images**: Lazy load (loading="lazy")
+- **Background images**: Consider using CSS with optimized formats
+- **Icons**: Inline small SVGs, load larger ones as assets
+
+## Brand Asset Guidelines
+
+### Official Logos
+- **logo-jamcam-color.svg** - Primary JAMCAM logo
+- **logo-jamcam-white.svg** - White variant for dark backgrounds
+- **logo-scouts-colombia.png** - Scouts de Colombia logo
+- **logo-world-scouting.png** - World Scouting logo
+
+### Mascot and Theme Elements
+- **cholao.svg** - JAMCAM mascot in different variations
+- **trademark.svg** - Legal trademark notation
+- Various wave decorations for section separators
+
+## Localization Considerations
+- Some images contain text and require language-specific versions
+- Banner images are fully localized for all 4 supported languages
+- Consider cultural appropriateness when adding new imagery
+- Maintain consistency with Colombian scouting visual identity
+
+## File Naming Conventions
+- Use **lowercase** with **kebab-case** (hyphens)
+- Include **descriptive prefixes** for organization
+- Add **language suffixes** for localized assets (-es, -en, -pt, -fr)
+- Use **semantic naming** over generic numbers when possible
+- Keep filenames **concise but descriptive**
+description:
+globs:
+alwaysApply: false
+---

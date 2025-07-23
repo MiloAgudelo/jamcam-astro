@@ -1,0 +1,45 @@
+---
+alwaysApply: true
+---
+
+# JAMCAM 2025 Astro Project Overview
+
+This is the official website for JAMCAM 2025, a scouting event in Cali, Colombia. The project uses Astro with server-side rendering, Tailwind CSS, and Vercel deployment.
+
+## Key Project Details
+- **Event**: JAMCAM 2025 (Scouting Event)
+- **Location**: Cali, Colombia
+- **Framework**: Astro 5.x with SSR ([astro.config.mjs](mdc:astro.config.mjs))
+- **Styling**: Tailwind CSS via Vite plugin
+- **Deployment**: Vercel with image optimization
+- **Languages**: Spanish (default), English, Portuguese, French
+
+## Core Architecture
+- **Main Config**: [astro.config.mjs](mdc:astro.config.mjs) - Contains site config, i18n setup, and Vercel adapter
+- **Layout**: [src/layouts/Layout.astro](mdc:src/layouts/Layout.astro) - Base layout for all pages
+- **Components**: [src/components/](mdc:src/components/) - Reusable Astro components
+- **Pages**: [src/pages/](mdc:src/pages/) - Page routes with language-specific directories
+- **i18n**: [src/i18n/](mdc:src/i18n/) - Translation files for all supported languages
+- **Assets**: [public/images/](mdc:public/images/) and [src/assets/](mdc:src/assets/) - Static assets and optimized images
+
+## Page Structure
+Main sections include:
+- Home (index) - Event introduction and highlights
+- About - Event details and purpose
+- Participate - Registration and participation info
+- Program - Event schedule and activities
+- Cali - Information about the host city
+- Service Team - Volunteer opportunities
+- Resources - Documents and downloads
+- Contacts - Contact information
+
+## Development Guidelines
+- All user-facing content must be multilingual
+- Use semantic HTML and proper accessibility practices
+- Follow Colombian scouting branding guidelines
+- Optimize images for web delivery
+- Maintain consistent component patterns across sections
+description:
+globs:
+alwaysApply: false
+---

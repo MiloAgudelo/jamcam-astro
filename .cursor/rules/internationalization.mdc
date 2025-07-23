@@ -1,0 +1,66 @@
+---
+globs: src/i18n/*.ts,src/pages/*/*.astro,src/components/*.astro
+---
+
+# Internationalization (i18n) Guidelines
+
+JAMCAM 2025 supports 4 languages with Spanish as the default locale.
+
+## Supported Languages
+- **es** (Spanish) - Default locale, no prefix in URLs
+- **en** (English) - /en/ prefix
+- **pt** (Portuguese) - /pt/ prefix  
+- **fr** (French) - /fr/ prefix
+
+## Translation Files
+Translation keys are defined in [src/i18n/](mdc:src/i18n/):
+- [es.ts](mdc:src/i18n/es.ts) - Spanish translations
+- [en.ts](mdc:src/i18n/en.ts) - English translations
+- [pt.ts](mdc:src/i18n/pt.ts) - Portuguese translations
+- [fr.ts](mdc:src/i18n/fr.ts) - French translations
+- [index.ts](mdc:src/i18n/index.ts) - i18n helper functions
+
+## Key Principles
+1. **Always add translations for all 4 languages** when adding new text
+2. Use **nested object structure** for organizing translations by section
+3. Keep **keys descriptive** and organized by component/page
+4. Use **interpolation** for dynamic content like dates, numbers, and names
+5. Consider **cultural context** - dates, currencies, and cultural references may vary
+6. **Image assets** have language variants in [public/images/](mdc:public/images/) and [src/assets/images/banner/](mdc:src/assets/images/banner/)
+
+## Translation Key Structure
+```typescript
+export const translations = {
+  header: {
+    navigation: {
+      home: "Inicio",
+      about: "Acerca de",
+      // ...
+    }
+  },
+  sections: {
+    about: {
+      title: "Título de la sección",
+      description: "Descripción..."
+    }
+  }
+}
+```
+
+## Usage in Components
+```astro
+---
+import { getTranslation } from '@/i18n';
+const t = getTranslation(Astro.currentLocale);
+---
+<h1>{t.sections.about.title}</h1>
+```
+
+## Localized Assets
+- Banner images have language variants: `banner-{page}-{device}-{locale}.webp`
+- Some graphics contain text and need localized versions
+- PDF documents in [public/images/docs/](mdc:public/images/docs/) may have multilingual versions
+description:
+globs:
+alwaysApply: false
+---

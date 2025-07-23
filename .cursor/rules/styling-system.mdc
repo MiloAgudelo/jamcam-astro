@@ -1,0 +1,105 @@
+---
+globs: src/styles/*.css,src/components/*.astro,src/layouts/*.astro
+---
+
+# JAMCAM Styling and Design System
+
+## CSS Architecture
+- **Global styles**: [src/styles/global.css](mdc:src/styles/global.css) - Base styles, fonts, and CSS variables
+- **Tailwind CSS**: Version 4.1+ with Vite plugin integration
+- **Component styles**: Use Tailwind utility classes primarily
+- **Custom CSS**: Component-scoped styles when Tailwind isn't sufficient
+
+## Typography
+Custom fonts loaded from [public/fonts/](mdc:public/fonts/):
+- **Noto Sans** - Primary font family
+- Weights: 300 (light), 400 (regular), 600 (semibold), 700 (bold)
+- Format: WOFF2 for optimal performance
+
+```css
+/* Font usage pattern */
+.heading {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 600;
+}
+```
+
+## Color Palette
+JAMCAM uses a vibrant color scheme reflecting Colombian nature:
+- **Purple waves**: For section dividers and backgrounds
+- **Pink accents**: For highlights and call-to-action elements  
+- **Natural greens and blues**: Reflecting Colombian biodiversity
+- **Warm earth tones**: For grounding and accessibility
+
+## Layout Patterns
+
+### Container System
+```astro
+<!-- Standard container -->
+<div class="container mx-auto px-4">
+  <!-- Content -->
+</div>
+
+<!-- Full-width sections with contained content -->
+<section class="w-full bg-purple-50">
+  <div class="container mx-auto px-4 py-16">
+    <!-- Section content -->
+  </div>
+</section>
+```
+
+### Responsive Design
+- **Mobile-first**: Design for mobile, enhance for larger screens
+- **Breakpoints**: Follow Tailwind's default system (sm, md, lg, xl, 2xl)
+- **Image handling**: Use responsive images with multiple sizes
+
+### Wave Decorations
+Decorative wave SVGs are used throughout:
+- [about-purple-wave.svg](mdc:public/images/about-purple-wave.svg) and mobile variant
+- [cards-purple-wave.svg](mdc:public/images/cards-purple-wave.svg)
+- [program-pink-wave.svg](mdc:public/images/program-pink-wave.svg)
+- [service-team-pink-wave.svg](mdc:public/images/service-team-pink-wave.svg)
+
+## Component Styling Patterns
+
+### Cards
+```astro
+<div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+  <!-- Card content -->
+</div>
+```
+
+### Buttons
+```astro
+<!-- Primary button -->
+<button class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+  {t.cta.register}
+</button>
+
+<!-- Secondary button -->
+<button class="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+  {t.cta.learnMore}
+</button>
+```
+
+### Image Optimization
+- Use Astro's `<Image>` component for optimization
+- Provide WebP and fallback formats
+- Include proper alt text for accessibility
+- Lazy load images below the fold
+
+## Animation and Interactions
+- **Subtle hover effects** on interactive elements
+- **Smooth transitions** using CSS transitions
+- **Scroll-triggered animations** where appropriate
+- **Maintain 60fps** performance for all animations
+
+## Colombian Cultural Elements
+- **Nature-inspired**: Colors and imagery reflect Colombian biodiversity
+- **Wildlife motifs**: Featured animals include guacamaya, tangara, loro cabeza azul, pato moscovia
+- **Regional identity**: Cali-specific imagery and cultural references
+- **Scout heritage**: Integration of scouting symbols and traditions
+description:
+globs:
+alwaysApply: false
+---

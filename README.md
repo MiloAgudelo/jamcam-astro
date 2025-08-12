@@ -22,7 +22,7 @@ All work on this project has been done on a voluntary basis, embodying the Scout
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Deployment**: [Vercel](https://vercel.com/) with SSR adapter
 - **Analytics**: Vercel Analytics & Speed Insights
-- **Package Manager**: pnpm
+- **Package Manager**: npm
 
 ## ✨ Features
 
@@ -129,8 +129,8 @@ The website supports four languages with locale-based routing:
 ## 🛠️ Development
 
 ### Prerequisites
-- Node.js 18+ 
-- pnpm (recommended package manager)
+- Node.js 18+
+- npm 10+
 
 ### Setup
 ```bash
@@ -139,18 +139,18 @@ git clone https://github.com/MiloAgudelo/jamcam-astro.git
 cd jamcam-astro
 
 # Install dependencies
-pnpm install
+npm install
 
 # Start development server
-pnpm dev
+npm run dev
 ```
 
 ### Available Scripts
 ```bash
-pnpm dev        # Start development server (localhost:4321)
-pnpm build      # Build for production
-pnpm preview    # Preview production build locally
-pnpm astro      # Run Astro CLI commands
+npm run dev        # Start development server (localhost:4321)
+npm run build      # Build for production
+npm run preview    # Preview production build locally
+npm run astro      # Run Astro CLI commands
 ```
 
 ### Development Guidelines

@@ -8,23 +8,23 @@ description: Development workflow, build processes, and deployment guidelines
 
 ### Prerequisites
 - **Node.js** 18+ (recommended LTS version)
-- **pnpm** for package management
+- **npm** for package management
 - **TypeScript** 5.8+
 - **Git** for version control
 
 ### Getting Started
 ```bash
 # Install dependencies
-pnpm install
+npm install
 
 # Start development server
-pnpm dev
+npm run dev
 
 # Build for production
-pnpm build
+npm run build
 
 # Preview production build
-pnpm preview
+npm run preview
 ```
 
 ## Build Configuration
@@ -38,8 +38,8 @@ pnpm preview
 - **i18n**: Configured for 4 languages with Spanish as default
 
 ### Package Management ([package.json](mdc:package.json))
-- Use **pnpm** consistently for package management
-- Lock file: [pnpm-lock.yaml](mdc:pnpm-lock.yaml) should be committed
+- Use **npm** consistently for package management
+- Lock file: [package-lock.json](mdc:package-lock.json) should be committed
 - Key dependencies: Astro 5.12+, Tailwind CSS 4.1+, Vercel adapter 8.2+
 - Keep dependencies updated, especially security patches
 

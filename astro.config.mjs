@@ -21,7 +21,11 @@ export default defineConfig({
   },
 
   adapter: vercel({
-    imageService: true
+    imageService: true,
+    // Activa analítica nativa de Vercel en modo estático
+    webAnalytics: {
+      enabled: true,
+    }
   }),
 
   image: {

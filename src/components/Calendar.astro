@@ -68,7 +68,9 @@ const clientTranslations = {
               </svg>
             </button>
             
-            <h2 id="month-year-display" class="text-xl lg:text-2xl font-bold text-purple-jm"></h2>
+            <h2 id="month-year-display" class="text-xl lg:text-2xl font-bold text-purple-jm">
+              {t.calendar.months[new Date().getMonth()]} {new Date().getFullYear()}
+            </h2>
             
             <button 
               id="next-month" 
@@ -101,7 +103,9 @@ const clientTranslations = {
         <div class="selected-day-header mb-8">
           <div id="selected-date-display" class="bg-gradient-to-r from-purple-jm to-purple-jm/90 text-white rounded-xl px-6 py-4 text-center shadow-sm">
             <div class="text-sm font-medium opacity-90 mb-1">Fecha seleccionada</div>
-            <div class="text-lg font-bold"></div>
+            <div class="text-lg font-bold">
+              {formatSelectedDate(new Date().getDate(), new Date().getMonth(), new Date().getFullYear())}
+            </div>
           </div>
         </div>
         

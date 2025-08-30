@@ -21,9 +21,6 @@ export default defineConfig({
   },
 
   adapter: vercel({
-    webAnalytics: {
-      enabled: false
-    },
     imageService: true
   }),
 
@@ -41,6 +38,6 @@ export default defineConfig({
     }
   },
 
-  output: 'server',
+  output: 'static',
   integrations: [sitemap()]
 });

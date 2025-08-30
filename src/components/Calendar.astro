@@ -10,11 +10,7 @@ interface Props {
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
 
-const currentDate = new Date();
-const { initialYear = currentDate.getFullYear(), initialMonth = currentDate.getMonth() } = Astro.props;
-
-// Calendar constants
-const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+// Time-dependent values are computed on the client to avoid freezing at build time
 
 // Helper function to format date keys
 function formatDateKey(year: number, month: number, day: number): string {
@@ -34,43 +30,7 @@ function getDayClasses(dayData: any): string {
   return `${base} bg-purple-jm/50 text-purple-jm hover:bg-purple-jm/70 hover:text-white cursor-pointer focus-visible:outline-2 focus-visible:outline-purple-jm focus-visible:outline-offset-2`;
 }
 
-// Helper function to get calendar data for a month
-function getCalendarData(year: number, month: number) {
-  const firstDay = new Date(year, month, 1);
-  const startDate = new Date(firstDay);
-  
-  // Adjust for week start (Sunday = 0)
-  const dayOfWeek = firstDay.getDay();
-  startDate.setDate(startDate.getDate() - dayOfWeek);
-  
-  // Always generate exactly 42 days (6 weeks × 7 days)
-  const calendarDays = [];
-  const current = new Date(startDate);
-  
-  for (let i = 0; i < 42; i++) {
-    const isCurrentMonth = current.getMonth() === month;
-    const isToday = current.getTime() === today.getTime();
-    const dateKey = formatDateKey(current.getFullYear(), current.getMonth(), current.getDate());
-    const eventsForDay = t.calendar.events[dateKey];
-    const hasEvents = eventsForDay && eventsForDay.length > 0;
-    
-    calendarDays.push({
-      date: new Date(current),
-      day: current.getDate(),
-      isCurrentMonth,
-      isToday,
-      hasEvents,
-      dateKey
-    });
-    
-    current.setDate(current.getDate() + 1);
-  }
-  
-  return calendarDays;
-}
-
-const calendarData = getCalendarData(initialYear, initialMonth);
-const monthName = t.calendar.months[initialMonth];
+// Calendar data is rendered on the client
 
 // Format selected date display
 function formatSelectedDate(day: number, month: number, year: number): string {
@@ -109,7 +69,7 @@ const clientTranslations = {
             </button>
             
             <h2 id="month-year-display" class="text-xl lg:text-2xl font-bold text-purple-jm">
-              {monthName} {initialYear}
+              {t.calendar.months[new Date().getMonth()]} {new Date().getFullYear()}
             </h2>
             
             <button 
@@ -134,24 +94,7 @@ const clientTranslations = {
         </div>
         
         <!-- Calendar Grid -->
-        <div id="calendar-grid" class="calendar-grid grid grid-cols-7 gap-1 lg:gap-1.5">
-          {calendarData.map((dayData) => (
-            dayData.isCurrentMonth ? (
-              <button 
-                class={getDayClasses(dayData)}
-                data-date={dayData.dateKey}
-                data-events={dayData.hasEvents ? 'true' : 'false'}
-                aria-label={`${dayData.day} ${monthName} ${initialYear}${dayData.hasEvents ? ' - Con eventos' : ''}`}
-              >
-                {dayData.day}
-              </button>
-            ) : (
-              <div class={getDayClasses(dayData)}>
-                {dayData.day}
-              </div>
-            )
-          ))}
-        </div>
+        <div id="calendar-grid" class="calendar-grid grid grid-cols-7 gap-1 lg:gap-1.5"></div>
       </div>
       
       <!-- Right Column: Day Information -->
@@ -161,7 +104,7 @@ const clientTranslations = {
           <div id="selected-date-display" class="bg-gradient-to-r from-purple-jm to-purple-jm/90 text-white rounded-xl px-6 py-4 text-center shadow-sm">
             <div class="text-sm font-medium opacity-90 mb-1">Fecha seleccionada</div>
             <div class="text-lg font-bold">
-              {formatSelectedDate(today.getDate(), today.getMonth(), today.getFullYear())}
+              {formatSelectedDate(new Date().getDate(), new Date().getMonth(), new Date().getFullYear())}
             </div>
           </div>
         </div>
@@ -177,53 +120,18 @@ const clientTranslations = {
             </h3>
           </div>
           
-          <div id="events-container" class="min-h-[200px]">
-            <!-- Default content (today's events or no events message) -->
-            {(() => {
-              const todayKey = formatDateKey(today.getFullYear(), today.getMonth(), today.getDate());
-              const todayEvents = t.calendar.events[todayKey];
-              
-              if (todayEvents && todayEvents.length > 0) {
-                return (
-                  <div class="space-y-4">
-                    {todayEvents.map((event: string, index: number) => (
-                      <div class="bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200">
-                        <div class="flex items-start space-x-3">
-                          <div class="flex-shrink-0">
-                            <div class="w-3 h-3 bg-purple-jm rounded-full mt-1.5 shadow-sm"></div>
-                          </div>
-                          <div class="flex-1">
-                            <p class="text-gray-800 font-medium leading-relaxed">{event}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                );
-              } else {
-                return (
-                  <div class="text-center py-12">
-                    <div class="mx-auto w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-                      <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <p class="text-gray-500 text-lg font-medium">{t.calendar.noEventsMessage}</p>
-                    <p class="text-gray-400 text-sm mt-2">Selecciona otro día para ver más eventos</p>
-                  </div>
-                );
-              }
-            })()}
-          </div>
+          <div id="events-container" class="min-h-[200px]"></div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script define:vars={{ calendarData, clientTranslations, initialYear, initialMonth }}>
-  let currentYear = initialYear;
-  let currentMonth = initialMonth;
+<script define:vars={{ clientTranslations }}>
+  // Initialize from current client date
+  const now = new Date();
+  let currentYear = now.getFullYear();
+  let currentMonth = now.getMonth();
   let selectedDateKey = null; // Track selected day across month navigation
   
   function formatDateKey(date) {
@@ -415,6 +323,9 @@ const clientTranslations = {
         }
       };
     });
+    
+    // Render initial month
+    renderCalendar(currentYear, currentMonth);
     
     // Set today as initially selected if it's in the current month view
     const today = new Date();

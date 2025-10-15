@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { getTranslations } from '../i18n';
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale); 
-const currentYear = new Date().getFullYear();
 ---
 
 <footer class="px-5 pb-10 pt-10 w-full" style="background: linear-gradient(to bottom, #faf9f6 0%, #ffffff 30%);">
@@ -19,7 +18,7 @@ const currentYear = new Date().getFullYear();
     <hr class="border-0 border-t border-black/10 mb-10 max-md:mb-8" />
     <div class="flex justify-between items-center flex-wrap gap-[30px] max-md:flex-col max-md:text-center max-md:gap-5">
       <div class="text-[#666] text-[0.9rem] leading-[1.6] order-none max-md:order-2">
-        <p>&copy; {currentYear} {t.footer.rights}</p>
+        <p>&copy; <span data-current-year></span> {t.footer.rights}</p>
         <p>{t.footer.designed} <strong>Asociación Scouts de Colombia</strong></p>
         <p>{t.footer.developed} <strong>NoLit Developers</strong></p>
       </div>
@@ -48,3 +47,10 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script type="module" is:inline>
+  const yearEl = document.querySelector('[data-current-year]');
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+</script>

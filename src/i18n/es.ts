@@ -4,9 +4,10 @@ export default {
     header: {
         about: "Acerca de JamCam",
         participate: "Quiero participar",
-        serviceTeam: "Equipo de Servicio",
+        serviceTeam: "EIS",
         cali: "Cali",
         program: "Programa",
+        safeFromHarm: "ASP",
         resources: "Recursos",
         contacts: "Contactos",
     },
@@ -359,6 +360,41 @@ export default {
                     description: "Tenga a mano su documento de identidad y comprobante de inscripción al evento para cualquier verificación necesaria."
                 }
             ]
+        }
+    },
+    safeFromHarm: {
+        intro: {
+            title: "El JamCam Scout Interamericano es un Espacio Seguro",
+            description: "Queremos asegurarnos de que el JamCam sea una experiencia segura y positiva para todas las personas involucradas. Es responsabilidad de cada participante actuar de acuerdo con nuestros principios, la Política Mundial A Salvo del Peligro y el Código de Conducta del evento.",
+            exploreText: ""
+        },
+        responsibilities: {
+            title: "Responsabilidades de las y los Participantes",
+            description: "Para garantizar un ambiente seguro y respetuoso, todas las personas deben:",
+            items: [
+                {
+                    title: "Cumplir con el Código de Conducta",
+                    description: "Cumplir con el Código de Conducta durante todo el evento y las actividades relacionadas. Cualquier incumplimiento o violación de la ley local puede tener consecuencias, incluyendo la expulsión."
+                },
+                {
+                    title: "Completar la ruta de aprendizaje en línea de A Salvo del Peligro",
+                    description: "La ruta está compuesta por 3 módulos obligatorios para todas las personas adultas participantes. El curso está disponible en inglés, español y portugués. Se deberá presentar el certificado del tercer módulo como parte del proceso de registro para el evento."
+                },
+                {
+                    title: "Reporta cualquier situación potencialmente dañina",
+                    description: "Es responsabilidad de todos informar sobre cualquier situación que te haga sentir —a ti o a otros— incómodo, inseguro o amenazado. Puedes reportar tus inquietudes a través de cualquiera de los siguientes medios:",
+                    methods: [
+                        "Visitando las estaciones de Listening Ears",
+                        "A través de los formularios de reporte",
+                        "Mediante la línea de emergencia"
+                    ]
+                }
+            ]
+        },
+        listeningEars: {
+            title: "Espacio de Listening Ears",
+            description: "Durante el evento habrá un espacio tranquilo y seguro dedicado a Listening Ears, donde un equipo de voluntarios estará disponible para conversar o recibir reportes. El papel del equipo LE es guiar y apoyar a cualquier persona que enfrente un riesgo o experimente incomodidad.",
+            additionalInfo: "Este espacio ofrece un ambiente acogedor, sin prejuicios y de confianza, en el cual los participantes pueden buscar ayuda para sí mismos o para otros. Además, el equipo Listening Ears brinda apoyo emocional y de bienestar mental a todas las personas, sin importar su edad o función dentro del evento."
         }
     },
     consoleMessages: {

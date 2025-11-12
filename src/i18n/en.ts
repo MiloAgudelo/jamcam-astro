@@ -4,9 +4,10 @@ export default {
     header: {
         about: "About JamCam",
         participate: "Participate",
-        serviceTeam: "Service Team",
+        serviceTeam: "IST",
         cali: "Cali",
         program: "Program",
+        safeFromHarm: "SfH",
         resources: "Resources",
         contacts: "Contacts",
     },
@@ -342,6 +343,41 @@ export default {
                     description: "Keep your identity document and event registration receipt handy for any necessary verification."
                 }
             ]
+        }
+    },
+    safeFromHarm: {
+        intro: {
+            title: "The Interamerican Scout JamCam is a Safe Space",
+            description: "At our event, the safety and well-being of every participant is our top priority. The Safe from Harm framework reflects our commitment to creating a welcoming, inclusive, and protective environment for all.",
+            exploreText: "Explore below how we work together to ensure everyone enjoys a positive and safe experience."
+        },
+        responsibilities: {
+            title: "Responsibilities of All Participants",
+            description: "To maintain a safe and respectful environment, all participants must:",
+            items: [
+                {
+                    title: "Adhere to the Code of Conduct",
+                    description: "Adhere to the Code of Conduct throughout the event and during all activities. Any violation of the Code of Conduct or national law may lead to disciplinary actions, including expulsion from the event."
+                },
+                {
+                    title: "Complete the mandatory Safe from Harm online learning path",
+                    description: "The training includes 3 modules required for all adults attending the event. Available in English, Spanish, and Portuguese. A certificate of completion for the final module – Safe from Harm at the Interamerican Scout JamCam– must be presented to access the venue."
+                },
+                {
+                    title: "Report any potentially harmful situation",
+                    description: "It's everyone's responsibility to report any situation that makes you—or others—feel uneasy, unsafe, or threatened. You can report concerns through any of the following methods:",
+                    methods: [
+                        "By visiting the Listening Ears stations",
+                        "Through the report forms",
+                        "Via the emergency hotline"
+                    ]
+                }
+            ]
+        },
+        listeningEars: {
+            title: "Listening Ears Space",
+            description: "During the event, there will be a quiet and safe area dedicated to Listening Ears, where a team of volunteers will be available to talk or receive reports. The role of the LE team is to guide and support anyone who faces a risk or experiences discomfort.",
+            additionalInfo: "This space offers a welcoming, nonjudgmental, and trustworthy environment where participants can seek help for themselves or for others. In addition, the Listening Ears team provides emotional and mental well-being support to everyone, regardless of age or role within the event."
         }
     },
     consoleMessages: {

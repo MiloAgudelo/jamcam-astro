@@ -1,0 +1,103 @@
+---
+import { getTranslations } from '../i18n';
+import { Image } from 'astro:assets';
+import '../styles/global.css';
+import sfhLogo from '@logos/sfh-logo.png';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<section class="safe-from-harm-section relative overflow-hidden" style="background-color: #FAF9F6;">
+  <!-- Main Content Container -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16">
+    
+    <!-- Intro Section with Logo -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
+      
+      <!-- Logo Column -->
+      <div class="order-2 lg:order-1 flex justify-center lg:justify-start">
+        <Image 
+          src={sfhLogo} 
+          alt="Safe From Harm Logo"
+          width={400}
+          height={400}
+          class="w-full max-w-md h-auto"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Text Content -->
+      <div class="order-1 lg:order-2 text-center lg:text-left space-y-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-jm leading-tight">
+          {t.safeFromHarm.intro.title}
+        </h1>
+        <p class="text-lg md:text-xl text-black leading-relaxed font-light">
+          {t.safeFromHarm.intro.description}
+        </p>
+        {t.safeFromHarm.intro.exploreText && (
+          <p class="text-base md:text-lg text-black leading-relaxed font-light">
+            {t.safeFromHarm.intro.exploreText}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <!-- Responsibilities Section -->
+    <div class="mb-16 lg:mb-20">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-purple-jm leading-tight text-center mb-6">
+        {t.safeFromHarm.responsibilities.title}
+      </h2>
+      <p class="text-base md:text-lg text-black leading-relaxed font-light text-center max-w-3xl mx-auto mb-12">
+        {t.safeFromHarm.responsibilities.description}
+      </p>
+      
+      <!-- Responsibility Items Grid -->
+      <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+        {t.safeFromHarm.responsibilities.items.map((item, index) => (
+          <div class="bg-white rounded-lg p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow">
+            <h3 class="text-xl md:text-2xl font-semibold text-purple-jm mb-4">
+              {item.title}
+            </h3>
+            <p class="text-base md:text-lg text-black leading-relaxed font-light mb-4">
+              {item.description}
+            </p>
+            {item.methods && (
+              <ul class="space-y-2 text-base md:text-lg text-black leading-relaxed font-light">
+                {item.methods.map((method) => (
+                  <li class="flex items-start">
+                    <span class="text-purple-jm mr-2">•</span>
+                    <span>{method}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Listening Ears Section -->
+<div class="border-2 border-purple-jm rounded-lg p-8 lg:p-12 bg-white">
+  <div class="max-w-4xl mx-auto space-y-6 text-center">
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-purple-jm leading-tight">
+      {t.safeFromHarm.listeningEars.title}
+    </h2>
+    <p class="text-base md:text-lg lg:text-xl leading-relaxed font-light text-black">
+      {t.safeFromHarm.listeningEars.description}
+    </p>
+    <p class="text-base md:text-lg lg:text-xl leading-relaxed font-light text-black">
+      {t.safeFromHarm.listeningEars.additionalInfo}
+    </p>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<style>
+  .safe-from-harm-section {
+    min-height: auto;
+  }
+</style>
+

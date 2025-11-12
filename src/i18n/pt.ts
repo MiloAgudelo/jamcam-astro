@@ -4,9 +4,10 @@ export default {
     header: {
         about: "Sobre o JamCam",
         participate: "Quero participar",
-        serviceTeam: "Equipe de Serviço",
+        serviceTeam: "IST",
         cali: "Cali",
         program: "Programa",
+        safeFromHarm: "SfH",
         resources: "Recursos",
         contacts: "Contatos",
     },
@@ -342,6 +343,41 @@ export default {
                     description: "Tenha em mãos seu documento de identidade e comprovante de inscrição no evento para qualquer verificação necessária."
                 }
             ]
+        }
+    },
+    safeFromHarm: {
+        intro: {
+            title: "O JamCam Escoteiro Interamericano é um Espaço Seguro",
+            description: "Queremos garantir que o JamCam seja uma experiência segura e positiva para todas as pessoas envolvidas. É responsabilidade de cada participante agir de acordo com nossos princípios, com a Política Mundial Espaços Seguros e com o Código de Conduta do evento.",
+            exploreText: ""
+        },
+        responsibilities: {
+            title: "Responsabilidades dos Participantes",
+            description: "Para garantir um ambiente seguro e respeitoso, todas as pessoas devem:",
+            items: [
+                {
+                    title: "Cumprir o Código de Conduta",
+                    description: "Cumprir o Código de Conduta durante todo o evento e atividades relacionadas. Qualquer descumprimento ou violação da lei local pode acarretar consequências, incluindo a expulsão."
+                },
+                {
+                    title: "Concluir o curso online da Política Espaços Seguros",
+                    description: "O curso é composto por 3 módulos obrigatórios para todas as pessoas adultas participantes. O curso está disponível em inglês, espanhol e português. O certificado do terceiro módulo deverá ser apresentado como parte do processo de registro para o evento."
+                },
+                {
+                    title: "Reporte qualquer situação potencialmente prejudicial",
+                    description: "É responsabilidade de todos comunicar qualquer situação que faça você — ou outras pessoas — se sentirem desconfortáveis, inseguras ou ameaçadas. Você pode relatar suas preocupações por meio de qualquer dos seguintes canais:",
+                    methods: [
+                        "Visitando as estações do Listening Ears",
+                        "Através dos formulários de relato",
+                        "Pela linha de emergência"
+                    ]
+                }
+            ]
+        },
+        listeningEars: {
+            title: "Espaço Listening Ears",
+            description: "Durante o evento haverá um espaço tranquilo e seguro dedicado ao Listening Ears, onde uma equipe de voluntários estará disponível para conversar ou receber relatos. O papel da equipe Listening Ears é orientar e apoiar qualquer pessoa que enfrente uma situação de risco ou desconforto.",
+            additionalInfo: "Este espaço oferece um ambiente acolhedor, sem julgamentos e de confiança, no qual os participantes podem buscar ajuda para si mesmos ou para outras pessoas. Além disso, a equipe Listening Ears oferece apoio emocional e de bem-estar mental a todas as pessoas, independentemente da idade ou função dentro do evento."
         }
     },
     consoleMessages: {

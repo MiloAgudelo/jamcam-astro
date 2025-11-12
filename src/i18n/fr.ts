@@ -4,9 +4,10 @@ export default {
     header: {
         about: "À propos de JamCam",
         participate: "Je veux participer",
-        serviceTeam: "Équipe de Service",
+        serviceTeam: "IST",
         cali: "Cali",
         program: "Programme",
+        safeFromHarm: "SfH",
         resources: "Ressources",
         contacts: "Contacts",
     },
@@ -342,6 +343,41 @@ export default {
                     description: "Ayez à portée de main votre document d'identité et reçu d'inscription à l'événement pour toute vérification nécessaire."
                 }
             ]
+        }
+    },
+    safeFromHarm: {
+        intro: {
+            title: "Le JamCam Scout Interaméricain est un Espace Sûr",
+            description: "Nous voulons nous assurer que le JamCam soit une expérience sûre et positive pour toutes les personnes impliquées. Il est de la responsabilité de chaque participant d'agir conformément à nos principes, à la Politique Mondiale Espaces Sûrs et au Code de Conduite de l'événement.",
+            exploreText: "Découvrez ci-dessous comment nous travaillons ensemble pour garantir à tous une expérience positive et sûre."
+        },
+        responsibilities: {
+            title: "Responsabilités de Tous les Participants",
+            description: "Pour garantir un environnement sûr et respectueux, tous les participants doivent :",
+            items: [
+                {
+                    title: "Respecter le Code de Conduite",
+                    description: "Respecter le Code de Conduite tout au long de l'événement et lors de toutes les activités. Toute violation du Code de Conduite ou de la loi nationale peut entraîner des mesures disciplinaires, y compris l'expulsion de l'événement."
+                },
+                {
+                    title: "Compléter le parcours d'apprentissage en ligne obligatoire Espaces Sûrs",
+                    description: "La formation comprend 3 modules obligatoires pour tous les adultes participant à l'événement. Disponible en anglais, espagnol et portugais. Un certificat de complétion du module final – Espaces Sûrs au JamCam Scout Interaméricain – doit être présenté pour accéder au site de l'événement."
+                },
+                {
+                    title: "Signaler toute situation potentiellement préjudiciable",
+                    description: "Il est de la responsabilité de tous de signaler toute situation qui vous fait sentir — vous ou d'autres — mal à l'aise, en insécurité ou menacé. Vous pouvez signaler vos préoccupations par l'un des moyens suivants :",
+                    methods: [
+                        "En visitant les stations Listening Ears",
+                        "Par le biais des formulaires de signalement",
+                        "Via la ligne d'urgence"
+                    ]
+                }
+            ]
+        },
+        listeningEars: {
+            title: "Espace Listening Ears",
+            description: "Pendant l'événement, il y aura un espace calme et sûr dédié à Listening Ears, où une équipe de bénévoles sera disponible pour parler ou recevoir des signalements. Le rôle de l'équipe LE est de guider et soutenir toute personne confrontée à un risque ou éprouvant de l'inconfort.",
+            additionalInfo: "Cet espace offre un environnement accueillant, sans jugement et digne de confiance où les participants peuvent chercher de l'aide pour eux-mêmes ou pour d'autres. De plus, l'équipe Listening Ears fournit un soutien émotionnel et de bien-être mental à tous, quel que soit l'âge ou le rôle au sein de l'événement."
         }
     },
     consoleMessages: {

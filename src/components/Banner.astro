@@ -95,6 +95,9 @@ import bannerSafeFromHarmMobileEn from '../assets/images/banner/banner-sfh-mobil
 import bannerSafeFromHarmMobilePt from '../assets/images/banner/banner-sfh-mobile-pt.webp';
 import bannerSafeFromHarmMobileFr from '../assets/images/banner/banner-sfh-mobile-fr.webp';
 
+// Logo
+import logoJamCamWhite from '@logos/logo-jamcam-white.svg';
+
 interface Props {
   showLogo?: boolean;
 }
@@ -275,7 +278,7 @@ if (isHomePage) {
   }
 }
 
-const logoImage = "/images/logo-jamcam-white.svg";
+const logoImage = logoJamCamWhite;
 ---
 
 <section class="banner-container w-full relative overflow-hidden">
@@ -362,7 +365,7 @@ const logoImage = "/images/logo-jamcam-white.svg";
   {showLogo && (
     <div class="logo-overlay" id={isHomePage ? "logo-overlay" : undefined}>
       <img 
-        src={logoImage}
+        src={logoImage.src}
         alt="Logo JamCam 2025"
         class="logo-image"
         loading="eager"

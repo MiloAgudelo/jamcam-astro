@@ -2,8 +2,7 @@
 import '../styles/global.css';
 import { getTranslations } from '../i18n';
 
-import { Image } from 'astro:assets';
-import JamCamLogoColor from '../assets/images/logos/logo-jamcam-color.svg';
+import JamCamLogoColor from '@logos/logo-jamcam-color.svg';
 
 const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
@@ -63,7 +62,7 @@ const menuItems = [
   <nav class="relative w-full h-[98px] xl:h-[125px] bg-background-color shadow-nav-shadow z-[1000]">
     <div class="w-full h-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
       <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto xl:h-[130px] w-auto">
-        <img src="/images/logo-jamcam-color.svg" alt="Logo JamCam 2025" class="h-[80px] xl:h-[130px] w-auto object-contain" />
+        <img src={JamCamLogoColor.src} alt="Logo JamCam 2025" class="h-[80px] xl:h-[130px] w-auto object-contain" />
       </a>
 
       <button id="navbar-toggle" class="xl:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">

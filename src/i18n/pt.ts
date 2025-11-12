@@ -394,5 +394,11 @@ export default {
         cholaoSays: 'Cholao diz: "Código é legal, mas aventura JamCam é melhor!"',
         madeWithLove: "Feito com 💜 para a família Escoteira",
         alwaysServe: "Sempre servir!"
+    },
+    notFound: {
+        title: "404 - Página não encontrada",
+        heading: "Ops! Parece que você se perdeu",
+        message: "A página que você está procurando não existe ou foi movida. Mas não se preocupe! Cholao pode te guiar de volta ao acampamento.",
+        buttonText: "Voltar ao início"
     }
 }

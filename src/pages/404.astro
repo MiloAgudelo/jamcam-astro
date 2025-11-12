@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Get the proper home URL based on locale
+const homeUrl = locale === 'es' ? '/' : `/${locale}/`;
+---
+
+<Layout>
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="max-w-4xl mx-auto">
+      <!-- 404 and Cholao Side by Side -->
+      <div class="flex flex-col md:flex-row items-center justify-center mb-8">
+        <!-- Cholao SVG - Left side -->
+        <div class="flex justify-center md:justify-end md:mr-0">
+          <img 
+            src="/images/cholao.svg" 
+            alt="Cholao" 
+            class="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64"
+            loading="eager"
+          />
+        </div>
+        
+        <!-- 404 Number - Right side, very close -->
+        <h1 class="text-8xl md:text-9xl lg:text-[12rem] font-bold text-purple-jm md:-ml-4 lg:-ml-6 md:mr-4 lg:mr-6">
+          404
+        </h1>
+      </div>
+
+      <!-- Content Below -->
+      <div class="text-center">
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-4xl font-semibold text-gray-800 mb-4">
+          {t.notFound.heading}
+        </h2>
+
+        <!-- Message -->
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          {t.notFound.message}
+        </p>
+
+        <!-- Back to Home Button -->
+        <a 
+          href={homeUrl}
+          class="inline-block bg-purple-jm hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+        >
+          {t.notFound.buttonText}
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Purple color for JAMCAM branding */
+  :global(.text-purple-jm) {
+    color: #622599;
+  }
+
+  :global(.bg-purple-jm) {
+    background-color: #622599;
+  }
+
+  :global(.bg-purple-700) {
+    background-color: #4a1c73;
+  }
+</style>
+

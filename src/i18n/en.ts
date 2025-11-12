@@ -394,5 +394,11 @@ export default {
         cholaoSays: 'Cholao says: "Code is cool, but JamCam adventure is better!"',
         madeWithLove: "Made with 💜 for the Scout family",
         alwaysServe: "Always serve!"
+    },
+    notFound: {
+        title: "404 - Page not found",
+        heading: "Oops! It seems you got lost",
+        message: "The page you're looking for doesn't exist or has been moved. But don't worry! Cholao can guide you back to camp.",
+        buttonText: "Back to home"
     }
 }

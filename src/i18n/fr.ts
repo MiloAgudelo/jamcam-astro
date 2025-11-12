@@ -394,5 +394,11 @@ export default {
         cholaoSays: 'Cholao dit : "Le code c\'est génial, mais l\'aventure JamCam c\'est mieux !"',
         madeWithLove: "Fait avec 💜 pour la famille Scoute",
         alwaysServe: "Toujours servir !"
+    },
+    notFound: {
+        title: "404 - Page non trouvée",
+        heading: "Oups ! Il semble que tu te sois perdu",
+        message: "La page que tu recherches n'existe pas ou a été déplacée. Mais ne t'inquiète pas ! Cholao peut te guider de retour au camp.",
+        buttonText: "Retour à l'accueil"
     }
 }

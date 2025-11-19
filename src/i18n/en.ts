@@ -378,6 +378,12 @@ export default {
             title: "Listening Ears Space",
             description: "During the event, there will be a quiet and safe area dedicated to Listening Ears, where a team of volunteers will be available to talk or receive reports. The role of the LE team is to guide and support anyone who faces a risk or experiences discomfort.",
             additionalInfo: "This space offers a welcoming, nonjudgmental, and trustworthy environment where participants can seek help for themselves or for others. In addition, the Listening Ears team provides emotional and mental well-being support to everyone, regardless of age or role within the event."
+        },
+        codeOfConduct: {
+            title: "Code of Conduct",
+            description: "Download the official JamCam 2025 Code of Conduct to learn about the rules and principles that guide our coexistence during the event.",
+            downloadButton: "Download Code of Conduct",
+            documentUrl: "/docs/sfh-code-of-conduct.pdf"
         }
     },
     consoleMessages: {

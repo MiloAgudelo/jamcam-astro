@@ -1,0 +1,338 @@
+---
+import { getTranslations } from '../i18n';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+---
+
+<div class="chatbot-container fixed bottom-[85px] right-5 z-[98] transition-opacity duration-300 ease-linear">
+  <!-- Floating Button -->
+  <button 
+    id="chatbot-button"
+    class="chatbot-button w-[50px] h-[50px] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-105 overflow-hidden"
+    aria-label={t.chatbot.title}
+    aria-expanded="false"
+    aria-controls="chatbot-panel"
+    title={t.chatbot.title}
+  >
+    <img src="/images/cholao-chat.png" alt="Cholao" class="w-full h-full object-cover" />
+  </button>
+  
+  <!-- Chat Panel -->
+  <div 
+    id="chatbot-panel"
+    class="chatbot-panel absolute bottom-0 right-[65px] w-[320px] bg-white rounded-lg shadow-2xl opacity-0 transform translate-y-5 transition-all duration-300 ease-linear pointer-events-none overflow-hidden flex flex-col"
+    style="max-height: 550px; height: 550px;"
+  >
+    <!-- Header -->
+    <div class="chatbot-header bg-purple-jm text-white px-3 py-2 flex items-center justify-between flex-shrink-0">
+      <div class="flex items-center gap-2">
+        <img src="/images/cholao-chat.png" alt="Cholao" class="w-[26px] h-[26px] rounded-full object-cover" />
+        <span class="font-bold text-base">{t.chatbot.title}</span>
+      </div>
+      <button 
+        id="chatbot-close"
+        class="text-white hover:text-gray-200 transition-colors text-2xl leading-none"
+        aria-label={t.chatbot.close}
+      >
+        ×
+      </button>
+    </div>
+    
+    <!-- Messages Area - Scrollable, takes remaining space -->
+    <div id="chatbot-messages" class="chatbot-messages flex-1 overflow-y-auto p-3 space-y-2 bg-gray-50 min-h-0">
+      <!-- Messages will be inserted here by JavaScript -->
+    </div>
+    
+    <!-- Options Area - Always visible, no scroll -->
+    <div id="chatbot-options" class="chatbot-options p-2 bg-white border-t border-gray-200 space-y-1.5 flex-shrink-0">
+      <!-- Options will be inserted here by JavaScript -->
+    </div>
+    
+    <!-- Footer with Reset Button - Always visible -->
+    <div class="chatbot-footer px-2 pb-2 bg-white flex gap-2 flex-shrink-0">
+      <button 
+        id="chatbot-reset"
+        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1.5 px-3 rounded-lg transition-colors text-xs"
+      >
+        {t.chatbot.restart}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ chatbot: t.chatbot }}>
+  const chatbotButton = document.getElementById('chatbot-button');
+  const chatbotPanel = document.getElementById('chatbot-panel');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatbotReset = document.getElementById('chatbot-reset');
+  const chatbotMessages = document.getElementById('chatbot-messages');
+  const chatbotOptions = document.getElementById('chatbot-options');
+  
+  let currentNode = 'welcome';
+  let isOpen = false;
+  let conversationHistory = [];
+
+  // Initialize chatbot
+  function init() {
+    if (chatbotButton && chatbotPanel) {
+      // Button click to toggle
+      chatbotButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isOpen) {
+          closeChatbot();
+        } else {
+          openChatbot();
+        }
+      });
+
+      // Close button
+      if (chatbotClose) {
+        chatbotClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeChatbot();
+        });
+      }
+
+      // Reset button
+      if (chatbotReset) {
+        chatbotReset.addEventListener('click', (e) => {
+          e.stopPropagation();
+          resetChat();
+        });
+      }
+
+      // Prevent clicks inside the panel from closing it
+      chatbotPanel.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      // Handle escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+          closeChatbot();
+        }
+      });
+    }
+  }
+
+  function openChatbot() {
+    if (chatbotPanel && chatbotButton) {
+      isOpen = true;
+      chatbotPanel.classList.remove('opacity-0', 'translate-y-5', 'pointer-events-none');
+      chatbotPanel.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      chatbotButton.setAttribute('aria-expanded', 'true');
+      
+      // Show welcome message if first time opening
+      if (conversationHistory.length === 0) {
+        showNode('welcome');
+      }
+    }
+  }
+
+  function closeChatbot() {
+    if (chatbotPanel && chatbotButton) {
+      isOpen = false;
+      chatbotPanel.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      chatbotPanel.classList.add('opacity-0', 'translate-y-5', 'pointer-events-none');
+      chatbotButton.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function resetChat() {
+    conversationHistory = [];
+    currentNode = 'welcome';
+    if (chatbotMessages) {
+      chatbotMessages.innerHTML = '';
+    }
+    showNode('welcome');
+  }
+
+  function showNode(nodeId) {
+    const node = chatbot.nodes[nodeId];
+    if (!node) {
+      console.error('Node not found:', nodeId);
+      return;
+    }
+
+    currentNode = nodeId;
+    
+    // Add message to conversation
+    addMessage(node.message);
+    
+    // Show options
+    showOptions(node.options);
+    
+    // Add to history
+    conversationHistory.push(nodeId);
+  }
+
+  function addMessage(message) {
+    if (!chatbotMessages) return;
+    
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'flex gap-2 items-start animate-fade-in';
+    
+    messageDiv.innerHTML = `
+      <img src="/images/cholao-chat.png" alt="Cholao" class="w-[22px] h-[22px] rounded-full object-cover flex-shrink-0 mt-1" />
+      <div class="bg-white rounded-lg rounded-tl-none p-2.5 shadow-sm max-w-[85%]">
+        <p class="text-xs leading-relaxed text-gray-800 whitespace-pre-line">${message}</p>
+      </div>
+    `;
+    
+    chatbotMessages.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    setTimeout(() => {
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }, 100);
+  }
+
+  function showOptions(options) {
+    if (!chatbotOptions) return;
+    
+    chatbotOptions.innerHTML = '';
+    
+    options.forEach(option => {
+      const button = document.createElement('button');
+      button.className = 'w-full bg-purple-jm hover:bg-opacity-90 text-white font-semibold py-1.5 px-2.5 rounded-md transition-all text-xs text-left flex items-center gap-1.5';
+      
+      const iconSpan = document.createElement('span');
+      iconSpan.textContent = option.icon || '•';
+      iconSpan.className = 'text-sm flex-shrink-0';
+      
+      const labelSpan = document.createElement('span');
+      labelSpan.textContent = option.label;
+      labelSpan.className = 'leading-tight';
+      
+      button.appendChild(iconSpan);
+      button.appendChild(labelSpan);
+      
+      button.addEventListener('click', () => {
+        handleOptionClick(option);
+      });
+      
+      chatbotOptions.appendChild(button);
+    });
+  }
+
+  function handleOptionClick(option) {
+    // Prevent event from bubbling
+    event.stopPropagation();
+    
+    if (option.action === 'goto' && option.nodeId) {
+      showNode(option.nodeId);
+    } else if (option.action === 'link' && option.url) {
+      window.open(option.url, '_blank');
+    } else if (option.action === 'back') {
+      goBack();
+    }
+  }
+
+  function goBack() {
+    // Remove current node from history
+    conversationHistory.pop();
+    
+    // Get previous node or default to welcome
+    const previousNode = conversationHistory[conversationHistory.length - 1] || 'welcome';
+    
+    // Clear messages
+    if (chatbotMessages) {
+      chatbotMessages.innerHTML = '';
+    }
+    
+    // Show previous node
+    conversationHistory = []; // Reset history to rebuild
+    showNode(previousNode);
+  }
+
+  // Initialize on load
+  init();
+</script>
+
+<style>
+  .chatbot-panel {
+    max-height: 550px;
+    height: 550px;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  /* Ensure proper flex behavior */
+  .chatbot-messages {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .chatbot-options {
+    flex: 0 0 auto;
+    overflow-y: visible;
+  }
+
+  .chatbot-header,
+  .chatbot-footer {
+    flex: 0 0 auto;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .chatbot-container {
+      bottom: 80px;
+      right: 20px;
+    }
+
+    .chatbot-button {
+      width: 50px;
+      height: 50px;
+    }
+
+    .chatbot-panel {
+      right: 0;
+      bottom: 60px;
+      width: calc(100vw - 40px);
+      max-width: 320px;
+      max-height: 480px;
+      height: 480px;
+    }
+  }
+
+  /* Custom scrollbar for messages only */
+  .chatbot-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-thumb {
+    background: rgba(98, 37, 153, 0.3);
+    border-radius: 2px;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(98, 37, 153, 0.5);
+  }
+
+  /* Firefox */
+  .chatbot-messages {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(98, 37, 153, 0.3) #f1f1f1;
+  }
+</style>
+

@@ -382,8 +382,14 @@ export default {
         codeOfConduct: {
             title: "Código de Conduta",
             description: "Baixe o Código de Conduta oficial do JamCam 2025 para conhecer as normas e princípios que orientam nossa convivência durante o evento.",
-            downloadButton: "Baixar Código de Conduta",
+            downloadButton: "Código de Conduta",
             documentUrl: "/docs/sfh-code-of-conduct.pdf"
+        },
+        learningPath: {
+            title: "Rota de Aprendizagem Espaços Seguros",
+            description: "Complete a rota de aprendizagem obrigatória para participar do JamCam Escoteiro Interamericano 2025. A rota inclui 3 cursos online que prepararão todos os adultos participantes.",
+            buttonText: "Rota de Aprendizagem",
+            url: "https://learn.scout.org/resource/safe-harm-interamerican-scout-jamcam-learning-path"
         }
     },
     consoleMessages: {

@@ -399,8 +399,14 @@ export default {
         codeOfConduct: {
             title: "Código de Conducta",
             description: "Descarga el Código de Conducta oficial del JamCam 2025 para conocer las normas y principios que guían nuestra convivencia durante el evento.",
-            downloadButton: "Descargar Código de Conducta",
+            downloadButton: "Código de Conducta",
             documentUrl: "/docs/asp-codigo-de-conducta.pdf"
+        },
+        learningPath: {
+            title: "Ruta de Aprendizaje A Salvo del Peligro",
+            description: "Completa la ruta de aprendizaje obligatoria para participar en el JamCam Scout Interamericano 2025. La ruta incluye 3 cursos en línea que prepararán a todos los adultos participantes.",
+            buttonText: "Ruta de aprendizaje",
+            url: "https://learn.scout.org/resource/safe-harm-interamerican-scout-jamcam-learning-path"
         }
     },
     consoleMessages: {

@@ -382,8 +382,14 @@ export default {
         codeOfConduct: {
             title: "Code de Conduite",
             description: "Téléchargez le Code de Conduite officiel du JamCam 2025 pour connaître les normes et principes qui guident notre coexistence pendant l'événement.",
-            downloadButton: "Télécharger le Code de Conduite",
+            downloadButton: "Code de Conduite",
             documentUrl: "/docs/sfh-code-of-conduct.pdf"
+        },
+        learningPath: {
+            title: "Parcours d'Apprentissage Espaces Sûrs",
+            description: "Complétez le parcours d'apprentissage obligatoire pour participer au JamCam Scout Interaméricain 2025. Le parcours comprend 3 cours en ligne qui prépareront tous les adultes participants.",
+            buttonText: "Parcours d'Apprentissage",
+            url: "https://learn.scout.org/resource/safe-harm-interamerican-scout-jamcam-learning-path"
         }
     },
     consoleMessages: {

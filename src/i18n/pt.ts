@@ -365,7 +365,7 @@ export default {
                 },
                 {
                     title: "Reporte qualquer situação potencialmente prejudicial",
-                    description: "É responsabilidade de todos comunicar qualquer situação que faça você — ou outras pessoas — se sentirem desconfortáveis, inseguras ou ameaçadas. Você pode relatar suas preocupações por meio de qualquer dos seguintes canais:",
+                    description: "É responsabilidade de todos comunicar qualquer situação que faça você, ou outras pessoas, se sentirem desconfortáveis, inseguras ou ameaçadas. Você pode relatar suas preocupações por meio de qualquer dos seguintes canais:",
                     methods: [
                         "Visitando as estações do Listening Ears",
                         "Através dos formulários de relato",

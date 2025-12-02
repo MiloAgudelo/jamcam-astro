@@ -382,7 +382,7 @@ export default {
                 },
                 {
                     title: "Reporta cualquier situación potencialmente dañina",
-                    description: "Es responsabilidad de todos informar sobre cualquier situación que te haga sentir —a ti o a otros— incómodo, inseguro o amenazado. Puedes reportar tus inquietudes a través de cualquiera de los siguientes medios:",
+                    description: "Es responsabilidad de todos informar sobre cualquier situación que te haga sentir, a ti o a otros, incómodo, inseguro o amenazado. Puedes reportar tus inquietudes a través de cualquiera de los siguientes medios:",
                     methods: [
                         "Visitando las estaciones de Listening Ears",
                         "A través de los formularios de reporte",

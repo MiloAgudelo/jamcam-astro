@@ -365,7 +365,7 @@ export default {
                 },
                 {
                     title: "Signaler toute situation potentiellement préjudiciable",
-                    description: "Il est de la responsabilité de tous de signaler toute situation qui vous fait sentir — vous ou d'autres — mal à l'aise, en insécurité ou menacé. Vous pouvez signaler vos préoccupations par l'un des moyens suivants :",
+                    description: "Il est de la responsabilité de tous de signaler toute situation qui vous fait sentir, vous ou d'autres, mal à l'aise, en insécurité ou menacé. Vous pouvez signaler vos préoccupations par l'un des moyens suivants :",
                     methods: [
                         "En visitant les stations Listening Ears",
                         "Par le biais des formulaires de signalement",

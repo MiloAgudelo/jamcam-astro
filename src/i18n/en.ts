@@ -365,7 +365,7 @@ export default {
                 },
                 {
                     title: "Report any potentially harmful situation",
-                    description: "It's everyone's responsibility to report any situation that makes you—or others—feel uneasy, unsafe, or threatened. You can report concerns through any of the following methods:",
+                    description: "It's everyone's responsibility to report any situation that makes you, or others, feel uneasy, unsafe, or threatened. You can report concerns through any of the following methods:",
                     methods: [
                         "By visiting the Listening Ears stations",
                         "Through the report forms",

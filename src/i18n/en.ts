@@ -361,7 +361,7 @@ export default {
                 },
                 {
                     title: "Complete the mandatory Safe from Harm online learning path",
-                    description: "The training includes 3 modules required for all adults attending the event. Available in English, Spanish, and Portuguese. A certificate of completion for the final module – Safe from Harm at the Interamerican Scout JamCam– must be presented to access the venue."
+                    description: "The training includes 3 modules required for all adults attending the event. Available in English and Spanish. A certificate of completion for the final module – Safe from Harm at the Interamerican Scout JamCam– must be presented to access the venue."
                 },
                 {
                     title: "Report any potentially harmful situation",

@@ -361,7 +361,7 @@ export default {
                 },
                 {
                     title: "Concluir o curso online da Política Espaços Seguros",
-                    description: "O curso é composto por 3 módulos obrigatórios para todas as pessoas adultas participantes. O curso está disponível em inglês, espanhol e português. O certificado do terceiro módulo deverá ser apresentado como parte do processo de registro para o evento."
+                    description: "O curso é composto por 3 módulos obrigatórios para todas as pessoas adultas participantes. O curso está disponível em inglês e espanhol. O certificado do terceiro módulo deverá ser apresentado como parte do processo de registro para o evento."
                 },
                 {
                     title: "Reporte qualquer situação potencialmente prejudicial",

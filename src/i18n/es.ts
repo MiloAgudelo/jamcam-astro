@@ -378,7 +378,7 @@ export default {
                 },
                 {
                     title: "Completar la ruta de aprendizaje en línea de A Salvo del Peligro",
-                    description: "La ruta está compuesta por 3 módulos obligatorios para todas las personas adultas participantes. El curso está disponible en inglés, español y portugués. Se deberá presentar el certificado del tercer módulo como parte del proceso de registro para el evento."
+                    description: "La ruta está compuesta por 3 módulos obligatorios para todas las personas adultas participantes. El curso está disponible en inglés y español. Se deberá presentar el certificado del tercer módulo como parte del proceso de registro para el evento."
                 },
                 {
                     title: "Reporta cualquier situación potencialmente dañina",

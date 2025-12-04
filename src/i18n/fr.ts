@@ -361,7 +361,7 @@ export default {
                 },
                 {
                     title: "Compléter le parcours d'apprentissage en ligne obligatoire Espaces Sûrs",
-                    description: "La formation comprend 3 modules obligatoires pour tous les adultes participant à l'événement. Disponible en anglais, espagnol et portugais. Un certificat de complétion du module final – Espaces Sûrs au JamCam Scout Interaméricain – doit être présenté pour accéder au site de l'événement."
+                    description: "La formation comprend 3 modules obligatoires pour tous les adultes participant à l'événement. Disponible en anglais et espagnol. Un certificat de complétion du module final – Espaces Sûrs au JamCam Scout Interaméricain – doit être présenté pour accéder au site de l'événement."
                 },
                 {
                     title: "Signaler toute situation potentiellement préjudiciable",

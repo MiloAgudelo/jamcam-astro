@@ -18,6 +18,7 @@ export default {
     },
     resources: {
         brandManual: "Manual de marca",
+        poolRules: "Normas de uso das piscinas Comfandi",
     },
     countdown: {
         days: "Dias",

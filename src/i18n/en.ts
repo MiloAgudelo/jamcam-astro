@@ -19,6 +19,7 @@ export default {
     resources: {
         brandManual: "Brand Manual",
         poolRules: "Comfandi pool usage rules",
+        epidemiologicalRecommendations: "Health & epidemiological recommendations",
     },
     countdown: {
         days: "Days",

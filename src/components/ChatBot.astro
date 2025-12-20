@@ -172,7 +172,11 @@ const t = getTranslations(locale);
     currentNode = nodeId;
     
     // Add message to conversation with typing animation
-    addMessageWithTyping(node.message);
+    // Check if node has image or download properties
+    const imageUrl = node.image || null;
+    const downloadUrl = node.download || null;
+    const downloadLabel = node.downloadLabel || null;
+    addMessageWithTyping(node.message, imageUrl, downloadUrl, downloadLabel);
     
     // Show options after message appears
     setTimeout(() => {
@@ -219,16 +223,38 @@ const t = getTranslations(locale);
     }
   }
 
-  function addMessage(message) {
+  function addMessage(message, imageUrl = null, downloadUrl = null, downloadLabel = null) {
     if (!chatbotMessages) return;
     
     const messageDiv = document.createElement('div');
     messageDiv.className = 'flex gap-2 items-start animate-fade-in';
     
+    let contentHTML = `<p class="text-xs leading-relaxed text-gray-800 whitespace-pre-line">${message}</p>`;
+    
+    // Add image if provided
+    if (imageUrl) {
+      contentHTML += `
+        <div class="mt-2 rounded-lg overflow-hidden border border-gray-200">
+          <img src="${imageUrl}" alt="Mapa JamCam 2025" class="w-full h-auto max-h-[200px] object-contain" />
+        </div>
+      `;
+    }
+    
+    // Add download button if download URL provided
+    if (downloadUrl) {
+      const label = downloadLabel || 'Descargar mapa';
+      contentHTML += `
+        <a href="${downloadUrl}" download class="mt-2 inline-flex items-center gap-1.5 text-xs text-purple-jm hover:text-purple-800 font-semibold underline">
+          <span>📥</span>
+          <span>${label}</span>
+        </a>
+      `;
+    }
+    
     messageDiv.innerHTML = `
       <img src="/images/cholao-chat.png" alt="Cholao" class="w-[22px] h-[22px] rounded-full object-cover flex-shrink-0 mt-1" />
       <div class="bg-white rounded-lg rounded-tl-none p-2.5 shadow-sm max-w-[85%]">
-        <p class="text-xs leading-relaxed text-gray-800 whitespace-pre-line">${message}</p>
+        ${contentHTML}
       </div>
     `;
     
@@ -241,7 +267,7 @@ const t = getTranslations(locale);
     }, 100);
   }
 
-  function addMessageWithTyping(message) {
+  function addMessageWithTyping(message, imageUrl = null, downloadUrl = null, downloadLabel = null) {
     if (!chatbotMessages) return;
     
     // Mostrar indicador de escribiendo
@@ -250,7 +276,7 @@ const t = getTranslations(locale);
     // Después del delay, quitar indicador y mostrar mensaje
     setTimeout(() => {
       removeTypingIndicator();
-      addMessage(message);
+      addMessage(message, imageUrl, downloadUrl, downloadLabel);
     }, TYPING_DELAY);
   }
 

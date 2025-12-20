@@ -421,397 +421,147 @@ export default {
         restart: "🔄 Reiniciar",
         nodes: {
             welcome: {
-                message: "⚠️ Este chat está em fase de desenvolvimento. As informações fornecidas podem não ser precisas ou estar incompletas.\n\nOlá! Sou Cholao, seu assistente digital no JamCam 2025.\n\nEstou aqui para te guiar em atividades, localizações, serviços e apoio durante todo o evento.\n\n👉 Me diga, o que você precisa agora?",
+                message: "👋 Olá! Sou Cholao, seu assistente digital no JamCam 2025.\n\nEstou aqui para te guiar em atividades, localizações, serviços e apoio durante todo o evento.\n\n👉 Me diga, o que você precisa agora?",
                 options: [
-                    { icon: "📋", label: "PRÉ - CHECK IN", action: "goto", nodeId: "checkin" },
-                    { icon: "📍", label: "Localização do Camp", action: "goto", nodeId: "locations" },
-                    { icon: "🎯", label: "Atividades", action: "goto", nodeId: "activities" },
-                    { icon: "🧠", label: "LISTENING EARS", action: "goto", nodeId: "listening-ears" },
-                    { icon: "🗣️", label: "Reclamações ou Relatos", action: "goto", nodeId: "reports" },
-                    { icon: "ℹ️", label: "Info Geral", action: "goto", nodeId: "general-info" }
+                    { icon: "🌿", label: "Check-in Bem-estar", action: "goto", nodeId: "checkin-bienestar" },
+                    { icon: "📍", label: "Localizações JamCam", action: "goto", nodeId: "ubicaciones" },
+                    { icon: "🎯", label: "Atividades", action: "goto", nodeId: "actividades" },
+                    { icon: "🧠", label: "Listening Ears", action: "goto", nodeId: "listening-ears" },
+                    { icon: "ℹ️", label: "Info Geral", action: "goto", nodeId: "info-general" },
+                    { icon: "🗣️", label: "Sua voz conta", action: "goto", nodeId: "tu-voz-cuenta" },
+                    { icon: "🌍", label: "Curiosidades", action: "goto", nodeId: "datos-curiosos" },
+                    { icon: "📊", label: "Pesquisas", action: "goto", nodeId: "encuestas" }
                 ]
             },
-            locations: {
-                message: "Claro 🗺️, selecione a zona que você quer localizar:",
+            "checkin-bienestar": {
+                message: "🦅 Estou aqui para te ajudar a preparar tua chegada e fazer teu registro prévio.\n\nVamos tornar este processo rápido e fácil.",
                 options: [
-                    { icon: "⛺", label: "Camp de Tropas", action: "goto", nodeId: "location-troops" },
-                    { icon: "🍽️", label: "Refeitório Principal", action: "goto", nodeId: "location-dining" },
-                    { icon: "🚑", label: "Saúde e atendimento", action: "goto", nodeId: "location-health" },
-                    { icon: "🎶", label: "Atividades", action: "goto", nodeId: "location-activities" },
-                    { icon: "🚻", label: "Banheiros e Chuveiros", action: "goto", nodeId: "location-bathrooms" },
-                    { icon: "📋", label: "Protocolo", action: "goto", nodeId: "location-protocol" },
+                    { icon: "✅", label: "Estou Pronto", action: "goto", nodeId: "checkin-pais" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "location-troops": {
-                message: "Genial 🙌, o Acampamento de Tropas está localizado na zona norte do terreno.\n\n👉 Aqui está a referência do mapa: 📍\n\nQuer ver outra localização?",
+            "checkin-pais": {
+                message: "🌎 Primeiro, me diga: de qual país você vem?",
                 options: [
-                    { icon: "✅", label: "Sim, ver mais zonas", action: "goto", nodeId: "locations" },
+                    { icon: "🇨🇴", label: "Colômbia", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇧🇷", label: "Brasil", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇦🇷", label: "Argentina", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇨🇦", label: "Canadá", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇭🇳", label: "Honduras", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇨🇷", label: "Costa Rica", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇲🇽", label: "México", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇨🇱", label: "Chile", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇪🇨", label: "Equador", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇩🇴", label: "República Dominicana", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇸🇻", label: "El Salvador", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇬🇹", label: "Guatemala", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇳🇮", label: "Nicarágua", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇵🇦", label: "Panamá", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇵🇾", label: "Paraguai", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇵🇪", label: "Peru", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇵🇷", label: "Porto Rico", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇻🇪", label: "Venezuela", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇸🇪", label: "Suécia", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇦🇺", label: "Austrália", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🇵🇱", label: "Polônia", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🌍", label: "FSI", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🌍", label: "CICE", action: "goto", nodeId: "checkin-rol" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "checkin-bienestar" }
+                ]
+            },
+            "checkin-rol": {
+                message: "🙋 Selecione seu papel no evento:",
+                options: [
+                    { icon: "👦", label: "Escoteiro", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "🧑", label: "Sênior", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "👨", label: "Pioneiro", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "🤝", label: "EIS / Serviço", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "👔", label: "Chefe de Delegação", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "👤", label: "Adulto Acompanhante", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "📋", label: "Staff", action: "goto", nodeId: "checkin-sintomas" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "checkin-pais" }
+                ]
+            },
+            "checkin-sintomas": {
+                message: "🧑‍⚕️ Sintomas ou desconfortos",
+                options: [
+                    { icon: "😣", label: "Dor de cabeça", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🤢", label: "Dor de estômago", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🤮", label: "Náusea", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🌡️", label: "Febre", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🌡️", label: "Sensação de Febre", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "😷", label: "Tosse", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "😤", label: "Problema ao respirar", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "😵", label: "Tontura ou fraqueza", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🩹", label: "Lesão recente", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🤧", label: "Alergia ativa", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "✅", label: "Nenhum", action: "goto", nodeId: "checkin-apoyo" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "checkin-rol" }
+                ]
+            },
+            "checkin-apoyo": {
+                message: "Você precisa de Apoio Especial?\n\n✨ Se você precisa de apoio especial durante sua chegada ou estadia, posso transmitir a informação à equipe de Hospitalidade e Protocolo.",
+                options: [
+                    { icon: "✅", label: "Sim, preciso", action: "goto", nodeId: "checkin-apoyo-si" },
+                    { icon: "❌", label: "Não, está tudo bem", action: "goto", nodeId: "checkin-apoyo-no" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "checkin-sintomas" }
+                ]
+            },
+            "checkin-apoyo-si": {
+                message: "Obrigado por nos informar.\n\nAo chegar no Welcome Center, aproxime-se da equipe de Protocolo e Hospitalidade e indique que você solicitou apoio médico no check-in de bem-estar. Te acompanharemos com a equipe de saúde.",
+                options: [
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "checkin-apoyo-no": {
+                message: "Obrigado por nos informar. Se mais tarde você precisar de apoio, aproxime-se com confiança do Welcome Center ou da equipe de Protocolo e Hospitalidade. Estamos atentos para te ajudar.",
+                options: [
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            ubicaciones: {
+                message: "📖 Aqui você encontrará o mapa geral do JAMCAM 2025, onde poderá identificar todas as localizações principais do evento em um só lugar.",
+                image: "/images/mapa-jamcam.png",
+                download: "/images/mapa-jamcam.png",
+                downloadLabel: "Baixar mapa",
+                options: [
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "location-dining": {
-                message: "Que não falte a energia! 🍽️\n\nO Refeitório Principal está na zona central, ao lado da área de cultura.\n\n👉 Horário de atendimento: 6:30h – 20:30h\n\nQuer conhecer o cardápio de hoje?",
+            actividades: {
+                message: "🎯 Atividades\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "📋", label: "Sim, mostre-me o cardápio", action: "goto", nodeId: "menu-placeholder" },
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
-                ]
-            },
-            "location-health": {
-                message: "Seu bem-estar é o mais importante 💚.\n\nA Área de Saúde e Atenção Psicológica está no lado sul, perto da entrada 2.\n\n👉 Atendimento disponível: 24 horas.\n\nDeseja solicitar apoio imediato de um voluntário?",
-                options: [
-                    { icon: "🙋‍♂️", label: "Sim, preciso de apoio", action: "goto", nodeId: "health-support" },
-                    { icon: "🔙", label: "Só queria a localização", action: "goto", nodeId: "locations" }
-                ]
-            },
-            "location-activities": {
-                message: "A diversão está aqui! 🎉\n\nOs Cenários de Atividades estão distribuídos na zona leste.\n\n👉 Próxima apresentação: Concerto Scout às 19:00h\n\nQuer ver a agenda completa?",
-                options: [
-                    { icon: "📅", label: "Sim, agenda completa", action: "goto", nodeId: "schedule-placeholder" },
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
-                ]
-            },
-            "location-bathrooms": {
-                message: "A área de Banheiros e Chuveiros 🚿 está em cada extremo do acampamento.\n\n👉 São limpos a cada 3 horas para seu conforto.\n\nQuer que eu mostre o ponto mais próximo de você?",
-                options: [
-                    { icon: "📍", label: "Sim, mostrar ponto próximo", action: "goto", nodeId: "nearest-bathroom" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "location-protocol": {
-                message: "📋 Protocolos e Procedimentos\n\nInformações sobre protocolos de segurança e procedimentos do acampamento.\n\n(Esta seção está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
-                ]
-            },
-            checkin: {
-                message: "📋 PRÉ - CHECK IN\n\nInformações sobre o processo de check-in.\n\n(Esta seção está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            activities: {
-                message: "🎯 Atividades",
-                options: [
-                    { icon: "⚽", label: "Esportes", action: "goto", nodeId: "activities-sports" },
-                    { icon: "🎨", label: "Oficinas criativas", action: "goto", nodeId: "activities-workshops" },
-                    { icon: "🎤", label: "Cultura", action: "goto", nodeId: "activities-culture" },
-                    { icon: "🔥", label: "Fogueira central", action: "goto", nodeId: "activities-campfire" },
-                    { icon: "📚", label: "Agenda completa", action: "goto", nodeId: "activities-schedule" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "activities-sports": {
-                message: "Vamos nos movimentar! 💪⚽\n\nAtividades esportivas disponíveis agora:\n\n🏐 Vôlei de praia (Zona Leste – 10:00h)\n🏃‍♂️ Corrida de orientação (Zona Norte – 11:30h)\n🏀 Basquete (Zona Central – 14:00h)\n\n👉 Quer ver a programação de amanhã?",
-                options: [
-                    { icon: "✅", label: "Sim, mostrar esportes amanhã", action: "goto", nodeId: "sports-tomorrow" },
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "sports-tomorrow": {
-                message: "📅 Esportes de amanhã\n\nProgramação esportiva do dia seguinte.\n\n(Esta informação será atualizada diariamente)",
-                options: [
-                    { icon: "🔙", label: "Voltar a esportes", action: "goto", nodeId: "activities-sports" },
-                    { icon: "🔙", label: "Menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "activities-workshops": {
-                message: "Hora de mostrar seu lado artístico! 🎨✨\n\nOficinas ativas agora:\n\n🎭 Teatro improvisado (Tenda Cultural – 9:00h)\n🖌️ Pintura Scout (Zona Oeste – 11:00h)\n🎶 Percussão e ritmo (Zona Música – 15:00h)\n\n👉 Quer ver as oficinas da tarde?",
-                options: [
-                    { icon: "✅", label: "Sim, mostre-me", action: "goto", nodeId: "workshops-afternoon" },
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "workshops-afternoon": {
-                message: "🌅 Oficinas da tarde\n\nOficinas criativas programadas para a tarde.\n\n(Esta informação será atualizada diariamente)",
-                options: [
-                    { icon: "🔙", label: "Voltar às oficinas", action: "goto", nodeId: "activities-workshops" },
-                    { icon: "🔙", label: "Menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "activities-culture": {
-                message: "O acampamento vibra com cultura! 🎤🎶\n\nHoje temos:\n\n🎶 Banda Scout Internacional – 17:00h (Palco Principal)\n💃 Dança folclórica – 18:30h (Zona Cultural)\n🎤 Noite de talentos – 21:00h (Fogueira central)\n\n👉 Quer ver os concertos de amanhã?",
-                options: [
-                    { icon: "✅", label: "Sim, mostre-me", action: "goto", nodeId: "culture-tomorrow" },
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "culture-tomorrow": {
-                message: "🎭 Eventos culturais de amanhã\n\nProgramação cultural do dia seguinte.\n\n(Esta informação será atualizada diariamente)",
-                options: [
-                    { icon: "🔙", label: "Voltar à cultura", action: "goto", nodeId: "activities-culture" },
-                    { icon: "🔙", label: "Menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "activities-campfire": {
-                message: "🔥 A Fogueira Central é o coração do JamCam.\n\n📍 Localização: Zona Sul, esplanada principal.\n\n⏰ Hora de encontro: 20:00h\n\n👉 Quer que eu te lembre antes de começar?",
-                options: [
-                    { icon: "⏰", label: "Sim, me lembre", action: "goto", nodeId: "campfire-reminder" },
-                    { icon: "❌", label: "Não, obrigado", action: "goto", nodeId: "activities" },
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "campfire-reminder": {
-                message: "⏰ Perfeito!\n\nLembrarei você 30 minutos antes da Fogueira Central.\n\n(Esta funcionalidade estará disponível durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" },
-                    { icon: "🔙", label: "Menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "activities-schedule": {
-                message: "📖 Aqui está a agenda completa do evento dia por dia.\n\n👉 Quer que eu te envie um resumo diário todas as manhãs?",
-                options: [
-                    { icon: "✅", label: "Sim, enviar resumo diário", action: "goto", nodeId: "schedule-daily" },
-                    { icon: "❌", label: "Não, só consultando agora", action: "goto", nodeId: "activities" },
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" }
-                ]
-            },
-            "schedule-daily": {
-                message: "📧 Ótimo!\n\nVocê receberá um resumo diário das atividades toda manhã.\n\n(Esta funcionalidade estará disponível durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu de atividades", action: "goto", nodeId: "activities" },
-                    { icon: "🔙", label: "Menu principal", action: "goto", nodeId: "welcome" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
             "listening-ears": {
-                message: "🧠 LISTENING EARS\n\nLembre-se de que temos pessoas prontas para te ouvir 💚.",
+                message: "🧠 Listening Ears\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "🙋‍♂️", label: "Solicitar apoio", action: "goto", nodeId: "le-request-support" },
-                    { icon: "📅", label: "Consulta breve", action: "goto", nodeId: "le-appointment" },
-                    { icon: "🏥", label: "Pontos de atendimento", action: "goto", nodeId: "le-locations" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "le-request-support": {
-                message: "Obrigado por confiar em mim 💚.\n\nUm voluntário especializado em atendimento psicológico primário entrará em contato em alguns minutos.\n\n👉 Por favor, fique perto do seu telefone / ponto de atendimento.\n\nQuer compartilhar como você está se sentindo agora?",
+            "info-general": {
+                message: "ℹ️ Info Geral\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "😊", label: "Bem", action: "goto", nodeId: "le-feeling-good" },
-                    { icon: "😟", label: "Ansioso", action: "goto", nodeId: "le-feeling-anxious" },
-                    { icon: "😢", label: "Triste", action: "goto", nodeId: "le-feeling-sad" },
-                    { icon: "😡", label: "Com raiva", action: "goto", nodeId: "le-feeling-angry" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "le-feeling-good": {
-                message: "Que bom que você compartilha! 💚 Às vezes só precisamos conversar um pouco.\n\nVocê pode ir ao 🏠 Ponto de Escuta Scout na área central, ou se preferir, posso agendar um espaço breve com um voluntário para conversar.",
+            "tu-voz-cuenta": {
+                message: "🗣️ Sua voz conta\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "📅", label: "Agendar conversa", action: "goto", nodeId: "le-appointment" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "le-feeling-anxious": {
-                message: "Obrigado por dizer 🙏. Quando a ansiedade aparece, o melhor é fazer uma pausa.\n\nTente isso agora 👇\n\n1️⃣ Respire fundo: inspire contando até 4, expire contando até 6.\n2️⃣ Beba um pouco de água.\n3️⃣ Se desejar, posso conectá-lo com um voluntário que o acompanhe.",
+            "datos-curiosos": {
+                message: "🌍 Curiosidades\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "✅", label: "Sim, preciso de apoio imediato", action: "goto", nodeId: "le-immediate-support" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
-            "le-feeling-sad": {
-                message: "Entendo como você se sente 💚. A tristeza também faz parte da vida, e está tudo bem falar sobre isso.\n\nAqui estão duas opções:\n\nVocê pode ir à tenda de saúde para falar com alguém pessoalmente.\n\nOu posso agendar uma conversa breve com um voluntário para te ouvir agora mesmo.",
+            encuestas: {
+                message: "📊 Pesquisas\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
                 options: [
-                    { icon: "📅", label: "Agendar consulta breve", action: "goto", nodeId: "le-appointment" },
-                    { icon: "🏃‍♂️", label: "Ir ao ponto de atendimento próximo", action: "goto", nodeId: "le-locations" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
-                ]
-            },
-            "le-feeling-angry": {
-                message: "Obrigado por reconhecer 💪. A raiva pode ser forte, mas também pode ser canalizada.\n\nEu recomendo:\n\n1️⃣ Caminhar alguns minutos antes de responder a alguém.\n2️⃣ Se preferir, podemos guiá-lo com uma técnica breve de respiração para liberar a tensão.\n3️⃣ Também posso colocá-lo em contato com um voluntário para falar sobre o que está acontecendo.",
-                options: [
-                    { icon: "🧘", label: "Exercício breve de respiração", action: "goto", nodeId: "le-breathing" },
-                    { icon: "🙋‍♂️", label: "Falar com um voluntário", action: "goto", nodeId: "le-immediate-support" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
-                ]
-            },
-            "le-breathing": {
-                message: "🧘 Exercício de Respiração\n\nVamos fazer uma pausa juntos:\n\n1. Inspire profundamente por 4 segundos\n2. Segure a respiração por 2 segundos\n3. Expire lentamente por 6 segundos\n4. Repita 3 vezes\n\nVocê se sente melhor?",
-                options: [
-                    { icon: "✅", label: "Sim, obrigado", action: "goto", nodeId: "listening-ears" },
-                    { icon: "🙋‍♂️", label: "Ainda preciso falar com alguém", action: "goto", nodeId: "le-immediate-support" }
-                ]
-            },
-            "le-immediate-support": {
-                message: "Perfeito 💚. Um voluntário entrará em contato com você imediatamente.\n\nPor favor, fique disponível em sua localização atual.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "le-appointment": {
-                message: "Perfeito 🙌. Você pode escolher o horário disponível para uma conversa de apoio (15 minutos).\n\n👉 Horários disponíveis hoje:\n⏰ 11:00h\n⏰ 14:00h\n⏰ 17:00h\n\nQuer que eu te lembre antes da consulta?",
-                options: [
-                    { icon: "✅", label: "Sim, me lembre 15 minutos antes", action: "goto", nodeId: "le-appointment-reminder" },
-                    { icon: "📅", label: "Não, só agendar", action: "goto", nodeId: "le-appointment-confirmed" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
-                ]
-            },
-            "le-appointment-reminder": {
-                message: "✅ Consulta agendada com lembrete.\n\nAvisarei você 15 minutos antes da sua consulta.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" },
-                    { icon: "🔙", label: "Menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "le-appointment-confirmed": {
-                message: "✅ Consulta agendada com sucesso.\n\nNos vemos no horário selecionado.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" },
-                    { icon: "🔙", label: "Menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "le-locations": {
-                message: "Os pontos de Atendimento Psicológico estão localizados nestas áreas 👇\n\n🚑 Tenda de Saúde Principal (zona sul, entrada 2)\n🏠 Ponto de escuta Scout (zona central, ao lado do refeitório)\n\n⏰ Horários: 8:00h – 22:00h (atendimento psicológico primário presencial)\n\n👉 Quer que eu mostre o mapa interativo com esses pontos?",
-                options: [
-                    { icon: "🗺️", label: "Sim, mostrar mapa", action: "goto", nodeId: "le-map" },
-                    { icon: "❌", label: "Não, obrigado", action: "goto", nodeId: "listening-ears" },
-                    { icon: "🔙", label: "Voltar ao menu psicológico", action: "goto", nodeId: "listening-ears" }
-                ]
-            },
-            "le-map": {
-                message: "🗺️ Mapa de Pontos de Atendimento\n\nAqui você pode ver a localização exata dos pontos de atendimento psicológico.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar aos pontos de atendimento", action: "goto", nodeId: "le-locations" },
-                    { icon: "🔙", label: "Menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            reports: {
-                message: "📣 Reclamações ou Relatos\n\nSua voz importa! 🙌 Selecione:",
-                options: [
-                    { icon: "🚨", label: "Emergência", action: "goto", nodeId: "reports-emergency" },
-                    { icon: "📝", label: "Reclamação", action: "goto", nodeId: "reports-complaint" },
-                    { icon: "💡", label: "Sugestão", action: "goto", nodeId: "reports-suggestion" },
-                    { icon: "🛡️", label: "Safe From Harm", action: "link", url: "https://forms.gle/your-form-link" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-emergency": {
-                message: "⚠️ Entendido, sua segurança é prioridade.\n\nPor favor selecione o tipo de emergência 👇",
-                options: [
-                    { icon: "🚑", label: "Médica ou psicológica", action: "goto", nodeId: "reports-emergency-medical" },
-                    { icon: "🔥", label: "Incêndio ou acidente ambiental", action: "goto", nodeId: "reports-emergency-fire" },
-                    { icon: "🚨", label: "Segurança ou conduta inadequada", action: "goto", nodeId: "reports-emergency-security" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports" }
-                ]
-            },
-            "reports-emergency-medical": {
-                message: "🚑 Emergência Médica ou Psicológica\n\nObrigado por relatar. Nossa equipe já está a caminho.\n\nFique em um lugar seguro e, se possível, compartilhe sua localização exata.\n\n(A informação é enviada imediatamente à equipe de emergência)",
-                options: [
-                    { icon: "📍", label: "Compartilhar localização", action: "goto", nodeId: "reports-emergency-location" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-emergency-fire": {
-                message: "🔥 Incêndio ou Acidente Ambiental\n\nObrigado por relatar. Nossa equipe já está a caminho.\n\nFique em um lugar seguro e, se possível, compartilhe sua localização exata.\n\n(A informação é enviada imediatamente à equipe de emergência)",
-                options: [
-                    { icon: "📍", label: "Compartilhar localização", action: "goto", nodeId: "reports-emergency-location" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-emergency-security": {
-                message: "🚨 Segurança ou Conduta Inadequada\n\nObrigado por relatar. Nossa equipe já está a caminho.\n\nFique em um lugar seguro e, se possível, compartilhe sua localização exata.\n\n(A informação é enviada imediatamente à equipe de emergência)",
-                options: [
-                    { icon: "📍", label: "Compartilhar localização", action: "goto", nodeId: "reports-emergency-location" },
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-emergency-location": {
-                message: "📍 Localização compartilhada\n\nA equipe de emergência recebeu sua localização e está indo até você.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-complaint": {
-                message: "📝 Entendo, sua opinião é muito importante.\n\nPor favor selecione a área relacionada 👇",
-                options: [
-                    { icon: "🍽️", label: "Alimentação", action: "goto", nodeId: "reports-complaint-food" },
-                    { icon: "🏠", label: "Instalações", action: "goto", nodeId: "reports-complaint-facilities" },
-                    { icon: "🎯", label: "Atividades", action: "goto", nodeId: "reports-complaint-activities" },
-                    { icon: "🫂", label: "Convivência / tratamento", action: "goto", nodeId: "reports-complaint-behavior" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports" }
-                ]
-            },
-            "reports-complaint-food": {
-                message: "🍽️ Reclamação sobre Alimentação\n\nPor favor descreva sua reclamação:\n\n(Durante o evento, você poderá escrever seu comentário aqui)\n\nObrigado por sua contribuição 🙏. Sua reclamação será revisada pela equipe organizadora.\n\nQuer deixar seu nome e tropa para acompanhamento?",
-                options: [
-                    { icon: "✅", label: "Sim, deixar dados", action: "goto", nodeId: "reports-complaint-contact" },
-                    { icon: "🔒", label: "Prefiro permanecer anônimo", action: "goto", nodeId: "reports-complaint-anonymous" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports-complaint" }
-                ]
-            },
-            "reports-complaint-facilities": {
-                message: "🏠 Reclamação sobre Instalações\n\nPor favor descreva sua reclamação:\n\n(Durante o evento, você poderá escrever seu comentário aqui)\n\nObrigado por sua contribuição 🙏. Sua reclamação será revisada pela equipe organizadora.\n\nQuer deixar seu nome e tropa para acompanhamento?",
-                options: [
-                    { icon: "✅", label: "Sim, deixar dados", action: "goto", nodeId: "reports-complaint-contact" },
-                    { icon: "🔒", label: "Prefiro permanecer anônimo", action: "goto", nodeId: "reports-complaint-anonymous" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports-complaint" }
-                ]
-            },
-            "reports-complaint-activities": {
-                message: "🎯 Reclamação sobre Atividades\n\nPor favor descreva sua reclamação:\n\n(Durante o evento, você poderá escrever seu comentário aqui)\n\nObrigado por sua contribuição 🙏. Sua reclamação será revisada pela equipe organizadora.\n\nQuer deixar seu nome e tropa para acompanhamento?",
-                options: [
-                    { icon: "✅", label: "Sim, deixar dados", action: "goto", nodeId: "reports-complaint-contact" },
-                    { icon: "🔒", label: "Prefiro permanecer anônimo", action: "goto", nodeId: "reports-complaint-anonymous" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports-complaint" }
-                ]
-            },
-            "reports-complaint-behavior": {
-                message: "🫂 Reclamação sobre Convivência / Tratamento\n\nPor favor descreva sua reclamação:\n\n(Durante o evento, você poderá escrever seu comentário aqui)\n\nObrigado por sua contribuição 🙏. Sua reclamação será revisada pela equipe organizadora.\n\nQuer deixar seu nome e tropa para acompanhamento?",
-                options: [
-                    { icon: "✅", label: "Sim, deixar dados", action: "goto", nodeId: "reports-complaint-contact" },
-                    { icon: "🔒", label: "Prefiro permanecer anônimo", action: "goto", nodeId: "reports-complaint-anonymous" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports-complaint" }
-                ]
-            },
-            "reports-complaint-contact": {
-                message: "✅ Reclamação registrada com dados de contato\n\nSua reclamação foi enviada à equipe organizadora. Entraremos em contato para acompanhamento.\n\n(Esta funcionalidade estará ativa durante o evento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-complaint-anonymous": {
-                message: "🔒 Reclamação registrada anonimamente\n\nSua reclamação foi enviada à equipe organizadora e será revisada.\n\nObrigado pela confiança.",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "reports-suggestion": {
-                message: "Ótimo 💡! Adoramos ouvir suas ideias.\n\nPor favor escreva sua sugestão aqui 👇\n\n(Durante o evento, você poderá escrever sua sugestão aqui)\n\nObrigado por nos ajudar a melhorar 🙌",
-                options: [
-                    { icon: "📤", label: "Enviar sugestão", action: "goto", nodeId: "reports-suggestion-sent" },
-                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "reports" }
-                ]
-            },
-            "reports-suggestion-sent": {
-                message: "✅ Sugestão enviada\n\nSua sugestão foi recebida. Obrigado por contribuir para melhorar o JamCam 2025! 🎉",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "general-info": {
-                message: "ℹ️ Informação Geral\n\nDados úteis sobre o JamCam 2025.\n\n(Esta seção está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "menu-placeholder": {
-                message: "📋 Cardápio do Dia\n\nInformações sobre o cardápio disponível.\n\n(Esta seção está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
-                ]
-            },
-            "health-support": {
-                message: "🙋‍♂️ Solicitação de Apoio\n\nUm voluntário entrará em contato com você em breve.\n\n(Esta funcionalidade está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar ao menu principal", action: "goto", nodeId: "welcome" }
-                ]
-            },
-            "schedule-placeholder": {
-                message: "📅 Agenda Completa\n\nHorários e programação do evento.\n\n(Esta seção está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
-                ]
-            },
-            "nearest-bathroom": {
-                message: "📍 Banheiro mais próximo\n\nLocalizando você...\n\n(Esta funcionalidade está em desenvolvimento)",
-                options: [
-                    { icon: "🔙", label: "Voltar às localizações", action: "goto", nodeId: "locations" }
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             }
         }

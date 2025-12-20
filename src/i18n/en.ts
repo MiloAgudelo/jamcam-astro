@@ -529,9 +529,63 @@ export default {
                 ]
             },
             actividades: {
-                message: "🎯 Activities\n\n(CONTENT UNDER DEVELOPMENT)",
+                message: "🎯 Activities\n\nSelect your program:",
                 options: [
+                    { icon: "🏕️", label: "Jamboree", action: "goto", nodeId: "actividades-jamboree" },
+                    { icon: "⛺", label: "Camporee", action: "goto", nodeId: "actividades-camporee" },
                     { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree": {
+                message: "Select your Subcamp:",
+                options: [
+                    { icon: "🔰", label: "Urá Jürú", action: "goto", nodeId: "actividades-jamboree-juru" },
+                    { icon: "🔰", label: "Urá Chamí", action: "goto", nodeId: "actividades-jamboree-chami" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-camporee": {
+                message: "Select your Subcamp:",
+                options: [
+                    { icon: "🔰", label: "Urá Dó", action: "goto", nodeId: "actividades-camporee-do" },
+                    { icon: "🔰", label: "Urá Chi", action: "goto", nodeId: "actividades-camporee-chi" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-jamboree-juru": {
+                message: "📅 Activity Schedule - Urá Jürú\n\nHere you can download the complete activity schedule for your subcamp.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Download schedule",
+                options: [
+                    { icon: "🔙", label: "Back to Activities", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree-chami": {
+                message: "📅 Activity Schedule - Urá Chamí\n\nHere you can download the complete activity schedule for your subcamp.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Download schedule",
+                options: [
+                    { icon: "🔙", label: "Back to Activities", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-do": {
+                message: "📅 Activity Schedule - Urá Dó\n\nHere you can download the complete activity schedule for your subcamp.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Download schedule",
+                options: [
+                    { icon: "🔙", label: "Back to Activities", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-chi": {
+                message: "📅 Activity Schedule - Urá Chi\n\nHere you can download the complete activity schedule for your subcamp.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Download schedule",
+                options: [
+                    { icon: "🔙", label: "Back to Activities", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
                 ]
             },
             "listening-ears": {

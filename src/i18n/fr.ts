@@ -529,9 +529,63 @@ export default {
                 ]
             },
             actividades: {
-                message: "🎯 Activités\n\n(CONTENU EN DÉVELOPPEMENT)",
+                message: "🎯 Activités\n\nSélectionne ton programme :",
                 options: [
+                    { icon: "🏕️", label: "Jamboree", action: "goto", nodeId: "actividades-jamboree" },
+                    { icon: "⛺", label: "Camporee", action: "goto", nodeId: "actividades-camporee" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree": {
+                message: "Sélectionne ton Sous-camp :",
+                options: [
+                    { icon: "🔰", label: "Urá Jürú", action: "goto", nodeId: "actividades-jamboree-juru" },
+                    { icon: "🔰", label: "Urá Chamí", action: "goto", nodeId: "actividades-jamboree-chami" },
+                    { icon: "🔙", label: "Retour", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-camporee": {
+                message: "Sélectionne ton Sous-camp :",
+                options: [
+                    { icon: "🔰", label: "Urá Dó", action: "goto", nodeId: "actividades-camporee-do" },
+                    { icon: "🔰", label: "Urá Chi", action: "goto", nodeId: "actividades-camporee-chi" },
+                    { icon: "🔙", label: "Retour", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-jamboree-juru": {
+                message: "📅 Programme d'activités - Urá Jürú\n\nIci tu peux télécharger le programme complet d'activités pour ton sous-camp.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Télécharger le programme",
+                options: [
+                    { icon: "🔙", label: "Retour aux Activités", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree-chami": {
+                message: "📅 Programme d'activités - Urá Chamí\n\nIci tu peux télécharger le programme complet d'activités pour ton sous-camp.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Télécharger le programme",
+                options: [
+                    { icon: "🔙", label: "Retour aux Activités", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-do": {
+                message: "📅 Programme d'activités - Urá Dó\n\nIci tu peux télécharger le programme complet d'activités pour ton sous-camp.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Télécharger le programme",
+                options: [
+                    { icon: "🔙", label: "Retour aux Activités", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-chi": {
+                message: "📅 Programme d'activités - Urá Chi\n\nIci tu peux télécharger le programme complet d'activités pour ton sous-camp.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Télécharger le programme",
+                options: [
+                    { icon: "🔙", label: "Retour aux Activités", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
             "listening-ears": {

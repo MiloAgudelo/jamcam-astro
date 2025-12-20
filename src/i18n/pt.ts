@@ -529,9 +529,63 @@ export default {
                 ]
             },
             actividades: {
-                message: "🎯 Atividades\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
+                message: "🎯 Atividades\n\nSelecione seu programa:",
                 options: [
+                    { icon: "🏕️", label: "Jamboree", action: "goto", nodeId: "actividades-jamboree" },
+                    { icon: "⛺", label: "Camporee", action: "goto", nodeId: "actividades-camporee" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree": {
+                message: "Selecione seu Subcampo:",
+                options: [
+                    { icon: "🔰", label: "Urá Jürú", action: "goto", nodeId: "actividades-jamboree-juru" },
+                    { icon: "🔰", label: "Urá Chamí", action: "goto", nodeId: "actividades-jamboree-chami" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-camporee": {
+                message: "Selecione seu Subcampo:",
+                options: [
+                    { icon: "🔰", label: "Urá Dó", action: "goto", nodeId: "actividades-camporee-do" },
+                    { icon: "🔰", label: "Urá Chi", action: "goto", nodeId: "actividades-camporee-chi" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "actividades" }
+                ]
+            },
+            "actividades-jamboree-juru": {
+                message: "📅 Cronograma de atividades - Urá Jürú\n\nAqui você pode baixar o cronograma completo de atividades para seu subcampo.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Baixar cronograma",
+                options: [
+                    { icon: "🔙", label: "Voltar a Atividades", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-jamboree-chami": {
+                message: "📅 Cronograma de atividades - Urá Chamí\n\nAqui você pode baixar o cronograma completo de atividades para seu subcampo.",
+                download: "/docs/horario-jamboree.pdf",
+                downloadLabel: "Baixar cronograma",
+                options: [
+                    { icon: "🔙", label: "Voltar a Atividades", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-do": {
+                message: "📅 Cronograma de atividades - Urá Dó\n\nAqui você pode baixar o cronograma completo de atividades para seu subcampo.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Baixar cronograma",
+                options: [
+                    { icon: "🔙", label: "Voltar a Atividades", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "actividades-camporee-chi": {
+                message: "📅 Cronograma de atividades - Urá Chi\n\nAqui você pode baixar o cronograma completo de atividades para seu subcampo.",
+                download: "/docs/horario-camporee.pdf",
+                downloadLabel: "Baixar cronograma",
+                options: [
+                    { icon: "🔙", label: "Voltar a Atividades", action: "goto", nodeId: "actividades" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
             "listening-ears": {

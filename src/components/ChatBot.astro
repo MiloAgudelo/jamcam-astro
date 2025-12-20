@@ -5,11 +5,11 @@ const locale = Astro.currentLocale || 'es';
 const t = getTranslations(locale);
 ---
 
-<div class="chatbot-container fixed bottom-[85px] right-5 z-[98] transition-opacity duration-300 ease-linear">
+<div class="chatbot-container fixed bottom-[85px] right-5 z-[1100] transition-opacity duration-300 ease-linear">
   <!-- Floating Button -->
   <button 
     id="chatbot-button"
-    class="chatbot-button w-[50px] h-[50px] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-105 overflow-hidden"
+    class="chatbot-button w-[50px] h-[50px] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-105 overflow-hidden z-[1100]"
     aria-label={t.chatbot.title}
     aria-expanded="false"
     aria-controls="chatbot-panel"
@@ -21,7 +21,7 @@ const t = getTranslations(locale);
   <!-- Chat Panel -->
   <div 
     id="chatbot-panel"
-    class="chatbot-panel absolute bottom-0 right-[65px] w-[320px] bg-white rounded-lg shadow-2xl opacity-0 transform translate-y-5 transition-all duration-300 ease-linear pointer-events-none overflow-hidden flex flex-col"
+    class="chatbot-panel absolute bottom-0 right-[65px] w-[320px] bg-white rounded-lg shadow-2xl opacity-0 transform translate-y-5 transition-all duration-300 ease-linear pointer-events-none overflow-hidden flex flex-col z-[1100]"
     style="max-height: 550px; height: 550px;"
   >
     <!-- Header -->
@@ -62,6 +62,10 @@ const t = getTranslations(locale);
 </div>
 
 <script define:vars={{ chatbot: t.chatbot }}>
+  // Constants
+  const TYPING_DELAY = 800; // ms para animación de escribiendo
+  const CLICK_FEEDBACK_DELAY = 500; // ms para feedback de click
+  
   const chatbotButton = document.getElementById('chatbot-button');
   const chatbotPanel = document.getElementById('chatbot-panel');
   const chatbotClose = document.getElementById('chatbot-close');
@@ -72,6 +76,8 @@ const t = getTranslations(locale);
   let currentNode = 'welcome';
   let isOpen = false;
   let conversationHistory = [];
+  let messageHistory = []; // Guardar HTML de mensajes para goBack
+  let isProcessing = false; // Flag para evitar clicks múltiples
 
   // Initialize chatbot
   function init() {
@@ -125,6 +131,7 @@ const t = getTranslations(locale);
       
       // Show welcome message if first time opening
       if (conversationHistory.length === 0) {
+        isProcessing = false; // Reset processing state
         showNode('welcome');
       }
     }
@@ -141,7 +148,9 @@ const t = getTranslations(locale);
 
   function resetChat() {
     conversationHistory = [];
+    messageHistory = [];
     currentNode = 'welcome';
+    isProcessing = false;
     if (chatbotMessages) {
       chatbotMessages.innerHTML = '';
     }
@@ -152,19 +161,62 @@ const t = getTranslations(locale);
     const node = chatbot.nodes[nodeId];
     if (!node) {
       console.error('Node not found:', nodeId);
+      // Mostrar mensaje de error amigable al usuario
+      addMessage('⚠️ Lo siento, hubo un error. Volviendo al menú principal...');
+      setTimeout(() => {
+        showNode('welcome');
+      }, 2000);
       return;
     }
 
     currentNode = nodeId;
     
-    // Add message to conversation
-    addMessage(node.message);
+    // Add message to conversation with typing animation
+    addMessageWithTyping(node.message);
     
-    // Show options
-    showOptions(node.options);
+    // Show options after message appears
+    setTimeout(() => {
+      showOptions(node.options);
+      isProcessing = false; // Permitir nuevos clicks
+    }, TYPING_DELAY + 100);
     
     // Add to history
     conversationHistory.push(nodeId);
+  }
+
+  function addTypingIndicator() {
+    if (!chatbotMessages) return null;
+    
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'flex gap-2 items-start animate-fade-in';
+    typingDiv.id = 'typing-indicator';
+    
+    typingDiv.innerHTML = `
+      <img src="/images/cholao-chat.png" alt="Cholao" class="w-[22px] h-[22px] rounded-full object-cover flex-shrink-0 mt-1" />
+      <div class="bg-white rounded-lg rounded-tl-none p-2.5 shadow-sm">
+        <div class="typing-dots flex gap-1">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      </div>
+    `;
+    
+    chatbotMessages.appendChild(typingDiv);
+    
+    // Scroll to bottom
+    setTimeout(() => {
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }, 50);
+    
+    return typingDiv;
+  }
+
+  function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+      typingIndicator.remove();
+    }
   }
 
   function addMessage(message) {
@@ -181,11 +233,25 @@ const t = getTranslations(locale);
     `;
     
     chatbotMessages.appendChild(messageDiv);
+    messageHistory.push(messageDiv.outerHTML);
     
     // Scroll to bottom
     setTimeout(() => {
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }, 100);
+  }
+
+  function addMessageWithTyping(message) {
+    if (!chatbotMessages) return;
+    
+    // Mostrar indicador de escribiendo
+    const typingIndicator = addTypingIndicator();
+    
+    // Después del delay, quitar indicador y mostrar mensaje
+    setTimeout(() => {
+      removeTypingIndicator();
+      addMessage(message);
+    }, TYPING_DELAY);
   }
 
   function showOptions(options) {
@@ -208,42 +274,86 @@ const t = getTranslations(locale);
       button.appendChild(iconSpan);
       button.appendChild(labelSpan);
       
-      button.addEventListener('click', () => {
-        handleOptionClick(option);
+      button.addEventListener('click', (e) => {
+        handleOptionClick(e, option, button);
       });
       
       chatbotOptions.appendChild(button);
     });
   }
 
-  function handleOptionClick(option) {
-    // Prevent event from bubbling
-    event.stopPropagation();
+  function handleOptionClick(event, option, clickedButton) {
+    // Prevenir clicks múltiples
+    if (isProcessing) return;
     
-    if (option.action === 'goto' && option.nodeId) {
-      showNode(option.nodeId);
-    } else if (option.action === 'link' && option.url) {
-      window.open(option.url, '_blank');
-    } else if (option.action === 'back') {
-      goBack();
-    }
+    event.stopPropagation();
+    isProcessing = true;
+    
+    // Feedback visual muy breve: flash en el botón clickeado
+    clickedButton.classList.add('scale-95');
+    setTimeout(() => {
+      clickedButton.classList.remove('scale-95');
+    }, 100);
+    
+    // Feedback visual: deshabilitar todos los botones
+    const allButtons = chatbotOptions.querySelectorAll('button');
+    allButtons.forEach(btn => {
+      btn.disabled = true;
+      btn.classList.add('opacity-50', 'cursor-not-allowed');
+    });
+    
+    // Ejecutar acción después del feedback delay
+    setTimeout(() => {
+      if (option.action === 'goto' && option.nodeId) {
+        showNode(option.nodeId);
+      } else if (option.action === 'link' && option.url) {
+        window.open(option.url, '_blank');
+        // Para links externos, re-habilitar inmediatamente
+        isProcessing = false;
+        allButtons.forEach(btn => {
+          btn.disabled = false;
+          btn.classList.remove('opacity-50', 'cursor-not-allowed');
+        });
+      } else if (option.action === 'back') {
+        goBack();
+      }
+    }, CLICK_FEEDBACK_DELAY);
   }
 
   function goBack() {
-    // Remove current node from history
-    conversationHistory.pop();
-    
-    // Get previous node or default to welcome
-    const previousNode = conversationHistory[conversationHistory.length - 1] || 'welcome';
-    
-    // Clear messages
-    if (chatbotMessages) {
-      chatbotMessages.innerHTML = '';
+    // Si no hay historial previo, ir a welcome
+    if (conversationHistory.length <= 1) {
+      resetChat();
+      return;
     }
     
-    // Show previous node
-    conversationHistory = []; // Reset history to rebuild
-    showNode(previousNode);
+    // Remove current node from history
+    conversationHistory.pop();
+    messageHistory.pop(); // También remover el último mensaje
+    
+    // Get previous node
+    const previousNode = conversationHistory[conversationHistory.length - 1];
+    
+    // Restaurar mensajes desde el historial
+    if (chatbotMessages && messageHistory.length > 0) {
+      chatbotMessages.innerHTML = messageHistory.join('');
+      
+      // Scroll to bottom
+      setTimeout(() => {
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }, 100);
+    }
+    
+    // Mostrar opciones del nodo anterior
+    const node = chatbot.nodes[previousNode];
+    if (node) {
+      currentNode = previousNode;
+      showOptions(node.options);
+      isProcessing = false;
+    } else {
+      // Fallback si el nodo no existe
+      resetChat();
+    }
   }
 
   // Initialize on load
@@ -333,6 +443,45 @@ const t = getTranslations(locale);
   .chatbot-messages {
     scrollbar-width: thin;
     scrollbar-color: rgba(98, 37, 153, 0.3) #f1f1f1;
+  }
+
+  /* Typing animation */
+  .typing-dots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0;
+  }
+
+  .typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(98, 37, 153, 0.6);
+    animation: typing-bounce 1.4s infinite ease-in-out;
+  }
+
+  .typing-dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes typing-bounce {
+    0%, 60%, 100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+    30% {
+      transform: translateY(-8px);
+      opacity: 1;
+    }
   }
 </style>
 

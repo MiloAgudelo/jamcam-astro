@@ -1,7 +1,8 @@
 export default {
-    title: "Cholao (Beta)",
+    title: "Cholao",
     close: "Close",
     restart: "🔄 Restart",
+    typing: "Typing",
     nodes: {
         welcome: {
             message: "👋 Hello! I'm Cholao, your digital assistant at JamCam 2025.\n\nI'm here to guide you through activities, locations, services, and support throughout the event.\n\n👉 Tell me, what do you need now?",

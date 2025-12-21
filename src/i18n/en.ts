@@ -589,9 +589,75 @@ export default {
                 ]
             },
             "listening-ears": {
-                message: "🧠 Listening Ears\n\n(CONTENT UNDER DEVELOPMENT)",
+                message: "🧠 LISTENING EARS\n\nRemember that we have people ready to listen to you 💚.",
                 options: [
+                    { icon: "🙋", label: "Request Support", action: "goto", nodeId: "le-solicitar-apoyo" },
                     { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-solicitar-apoyo": {
+                message: "This is a safe space to listen to you and accompany you.\n\nHere you can take a moment to identify how you feel and find support, at your own pace.\n\nWould you like to share how you feel right now?",
+                options: [
+                    { icon: "😊", label: "Good", action: "goto", nodeId: "le-bien" },
+                    { icon: "😟", label: "Anxious", action: "goto", nodeId: "le-ansioso" },
+                    { icon: "😢", label: "Sad", action: "goto", nodeId: "le-triste" },
+                    { icon: "😡", label: "Angry", action: "goto", nodeId: "le-enojado" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "listening-ears" }
+                ]
+            },
+            "le-bien": {
+                message: "It's great that you share it! 💚 Sometimes we just need to chat for a while.\n\nYou can approach the 🛖 Scout Listening Point.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-ansioso": {
+                message: "Thank you for saying it 🙏. When anxiety appears, it's best to take a pause.\n\nTry this right now 👇\n\n1️⃣ Breathe deeply: inhale counting to 4, exhale counting to 6.\n2️⃣ Drink some water.",
+                options: [
+                    { icon: "✅", label: "I feel better", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "Support point", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-triste": {
+                message: "I understand how you feel 💚. Sadness is also part of life, and it's normal to talk about it.\n\nYou have two options:\n\nYou can approach the 🛖 Scout Listening Point to talk with someone face to face.\n\nOr we can guide you with a brief breathing technique to help you find calm.",
+                options: [
+                    { icon: "🛖", label: "Support point", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🧘", label: "Brief technique", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-enojado": {
+                message: "Thank you for recognizing it 💪. Anger can feel strong, but it can also be channeled.\n\nI recommend:\n\n1️⃣ Walk for a couple of minutes before responding to someone.\n2️⃣ If you prefer, we can guide you with a brief breathing technique to release tension.",
+                options: [
+                    { icon: "✅", label: "I feel better", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🧘", label: "Brief technique", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🛖", label: "Support point", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-mejor": {
+                message: "We're glad to know that you feel better now.\n\nRemember that you are not alone: if at any time you need support again, we will be here to accompany you.",
+                options: [
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-tecnica-breve": {
+                message: "🧘 Breathing Technique\n\nLet's take a pause together:\n\n1. Inhale deeply for 4 seconds\n2. Hold your breath for 2 seconds\n3. Exhale slowly for 6 seconds\n4. Repeat 3 times\n\nDo you feel better?",
+                options: [
+                    { icon: "✅", label: "Yes, I feel better", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "I need more support", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-punto-atencion": {
+                message: "You can approach the 🛖 Scout Listening Point.\n\nThank you for trusting us.\n\nWithin the camp we have a team prepared to provide emotional support.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Back", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
                 ]
             },
             "info-general": {

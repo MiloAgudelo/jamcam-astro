@@ -606,9 +606,75 @@ export default {
                 ]
             },
             "listening-ears": {
-                message: "🧠 Listening Ears\n\n(CONTENIDO EN DESARROLLO)",
+                message: "🧠 LISTENING EARS\n\nRecuerda que tenemos personas listas para escucharte 💚.",
                 options: [
+                    { icon: "🙋", label: "Solicitar Apoyo", action: "goto", nodeId: "le-solicitar-apoyo" },
                     { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-solicitar-apoyo": {
+                message: "Este es un espacio seguro para escucharte y acompañarte.\n\nAquí puedes tomarte un momento para identificar cómo te sientes y encontrar apoyo, a tu ritmo.\n\n¿Quieres compartir cómo te sientes ahora mismo?",
+                options: [
+                    { icon: "😊", label: "Bien", action: "goto", nodeId: "le-bien" },
+                    { icon: "😟", label: "Ansioso", action: "goto", nodeId: "le-ansioso" },
+                    { icon: "😢", label: "Triste", action: "goto", nodeId: "le-triste" },
+                    { icon: "😡", label: "Enojado", action: "goto", nodeId: "le-enojado" },
+                    { icon: "🔙", label: "Atrás", action: "goto", nodeId: "listening-ears" }
+                ]
+            },
+            "le-bien": {
+                message: "¡Qué bueno que lo compartes! 💚 A veces solo necesitamos conversar un rato.\n\nPuedes acercarte al 🛖 Punto de Escucha Scout.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-ansioso": {
+                message: "Gracias por decirlo 🙏. Cuando la ansiedad aparece, lo mejor es hacer una pausa.\n\nPrueba esto ahora mismo 👇\n\n1️⃣ Respira profundo: inhala contando hasta 4, exhala contando hasta 6.\n2️⃣ Bebe un poco de agua.",
+                options: [
+                    { icon: "✅", label: "Me siento mejor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "Punto de atención", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-triste": {
+                message: "Entiendo cómo te sientes 💚. La tristeza también forma parte de la vida, y es normal hablar de ello.\n\nTienes dos opciones:\n\nPuedes acercarte al 🛖 Punto de Escucha Scout para hablar con alguien cara a cara.\n\nO podemos guiarte con una técnica breve de respiración para ayudarte a encontrar calma.",
+                options: [
+                    { icon: "🛖", label: "Punto de atención", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🧘", label: "Técnica breve", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-enojado": {
+                message: "Gracias por reconocerlo 💪. El enojo puede sentirse fuerte, pero también se puede canalizar.\n\nTe recomiendo:\n\n1️⃣ Caminar un par de minutos antes de responder a alguien.\n2️⃣ Si lo prefieres, podemos guiarte con una técnica breve de respiración para soltar tensión.",
+                options: [
+                    { icon: "✅", label: "Me siento mejor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🧘", label: "Técnica breve", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🛖", label: "Punto de atención", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-mejor": {
+                message: "Nos alegra saber que ahora te sientes mejor.\n\nRecuerda que no estás solo/a: si en algún momento vuelves a necesitar apoyo, aquí estaremos para acompañarte.",
+                options: [
+                    { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-tecnica-breve": {
+                message: "🧘 Técnica de Respiración\n\nHagamos una pausa juntos:\n\n1. Inhala profundamente durante 4 segundos\n2. Mantén la respiración durante 2 segundos\n3. Exhala lentamente durante 6 segundos\n4. Repite 3 veces\n\n¿Te sientes mejor?",
+                options: [
+                    { icon: "✅", label: "Sí, me siento mejor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "Necesito más apoyo", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-punto-atencion": {
+                message: "Puedes acercarte al 🛖 Punto de Escucha Scout.\n\nGracias por confiar en nosotros.\n\nDentro del campamento contamos con un equipo preparado para brindar apoyo emocional.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Volver", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
             "info-general": {

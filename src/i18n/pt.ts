@@ -589,9 +589,75 @@ export default {
                 ]
             },
             "listening-ears": {
-                message: "🧠 Listening Ears\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
+                message: "🧠 LISTENING EARS\n\nLembre-se de que temos pessoas prontas para te ouvir 💚.",
                 options: [
+                    { icon: "🙋", label: "Solicitar Apoio", action: "goto", nodeId: "le-solicitar-apoyo" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-solicitar-apoyo": {
+                message: "Este é um espaço seguro para te ouvir e acompanhar.\n\nAqui você pode tirar um momento para identificar como se sente e encontrar apoio, no seu ritmo.\n\nVocê gostaria de compartilhar como se sente agora?",
+                options: [
+                    { icon: "😊", label: "Bem", action: "goto", nodeId: "le-bien" },
+                    { icon: "😟", label: "Ansioso", action: "goto", nodeId: "le-ansioso" },
+                    { icon: "😢", label: "Triste", action: "goto", nodeId: "le-triste" },
+                    { icon: "😡", label: "Bravo", action: "goto", nodeId: "le-enojado" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "listening-ears" }
+                ]
+            },
+            "le-bien": {
+                message: "Que bom que você compartilha! 💚 Às vezes só precisamos conversar um pouco.\n\nVocê pode se aproximar do 🛖 Ponto de Escuta Escoteiro.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-ansioso": {
+                message: "Obrigado por dizer 🙏. Quando a ansiedade aparece, o melhor é fazer uma pausa.\n\nTente isso agora 👇\n\n1️⃣ Respire fundo: inspire contando até 4, expire contando até 6.\n2️⃣ Beba um pouco de água.",
+                options: [
+                    { icon: "✅", label: "Me sinto melhor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "Ponto de apoio", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-triste": {
+                message: "Entendo como você se sente 💚. A tristeza também faz parte da vida, e é normal falar sobre isso.\n\nVocê tem duas opções:\n\nPode se aproximar do 🛖 Ponto de Escuta Escoteiro para falar com alguém cara a cara.\n\nOu podemos te guiar com uma técnica breve de respiração para te ajudar a encontrar calma.",
+                options: [
+                    { icon: "🛖", label: "Ponto de apoio", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🧘", label: "Técnica breve", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-enojado": {
+                message: "Obrigado por reconhecer 💪. A raiva pode parecer forte, mas também pode ser canalizada.\n\nRecomendo:\n\n1️⃣ Caminhe alguns minutos antes de responder a alguém.\n2️⃣ Se preferir, podemos te guiar com uma técnica breve de respiração para liberar tensão.",
+                options: [
+                    { icon: "✅", label: "Me sinto melhor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🧘", label: "Técnica breve", action: "goto", nodeId: "le-tecnica-breve" },
+                    { icon: "🛖", label: "Ponto de apoio", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-mejor": {
+                message: "Ficamos felizes em saber que você se sente melhor agora.\n\nLembre-se de que você não está sozinho/a: se em algum momento precisar de apoio novamente, estaremos aqui para te acompanhar.",
+                options: [
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "le-tecnica-breve": {
+                message: "🧘 Técnica de Respiração\n\nVamos fazer uma pausa juntos:\n\n1. Inspire profundamente por 4 segundos\n2. Segure a respiração por 2 segundos\n3. Expire lentamente por 6 segundos\n4. Repita 3 vezes\n\nVocê se sente melhor?",
+                options: [
+                    { icon: "✅", label: "Sim, me sinto melhor", action: "goto", nodeId: "le-mejor" },
+                    { icon: "🛖", label: "Preciso de mais apoio", action: "goto", nodeId: "le-punto-atencion" },
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" }
+                ]
+            },
+            "le-punto-atencion": {
+                message: "Você pode se aproximar do 🛖 Ponto de Escuta Escoteiro.\n\nObrigado por confiar em nós.\n\nDentro do acampamento temos uma equipe preparada para fornecer apoio emocional.",
+                image: "/images/mapa-jamcam.png",
+                options: [
+                    { icon: "🔙", label: "Voltar", action: "goto", nodeId: "le-solicitar-apoyo" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },
             "info-general": {

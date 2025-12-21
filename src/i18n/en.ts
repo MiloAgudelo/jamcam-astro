@@ -661,9 +661,46 @@ export default {
                 ]
             },
             "info-general": {
-                message: "ℹ️ General Info\n\n(CONTENT UNDER DEVELOPMENT)",
+                message: "ℹ️ General Information\n\nI have useful information for you 📖:",
                 options: [
+                    { icon: "🕒", label: "General Bulletin", action: "goto", nodeId: "info-boletin" },
+                    { icon: "📌", label: "Code of Conduct", action: "goto", nodeId: "info-codigo-conducta" },
+                    { icon: "☎️", label: "Emergency 911", action: "goto", nodeId: "info-emergencia" },
+                    { icon: "🛡️", label: "Safe From Harm", action: "goto", nodeId: "info-safe-from-harm" },
                     { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-boletin": {
+                message: "🕒 General Bulletin\n\n📎 We attach the General Bulletin of JamCam, where you will find 🧭 all the official, 📅 updated and relevant information for your participation in the event.",
+                download: "/docs/boletin-jamcam-5.pdf",
+                downloadLabel: "Download bulletin",
+                options: [
+                    { icon: "🔙", label: "Back to General Info", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-codigo-conducta": {
+                message: "📌 Code of Conduct JAMCAM 2025\n\nThis Code of Conduct is a guide to take care of each other and live JAMCAM in a safe, respectful and inclusive environment.\n\nHere you will find the guidelines that help us coexist with respect, protect our physical and emotional well-being, and proudly represent the values of the Scout Movement during the event.\n\nSome key points:\n\n1️⃣ Respect between participants and volunteers.\n2️⃣ Consumption of alcohol or substances is not allowed.\n3️⃣ Care of facilities and the environment.\n4️⃣ Active participation in assigned activities.\n\n👉 You can read the complete regulations here:",
+                download: "/docs/asp-codigo-de-conducta.pdf",
+                downloadLabel: "Download code of conduct",
+                options: [
+                    { icon: "🔙", label: "Back to General Info", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-emergencia": {
+                message: "☎️ Emergency 911\n\nHere are the emergency contacts for the camp 📞:\n\n🚑 Health / Psychological care: +57 XXX XXX XXXX\n🚨 Camp security: +57 XXX XXX XXXX\n📢 General organization: +57 XXX XXX XXXX",
+                options: [
+                    { icon: "🔙", label: "Back to General Info", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-safe-from-harm": {
+                message: "🛡️ Safe From Harm\n\nSelect the option you need:",
+                options: [
+                    { icon: "ℹ️", label: "General Info", action: "link", url: "https://www.jamcam2025.com/safe-from-harm" },
+                    { icon: "📚", label: "Safe from Harm Course", action: "link", url: "https://learn.scout.org/resource/safe-harm-interamerican-scout-jamcam-learning-path" },
+                    { icon: "🔙", label: "Back to General Info", action: "goto", nodeId: "info-general" }
                 ]
             },
             "tu-voz-cuenta": {

@@ -661,9 +661,46 @@ export default {
                 ]
             },
             "info-general": {
-                message: "ℹ️ Info Geral\n\n(CONTEÚDO EM DESENVOLVIMENTO)",
+                message: "ℹ️ Informação Geral\n\nTenho informações úteis para você 📖:",
                 options: [
+                    { icon: "🕒", label: "Boletim Geral", action: "goto", nodeId: "info-boletin" },
+                    { icon: "📌", label: "Código de Conduta", action: "goto", nodeId: "info-codigo-conducta" },
+                    { icon: "☎️", label: "Emergência 911", action: "goto", nodeId: "info-emergencia" },
+                    { icon: "🛡️", label: "Safe From Harm", action: "goto", nodeId: "info-safe-from-harm" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-boletin": {
+                message: "🕒 Boletim Geral\n\n📎 Anexamos o Boletim Geral do JamCam, onde você encontrará 🧭 todas as informações oficiais, 📅 atualizadas e relevantes para sua participação no evento.",
+                download: "/docs/boletin-jamcam-5.pdf",
+                downloadLabel: "Baixar boletim",
+                options: [
+                    { icon: "🔙", label: "Voltar a Info Geral", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-codigo-conducta": {
+                message: "📌 Código de Conduta JAMCAM 2025\n\nEste Código de Conduta é um guia para cuidarmos uns dos outros e vivermos o JAMCAM em um ambiente seguro, respeitoso e inclusivo.\n\nAqui você encontrará as diretrizes que nos ajudam a conviver com respeito, proteger nosso bem-estar físico e emocional, e representar com orgulho os valores do Movimento Escoteiro durante o evento.\n\nAlguns pontos-chave:\n\n1️⃣ Respeito entre participantes e voluntários.\n2️⃣ Não é permitido consumo de álcool ou substâncias.\n3️⃣ Cuidado com instalações e meio ambiente.\n4️⃣ Participação ativa nas atividades designadas.\n\n👉 Você pode ler o regulamento completo aqui:",
+                download: "/docs/asp-codigo-de-conducta.pdf",
+                downloadLabel: "Baixar código de conduta",
+                options: [
+                    { icon: "🔙", label: "Voltar a Info Geral", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-emergencia": {
+                message: "☎️ Emergência 911\n\nAqui estão os contatos de emergência do acampamento 📞:\n\n🚑 Saúde / Atendimento psicológico: +57 XXX XXX XXXX\n🚨 Segurança do acampamento: +57 XXX XXX XXXX\n📢 Organização geral: +57 XXX XXX XXXX",
+                options: [
+                    { icon: "🔙", label: "Voltar a Info Geral", action: "goto", nodeId: "info-general" },
+                    { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "info-safe-from-harm": {
+                message: "🛡️ Safe From Harm\n\nSelecione a opção que você precisa:",
+                options: [
+                    { icon: "ℹ️", label: "Info Geral", action: "link", url: "https://www.jamcam2025.com/safe-from-harm" },
+                    { icon: "📚", label: "Curso de Safe from Harm", action: "link", url: "https://learn.scout.org/resource/safe-harm-interamerican-scout-jamcam-learning-path" },
+                    { icon: "🔙", label: "Voltar a Info Geral", action: "goto", nodeId: "info-general" }
                 ]
             },
             "tu-voz-cuenta": {

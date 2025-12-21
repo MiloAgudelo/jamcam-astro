@@ -710,8 +710,79 @@ export default {
                 ]
             },
             "datos-curiosos": {
-                message: "🌍 Faits amusants\n\n(CONTENU EN DÉVELOPPEMENT)",
+                message: "🥤 Saviez-vous que \"Cholao\" est une boisson typique de Cali?\n\nCali est située dans la région du Pacifique de la Colombie, connue pour sa diversité culturelle, sa joie et sa saveur.\n\n👉 Voulez-vous en savoir plus sur Cali et le JamCam?",
                 options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-curiosos-menu": {
+                message: "🌍 Choisissez un fait amusant à découvrir:",
+                options: [
+                    { icon: "🌎", label: "JamCam International", action: "goto", nodeId: "datos-jamcam" },
+                    { icon: "🐦", label: "Cholao vous accompagne", action: "goto", nodeId: "datos-cholao" },
+                    { icon: "☁️", label: "Succursale du Ciel", action: "goto", nodeId: "datos-sucursal" },
+                    { icon: "💃", label: "Capitale de la Salsa", action: "goto", nodeId: "datos-salsa" },
+                    { icon: "🏛️", label: "Histoire de Cali", action: "goto", nodeId: "datos-historia" },
+                    { icon: "👥", label: "Troisième ville", action: "goto", nodeId: "datos-poblacion" },
+                    { icon: "🗿", label: "Christ Roi", action: "goto", nodeId: "datos-cristo" },
+                    { icon: "🎵", label: "Festival Petronio", action: "goto", nodeId: "datos-petronio" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-jamcam": {
+                message: "🌎 Le JamCam 2025 rassemble des participants de plus de 20 pays, ce qui en fait l'un des plus grands rassemblements scouts internationaux de la région.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-cholao": {
+                message: "🐦 Cholao ne fait pas qu'informer... il vous accompagne également, conçu pour vous aider, vous guider et vous écouter tout au long de l'événement.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-sucursal": {
+                message: "☁️ Cali est connue sous le nom de \"Succursale du Ciel\", un surnom qui reflète la beauté de ses paysages, son climat chaud et la chaleur de ses habitants.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-salsa": {
+                message: "💃 Cali est reconnue comme la \"Capitale Mondiale de la Salsa\". La ville vibre avec cette musique et possède des académies, des festivals et une culture salsera unique qui attire les danseurs du monde entier.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-historia": {
+                message: "🏛️ Santiago de Cali a été fondée le 25 juillet 1536 par Sebastián de Belalcázar, ce qui en fait l'une des plus anciennes villes d'Amérique. Elle a plus de 480 ans d'histoire riche en culture et en tradition.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-poblacion": {
+                message: "👥 Cali est la troisième ville la plus peuplée de Colombie, après Bogotá et Medellín. C'est le principal centre économique et culturel du sud-ouest colombien.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-cristo": {
+                message: "🗿 Sur la colline de los Cristales se dresse le monument au Christ Roi, une imposante statue de 26 mètres de haut qui domine la ville et est l'un des symboles les plus emblématiques de Cali.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
+                    { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                ]
+            },
+            "datos-petronio": {
+                message: "🎵 Cali accueille le Festival de Musique du Pacifique Petronio Álvarez, l'événement de musique afro-colombienne le plus important du pays, qui célèbre chaque année la richesse culturelle du Pacifique colombien.",
+                options: [
+                    { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
                     { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
                 ]
             },

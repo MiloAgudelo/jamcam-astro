@@ -128,6 +128,11 @@ const chatbot = getChatbotTranslations(locale);
       chatbotPanel.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
       chatbotButton.setAttribute('aria-expanded', 'true');
       
+      // Track chatbot opened
+      if (typeof window.va !== 'undefined') {
+        window.va('event', 'Chatbot Abierto');
+      }
+      
       // Show welcome message if first time opening
       if (conversationHistory.length === 0) {
         isProcessing = false; // Reset processing state
@@ -268,7 +273,7 @@ const chatbot = getChatbotTranslations(locale);
     if (downloadUrl) {
       const label = downloadLabel || 'Descargar mapa';
       contentHTML += `
-        <a href="${downloadUrl}" download class="mt-3 inline-flex items-center gap-2 text-sm text-purple-jm hover:text-purple-800 font-semibold underline">
+        <a href="${downloadUrl}" download class="chatbot-download-link mt-3 inline-flex items-center gap-2 text-sm text-purple-jm hover:text-purple-800 font-semibold underline" data-download-url="${downloadUrl}" data-download-label="${label}">
           <span>📥</span>
           <span>${label}</span>
         </a>
@@ -284,6 +289,18 @@ const chatbot = getChatbotTranslations(locale);
     
     chatbotMessages.appendChild(messageDiv);
     messageHistory.push(messageDiv.outerHTML);
+    
+    // Add event listener for download tracking
+    if (downloadUrl) {
+      const downloadLink = messageDiv.querySelector('.chatbot-download-link');
+      if (downloadLink) {
+        downloadLink.addEventListener('click', (e) => {
+          if (typeof window.va !== 'undefined') {
+            window.va('event', `Descarga: ${downloadLabel || 'archivo'}`);
+          }
+        });
+      }
+    }
     
     // Scroll to bottom
     setTimeout(() => {
@@ -357,6 +374,11 @@ const chatbot = getChatbotTranslations(locale);
     event.stopPropagation();
     isProcessing = true;
     
+    // Track option click
+    if (typeof window.va !== 'undefined') {
+      window.va('event', `Opción: ${option.label}`);
+    }
+    
     // Feedback visual: resaltar el botón clickeado y reducir opacidad de todos
     clickedButton.classList.add('ring-2', 'ring-white', 'ring-opacity-50');
     
@@ -392,7 +414,7 @@ const chatbot = getChatbotTranslations(locale);
     messageHistory.pop(); // También remover el último mensaje
     
     // Get previous node
-    const previousNode = conversationHistory[conversationHistory.length - 1];
+    const prevNode = conversationHistory[conversationHistory.length - 1];
     
     // Restaurar mensajes desde el historial
     if (chatbotMessages && messageHistory.length > 0) {
@@ -405,9 +427,9 @@ const chatbot = getChatbotTranslations(locale);
     }
     
     // Mostrar opciones del nodo anterior
-    const node = chatbot.nodes[previousNode];
+    const node = chatbot.nodes[prevNode];
     if (node) {
-      currentNode = previousNode;
+      currentNode = prevNode;
       showOptions(node.options);
       isProcessing = false;
     } else {

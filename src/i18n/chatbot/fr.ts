@@ -13,8 +13,7 @@ export default {
                 { icon: "🧠", label: "Listening Ears", action: "goto", nodeId: "listening-ears" },
                 { icon: "ℹ️", label: "Info Générale", action: "goto", nodeId: "info-general" },
                 { icon: "🗣️", label: "Votre voix compte", action: "goto", nodeId: "tu-voz-cuenta" },
-                { icon: "🌍", label: "Faits amusants", action: "goto", nodeId: "datos-curiosos" },
-                { icon: "📊", label: "Sondages", action: "goto", nodeId: "encuestas" }
+                { icon: "🌍", label: "Faits amusants", action: "goto", nodeId: "datos-curiosos" }
             ]
         },
         "checkin-bienestar": {
@@ -288,9 +287,25 @@ export default {
             ]
         },
         "tu-voz-cuenta": {
-            message: "🗣️ Votre voix compte\n\n(CONTENU EN DÉVELOPPEMENT)",
+            message: "🗣️ Votre voix compte\n\nCet espace est conçu pour que vous puissiez partager votre expérience et votre perception du JAMCAM.\nGrâce à de brefs sondages, vous pourrez nous aider à identifier ce qui fonctionne bien et ce que nous pouvons améliorer, pour continuer à prendre soin de l'expérience de tous.",
             options: [
+                { icon: "✅", label: "Sondage de bienvenue", action: "goto", nodeId: "encuesta-bienvenida" },
+                { icon: "📋", label: "Sondage quotidien", action: "goto", nodeId: "encuesta-diaria" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "encuesta-bienvenida": {
+            message: "📊 Sondage de bienvenue\n\n(Informations disponibles prochainement)",
+            options: [
+                { icon: "🔙", label: "Retour", action: "goto", nodeId: "tu-voz-cuenta" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "encuesta-diaria": {
+            message: "📊 Sondage quotidien\n\n(Informations disponibles prochainement)",
+            options: [
+                { icon: "🔙", label: "Retour", action: "goto", nodeId: "tu-voz-cuenta" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         "datos-curiosos": {
@@ -367,12 +382,6 @@ export default {
             message: "🎵 Cali accueille le Festival de Musique du Pacifique Petronio Álvarez, l'événement de musique afro-colombienne le plus important du pays, qui célèbre chaque année la richesse culturelle du Pacifique colombien.",
             options: [
                 { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
-                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
-            ]
-        },
-        encuestas: {
-            message: "📊 Sondages\n\n(CONTENU EN DÉVELOPPEMENT)",
-            options: [
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         }

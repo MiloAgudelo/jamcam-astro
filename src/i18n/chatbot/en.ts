@@ -13,8 +13,7 @@ export default {
                 { icon: "🧠", label: "Listening Ears", action: "goto", nodeId: "listening-ears" },
                 { icon: "ℹ️", label: "General Info", action: "goto", nodeId: "info-general" },
                 { icon: "🗣️", label: "Your Voice Matters", action: "goto", nodeId: "tu-voz-cuenta" },
-                { icon: "🌍", label: "Fun Facts", action: "goto", nodeId: "datos-curiosos" },
-                { icon: "📊", label: "Surveys", action: "goto", nodeId: "encuestas" }
+                { icon: "🌍", label: "Fun Facts", action: "goto", nodeId: "datos-curiosos" }
             ]
         },
         "checkin-bienestar": {
@@ -288,9 +287,25 @@ export default {
             ]
         },
         "tu-voz-cuenta": {
-            message: "🗣️ Your Voice Matters\n\n(CONTENT UNDER DEVELOPMENT)",
+            message: "🗣️ Your Voice Matters\n\nThis space is designed for you to share your experience and perception of JAMCAM.\nThrough brief surveys, you can help us identify what is working well and what we can improve, to continue taking care of everyone's experience.",
             options: [
+                { icon: "✅", label: "Welcome survey", action: "goto", nodeId: "encuesta-bienvenida" },
+                { icon: "📋", label: "Daily survey", action: "goto", nodeId: "encuesta-diaria" },
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "encuesta-bienvenida": {
+            message: "📊 Welcome Survey\n\n(Information coming soon)",
+            options: [
+                { icon: "🔙", label: "Back", action: "goto", nodeId: "tu-voz-cuenta" },
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "encuesta-diaria": {
+            message: "📊 Daily Survey\n\n(Information coming soon)",
+            options: [
+                { icon: "🔙", label: "Back", action: "goto", nodeId: "tu-voz-cuenta" },
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },
         "datos-curiosos": {
@@ -367,12 +382,6 @@ export default {
             message: "🎵 Cali is home to the Petronio Álvarez Pacific Music Festival, the most important Afro-Colombian music event in the country, which celebrates the cultural richness of the Colombian Pacific every year.",
             options: [
                 { icon: "🌍", label: "Another fun fact", action: "goto", nodeId: "datos-curiosos-menu" },
-                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
-            ]
-        },
-        encuestas: {
-            message: "📊 Surveys\n\n(CONTENT UNDER DEVELOPMENT)",
-            options: [
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         }

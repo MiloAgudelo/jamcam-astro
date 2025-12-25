@@ -295,15 +295,17 @@ export default {
             ]
         },
         "encuesta-bienvenida": {
-            message: "📊 Welcome Survey\n\n(Information coming soon)",
+            message: "📊 Arrival and Welcome Survey\n\nThis survey is only for contingent leaders.\n\nYour opinion is very important to us. Please complete the survey to help us improve the JamCam experience.\n\n🔗 https://forms.cloud.microsoft/r/75WqDHq5LP",
             options: [
+                { icon: "📝", label: "Open survey", action: "link", url: "https://forms.cloud.microsoft/r/75WqDHq5LP" },
                 { icon: "🔙", label: "Back", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },
         "encuesta-diaria": {
-            message: "📊 Daily Survey\n\n(Information coming soon)",
+            message: "📊 Daily Evaluation Survey\n\nYour daily feedback helps us continuously improve the event.\n\nPlease share your experience of the day.\n\n🔗 https://forms.cloud.microsoft/r/VzQeNiMw29",
             options: [
+                { icon: "📝", label: "Open survey", action: "link", url: "https://forms.cloud.microsoft/r/VzQeNiMw29" },
                 { icon: "🔙", label: "Back", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]

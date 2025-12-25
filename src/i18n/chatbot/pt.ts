@@ -295,15 +295,17 @@ export default {
             ]
         },
         "encuesta-bienvenida": {
-            message: "📊 Pesquisa de boas-vindas\n\n(Informação disponível em breve)",
+            message: "📊 Pesquisa de Chegada e Boas-vindas\n\nEsta pesquisa é apenas para chefes de contingente.\n\nSua opinião é muito importante para nós. Por favor, complete a pesquisa para nos ajudar a melhorar a experiência do JamCam.\n\n🔗 https://forms.cloud.microsoft/r/75WqDHq5LP",
             options: [
+                { icon: "📝", label: "Abrir pesquisa", action: "link", url: "https://forms.cloud.microsoft/r/75WqDHq5LP" },
                 { icon: "🔙", label: "Voltar", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         "encuesta-diaria": {
-            message: "📊 Pesquisa diária\n\n(Informação disponível em breve)",
+            message: "📊 Pesquisa de avaliação diária\n\nSeu feedback diário nos ajuda a melhorar continuamente o evento.\n\nPor favor, compartilhe sua experiência do dia.\n\n🔗 https://forms.cloud.microsoft/r/VzQeNiMw29",
             options: [
+                { icon: "📝", label: "Abrir pesquisa", action: "link", url: "https://forms.cloud.microsoft/r/VzQeNiMw29" },
                 { icon: "🔙", label: "Voltar", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]

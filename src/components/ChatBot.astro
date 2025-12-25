@@ -258,7 +258,13 @@ const chatbot = getChatbotTranslations(locale);
     const messageDiv = document.createElement('div');
     messageDiv.className = 'flex gap-2.5 items-start animate-fade-in';
     
-    let contentHTML = `<p class="text-sm leading-relaxed text-gray-800 whitespace-pre-line">${message}</p>`;
+    // Convert URLs in message to clickable links
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const messageWithLinks = message.replace(urlRegex, (url) => {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="chatbot-message-link text-purple-jm hover:text-purple-800 font-semibold underline break-all">${url}</a>`;
+    });
+    
+    let contentHTML = `<p class="text-sm leading-relaxed text-gray-800 whitespace-pre-line break-words">${messageWithLinks}</p>`;
     
     // Add image if provided
     if (imageUrl) {
@@ -301,6 +307,16 @@ const chatbot = getChatbotTranslations(locale);
         });
       }
     }
+    
+    // Add event listener for message links tracking
+    const messageLinks = messageDiv.querySelectorAll('.chatbot-message-link');
+    messageLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (typeof window.va !== 'undefined') {
+          window.va('event', `Link externo: ${link.href}`);
+        }
+      });
+    });
     
     // Scroll to bottom
     setTimeout(() => {
@@ -593,6 +609,27 @@ const chatbot = getChatbotTranslations(locale);
   
   .chatbot-options {
     transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Message link styling */
+  .chatbot-message-link {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    display: inline;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .chatbot-message-link:hover {
+    opacity: 0.8;
+  }
+  
+  /* Ensure message content doesn't overflow */
+  .chatbot-messages p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
 </style>
 

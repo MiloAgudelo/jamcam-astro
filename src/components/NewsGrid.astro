@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import NewsCard from './NewsCard.astro';
+import { getTranslations } from '../i18n';
+
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+// Get all news for the current locale and sort by date (newest first)
+const allNews = await getCollection('news', ({ data }) => {
+  return data.locale === locale;
+});
+
+const sortedNews = allNews.sort((a, b) => {
+  return b.data.publishDate.getTime() - a.data.publishDate.getTime();
+});
+---
+
+<section class="py-6 md:py-12 bg-[#FAF9F6]">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    {sortedNews.length === 0 ? (
+      <div class="text-center py-12">
+        <p class="text-xl text-gray-600">{t.news.noNews}</p>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {sortedNews.map((newsItem) => (
+          <NewsCard
+            entry={newsItem}
+            locale={locale}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+

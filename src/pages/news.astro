@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NewsGrid from '../components/NewsGrid.astro';
+import { getTranslations } from '../i18n';
+
+const locale = 'es';
+const t = getTranslations(locale);
+---
+
+<Layout>
+  <!-- Page Title Section -->
+  <section class="py-3 md:py-6 bg-[#FAF9F6]">
+    <div class="max-w-5xl mx-auto px-4 lg:px-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-purple-jm text-center mb-4">
+        {t.news.pageTitle}
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 text-center max-w-3xl mx-auto">
+        Mantente informado sobre las últimas novedades del JamCam 2025
+      </p>
+    </div>
+  </section>
+
+  <NewsGrid locale={locale} />
+</Layout>
+

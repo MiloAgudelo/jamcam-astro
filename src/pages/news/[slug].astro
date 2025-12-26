@@ -1,0 +1,165 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getTranslations } from '../../i18n';
+
+export async function getStaticPaths() {
+  const newsEntries = await getCollection('news', ({ data }) => {
+    return data.locale === 'es';
+  });
+  
+  return newsEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const locale = 'es';
+const t = getTranslations(locale);
+
+// Get another news article (different from current one)
+const allNews = await getCollection('news', ({ data }) => {
+  return data.locale === locale;
+});
+const otherNews = allNews
+  .filter(item => item.slug !== entry.slug)
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())[0];
+
+// Format date
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+};
+
+// Get category color
+const getCategoryColor = (cat: string) => {
+  const categories: Record<string, string> = {
+    'Anuncio': 'bg-purple-jm',
+    'Programa': 'bg-orange-jm',
+    'Actividades': 'bg-salmon-jm',
+  };
+  return categories[cat] || 'bg-pink-jm';
+};
+
+const categoryColor = getCategoryColor(entry.data.category);
+---
+
+<Layout>
+  <!-- Article Content -->
+  <article class="py-6 md:py-10 bg-[#FAF9F6]">
+    <div class="max-w-6xl mx-auto px-4 lg:px-8">
+      <!-- Back Link -->
+      <a 
+        href="/news" 
+        class="inline-flex items-center text-purple-jm hover:text-salmon-jm font-semibold mb-8 transition-colors"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          class="h-5 w-5 mr-2" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        {t.news.backToNews}
+      </a>
+
+      <!-- Article Header -->
+      <header class="mb-8">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          {entry.data.title}
+        </h1>
+        <div class="flex items-center gap-4 text-lg">
+          <p class="text-gray-500">
+            {formatDate(entry.data.publishDate)}
+          </p>
+          <span class={`${categoryColor} text-white px-4 py-1 rounded-full text-sm font-semibold`}>
+            {entry.data.category}
+          </span>
+        </div>
+      </header>
+
+      <!-- Hero Image in Container -->
+      <div class="relative aspect-video overflow-hidden bg-gray-200 rounded-2xl shadow-xl mb-8">
+        <img 
+          src={entry.data.image}
+          alt={entry.data.imageAlt}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Article Body -->
+      <div class="bg-white rounded-2xl shadow-md p-6 md:p-10">
+        <!-- Keywords -->
+        {entry.data.keywords && entry.data.keywords.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-6 pb-6 border-b border-gray-200">
+            {entry.data.keywords.map((keyword: string) => (
+              <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                {keyword}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        <div class="prose prose-lg max-w-none
+          prose-headings:font-bold prose-headings:text-gray-900
+          prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-6
+          prose-h3:text-2xl prose-h3:mt-6 prose-h3:mb-4
+          prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+          prose-a:text-purple-jm prose-a:no-underline hover:prose-a:text-salmon-jm
+          prose-strong:text-gray-900 prose-strong:font-semibold
+          prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+          prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+          prose-li:text-gray-700 prose-li:mb-2
+        ">
+          <Content />
+        </div>
+      </div>
+
+      <!-- Next Article or Back to News -->
+      <div class="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
+        <a 
+          href="/news" 
+          class="inline-flex items-center text-purple-jm hover:text-salmon-jm font-semibold transition-colors"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="h-5 w-5 mr-2" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          {t.news.allNews}
+        </a>
+        
+        {otherNews && (
+          <a 
+            href={`/news/${otherNews.slug}`}
+            class="inline-flex items-center text-purple-jm hover:text-salmon-jm font-semibold transition-colors"
+          >
+            {t.news.readAnother}
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-5 w-5 ml-2" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  </article>
+</Layout>
+

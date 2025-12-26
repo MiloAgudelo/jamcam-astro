@@ -74,7 +74,7 @@ const imageSrc = getImageSrc(image);
 const isImportedImage = typeof imageSrc !== 'string';
 ---
 
-<article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
+<article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
   <a href={getNewsUrl()} class="block">
     <!-- Image -->
     <div class="relative w-full aspect-video overflow-hidden">
@@ -82,7 +82,7 @@ const isImportedImage = typeof imageSrc !== 'string';
         <Image 
           src={imageSrc}
           alt={imageAlt}
-          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
           width={600}
           height={338}
@@ -91,7 +91,7 @@ const isImportedImage = typeof imageSrc !== 'string';
         <img 
           src={imageSrc}
           alt={imageAlt}
-          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />
       )}
@@ -109,16 +109,16 @@ const isImportedImage = typeof imageSrc !== 'string';
       </p>
       
       <!-- Title -->
-      <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-jm transition-colors">
+      <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
         {title}
       </h3>
       
       <!-- Read More Link -->
-      <div class="flex items-center text-purple-jm font-semibold group-hover:text-salmon-jm transition-colors">
+      <div class="flex items-center text-purple-jm font-semibold group-hover:text-salmon-jm transition-colors duration-300">
         <span>{t.news.readMore}</span>
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          class="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" 
+          class="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
           fill="none" 
           viewBox="0 0 24 24" 
           stroke="currentColor"

@@ -4,6 +4,7 @@ import Layout from '../../../layouts/Layout.astro';
 import { getTranslations } from '../../../i18n';
 import { Image } from 'astro:assets';
 import porQueColombiaImage from '../../../assets/images/news/Por qué Colombia es la sede ideal.jpg';
+import historiaJamCamImage from '../../../assets/images/news/Historia del JamCam.jpg';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -55,6 +56,7 @@ const getImageSrc = (imagePath: string) => {
   if (imagePath.startsWith('@news/')) {
     const imageMap: Record<string, any> = {
       '@news/Por qué Colombia es la sede ideal.jpg': porQueColombiaImage,
+      '@news/Historia del JamCam.jpg': historiaJamCamImage,
     };
     return imageMap[imagePath] || imagePath;
   }

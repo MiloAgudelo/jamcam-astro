@@ -1,5 +1,5 @@
 ---
-title: 'JamCam: Uma História que Une as Américas desde 1965'
+title: 'JamCam: uma história que une as Américas desde 1965'
 category: 'Anúncio'
 publishDate: 2025-06-10
 image: '@news/Historia del JamCam.jpg'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam Cali 2025: a história do encontro escoteiro que une as Amér
 metaDescription: 'Descubra como o JamCam Cali 2025 continua um legado escoteiro iniciado em 1965, unindo culturas, inspirando liderança juvenil e fortalecendo a paz em toda a região das Américas.'
 ---
 
-# JamCam: Uma História que Une as Américas desde 1965
+# JamCam: uma história que une as Américas desde 1965
 
 Cali, Colômbia – Nossa história começou em 1965, quando Escoteiros de todo o continente se reuniram no Rio de Janeiro, Brasil, para o primeiro Jamboree Pan-Americano (JamPan). Aquele evento marcou o início de um legado de amizade, serviço e fraternidade que, ao longo de décadas, percorreu as Américas fortalecendo a unidade e o espírito Escoteiro.
 

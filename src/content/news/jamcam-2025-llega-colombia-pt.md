@@ -1,5 +1,5 @@
 ---
-title: 'JamCam 2025 Chega à Colômbia: Américas Unidas pela Paz'
+title: 'JamCam 2025 chega à Colômbia: Américas unidas pela paz'
 category: 'Anúncio'
 publishDate: 2025-08-15
 image: '@news/JamCam 2025 llega a Colombia.JPG'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam 2025 na Colômbia: cultura, paz, fraternidade e aventura no a
 metaDescription: 'Descubra como o JamCam 2025 em Cali reunirá milhares de escoteiros em um acampamento interamericano com cultura, aprendizado e paz, consolidando a Colômbia como anfitriã ideal deste grande encontro.'
 ---
 
-# JamCam 2025 Chega à Colômbia: Américas Unidas pela Paz
+# JamCam 2025 chega à Colômbia: Américas unidas pela paz
 
 Cali, Colômbia – De 27 de dezembro de 2025 a 2 de janeiro de 2026, Cali será o palco do Jamboree-Camporee Escoteiro Interamericano (JamCam), o encontro mais importante do Movimento Escoteiro na região das Américas. Sob o lema "Américas Unidas pela Paz", mais de 2.500 jovens de 11 a 17 anos e voluntários adultos de mais de 30 países se reunirão para viver uma experiência transformadora de intercâmbio cultural, aprendizado e serviço comunitário.
 

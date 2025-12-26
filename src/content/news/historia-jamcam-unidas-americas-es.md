@@ -1,5 +1,5 @@
 ---
-title: 'JamCam: Una Historia que Une a las Américas desde 1965'
+title: 'JamCam: una historia que une a las Américas desde 1965'
 category: 'Anuncio'
 publishDate: 2025-06-10
 image: '@news/Historia del JamCam.jpg'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam Cali 2025: la historia del encuentro scout que une a las Amé
 metaDescription: 'Descubre cómo JamCam Cali 2025 continúa un legado scout iniciado en 1965, uniendo culturas, inspirando liderazgo juvenil y fortaleciendo la paz en toda la región de las Américas.'
 ---
 
-# JamCam: Una Historia que Une a las Américas desde 1965
+# JamCam: una historia que une a las Américas desde 1965
 
 Cali, Colombia – Nuestra historia comenzó en 1965, cuando Scouts de todo el continente se reunieron en Río de Janeiro, Brasil, para el primer Jamboree Panamericano (JamPan). Aquella experiencia marcó el inicio de un legado de amistad, servicio y hermandad que, a lo largo de décadas, ha recorrido las Américas fortaleciendo la unidad y el espíritu Scout.
 

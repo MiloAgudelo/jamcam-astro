@@ -1,5 +1,5 @@
 ---
-title: 'Cali, une Ville Faite pour Accueillir le Monde, Accueillera le JamCam 2025'
+title: 'Cali, une ville faite pour accueillir le monde, accueillera le JamCam 2025'
 category: 'Annonce'
 publishDate: 2025-11-10
 image: '@news/Cali hecha para recibir al mundo.jpg'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam Cali 2025 : culture, jeunesse, paix et rencontres internation
 metaDescription: 'Découvrez comment JamCam Cali 2025 rassemblera des milliers de scouts dans un événement culturel, sûr et transformateur qui transformera la ville en épicentre international.'
 ---
 
-# Cali, une Ville Faite pour Accueillir le Monde, Accueillera le JamCam 2025
+# Cali, une ville faite pour accueillir le monde, accueillera le JamCam 2025
 
 Avec expérience, joie et énergie vibrante, la capitale du Valle del Cauca se prépare à accueillir le JamCam 2025—prouvant pourquoi c'est l'une des destinations les plus attractives pour les rassemblements internationaux.
 

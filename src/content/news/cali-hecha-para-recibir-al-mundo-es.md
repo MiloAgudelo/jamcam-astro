@@ -1,5 +1,5 @@
 ---
-title: 'Cali, una Ciudad Hecha para Recibir al Mundo, es la Sede del JamCam 2025'
+title: 'Cali, una ciudad hecha para recibir al mundo, es la sede del JamCam 2025'
 category: 'Anuncio'
 publishDate: 2025-11-10
 image: '@news/Cali hecha para recibir al mundo.jpg'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam Cali 2025: cultura, juventud, paz y encuentros internacionale
 metaDescription: 'Descubre cómo JamCam Cali 2025 reunirá a miles de scouts en un evento cultural, seguro y transformador que convertirá a la ciudad en epicentro internacional.'
 ---
 
-# Cali, una Ciudad Hecha para Recibir al Mundo, es la Sede del JamCam 2025
+# Cali, una ciudad hecha para recibir al mundo, es la sede del JamCam 2025
 
 Con experiencia, alegría y sabor, la capital del Valle del Cauca se prepara para dar la bienvenida al JamCam 2025, demostrando por qué es uno de los destinos más atractivos para encuentros internacionales.
 

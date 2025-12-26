@@ -1,5 +1,5 @@
 ---
-title: 'Cali, a City Made to Welcome the World, Will Host JamCam 2025'
+title: 'Cali, a city made to welcome the world, will host JamCam 2025'
 category: 'Announcement'
 publishDate: 2025-11-10
 image: '@news/Cali hecha para recibir al mundo.jpg'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam Cali 2025: culture, youth, peace and international gatherings
 metaDescription: 'Discover how JamCam Cali 2025 will bring together thousands of scouts in a cultural, safe and transformative event that will turn the city into an international epicenter.'
 ---
 
-# Cali, a City Made to Welcome the World, Will Host JamCam 2025
+# Cali, a city made to welcome the world, will host JamCam 2025
 
 With experience, joy, and vibrant energy, the capital of Valle del Cauca is preparing to host JamCam 2025—proving why it's one of the most attractive destinations for international gatherings.
 

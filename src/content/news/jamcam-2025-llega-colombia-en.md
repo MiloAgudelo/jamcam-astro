@@ -1,5 +1,5 @@
 ---
-title: 'JamCam 2025 Arrives in Colombia: Americas United for Peace'
+title: 'JamCam 2025 arrives in Colombia: Americas united for peace'
 category: 'Announcement'
 publishDate: 2025-08-15
 image: '@news/JamCam 2025 llega a Colombia.JPG'
@@ -10,7 +10,7 @@ metaTitle: 'JamCam 2025 in Colombia: culture, peace, brotherhood and adventure a
 metaDescription: 'Discover how JamCam 2025 in Cali will bring together thousands of scouts in an interamerican camp with culture, learning and peace, consolidating Colombia as the ideal host for this great gathering.'
 ---
 
-# JamCam 2025 Arrives in Colombia: Americas United for Peace
+# JamCam 2025 arrives in Colombia: Americas united for peace
 
 Cali, Colombia – From December 27, 2025 to January 2, 2026, Cali will be the stage for the Interamerican Scout Jamboree-Camporee (JamCam), the most important gathering of the Scout Movement in the Americas region. Under the motto "Americas United for Peace", more than 2,500 young people aged 11 to 17 and adult volunteers from more than 30 countries will come together to experience a transformative journey of cultural exchange, learning, and community service.
 

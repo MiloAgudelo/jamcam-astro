@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import { getTranslations } from '../../../i18n';
+import { Image } from 'astro:assets';
+import porQueColombiaImage from '../../../assets/images/news/Por qué Colombia es la sede ideal.jpg';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -47,6 +49,20 @@ const getCategoryColor = (cat: string) => {
 };
 
 const categoryColor = getCategoryColor(entry.data.category);
+
+// Handle image from src/assets or public
+const getImageSrc = (imagePath: string) => {
+  if (imagePath.startsWith('@news/')) {
+    const imageMap: Record<string, any> = {
+      '@news/Por qué Colombia es la sede ideal.jpg': porQueColombiaImage,
+    };
+    return imageMap[imagePath] || imagePath;
+  }
+  return imagePath;
+};
+
+const imageSrc = getImageSrc(entry.data.image);
+const isImportedImage = typeof imageSrc !== 'string';
 ---
 
 <Layout>
@@ -87,12 +103,23 @@ const categoryColor = getCategoryColor(entry.data.category);
 
       <!-- Hero Image in Container -->
       <div class="relative aspect-video overflow-hidden bg-gray-200 rounded-2xl shadow-xl mb-8">
-        <img 
-          src={entry.data.image}
-          alt={entry.data.imageAlt}
-          class="w-full h-full object-cover"
-          loading="eager"
-        />
+        {isImportedImage ? (
+          <Image 
+            src={imageSrc}
+            alt={entry.data.imageAlt}
+            class="w-full h-full object-cover"
+            loading="eager"
+            width={1200}
+            height={675}
+          />
+        ) : (
+          <img 
+            src={imageSrc}
+            alt={entry.data.imageAlt}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        )}
       </div>
 
       <!-- Article Body -->

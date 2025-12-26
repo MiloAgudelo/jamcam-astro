@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --color-purple-jm: #622599;
   --color-orange-jm: #e46e27;

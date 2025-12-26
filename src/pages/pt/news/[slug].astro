@@ -8,6 +8,8 @@ import historiaJamCamImage from '../../../assets/images/news/Historia del JamCam
 // @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
 import jamcamLlegaColombiaImage from '../../../assets/images/news/JamCam 2025 llega a Colombia.JPG';
 import caliHechaRecibirImage from '../../../assets/images/news/Cali hecha para recibir al mundo.jpg';
+// @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
+import staffEnAccionImage from '../../../assets/images/news/El staff ya está en acción.JPG';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -62,6 +64,7 @@ const getImageSrc = (imagePath: string) => {
       '@news/Historia del JamCam.jpg': historiaJamCamImage,
       '@news/JamCam 2025 llega a Colombia.JPG': jamcamLlegaColombiaImage,
       '@news/Cali hecha para recibir al mundo.jpg': caliHechaRecibirImage,
+      '@news/El staff ya está en acción.JPG': staffEnAccionImage,
     };
     return imageMap[imagePath] || imagePath;
   }

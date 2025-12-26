@@ -6,7 +6,7 @@ image: '@news/Historia del JamCam.jpg'
 imageAlt: 'Histoire du JamCam depuis 1965 unissant les Amériques'
 locale: 'fr'
 keywords: ['JamCam', 'Histoire', 'JamPan', 'Jamboree', 'Camporee', 'Amériques', 'Scout', '1965', 'Colombie', 'Cali']
-metaTitle: 'JamCam Cali 2025 : l\'histoire du rassemblement scout qui unit les Amériques depuis 1965'
+metaTitle: "JamCam Cali 2025 : l'histoire du rassemblement scout qui unit les Amériques depuis 1965"
 metaDescription: 'Découvrez comment JamCam Cali 2025 poursuit un héritage scout commencé en 1965, unissant les cultures, inspirant le leadership des jeunes et renforçant la paix dans toute la région des Amériques.'
 ---
 

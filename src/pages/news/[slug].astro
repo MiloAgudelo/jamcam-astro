@@ -7,6 +7,7 @@ import porQueColombiaImage from '../../assets/images/news/Por qué Colombia es l
 import historiaJamCamImage from '../../assets/images/news/Historia del JamCam.jpg';
 // @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
 import jamcamLlegaColombiaImage from '../../assets/images/news/JamCam 2025 llega a Colombia.JPG';
+import caliHechaRecibirImage from '../../assets/images/news/Cali hecha para recibir al mundo.jpg';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -60,6 +61,7 @@ const getImageSrc = (imagePath: string) => {
       '@news/Por qué Colombia es la sede ideal.jpg': porQueColombiaImage,
       '@news/Historia del JamCam.jpg': historiaJamCamImage,
       '@news/JamCam 2025 llega a Colombia.JPG': jamcamLlegaColombiaImage,
+      '@news/Cali hecha para recibir al mundo.jpg': caliHechaRecibirImage,
     };
     return imageMap[imagePath] || imagePath;
   }

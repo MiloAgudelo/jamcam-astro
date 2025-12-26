@@ -1,7 +1,7 @@
 ---
 title: 'JamCam 2025 Llega a Colombia: Américas Unidas por la Paz'
 category: 'Anuncio'
-publishDate: 2025-01-20
+publishDate: 2025-08-15
 image: '@news/JamCam 2025 llega a Colombia.JPG'
 imageAlt: 'JamCam 2025 llega a Colombia, campamento scout interamericano en Cali'
 locale: 'es'

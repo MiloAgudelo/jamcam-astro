@@ -1,7 +1,7 @@
 ---
 title: 'JamCam : Une Histoire qui Unit les Amériques depuis 1965'
 category: 'Annonce'
-publishDate: 2025-01-15
+publishDate: 2025-06-10
 image: '@news/Historia del JamCam.jpg'
 imageAlt: 'Histoire du JamCam depuis 1965 unissant les Amériques'
 locale: 'fr'

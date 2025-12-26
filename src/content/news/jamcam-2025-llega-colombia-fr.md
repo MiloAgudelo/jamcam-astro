@@ -1,7 +1,7 @@
 ---
 title: 'JamCam 2025 Arrive en Colombie : Amériques Unies pour la Paix'
 category: 'Annonce'
-publishDate: 2025-01-20
+publishDate: 2025-08-15
 image: '@news/JamCam 2025 llega a Colombia.JPG'
 imageAlt: 'JamCam 2025 arrive en Colombie, camp scout interaméricain à Cali'
 locale: 'fr'

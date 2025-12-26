@@ -1,7 +1,7 @@
 ---
 title: 'JamCam 2025 Chega à Colômbia: Américas Unidas pela Paz'
 category: 'Anúncio'
-publishDate: 2025-01-20
+publishDate: 2025-08-15
 image: '@news/JamCam 2025 llega a Colombia.JPG'
 imageAlt: 'JamCam 2025 chega à Colômbia, acampamento escoteiro interamericano em Cali'
 locale: 'pt'

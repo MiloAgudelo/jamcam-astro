@@ -1,7 +1,7 @@
 ---
 title: 'JamCam: A History Uniting the Americas Since 1965'
 category: 'Announcement'
-publishDate: 2025-01-15
+publishDate: 2025-06-10
 image: '@news/Historia del JamCam.jpg'
 imageAlt: 'History of JamCam since 1965 uniting the Americas'
 locale: 'en'

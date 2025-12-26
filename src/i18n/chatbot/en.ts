@@ -272,8 +272,9 @@ export default {
             ]
         },
         "info-emergencia": {
-            message: "☎️ Emergency 911\n\nHere are the emergency contacts for the camp 📞:\n\n🚑 Health / Psychological care: +57 XXX XXX XXXX\n🚨 Camp security: +57 XXX XXX XXXX\n📢 General organization: +57 XXX XXX XXXX",
+            message: "🚨 EMERGENCY LINE – JAMCAM COLOMBIA 2025 🚨\n\nEIS Team, we remind you that in case of any medical emergency, risk situation, or need for immediate support, the following official line is available:\n\n📞 +57 311 690 9423\n\n👉 Use it when:\n\n• There is a medical emergency.\n• A risk situation arises\n• A participant or volunteer requires immediate assistance.\n\n🧭 Remember to apply the PAS procedure:\nProtect – Alert – Rescue",
             options: [
+                { icon: "📞", label: "Call now", action: "link", url: "tel:+573116909423" },
                 { icon: "🔙", label: "Back to General Info", action: "goto", nodeId: "info-general" },
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]

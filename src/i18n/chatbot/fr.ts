@@ -272,8 +272,9 @@ export default {
             ]
         },
         "info-emergencia": {
-            message: "☎️ Urgence 911\n\nVoici les contacts d'urgence du camp 📞 :\n\n🚑 Santé / Soins psychologiques : +57 XXX XXX XXXX\n🚨 Sécurité du camp : +57 XXX XXX XXXX\n📢 Organisation générale : +57 XXX XXX XXXX",
+            message: "🚨 LIGNE D'URGENCE – JAMCAM COLOMBIE 2025 🚨\n\nÉquipe EIS, nous vous rappelons qu'en cas d'urgence médicale, de situation à risque ou de besoin de soutien immédiat, la ligne officielle suivante est disponible :\n\n📞 +57 311 690 9423\n\n👉 Utilisez-la quand :\n\n• Il y a une urgence médicale.\n• Une situation à risque survient\n• Un participant ou bénévole nécessite une assistance immédiate.\n\n🧭 N'oubliez pas d'appliquer la procédure PAS :\nProtéger – Alerter – Secourir",
             options: [
+                { icon: "📞", label: "Appeler maintenant", action: "link", url: "tel:+573116909423" },
                 { icon: "🔙", label: "Retour aux Infos Générales", action: "goto", nodeId: "info-general" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]

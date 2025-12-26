@@ -407,7 +407,13 @@ const chatbot = getChatbotTranslations(locale);
     if (option.action === 'goto' && option.nodeId) {
       showNode(option.nodeId);
     } else if (option.action === 'link' && option.url) {
-      window.open(option.url, '_blank');
+      // Para enlaces tel:, sms:, mailto: usar location.href
+      // Para otros enlaces usar window.open
+      if (option.url.startsWith('tel:') || option.url.startsWith('sms:') || option.url.startsWith('mailto:')) {
+        window.location.href = option.url;
+      } else {
+        window.open(option.url, '_blank');
+      }
       // Para links externos, restaurar opciones
       isProcessing = false;
       if (chatbotOptions) {

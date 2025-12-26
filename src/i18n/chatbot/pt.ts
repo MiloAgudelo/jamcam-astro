@@ -272,8 +272,9 @@ export default {
             ]
         },
         "info-emergencia": {
-            message: "☎️ Emergência 911\n\nAqui estão os contatos de emergência do acampamento 📞:\n\n🚑 Saúde / Atendimento psicológico: +57 XXX XXX XXXX\n🚨 Segurança do acampamento: +57 XXX XXX XXXX\n📢 Organização geral: +57 XXX XXX XXXX",
+            message: "🚨 LINHA DE EMERGÊNCIA – JAMCAM COLÔMBIA 2025 🚨\n\nEquipe EIS, lembramos que diante de qualquer emergência médica, situação de risco ou necessidade de apoio imediato, está disponível a seguinte linha oficial:\n\n📞 +57 311 690 9423\n\n👉 Use quando:\n\n• Houver uma emergência médica.\n• Surgir uma situação de risco\n• Um participante ou voluntário precisar de ajuda imediata.\n\n🧭 Lembre-se de aplicar o procedimento PAS:\nProteger – Alertar – Socorrer",
             options: [
+                { icon: "📞", label: "Ligar agora", action: "link", url: "tel:+573116909423" },
                 { icon: "🔙", label: "Voltar a Info Geral", action: "goto", nodeId: "info-general" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]

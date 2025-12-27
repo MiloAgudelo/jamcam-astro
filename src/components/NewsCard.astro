@@ -1,13 +1,18 @@
 ---
 import { Image } from 'astro:assets';
 import { getTranslations } from '../i18n';
-import porQueColombiaImage from '../assets/images/news/Por qué Colombia es la sede ideal.jpg';
-import historiaJamCamImage from '../assets/images/news/Historia del JamCam.jpg';
-// @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
-import jamcamLlegaColombiaImage from '../assets/images/news/JamCam 2025 llega a Colombia.JPG';
-import caliHechaRecibirImage from '../assets/images/news/Cali hecha para recibir al mundo.jpg';
-// @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
-import staffEnAccionImage from '../assets/images/news/El staff ya está en acción.JPG';
+// Preview images
+import porQueColombiaPreview from '../assets/images/news/preview/Por qué Colombia es la sede ideal.png';
+import historiaJamCamPreview from '../assets/images/news/preview/Historia del JamCam.png';
+import jamcamLlegaColombiaPreview from '../assets/images/news/preview/JamCam 2025 llega a Colombia.png';
+import caliHechaRecibirPreview from '../assets/images/news/preview/Cali hecha para recibir al mundo.png';
+import staffEnAccionPreview from '../assets/images/news/preview/El staff ya está en acción.png';
+// Full images
+import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
+import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
+import jamcamLlegaColombiaFull from '../assets/images/news/full/JamCam 2025 llega a Colombia.png';
+import caliHechaRecibirFull from '../assets/images/news/full/Cali hecha para recibir al mundo.png';
+import staffEnAccionFull from '../assets/images/news/full/El staff ya está en acción.png';
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -58,48 +63,83 @@ const getNewsUrl = () => {
   return `/${locale}/news/${slug}`;
 };
 
-// Handle image from src/assets or public
-const getImageSrc = (imagePath: string) => {
+// Handle image from src/assets or public - return both preview and full images
+const getImageSources = (imagePath: string) => {
   if (imagePath.startsWith('@news/')) {
-    const imageMap: Record<string, any> = {
-      '@news/Por qué Colombia es la sede ideal.jpg': porQueColombiaImage,
-      '@news/Historia del JamCam.jpg': historiaJamCamImage,
-      '@news/JamCam 2025 llega a Colombia.JPG': jamcamLlegaColombiaImage,
-      '@news/Cali hecha para recibir al mundo.jpg': caliHechaRecibirImage,
-      '@news/El staff ya está en acción.JPG': staffEnAccionImage,
+    const imageMap: Record<string, { preview: any; full: any }> = {
+      '@news/Por qué Colombia es la sede ideal.jpg': {
+        preview: porQueColombiaPreview,
+        full: porQueColombiaFull,
+      },
+      '@news/Historia del JamCam.jpg': {
+        preview: historiaJamCamPreview,
+        full: historiaJamCamFull,
+      },
+      '@news/JamCam 2025 llega a Colombia.JPG': {
+        preview: jamcamLlegaColombiaPreview,
+        full: jamcamLlegaColombiaFull,
+      },
+      '@news/Cali hecha para recibir al mundo.jpg': {
+        preview: caliHechaRecibirPreview,
+        full: caliHechaRecibirFull,
+      },
+      '@news/El staff ya está en acción.JPG': {
+        preview: staffEnAccionPreview,
+        full: staffEnAccionFull,
+      },
     };
-    return imageMap[imagePath] || imagePath;
+    return imageMap[imagePath] || { preview: imagePath, full: imagePath };
   }
-  return imagePath;
+  return { preview: imagePath, full: imagePath };
 };
 
-const imageSrc = getImageSrc(image);
-const isImportedImage = typeof imageSrc !== 'string';
+const { preview: previewSrc, full: fullSrc } = getImageSources(image);
+const isImportedImage = typeof previewSrc !== 'string';
 ---
 
 <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
   <a href={getNewsUrl()} class="block">
-    <!-- Image -->
+    <!-- Image Container with Preview/Full Toggle -->
     <div class="relative w-full aspect-video overflow-hidden">
       {isImportedImage ? (
-        <Image 
-          src={imageSrc}
-          alt={imageAlt}
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-          width={600}
-          height={338}
-        />
+        <>
+          <!-- Preview Image (visible by default) -->
+          <Image 
+            src={previewSrc}
+            alt={imageAlt}
+            class="news-image-preview w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+            loading="lazy"
+            width={600}
+            height={338}
+          />
+          <!-- Full Image (visible on hover) -->
+          <Image 
+            src={fullSrc}
+            alt={imageAlt}
+            class="news-image-full absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:scale-110"
+            loading="lazy"
+            width={600}
+            height={338}
+          />
+        </>
       ) : (
-        <img 
-          src={imageSrc}
-          alt={imageAlt}
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          loading="lazy"
-        />
+        <>
+          <img 
+            src={previewSrc}
+            alt={imageAlt}
+            class="news-image-preview w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+            loading="lazy"
+          />
+          <img 
+            src={fullSrc}
+            alt={imageAlt}
+            class="news-image-full absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:scale-110"
+            loading="lazy"
+          />
+        </>
       )}
       <!-- Category Badge -->
-      <div class={`absolute top-4 left-4 ${categoryColor} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md`}>
+      <div class={`absolute top-4 left-4 ${categoryColor} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md z-10`}>
         {category}
       </div>
     </div>

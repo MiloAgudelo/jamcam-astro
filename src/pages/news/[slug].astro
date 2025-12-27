@@ -3,13 +3,11 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getTranslations } from '../../i18n';
 import { Image } from 'astro:assets';
-import porQueColombiaImage from '../../assets/images/news/Por qué Colombia es la sede ideal.jpg';
-import historiaJamCamImage from '../../assets/images/news/Historia del JamCam.jpg';
-// @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
-import jamcamLlegaColombiaImage from '../../assets/images/news/JamCam 2025 llega a Colombia.JPG';
-import caliHechaRecibirImage from '../../assets/images/news/Cali hecha para recibir al mundo.jpg';
-// @ts-expect-error - JPG extension in uppercase may cause TypeScript error but works at runtime
-import staffEnAccionImage from '../../assets/images/news/El staff ya está en acción.JPG';
+import porQueColombiaImage from '../../assets/images/news/full/Por qué Colombia es la sede ideal.png';
+import historiaJamCamImage from '../../assets/images/news/full/Historia del JamCam.png';
+import jamcamLlegaColombiaImage from '../../assets/images/news/full/JamCam 2025 llega a Colombia.png';
+import caliHechaRecibirImage from '../../assets/images/news/full/Cali hecha para recibir al mundo.png';
+import staffEnAccionImage from '../../assets/images/news/full/El staff ya está en acción.png';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -56,9 +54,10 @@ const getCategoryColor = (cat: string) => {
 
 const categoryColor = getCategoryColor(entry.data.category);
 
-// Handle image from src/assets or public
+// Handle image from src/assets or public - use full images for article pages
 const getImageSrc = (imagePath: string) => {
   if (imagePath.startsWith('@news/')) {
+    // Map old paths to new full-size images
     const imageMap: Record<string, any> = {
       '@news/Por qué Colombia es la sede ideal.jpg': porQueColombiaImage,
       '@news/Historia del JamCam.jpg': historiaJamCamImage,

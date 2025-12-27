@@ -45,6 +45,19 @@ function getLocalizedPath(path: string, targetLocale: string): string {
   // Remove current locale from path if it exists
   const pathWithoutLocale = currentPath.replace(/^\/(en|pt|fr)/, '') || '/';
   
+  // Handle news article URLs - they have language suffixes in the slug
+  const newsMatch = pathWithoutLocale.match(/^\/news\/(.+)-(es|en|pt|fr)$/);
+  if (newsMatch) {
+    const slugBase = newsMatch[1];
+    const newSlug = `${slugBase}-${targetLocale}`;
+    
+    if (targetLocale === 'es') {
+      return `/news/${newSlug}`;
+    }
+    return `/${targetLocale}/news/${newSlug}`;
+  }
+  
+  // Standard path handling for non-news pages
   if (targetLocale === 'es') {
     return pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
   }

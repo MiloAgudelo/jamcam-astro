@@ -8,6 +8,7 @@ import historiaJamCamImage from '../../assets/images/news/full/Historia del JamC
 import jamcamLlegaColombiaImage from '../../assets/images/news/full/JamCam 2025 llega a Colombia.png';
 import caliHechaRecibirImage from '../../assets/images/news/full/Cali hecha para recibir al mundo.png';
 import staffEnAccionImage from '../../assets/images/news/full/El staff ya está en acción.png';
+import equipoInternacionalImage from '../../assets/images/news/full/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -64,6 +65,7 @@ const getImageSrc = (imagePath: string) => {
       '@news/JamCam 2025 llega a Colombia.JPG': jamcamLlegaColombiaImage,
       '@news/Cali hecha para recibir al mundo.jpg': caliHechaRecibirImage,
       '@news/El staff ya está en acción.JPG': staffEnAccionImage,
+      '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png': equipoInternacionalImage,
     };
     return imageMap[imagePath] || imagePath;
   }

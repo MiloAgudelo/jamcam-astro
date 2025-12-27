@@ -10,6 +10,7 @@ export default {
         news: "News",
         safeFromHarm: "SfH",
         resources: "Resources",
+        soundtrack: "Music",
         contacts: "Contacts",
     },
     footer: {
@@ -21,6 +22,28 @@ export default {
         brandManual: "Brand Manual",
         poolRules: "Comfandi pool usage rules",
         epidemiologicalRecommendations: "Health & epidemiological recommendations",
+    },
+    soundtrack: {
+        pageTitle: "JAMCAM 2025 Soundtrack",
+        description: "Download the official songs of JAMCAM 2025",
+        downloadSong: "Download song",
+        officialAnthem: "Official Anthem",
+        anthemSubtitle: "JamCam 2025 Anthem",
+        otherSongs: "Other Songs",
+        songs: {
+            cieloCanario: "Cielo Canario",
+            contarleAlMundo: "Contarle al Mundo",
+            cruzDelSur: "Cruz del Sur",
+            cuandoLlegaLaNoche: "Cuando Llega la Noche",
+            laCumbiaDeLaPaz: "La Cumbia de la Paz",
+            laCumbiaDeLaPazInstrumental: "La Cumbia de la Paz (Instrumental)",
+            noSePorQue: "No Sé Por Qué",
+            noSiempre: "No Siempre",
+            soyCaminanteSoy: "Soy Caminante Soy",
+            vamosACaminar: "Vamos a Caminar",
+            viveEnTi: "Vive en Ti",
+            yVolveremosACantar: "Y Volveremos a Cantar"
+        }
     },
     news: {
         title: "News",

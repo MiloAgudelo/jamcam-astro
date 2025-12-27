@@ -10,6 +10,7 @@ export default {
         news: "Actualités",
         safeFromHarm: "SfH",
         resources: "Ressources",
+        soundtrack: "Musique",
         contacts: "Contacts",
     },
     footer: {
@@ -21,6 +22,28 @@ export default {
         brandManual: "Manuel de marque",
         poolRules: "Règles d'utilisation des piscines Comfandi",
         epidemiologicalRecommendations: "Recommandations sanitaires et épidémiologiques",
+    },
+    soundtrack: {
+        pageTitle: "Soundtrack JAMCAM 2025",
+        description: "Téléchargez les chansons officielles du JAMCAM 2025",
+        downloadSong: "Télécharger la chanson",
+        officialAnthem: "Hymne Officiel",
+        anthemSubtitle: "Hymne du JamCam 2025",
+        otherSongs: "Autres Chansons",
+        songs: {
+            cieloCanario: "Cielo Canario",
+            contarleAlMundo: "Contarle al Mundo",
+            cruzDelSur: "Cruz del Sur",
+            cuandoLlegaLaNoche: "Cuando Llega la Noche",
+            laCumbiaDeLaPaz: "La Cumbia de la Paz",
+            laCumbiaDeLaPazInstrumental: "La Cumbia de la Paz (Instrumental)",
+            noSePorQue: "No Sé Por Qué",
+            noSiempre: "No Siempre",
+            soyCaminanteSoy: "Soy Caminante Soy",
+            vamosACaminar: "Vamos a Caminar",
+            viveEnTi: "Vive en Ti",
+            yVolveremosACantar: "Y Volveremos a Cantar"
+        }
     },
     news: {
         title: "Actualités",

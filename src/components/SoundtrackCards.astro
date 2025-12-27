@@ -1,0 +1,233 @@
+---
+import { getTranslations } from '../i18n';
+import { Image } from 'astro:assets';
+
+// Import cover images
+import cieloCanarioCover from '@/assets/images/covers/cielo-canario.png';
+import contarleAlMundoCover from '@/assets/images/covers/contarle-al-mundo.png';
+import cruzDelSurCover from '@/assets/images/covers/cruz-del-sur.png';
+import cuandoLlegaLaNocheCover from '@/assets/images/covers/cuando-llega-la-noche.png';
+import laCumbiaDeLaPazCover from '@/assets/images/covers/la-cumbia-de-la-paz.png';
+import noSePorQueCover from '@/assets/images/covers/no-se-porque.png';
+import noSiempreCover from '@/assets/images/covers/no-siempre.png';
+import soyCaminantesoyCover from '@/assets/images/covers/soy-caminante-soy.png';
+import vamosACaminarCover from '@/assets/images/covers/vamos-a-caminar.png';
+import viveEnTiCover from '@/assets/images/covers/vive-en-ti.png';
+import yVolveremosACantarCover from '@/assets/images/covers/y-volveremos-a-cantar.png';
+
+const locale = Astro.currentLocale || 'es';
+const t = getTranslations(locale);
+
+// Official Anthem songs (highlighted)
+const anthemSongs = [
+  {
+    id: 'laCumbiaDeLaPaz',
+    title: t.soundtrack.songs.laCumbiaDeLaPaz,
+    cover: laCumbiaDeLaPazCover,
+    mp3: '/music/la-cumbia-de-la-paz.mp3',
+    isAnthem: true
+  },
+  {
+    id: 'laCumbiaDeLaPazInstrumental',
+    title: t.soundtrack.songs.laCumbiaDeLaPazInstrumental,
+    cover: laCumbiaDeLaPazCover,
+    mp3: '/music/pista---la-cumbia-de-la-paz.mp3',
+    isAnthem: true
+  }
+];
+
+// Other songs
+const otherSongs = [
+  {
+    id: 'cieloCanario',
+    title: t.soundtrack.songs.cieloCanario,
+    cover: cieloCanarioCover,
+    mp3: '/music/cielo,-canario.mp3',
+    color: 'bg-purple-jm'
+  },
+  {
+    id: 'contarleAlMundo',
+    title: t.soundtrack.songs.contarleAlMundo,
+    cover: contarleAlMundoCover,
+    mp3: '/music/contarle-al-mundo.mp3',
+    color: 'bg-salmon-jm'
+  },
+  {
+    id: 'cruzDelSur',
+    title: t.soundtrack.songs.cruzDelSur,
+    cover: cruzDelSurCover,
+    mp3: '/music/cruz-del-sur.mp3',
+    color: 'bg-orange-jm'
+  },
+  {
+    id: 'cuandoLlegaLaNoche',
+    title: t.soundtrack.songs.cuandoLlegaLaNoche,
+    cover: cuandoLlegaLaNocheCover,
+    mp3: '/music/cuando-llega-la-noche.mp3',
+    color: 'bg-yellow-jm'
+  },
+  {
+    id: 'noSePorQue',
+    title: t.soundtrack.songs.noSePorQue,
+    cover: noSePorQueCover,
+    mp3: '/music/no-se-por-que.mp3',
+    color: 'bg-pink-jm'
+  },
+  {
+    id: 'noSiempre',
+    title: t.soundtrack.songs.noSiempre,
+    cover: noSiempreCover,
+    mp3: '/music/no-siempre.mp3',
+    color: 'bg-red-jm'
+  },
+  {
+    id: 'soyCaminanteSoy',
+    title: t.soundtrack.songs.soyCaminanteSoy,
+    cover: soyCaminantesoyCover,
+    mp3: '/music/soy-caminante-soy.mp3',
+    color: 'bg-purple-jm'
+  },
+  {
+    id: 'vamosACaminar',
+    title: t.soundtrack.songs.vamosACaminar,
+    cover: vamosACaminarCover,
+    mp3: '/music/vamos-a-caminar.mp3',
+    color: 'bg-salmon-jm'
+  },
+  {
+    id: 'viveEnTi',
+    title: t.soundtrack.songs.viveEnTi,
+    cover: viveEnTiCover,
+    mp3: '/music/vive-en-ti.mp3',
+    color: 'bg-orange-jm'
+  },
+  {
+    id: 'yVolveremosACantar',
+    title: t.soundtrack.songs.yVolveremosACantar,
+    cover: yVolveremosACantarCover,
+    mp3: '/music/y-volveremos-a-cantar.mp3',
+    color: 'bg-yellow-jm'
+  }
+];
+---
+
+<section class="soundtrack-section py-8 md:py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+    <!-- Official Anthem Section -->
+    <div class="mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+        {anthemSongs.map((song) => (
+          <a 
+            href={song.mp3}
+            download
+            class="anthem-card group block rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300 relative border-4 border-yellow-400"
+          >
+            <!-- Anthem Badge -->
+            <div class="absolute top-4 left-4 z-10 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold text-xs md:text-sm shadow-lg flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="w-4 h-4 fill-current">
+                <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+              </svg>
+              {t.soundtrack.officialAnthem}
+            </div>
+            
+            <div class="relative aspect-square">
+              <Image 
+                src={song.cover} 
+                alt={song.title}
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+              
+              <!-- Overlay with download icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 512 512" 
+                  class="w-20 h-20 md:w-24 md:h-24 fill-white"
+                >
+                  <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Song title -->
+            <div class="p-6 bg-gradient-to-br from-yellow-50 to-white">
+              <h3 class="text-lg md:text-xl font-bold text-text-color text-center">
+                {song.title}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Other Songs Section -->
+    <div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {otherSongs.map((song) => (
+          <a 
+            href={song.mp3}
+            download
+            class={`soundtrack-card group block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200 ${song.color}`}
+          >
+            <div class="relative aspect-square">
+              <Image 
+                src={song.cover} 
+                alt={song.title}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              
+              <!-- Overlay with download icon -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 512 512" 
+                  class="w-12 h-12 md:w-16 md:h-16 fill-white"
+                >
+                  <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Song title -->
+            <div class="p-4 bg-white">
+              <h3 class="text-sm md:text-base font-bold text-text-color text-center line-clamp-2">
+                {song.title}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .soundtrack-card,
+  .anthem-card {
+    cursor: pointer;
+  }
+
+  .soundtrack-card:active,
+  .anthem-card:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .anthem-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  }
+
+  .anthem-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.5);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+

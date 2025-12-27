@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/photos",
+      "destination": "https://brand.scout.org/photos/collection/19767",
+      "permanent": true
+    }
+  ]
+}
+

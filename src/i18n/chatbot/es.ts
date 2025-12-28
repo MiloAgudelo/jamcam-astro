@@ -12,7 +12,7 @@ export default {
                 { icon: "🎯", label: "Actividades", action: "goto", nodeId: "actividades" },
                 { icon: "🧠", label: "Listening Ears", action: "goto", nodeId: "listening-ears" },
                 { icon: "ℹ️", label: "Info General", action: "goto", nodeId: "info-general" },
-                { icon: "🗣️", label: "Tu voz cuenta", action: "goto", nodeId: "tu-voz-cuenta" },
+                { icon: "🗣️", label: "Tu opinión cuenta", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🌍", label: "Datos curiosos", action: "goto", nodeId: "datos-curiosos" }
             ]
         },
@@ -288,7 +288,7 @@ export default {
             ]
         },
         "tu-voz-cuenta": {
-            message: "🗣️ Tu voz cuenta\n\nEste espacio está pensado para que puedas compartir tu experiencia y percepción del JAMCAM.\nA través de encuestas breves, podrás ayudarnos a identificar qué está funcionando bien y en qué podemos mejorar, para seguir cuidando la experiencia de todos.",
+            message: "🗣️ Tu opinión cuenta\n\nEste espacio está pensado para que puedas compartir tu experiencia y percepción del JAMCAM.\nA través de encuestas breves, podrás ayudarnos a identificar qué está funcionando bien y en qué podemos mejorar, para seguir cuidando la experiencia de todos.",
             options: [
                 { icon: "✅", label: "Encuesta bienvenida", action: "goto", nodeId: "encuesta-bienvenida" },
                 { icon: "📋", label: "Encuesta diaria", action: "goto", nodeId: "encuesta-diaria" },

@@ -8,6 +8,7 @@ import jamcamLlegaColombiaPreview from '../assets/images/news/preview/JamCam 202
 import caliHechaRecibirPreview from '../assets/images/news/preview/Cali hecha para recibir al mundo.png';
 import staffEnAccionPreview from '../assets/images/news/preview/El staff ya está en acción.png';
 import equipoInternacionalPreview from '../assets/images/news/preview/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
+import himnoOficialPreview from '../assets/images/news/preview/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
 // Full images
 import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
 import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
@@ -15,6 +16,7 @@ import jamcamLlegaColombiaFull from '../assets/images/news/full/JamCam 2025 lleg
 import caliHechaRecibirFull from '../assets/images/news/full/Cali hecha para recibir al mundo.png';
 import staffEnAccionFull from '../assets/images/news/full/El staff ya está en acción.png';
 import equipoInternacionalFull from '../assets/images/news/full/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
+import himnoOficialFull from '../assets/images/news/full/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -92,6 +94,10 @@ const getImageSources = (imagePath: string) => {
       '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png': {
         preview: equipoInternacionalPreview,
         full: equipoInternacionalFull,
+      },
+      '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png': {
+        preview: himnoOficialPreview,
+        full: himnoOficialFull,
       },
     };
     return imageMap[imagePath] || { preview: imagePath, full: imagePath };

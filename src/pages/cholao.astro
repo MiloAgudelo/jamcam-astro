@@ -1,0 +1,170 @@
+---
+import '../styles/global.css';
+import ChatBotCore from '../components/ChatBotCore.astro';
+import Analytics from '../components/Analytics.astro';
+import Header from '../components/Header.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+const locale = 'es';
+const title = "Cholao - JamCam 2025";
+const description = "Chatea con Cholao, tu asistente digital del JamCam 2025";
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="google" content="notranslate" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={Astro.url.toString()} />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content={Astro.url.toString()}>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={`${Astro.site}og-image.jpg`}>
+    <meta property="og:site_name" content="JamCam 2025">
+    <meta property="og:locale" content={locale}>
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ScoutsColombia">
+    <meta property="twitter:url" content={Astro.url.toString()}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={`${Astro.site}og-image.jpg`}>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" href="/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="theme-color" content="#622599">
+    
+    <!-- Font preloading -->
+    <link rel="preload" href="/fonts/noto-sans-v39-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/noto-sans-v39-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/noto-sans-v39-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Font faces -->
+    <style>
+      @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/noto-sans-v39-latin-regular.woff2') format('woff2');
+      }
+      
+      @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('/fonts/noto-sans-v39-latin-600.woff2') format('woff2');
+      }
+      
+      @font-face {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/fonts/noto-sans-v39-latin-700.woff2') format('woff2');
+      }
+    </style>
+    
+    <!-- Vercel Analytics -->
+    <Analytics />
+  </head>
+  
+  <body class="m-0 p-0">
+    <Header />
+    <div class="chatbot-page-container">
+      <ChatBotCore locale={locale} isFullPage={true} autoStart={true} onClose="/" />
+    </div>
+    <LanguageSwitcher />
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #faf9f6;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .chatbot-page-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #622599 0%, #8b4db8 100%);
+    margin-bottom: 0;
+  }
+
+  /* Ensure proper spacing - footer always below viewport */
+  .chatbot-page-container {
+    min-height: 80vh;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .chatbot-page-container {
+      min-height: 85vh;
+    }
+  }
+
+  /* Ensure the chatbot fills the entire viewport */
+  .chatbot-page-container :global(#chatbot-panel-page) {
+    background: white;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Custom scrollbar for the page */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(98, 37, 153, 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(98, 37, 153, 0.5);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(98, 37, 153, 0.3) #f1f1f1;
+  }
+</style>
+

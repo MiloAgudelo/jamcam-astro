@@ -10,6 +10,7 @@ import caliHechaRecibirImage from '../../assets/images/news/full/Cali hecha para
 import staffEnAccionImage from '../../assets/images/news/full/El staff ya está en acción.png';
 import equipoInternacionalImage from '../../assets/images/news/full/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
 import himnoOficialImage from '../../assets/images/news/full/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
+import inauguracionImage from '../../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -47,11 +48,12 @@ const formatDate = (date: Date) => {
 // Get category color
 const getCategoryColor = (cat: string) => {
   const categories: Record<string, string> = {
-    'Anuncio': 'bg-purple-jm',
-    'Programa': 'bg-orange-jm',
-    'Actividades': 'bg-salmon-jm',
+    'Información': 'bg-purple-jm',
+    'Preparación': 'bg-orange-jm',
+    'Cultura y Música': 'bg-pink-jm',
+    'Experiencia': 'bg-salmon-jm',
   };
-  return categories[cat] || 'bg-pink-jm';
+  return categories[cat] || 'bg-purple-jm';
 };
 
 const categoryColor = getCategoryColor(entry.data.category);
@@ -68,6 +70,7 @@ const getImageSrc = (imagePath: string) => {
       '@news/El staff ya está en acción.JPG': staffEnAccionImage,
       '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png': equipoInternacionalImage,
       '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png': himnoOficialImage,
+      '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png': inauguracionImage,
     };
     return imageMap[imagePath] || imagePath;
   }

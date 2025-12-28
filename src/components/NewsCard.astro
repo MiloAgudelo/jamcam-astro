@@ -9,6 +9,7 @@ import caliHechaRecibirPreview from '../assets/images/news/preview/Cali hecha pa
 import staffEnAccionPreview from '../assets/images/news/preview/El staff ya está en acción.png';
 import equipoInternacionalPreview from '../assets/images/news/preview/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
 import himnoOficialPreview from '../assets/images/news/preview/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
+import inauguracionPreview from '../assets/images/news/preview/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 // Full images
 import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
 import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
@@ -17,6 +18,7 @@ import caliHechaRecibirFull from '../assets/images/news/full/Cali hecha para rec
 import staffEnAccionFull from '../assets/images/news/full/El staff ya está en acción.png';
 import equipoInternacionalFull from '../assets/images/news/full/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
 import himnoOficialFull from '../assets/images/news/full/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
+import inauguracionFull from '../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -33,19 +35,27 @@ const slug = entry.slug;
 // Get category color based on category name
 const getCategoryColor = (cat: string) => {
   const categories: Record<string, string> = {
-    'Anuncio': 'bg-purple-jm',
-    'Announcement': 'bg-purple-jm',
-    'Anúncio': 'bg-purple-jm',
-    'Annonce': 'bg-purple-jm',
-    'Programa': 'bg-orange-jm',
-    'Program': 'bg-orange-jm',
-    'Programme': 'bg-orange-jm',
-    'Actividades': 'bg-salmon-jm',
-    'Activities': 'bg-salmon-jm',
-    'Activités': 'bg-salmon-jm',
-    'Atividades': 'bg-salmon-jm',
+    // Información / Information / Informação
+    'Información': 'bg-purple-jm',
+    'Information': 'bg-purple-jm',
+    'Informação': 'bg-purple-jm',
+    // Preparación / Preparation / Préparation
+    'Preparación': 'bg-orange-jm',
+    'Preparation': 'bg-orange-jm',
+    'Preparação': 'bg-orange-jm',
+    'Préparation': 'bg-orange-jm',
+    // Cultura y Música / Culture and Music / Culture et Musique
+    'Cultura y Música': 'bg-pink-jm',
+    'Culture and Music': 'bg-pink-jm',
+    'Cultura e Música': 'bg-pink-jm',
+    'Culture et Musique': 'bg-pink-jm',
+    // Experiencia / Experience / Expérience
+    'Experiencia': 'bg-salmon-jm',
+    'Experience': 'bg-salmon-jm',
+    'Experiência': 'bg-salmon-jm',
+    'Expérience': 'bg-salmon-jm',
   };
-  return categories[cat] || 'bg-pink-jm';
+  return categories[cat] || 'bg-purple-jm';
 };
 
 const categoryColor = getCategoryColor(category);
@@ -98,6 +108,10 @@ const getImageSources = (imagePath: string) => {
       '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png': {
         preview: himnoOficialPreview,
         full: himnoOficialFull,
+      },
+      '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png': {
+        preview: inauguracionPreview,
+        full: inauguracionFull,
       },
     };
     return imageMap[imagePath] || { preview: imagePath, full: imagePath };

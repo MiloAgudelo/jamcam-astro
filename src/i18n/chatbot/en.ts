@@ -103,12 +103,31 @@ export default {
             ]
         },
         ubicaciones: {
-            message: "📖 Here you'll find the general map of JAMCAM 2025, where you can identify all the main event locations in one place.",
+            message: "📍 JamCam Locations\n\nSelect the map you need:",
+            options: [
+                { icon: "🗺️", label: "General Map", action: "goto", nodeId: "ubicaciones-general" },
+                { icon: "🏕️", label: "Services Map", action: "goto", nodeId: "ubicaciones-servicios" },
+                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-general": {
+            message: "🗺️ JAMCAM 2025 General Map\n\nHere you'll find the general event map, where you can identify all the main camp locations.",
             image: "/images/mapa-jamcam.png",
             download: "/images/mapa-jamcam.png",
-            downloadLabel: "Download map",
+            downloadLabel: "Download general map",
             options: [
-                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                { icon: "🔙", label: "Back to Locations", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-servicios": {
+            message: "🏕️ JamCam 2025 Services Map\n\nHere you'll find the location of all services: restrooms, showers, hydration points, commercial areas, activity zones and more.",
+            image: "/images/mapa-servicios.png",
+            download: "/docs/mapa-servicios.pdf",
+            downloadLabel: "Download services map (PDF)",
+            options: [
+                { icon: "🔙", label: "Back to Locations", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },
         actividades: {

@@ -103,12 +103,31 @@ export default {
             ]
         },
         ubicaciones: {
-            message: "📖 Aqui você encontrará o mapa geral do JAMCAM 2025, onde poderá identificar todas as localizações principais do evento em um só lugar.",
+            message: "📍 Localizações JamCam\n\nSelecione o mapa que você precisa:",
+            options: [
+                { icon: "🗺️", label: "Mapa Geral", action: "goto", nodeId: "ubicaciones-general" },
+                { icon: "🏕️", label: "Mapa de Serviços", action: "goto", nodeId: "ubicaciones-servicios" },
+                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-general": {
+            message: "🗺️ Mapa Geral do JAMCAM 2025\n\nAqui você encontrará o mapa geral do evento, onde poderá identificar todas as localizações principais do acampamento.",
             image: "/images/mapa-jamcam.png",
             download: "/images/mapa-jamcam.png",
-            downloadLabel: "Baixar mapa",
+            downloadLabel: "Baixar mapa geral",
             options: [
-                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                { icon: "🔙", label: "Voltar a Localizações", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-servicios": {
+            message: "🏕️ Mapa de Serviços JamCam 2025\n\nAqui você encontrará a localização de todos os serviços: banheiros, chuveiros, pontos de hidratação, áreas comerciais, zonas de atividades e muito mais.",
+            image: "/images/mapa-servicios.png",
+            download: "/docs/mapa-servicios.pdf",
+            downloadLabel: "Baixar mapa de serviços (PDF)",
+            options: [
+                { icon: "🔙", label: "Voltar a Localizações", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         actividades: {

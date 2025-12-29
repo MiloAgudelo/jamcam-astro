@@ -103,12 +103,31 @@ export default {
             ]
         },
         ubicaciones: {
-            message: "📖 Aquí encontrarás el mapa general del JAMCAM 2025, donde podrás identificar todas las ubicaciones principales del evento en un solo lugar.",
+            message: "📍 Ubicaciones JamCam\n\nSelecciona el mapa que necesitas:",
+            options: [
+                { icon: "🗺️", label: "Mapa General", action: "goto", nodeId: "ubicaciones-general" },
+                { icon: "🏕️", label: "Mapa de Servicios", action: "goto", nodeId: "ubicaciones-servicios" },
+                { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-general": {
+            message: "🗺️ Mapa General del JAMCAM 2025\n\nAquí encontrarás el mapa general del evento, donde podrás identificar todas las ubicaciones principales del campamento.",
             image: "/images/mapa-jamcam.png",
             download: "/images/mapa-jamcam.png",
-            downloadLabel: "Descargar mapa",
+            downloadLabel: "Descargar mapa general",
             options: [
-                { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+                { icon: "🔙", label: "Volver a Ubicaciones", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-servicios": {
+            message: "🏕️ Mapa de Servicios JamCam 2025\n\nAquí encontrarás la ubicación de todos los servicios: baños, duchas, puntos de hidratación, zonas comerciales, áreas de actividades y más.",
+            image: "/images/mapa-servicios.png",
+            download: "/docs/mapa-servicios.pdf",
+            downloadLabel: "Descargar mapa de servicios (PDF)",
+            options: [
+                { icon: "🔙", label: "Volver a Ubicaciones", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         actividades: {

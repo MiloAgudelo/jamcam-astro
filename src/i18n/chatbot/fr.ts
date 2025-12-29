@@ -103,12 +103,31 @@ export default {
             ]
         },
         ubicaciones: {
-            message: "📖 Ici vous trouverez la carte générale du JAMCAM 2025, où vous pourrez identifier tous les emplacements principaux de l'événement en un seul endroit.",
+            message: "📍 Emplacements JamCam\n\nSélectionnez la carte dont vous avez besoin :",
+            options: [
+                { icon: "🗺️", label: "Carte Générale", action: "goto", nodeId: "ubicaciones-general" },
+                { icon: "🏕️", label: "Carte des Services", action: "goto", nodeId: "ubicaciones-servicios" },
+                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-general": {
+            message: "🗺️ Carte Générale du JAMCAM 2025\n\nIci vous trouverez la carte générale de l'événement, où vous pourrez identifier tous les emplacements principaux du campement.",
             image: "/images/mapa-jamcam.png",
             download: "/images/mapa-jamcam.png",
-            downloadLabel: "Télécharger la carte",
+            downloadLabel: "Télécharger la carte générale",
             options: [
-                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+                { icon: "🔙", label: "Retour aux Emplacements", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "ubicaciones-servicios": {
+            message: "🏕️ Carte des Services JamCam 2025\n\nIci vous trouverez l'emplacement de tous les services : toilettes, douches, points d'hydratation, zones commerciales, zones d'activités et plus encore.",
+            image: "/images/mapa-servicios.png",
+            download: "/docs/mapa-servicios.pdf",
+            downloadLabel: "Télécharger la carte des services (PDF)",
+            options: [
+                { icon: "🔙", label: "Retour aux Emplacements", action: "goto", nodeId: "ubicaciones" },
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         actividades: {

@@ -85,13 +85,36 @@ const getImageSrc = (imagePath: string) => {
   return imagePath;
 };
 
+// Map for OG images in public folder with URL-friendly names
+const ogImageNameMap: Record<string, string> = {
+  '@news/Por qué Colombia es la sede ideal.jpg': 'por-que-colombia-es-la-sede-ideal.png',
+  '@news/Historia del JamCam.jpg': 'historia-del-jamcam.png',
+  '@news/JamCam 2025 llega a Colombia.JPG': 'jamcam-2025-llega-a-colombia.png',
+  '@news/Cali hecha para recibir al mundo.jpg': 'cali-hecha-para-recibir-al-mundo.png',
+  '@news/El staff ya está en acción.JPG': 'el-staff-ya-esta-en-accion.png',
+  '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png': 'el-jamcam-2025-cali-da-la-bienvenida-al-equipo-de-adultos-voluntarios.png',
+  '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png': 'jamcam-2025-en-cali-colombia-lanza-en-youtube-su-himno-oficial-y-varias-canciones-mas.png',
+  '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png': 'asi-se-vivio-la-inauguracion-del-jamcam-interamericano-2025-cali.png',
+  '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png': 'ya-llegaron-los-contingentes-al-jamcam-2025-en-cali-conoce-los-detalles.png',
+  '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png': 'dia-2-del-jamcam-2025-en-cali-colombia-asi-se-vivieron-las-actividades-y-conexiones-culturales.png',
+  '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png': 'el-stand-oficial-de-jamcam-2025-cali-en-la-aldea-interamericana-consulta-los-detalles.png',
+  '@news/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png': 'la-fundacion-scout-interamericana-esta-en-el-jamcam-2025-en-cali-entrevistamos-a-su-director-ejecutivo.png',
+};
+
 const imageSrc = getImageSrc(entry.data.image);
 const isImportedImage = typeof imageSrc !== 'string';
 
-// Prepare OG image URL - for imported images, use the src property
-const ogImageUrl = isImportedImage 
-  ? `${Astro.site}${imageSrc.src}` 
-  : `${Astro.site}${imageSrc}`;
+// Prepare OG image URL - use public folder images for better social media compatibility
+const getOgImageUrl = (imagePath: string) => {
+  if (imagePath.startsWith('@news/')) {
+    // Use mapped filename with URL-friendly names
+    const filename = ogImageNameMap[imagePath] || imagePath.replace('@news/', '');
+    return `${Astro.site}images/news/${filename}`;
+  }
+  return `${Astro.site}${imagePath}`;
+};
+
+const ogImageUrl = getOgImageUrl(entry.data.image);
 
 // Use meta title/description from frontmatter if available
 const pageTitle = entry.data.metaTitle || entry.data.title;

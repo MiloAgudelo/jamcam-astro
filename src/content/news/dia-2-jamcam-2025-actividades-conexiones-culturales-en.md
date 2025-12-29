@@ -34,3 +34,4 @@ On the other hand, the exchange of cultures and customs is taking place in the s
 
 The JamCam participants and the International Service Team (IST) have been excited about these activities that increase their knowledge about the cultural diversity that exists in the Americas and encourages them to identify with the values they share.
 
+

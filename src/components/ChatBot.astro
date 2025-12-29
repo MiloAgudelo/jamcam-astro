@@ -1,106 +1,33 @@
 ---
 import { getChatbotTranslations } from '../i18n/chatbot';
-import ChatBotCore from './ChatBotCore.astro';
 
 const locale = Astro.currentLocale || 'es';
 const chatbot = getChatbotTranslations(locale);
+
+// Get localized path to /cholao
+function getLocalizedPath(path: string): string {
+  if (locale === 'es') {
+    return path === '/' ? '/' : path;
+  }
+  return path === '/' ? `/${locale}/` : `/${locale}${path}`;
+}
+
+const cholaoPath = getLocalizedPath('/cholao');
 ---
 
 <div class="chatbot-container fixed bottom-[85px] right-5 z-[1100] transition-opacity duration-300 ease-linear">
-  <!-- Floating Button -->
-  <button 
-    id="chatbot-button"
-    class="chatbot-button w-[50px] h-[50px] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-105 overflow-hidden z-[1100]"
+  <!-- Floating Button - Now redirects to /cholao -->
+  <a 
+    href={cholaoPath}
+    class="chatbot-button w-[50px] h-[50px] rounded-full shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-105 overflow-hidden z-[1100] block"
     aria-label={chatbot.title}
-    aria-expanded="false"
-    aria-controls="chatbot-panel"
     title={chatbot.title}
   >
     <img src="/images/cholao-chat.png" alt="Cholao" class="w-full h-full object-cover" />
-  </button>
-  
-  <!-- Chat Panel Modal -->
-  <div 
-    id="chatbot-modal-wrapper"
-    class="absolute bottom-0 right-[65px] z-[1100]"
-  >
-    <ChatBotCore locale={locale} isFullPage={false} autoStart={false} />
-  </div>
+  </a>
 </div>
 
-<script>
-  const chatbotButton = document.getElementById('chatbot-button');
-  const chatbotPanel = document.getElementById('chatbot-panel');
-  
-  let isOpen = false;
-
-  // Initialize chatbot
-  function init() {
-    if (chatbotButton && chatbotPanel) {
-      // Button click to toggle
-      chatbotButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (isOpen) {
-          closeChatbot();
-        } else {
-          openChatbot();
-        }
-      });
-
-      // Prevent clicks inside the panel from closing it
-      chatbotPanel.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-
-      // Listen for close event from ChatBotCore
-      window.addEventListener('chatbot-close', () => {
-        closeChatbot();
-      });
-    }
-  }
-
-  function openChatbot() {
-    if (chatbotPanel && chatbotButton) {
-      isOpen = true;
-      chatbotPanel.classList.remove('opacity-0', 'translate-y-5', 'pointer-events-none');
-      chatbotPanel.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-      chatbotButton.setAttribute('aria-expanded', 'true');
-      
-      // Track chatbot opened
-      if (typeof window.va !== 'undefined') {
-        window.va('event', 'Chatbot Abierto');
-      }
-      
-      // Start chatbot if first time opening
-      if (typeof window.startChatbot === 'function') {
-        window.startChatbot();
-      }
-    }
-  }
-
-  function closeChatbot() {
-    if (chatbotPanel && chatbotButton) {
-      isOpen = false;
-      chatbotPanel.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-      chatbotPanel.classList.add('opacity-0', 'translate-y-5', 'pointer-events-none');
-      chatbotButton.setAttribute('aria-expanded', 'false');
-    }
-  }
-
-  // Initialize on load
-  init();
-</script>
-
 <style>
-  /* Tablet adjustments */
-  @media (max-width: 1024px) and (min-width: 769px) {
-    #chatbot-panel {
-      width: 360px !important;
-      max-height: 580px;
-      height: 580px;
-    }
-  }
-
   /* Mobile responsive adjustments */
   @media (max-width: 768px) {
     .chatbot-container {
@@ -111,35 +38,6 @@ const chatbot = getChatbotTranslations(locale);
     .chatbot-button {
       width: 50px;
       height: 50px;
-    }
-
-    #chatbot-modal-wrapper {
-      right: 0;
-      bottom: 60px;
-    }
-
-    #chatbot-panel {
-      width: calc(100vw - 30px) !important;
-      max-width: 360px;
-      max-height: 520px;
-      height: 520px;
-    }
-    
-    .chatbot-options {
-      max-height: 240px;
-    }
-  }
-  
-  /* Very small mobile adjustments */
-  @media (max-width: 380px) {
-    #chatbot-panel {
-      width: calc(100vw - 20px) !important;
-      max-height: 480px;
-      height: 480px;
-    }
-    
-    .chatbot-options {
-      max-height: 200px;
     }
   }
 </style>

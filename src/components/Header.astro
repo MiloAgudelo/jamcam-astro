@@ -68,14 +68,14 @@ const menuItems = [
 ];
 ---
 
-<header>
-  <nav class="relative w-full h-[98px] xl:h-[125px] bg-background-color shadow-nav-shadow z-[1000]">
+<header class="relative z-[1200]">
+  <nav class="relative w-full h-[98px] xl:h-[125px] bg-background-color shadow-nav-shadow z-[1200]">
     <div class="w-full h-full px-4 mx-auto md:px-5 lg:px-[100px] flex items-center justify-between relative">
       <a href={getLocalizedPath('/')} class="flex-shrink-0 h-auto xl:h-[130px] w-auto">
         <img src={JamCamLogoColor.src} alt="Logo JamCam 2025" class="h-[80px] xl:h-[130px] w-auto object-contain" />
       </a>
 
-      <button id="navbar-toggle" class="xl:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1001] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
+      <button id="navbar-toggle" class="xl:hidden p-2.5 text-salmon-jm order-1 absolute right-4 md:right-5 top-1/2 -translate-y-1/2 z-[1201] cursor-pointer" aria-expanded="false" aria-controls="navbar-menu" type="button">
         <div class="relative w-8 h-8">
           <!-- Hamburger Icon -->
           <svg 
@@ -109,7 +109,7 @@ const menuItems = [
         opacity-0 xl:opacity-100 invisible xl:visible 
         transition-opacity duration-200 ease-in-out xl:transition-none
         pointer-events-none xl:pointer-events-auto
-        flex list-none m-0 p-0 z-[1000]
+        flex list-none m-0 p-0 z-[1200]
       ">
         {menuItems.map((item, index) => (
           <li class="w-full lg:w-auto">

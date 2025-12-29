@@ -1,7 +1,7 @@
 ---
 title: 'Dia 2 do JamCam 2025 em Cali, Colômbia: como foram vividas as atividades e conexões culturais'
 category: 'Experiência'
-publishDate: 2025-12-29
+publishDate: 2025-12-28
 image: '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png'
 imageAlt: 'Participantes do JamCam 2025 compartilhando na Aldeia Interamericana com estandes de diferentes países das Américas'
 locale: 'pt'

@@ -13,6 +13,7 @@ import himnoOficialImage from '../../../assets/images/news/full/JamCam 2025 en C
 import inauguracionImage from '../../../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 import yaLlegaronContingentesImage from '../../../assets/images/news/full/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
 import dia2ActividadesImage from '../../../assets/images/news/full/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
+import standOficialImage from '../../../assets/images/news/full/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png';
 
 export async function getStaticPaths() {
   const newsEntries = await getCollection('news', ({ data }) => {
@@ -75,6 +76,7 @@ const getImageSrc = (imagePath: string) => {
       '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png': inauguracionImage,
       '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png': yaLlegaronContingentesImage,
       '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png': dia2ActividadesImage,
+      '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png': standOficialImage,
     };
     return imageMap[imagePath] || imagePath;
   }

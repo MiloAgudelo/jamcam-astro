@@ -12,6 +12,7 @@ import himnoOficialPreview from '../assets/images/news/preview/JamCam 2025 en Ca
 import inauguracionPreview from '../assets/images/news/preview/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 import contingentesPreview from '../assets/images/news/preview/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
 import dia2ActividadesPreview from '../assets/images/news/preview/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
+import standOficialPreview from '../assets/images/news/preview/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png';
 // Full images
 import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
 import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
@@ -23,6 +24,7 @@ import himnoOficialFull from '../assets/images/news/full/JamCam 2025 en Cali, Co
 import inauguracionFull from '../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 import contingentesFull from '../assets/images/news/full/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
 import dia2ActividadesFull from '../assets/images/news/full/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
+import standOficialFull from '../assets/images/news/full/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png';
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -124,6 +126,10 @@ const getImageSources = (imagePath: string) => {
       '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png': {
         preview: dia2ActividadesPreview,
         full: dia2ActividadesFull,
+      },
+      '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png': {
+        preview: standOficialPreview,
+        full: standOficialFull,
       },
     };
     return imageMap[imagePath] || { preview: imagePath, full: imagePath };

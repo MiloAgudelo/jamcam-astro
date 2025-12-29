@@ -11,6 +11,7 @@ import equipoInternacionalPreview from '../assets/images/news/preview/El JamCam 
 import himnoOficialPreview from '../assets/images/news/preview/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
 import inauguracionPreview from '../assets/images/news/preview/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 import contingentesPreview from '../assets/images/news/preview/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
+import dia2ActividadesPreview from '../assets/images/news/preview/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
 // Full images
 import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
 import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
@@ -21,6 +22,7 @@ import equipoInternacionalFull from '../assets/images/news/full/El JamCam 2025 C
 import himnoOficialFull from '../assets/images/news/full/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
 import inauguracionFull from '../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
 import contingentesFull from '../assets/images/news/full/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
+import dia2ActividadesFull from '../assets/images/news/full/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -118,6 +120,10 @@ const getImageSources = (imagePath: string) => {
       '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png': {
         preview: contingentesPreview,
         full: contingentesFull,
+      },
+      '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png': {
+        preview: dia2ActividadesPreview,
+        full: dia2ActividadesFull,
       },
     };
     return imageMap[imagePath] || { preview: imagePath, full: imagePath };

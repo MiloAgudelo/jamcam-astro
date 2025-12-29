@@ -1,7 +1,7 @@
 ---
 title: "La Fondation Scoute Interaméricaine est au JamCam 2025 à Cali : Nous avons interviewé son directeur exécutif"
 category: 'Expérience'
-publishDate: 2025-12-30
+publishDate: 2025-12-29
 image: '@news/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png'
 imageAlt: "Représentants de la Fondation Scoute Interaméricaine au JamCam 2025 Cali partageant avec les participants de l'événement"
 locale: 'fr'

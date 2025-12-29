@@ -1,7 +1,7 @@
 ---
 title: 'Fundação Escoteira Interamericana está no JamCam 2025 em Cali: Entrevistamos seu diretor executivo'
 category: 'Experiência'
-publishDate: 2025-12-30
+publishDate: 2025-12-29
 image: '@news/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png'
 imageAlt: 'Representantes da Fundação Escoteira Interamericana no JamCam 2025 Cali compartilhando com participantes do evento'
 locale: 'pt'

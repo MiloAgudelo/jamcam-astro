@@ -39,49 +39,9 @@ const languages = [
 const currentLanguage = languages.find(lang => lang.code === locale) || languages[0];
 const otherLanguages = languages.filter(lang => lang.code !== locale);
 
-function getLocalizedPath(path: string, targetLocale: string): string {
-  const currentPath = Astro.url.pathname;
-  
-  // Handle news article URLs - they have language suffixes in the slug
-  // Check for news URLs in both formats: /news/slug-XX and /XX/news/slug-XX
-  const newsMatchWithLocale = currentPath.match(/^\/(en|pt|fr)\/news\/(.+)-(es|en|pt|fr)$/);
-  const newsMatchDefault = currentPath.match(/^\/news\/(.+)-(es|en|pt|fr)$/);
-  
-  if (newsMatchWithLocale) {
-    // Current path has locale prefix: /pt/news/slug-pt
-    const slugBase = newsMatchWithLocale[2];
-    const newSlug = `${slugBase}-${targetLocale}`;
-    
-    if (targetLocale === 'es') {
-      return `/news/${newSlug}`;
-    }
-    return `/${targetLocale}/news/${newSlug}`;
-  }
-  
-  if (newsMatchDefault) {
-    // Current path is default (Spanish): /news/slug-es
-    const slugBase = newsMatchDefault[1];
-    const newSlug = `${slugBase}-${targetLocale}`;
-    
-    if (targetLocale === 'es') {
-      return `/news/${newSlug}`;
-    }
-    return `/${targetLocale}/news/${newSlug}`;
-  }
-  
-  // Remove current locale from path if it exists for standard pages
-  const pathWithoutLocale = currentPath.replace(/^\/(en|pt|fr)/, '') || '/';
-  
-  // Standard path handling for non-news pages
-  if (targetLocale === 'es') {
-    return pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
-  }
-  return pathWithoutLocale === '/' ? `/${targetLocale}/` : `/${targetLocale}${pathWithoutLocale}`;
-}
-
 ---
 
-<div class="language-selector fixed bottom-5 right-5 z-[99] transition-opacity duration-300 ease-linear">
+<div class="language-selector fixed bottom-5 right-5 z-[99] transition-opacity duration-300 ease-linear" data-current-locale={locale}>
   <button 
     id="language-button"
     class={`language-button w-[50px] h-[50px] rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative text-white font-bold text-sm bg-${currentLanguage.color} hover:scale-105`}
@@ -99,7 +59,8 @@ function getLocalizedPath(path: string, targetLocale: string): string {
   >
     {otherLanguages.map((language) => (
       <a
-        href={getLocalizedPath(Astro.url.pathname, language.code)}
+        href="#"
+        data-target-locale={language.code}
         class={`language-option w-[50px] h-[50px] md:w-[50px] md:h-[50px] rounded-full flex items-center justify-center shadow-lg cursor-pointer transition-all duration-300 ease-linear border-0 p-0 relative hover:scale-110 hover:shadow-xl text-white font-bold text-sm bg-${language.color}`}
         aria-label={language.ariaLabel}
         title={language.name}
@@ -111,11 +72,68 @@ function getLocalizedPath(path: string, targetLocale: string): string {
 </div>
 
 <script>
+  // Function to calculate the localized path on the client side
+  function getLocalizedPath(targetLocale: string): string {
+    const currentPath = window.location.pathname;
+    
+    // Handle news article URLs - they have language suffixes in the slug
+    // Check for news URLs in both formats: /news/slug-XX and /XX/news/slug-XX
+    const newsMatchWithLocale = currentPath.match(/^\/(en|pt|fr)\/news\/(.+)-(es|en|pt|fr)$/);
+    const newsMatchDefault = currentPath.match(/^\/news\/(.+)-(es|en|pt|fr)$/);
+    
+    if (newsMatchWithLocale) {
+      // Current path has locale prefix: /pt/news/slug-pt
+      const slugBase = newsMatchWithLocale[2];
+      const newSlug = `${slugBase}-${targetLocale}`;
+      
+      if (targetLocale === 'es') {
+        return `/news/${newSlug}`;
+      }
+      return `/${targetLocale}/news/${newSlug}`;
+    }
+    
+    if (newsMatchDefault) {
+      // Current path is default (Spanish): /news/slug-es
+      const slugBase = newsMatchDefault[1];
+      const newSlug = `${slugBase}-${targetLocale}`;
+      
+      if (targetLocale === 'es') {
+        return `/news/${newSlug}`;
+      }
+      return `/${targetLocale}/news/${newSlug}`;
+    }
+    
+    // Remove current locale from path if it exists for standard pages
+    const pathWithoutLocale = currentPath.replace(/^\/(en|pt|fr)/, '') || '/';
+    
+    // Standard path handling for non-news pages
+    if (targetLocale === 'es') {
+      return pathWithoutLocale === '/' ? '/' : pathWithoutLocale;
+    }
+    return pathWithoutLocale === '/' ? `/${targetLocale}/` : `/${targetLocale}${pathWithoutLocale}`;
+  }
+
   const languageButton = document.getElementById('language-button');
   const languageOptions = document.getElementById('language-options');
   let isPinned = false;
 
   if (languageButton && languageOptions) {
+    // Set up the language option links dynamically
+    const languageLinks = languageOptions.querySelectorAll('a[data-target-locale]');
+    languageLinks.forEach((link) => {
+      const targetLocale = link.getAttribute('data-target-locale');
+      if (targetLocale) {
+        // Set the href dynamically based on current page
+        link.setAttribute('href', getLocalizedPath(targetLocale));
+        
+        // Also handle click event to ensure it works
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = getLocalizedPath(targetLocale);
+        });
+      }
+    });
+
     // Handle click/touch events
     languageButton.addEventListener('click', (e) => {
       e.stopPropagation();

@@ -7,7 +7,7 @@ export default {
         welcome: {
             message: "👋 Hello! I'm Cholao, your digital assistant at JamCam 2025.\n\nI'm here to guide you through activities, locations, services, and support throughout the event.\n\n👉 Tell me, what do you need now?",
             options: [
-                { icon: "🦜", label: "Guardian Birds Challenge", action: "goto", nodeId: "desafio-inicio" },
+                { icon: "🏆", label: "JamCam Challenges", action: "goto", nodeId: "desafios-menu" },
                 { icon: "🌿", label: "Wellness Check-in", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "JamCam Locations", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Activities", action: "goto", nodeId: "actividades" },
@@ -15,6 +15,15 @@ export default {
                 { icon: "ℹ️", label: "General Info", action: "goto", nodeId: "info-general" },
                 { icon: "🗣️", label: "Your Opinion Matters", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🌍", label: "Fun Facts", action: "goto", nodeId: "datos-curiosos" }
+            ]
+        },
+        "desafios-menu": {
+            message: "🏆 JAMCAM 2025 CHALLENGES\n\nTest your knowledge and win prizes!\n\nChoose one of the 3 available challenges:\n\n🦜 **Guardian Birds** - Discover the 4 birds and their sacred values\n\n🌈 **Cholao's Journey** - Learn the ancestral story of our macaw\n\n⛺ **Camp Guardians** - Prove you know JamCam\n\n⚠️ Each challenge has 7 questions. If you fail, that challenge will be permanently blocked.\n\nWhich challenge do you want to try?",
+            options: [
+                { icon: "🦜", label: "Guardian Birds", action: "goto", nodeId: "desafio-inicio" },
+                { icon: "🌈", label: "Cholao's Journey", action: "goto", nodeId: "desafio2-inicio" },
+                { icon: "⛺", label: "Camp Guardians", action: "goto", nodeId: "desafio3-inicio" },
+                { icon: "🔙", label: "Back to menu", action: "goto", nodeId: "welcome" }
             ]
         },
         "checkin-bienestar": {
@@ -473,13 +482,417 @@ export default {
             ]
         },
         "desafio-nivel3-correcto": {
-            message: "✅ CORRECT! 🎉\n\nYou've completed the Guardian Birds Challenge!\n\n🏁 FINAL INSTRUCTION:\n\nGo RIGHT NOW to the WELCOME CENTER to claim your prize.\n\n*First to arrive will be the winners.*\n\n📍 PRIZE CLAIM:\n• Identity validation\n• Answer confirmation\n• Prize delivery\n\n🛑 RULES:\n• One prize per person\n• Prizes are non-transferable\n• Staff decisions are final\n• Activity valid until prizes run out",
+            message: "✅ Very good!\n\nYou've advanced to the next level! Continue with the challenge.\n\nAdvance to Level 4.",
             options: [
-                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+                { icon: "➡️", label: "Level 4", action: "goto", nodeId: "desafio-nivel4" }
             ]
         },
         "desafio-nivel3-incorrecto": {
             message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel4": {
+            message: "🔹 LEVEL 4 – THE SACRED VALUES\n\nWhich bird gave Cholao the value of solidarity?",
+            options: [
+                { icon: "A)", label: "Blue-headed Parrot", action: "goto", nodeId: "desafio-nivel4-incorrecto" },
+                { icon: "B)", label: "Muscovy Duck", action: "goto", nodeId: "desafio-nivel4-incorrecto" },
+                { icon: "C)", label: "Blue-gray Tanager", action: "goto", nodeId: "desafio-nivel4-correcto" },
+                { icon: "D)", label: "Smooth-billed Ani", action: "goto", nodeId: "desafio-nivel4-incorrecto" }
+            ]
+        },
+        "desafio-nivel4-correcto": {
+            message: "✅ Excellent!\n\nThe Blue-gray Tanager offered solidarity so that young people can enjoy community life.\n\nAdvance to Level 5.",
+            options: [
+                { icon: "➡️", label: "Level 5", action: "goto", nodeId: "desafio-nivel5" }
+            ]
+        },
+        "desafio-nivel4-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel5": {
+            message: "🔹 LEVEL 5 – THE OFFICIAL THEME\n\nWhat is the official theme of JamCam 2025?",
+            options: [
+                { icon: "A)", label: "United for Nature", action: "goto", nodeId: "desafio-nivel5-incorrecto" },
+                { icon: "B)", label: "Americas United for Peace", action: "goto", nodeId: "desafio-nivel5-correcto" },
+                { icon: "C)", label: "Together for a Better Future", action: "goto", nodeId: "desafio-nivel5-incorrecto" },
+                { icon: "D)", label: "Scouts Without Borders", action: "goto", nodeId: "desafio-nivel5-incorrecto" }
+            ]
+        },
+        "desafio-nivel5-correcto": {
+            message: "✅ Perfect!\n\n'Americas United for Peace' is the official theme, inspired by the UN's declaration of 2025 as the International Year of Peace and Trust.\n\nAdvance to Level 6.",
+            options: [
+                { icon: "➡️", label: "Level 6", action: "goto", nodeId: "desafio-nivel6" }
+            ]
+        },
+        "desafio-nivel5-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel6": {
+            message: "🔹 LEVEL 6 – THE HOST CITY\n\nWhat is the city of Cali known for worldwide?",
+            options: [
+                { icon: "A)", label: "Coffee Capital", action: "goto", nodeId: "desafio-nivel6-incorrecto" },
+                { icon: "B)", label: "World Salsa Capital", action: "goto", nodeId: "desafio-nivel6-correcto" },
+                { icon: "C)", label: "City of Eternal Spring", action: "goto", nodeId: "desafio-nivel6-incorrecto" },
+                { icon: "D)", label: "Golden Gate of Colombia", action: "goto", nodeId: "desafio-nivel6-incorrecto" }
+            ]
+        },
+        "desafio-nivel6-correcto": {
+            message: "✅ Amazing!\n\nCali is recognized as the World Salsa Capital, a vibrant city with rich history and incomparable culture.\n\nAdvance to Level 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Level 7 (FINAL)", action: "goto", nodeId: "desafio-nivel7" }
+            ]
+        },
+        "desafio-nivel6-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel7": {
+            message: "🔹 LEVEL 7 – THE FINAL TEST\n\nWhat value did the Smooth-billed Ani entrust to Cholao?",
+            options: [
+                { icon: "A)", label: "Freedom", action: "goto", nodeId: "desafio-nivel7-incorrecto" },
+                { icon: "B)", label: "Solidarity", action: "goto", nodeId: "desafio-nivel7-incorrecto" },
+                { icon: "C)", label: "Cooperation", action: "goto", nodeId: "desafio-nivel7-correcto" },
+                { icon: "D)", label: "Empathy", action: "goto", nodeId: "desafio-nivel7-incorrecto" }
+            ]
+        },
+        "desafio-nivel7-correcto": {
+            message: "✅ CORRECT! 🎉🏆\n\nYou've completed the Guardian Birds Challenge with all 7 levels!\n\n🏁 FINAL INSTRUCTION:\n\n📝 CLAIM YOUR PRIZE HERE:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*The first valid entry will be the winner of the Cholao Store contest.*\n\nAlso go to the WELCOME CENTER to validate your participation.\n\n📍 INFORMATION:\n• Complete all form fields\n• One prize per person\n• Prizes are non-transferable\n• Staff decisions are final\n• Activity valid until prizes run out",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel7-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-bloqueado": {
+            message: "🔒 Challenge Blocked\n\nWe're sorry, you have already participated in Cholao's Journey Challenge with an incorrect answer.\n\nEach participant has only one opportunity to complete the challenge.\n\nThank you for your participation and continue enjoying JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-inicio": {
+            message: "🌈 JAMCAM 2025\n\nCHOLAO'S JOURNEY\n\n✨ The Ancestral Legacy ✨\n\nAre you ready to discover Cholao's story?\n\nYou must answer 7 questions correctly to complete the challenge.",
+            options: [
+                { icon: "🚀", label: "Start challenge!", action: "goto", nodeId: "desafio2-nivel1" },
+                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel1": {
+            message: "🔹 LEVEL 1 – THE BIRTH\n\nWhat was Cholao born from?",
+            options: [
+                { icon: "A)", label: "From a golden egg", action: "goto", nodeId: "desafio2-nivel1-incorrecto" },
+                { icon: "B)", label: "From the dreams and hopes of the peoples of America", action: "goto", nodeId: "desafio2-nivel1-correcto" },
+                { icon: "C)", label: "From the highest mountains", action: "goto", nodeId: "desafio2-nivel1-incorrecto" },
+                { icon: "D)", label: "From a ray of sunshine", action: "goto", nodeId: "desafio2-nivel1-incorrecto" }
+            ]
+        },
+        "desafio2-nivel1-correcto": {
+            message: "✅ Correct!\n\nCholao was born from all the dreams and hopes that the peoples of America had ever shared.\n\nContinue to Level 2.",
+            options: [
+                { icon: "➡️", label: "Level 2", action: "goto", nodeId: "desafio2-nivel2" }
+            ]
+        },
+        "desafio2-nivel1-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel2": {
+            message: "🔹 LEVEL 2 – THE GUARDIAN\n\nHow long had Cholao been flying incognito observing the cultures of America?",
+            options: [
+                { icon: "A)", label: "Decades", action: "goto", nodeId: "desafio2-nivel2-incorrecto" },
+                { icon: "B)", label: "Centuries", action: "goto", nodeId: "desafio2-nivel2-correcto" },
+                { icon: "C)", label: "Years", action: "goto", nodeId: "desafio2-nivel2-incorrecto" },
+                { icon: "D)", label: "Millennia", action: "goto", nodeId: "desafio2-nivel2-incorrecto" }
+            ]
+        },
+        "desafio2-nivel2-correcto": {
+            message: "✅ Very good!\n\nFor centuries, Cholao flew incognito from north to south, observing the evolution of cultures and learning from each tradition.\n\nAdvance to Level 3.",
+            options: [
+                { icon: "➡️", label: "Level 3", action: "goto", nodeId: "desafio2-nivel3" }
+            ]
+        },
+        "desafio2-nivel2-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel3": {
+            message: "🔹 LEVEL 3 – THE COLORS\n\nWhat do the vibrant colors of Cholao's plumage represent?",
+            options: [
+                { icon: "A)", label: "The flowers of Colombia", action: "goto", nodeId: "desafio2-nivel3-incorrecto" },
+                { icon: "B)", label: "The colors of American flags", action: "goto", nodeId: "desafio2-nivel3-correcto" },
+                { icon: "C)", label: "The rainbow", action: "goto", nodeId: "desafio2-nivel3-incorrecto" },
+                { icon: "D)", label: "The birds of the continent", action: "goto", nodeId: "desafio2-nivel3-incorrecto" }
+            ]
+        },
+        "desafio2-nivel3-correcto": {
+            message: "✅ Excellent!\n\nCholao's feathers shine with all the colors of American flags, representing the unity of the continent.\n\nAdvance to Level 4.",
+            options: [
+                { icon: "➡️", label: "Level 4", action: "goto", nodeId: "desafio2-nivel4" }
+            ]
+        },
+        "desafio2-nivel3-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel4": {
+            message: "🔹 LEVEL 4 – THE MISSION\n\nWhat special power does Cholao's call have?",
+            options: [
+                { icon: "A)", label: "Control the weather", action: "goto", nodeId: "desafio2-nivel4-incorrecto" },
+                { icon: "B)", label: "Awaken the ancestral memory that America is one great family", action: "goto", nodeId: "desafio2-nivel4-correcto" },
+                { icon: "C)", label: "Make people fly", action: "goto", nodeId: "desafio2-nivel4-incorrecto" },
+                { icon: "D)", label: "Cure diseases", action: "goto", nodeId: "desafio2-nivel4-incorrecto" }
+            ]
+        },
+        "desafio2-nivel4-correcto": {
+            message: "✅ Perfect!\n\nCholao's call has the power to awaken in each young heart the ancestral memory that all nations belong to one great family: America.\n\nAdvance to Level 5.",
+            options: [
+                { icon: "➡️", label: "Level 5", action: "goto", nodeId: "desafio2-nivel5" }
+            ]
+        },
+        "desafio2-nivel4-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel5": {
+            message: "🔹 LEVEL 5 – THE FOUR VALUES\n\nHow many fundamental values did the guardian birds protect?",
+            options: [
+                { icon: "A)", label: "Three values", action: "goto", nodeId: "desafio2-nivel5-incorrecto" },
+                { icon: "B)", label: "Five values", action: "goto", nodeId: "desafio2-nivel5-incorrecto" },
+                { icon: "C)", label: "Four values", action: "goto", nodeId: "desafio2-nivel5-correcto" },
+                { icon: "D)", label: "Six values", action: "goto", nodeId: "desafio2-nivel5-incorrecto" }
+            ]
+        },
+        "desafio2-nivel5-correcto": {
+            message: "✅ Amazing!\n\nThe four guardian birds protected four fundamental values: cooperation, empathy, solidarity, and freedom.\n\nAdvance to Level 6.",
+            options: [
+                { icon: "➡️", label: "Level 6", action: "goto", nodeId: "desafio2-nivel6" }
+            ]
+        },
+        "desafio2-nivel5-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel6": {
+            message: "🔹 LEVEL 6 – THE TREASURE\n\nWhat was the most precious treasure of the continent that Cholao kept in his memory?",
+            options: [
+                { icon: "A)", label: "Gold and riches", action: "goto", nodeId: "desafio2-nivel6-incorrecto" },
+                { icon: "B)", label: "The stories of union and brotherhood", action: "goto", nodeId: "desafio2-nivel6-correcto" },
+                { icon: "C)", label: "The ancient temples", action: "goto", nodeId: "desafio2-nivel6-incorrecto" },
+                { icon: "D)", label: "The sacred mountains", action: "goto", nodeId: "desafio2-nivel6-incorrecto" }
+            ]
+        },
+        "desafio2-nivel6-correcto": {
+            message: "✅ Fantastic!\n\nThe stories of union and brotherhood were the most precious treasure of the continent, kept in Cholao's memory.\n\nAdvance to Level 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Level 7 (FINAL)", action: "goto", nodeId: "desafio2-nivel7" }
+            ]
+        },
+        "desafio2-nivel6-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel7": {
+            message: "🔹 LEVEL 7 – THE TRANSFORMATION\n\nWhat happened when Cholao received the four values from the guardian birds?",
+            options: [
+                { icon: "A)", label: "Lost his feathers", action: "goto", nodeId: "desafio2-nivel7-incorrecto" },
+                { icon: "B)", label: "Became invisible", action: "goto", nodeId: "desafio2-nivel7-incorrecto" },
+                { icon: "C)", label: "His colors shone even brighter", action: "goto", nodeId: "desafio2-nivel7-correcto" },
+                { icon: "D)", label: "Grew in size", action: "goto", nodeId: "desafio2-nivel7-incorrecto" }
+            ]
+        },
+        "desafio2-nivel7-correcto": {
+            message: "✅ CORRECT! 🎉🏆\n\nYou've completed Cholao's Journey Challenge with all 7 levels!\n\nCholao kept the values in his plumage making his colors shine even brighter.\n\n🏁 FINAL INSTRUCTION:\n\n📝 CLAIM YOUR PRIZE HERE:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*The first valid entry will be the winner of the Cholao Store contest.*\n\nAlso go to the WELCOME CENTER to validate your participation.\n\n📍 INFORMATION:\n• Complete all form fields\n• One prize per person\n• Prizes are non-transferable\n• Staff decisions are final\n• Activity valid until prizes run out",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel7-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 Cholao's Journey Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-bloqueado": {
+            message: "🔒 Challenge Blocked\n\nWe're sorry, you have already participated in the Camp Guardians Challenge with an incorrect answer.\n\nEach participant has only one opportunity to complete the challenge.\n\nThank you for your participation and continue enjoying JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-inicio": {
+            message: "⛺ JAMCAM 2025\n\nTHE CAMP GUARDIANS\n\n✨ Know Your Adventure ✨\n\nAre you ready to prove that you know JamCam?\n\nYou must answer 7 questions correctly about the camp and the event.",
+            options: [
+                { icon: "🚀", label: "Start challenge!", action: "goto", nodeId: "desafio3-nivel1" },
+                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel1": {
+            message: "🔹 LEVEL 1 – THE DATES\n\nWhen do EIS and CMT members enter the JamCam site?",
+            options: [
+                { icon: "A)", label: "December 25, 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" },
+                { icon: "B)", label: "December 26, 2025", action: "goto", nodeId: "desafio3-nivel1-correcto" },
+                { icon: "C)", label: "December 27, 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" },
+                { icon: "D)", label: "December 28, 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" }
+            ]
+        },
+        "desafio3-nivel1-correcto": {
+            message: "✅ Correct!\n\nEIS and CMT members enter on December 26, 2025, one day before the official start.\n\nContinue to Level 2.",
+            options: [
+                { icon: "➡️", label: "Level 2", action: "goto", nodeId: "desafio3-nivel2" }
+            ]
+        },
+        "desafio3-nivel1-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel2": {
+            message: "🔹 LEVEL 2 – THE TEAM\n\nWhat does EIS stand for?",
+            options: [
+                { icon: "A)", label: "Inter-American Scout Team", action: "goto", nodeId: "desafio3-nivel2-incorrecto" },
+                { icon: "B)", label: "International Service Team", action: "goto", nodeId: "desafio3-nivel2-correcto" },
+                { icon: "C)", label: "International Security Squad", action: "goto", nodeId: "desafio3-nivel2-incorrecto" },
+                { icon: "D)", label: "Scout Instructor Team", action: "goto", nodeId: "desafio3-nivel2-incorrecto" }
+            ]
+        },
+        "desafio3-nivel2-correcto": {
+            message: "✅ Very good!\n\nEIS stands for International Service Team, made up of scout volunteers who support the development of the event.\n\nAdvance to Level 3.",
+            options: [
+                { icon: "➡️", label: "Level 3", action: "goto", nodeId: "desafio3-nivel3" }
+            ]
+        },
+        "desafio3-nivel2-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel3": {
+            message: "🔹 LEVEL 3 – THE PLACE\n\nWhere is JamCam 2025 held?",
+            options: [
+                { icon: "A)", label: "Tayrona National Park", action: "goto", nodeId: "desafio3-nivel3-incorrecto" },
+                { icon: "B)", label: "Comfandi Pance Country Center", action: "goto", nodeId: "desafio3-nivel3-correcto" },
+                { icon: "C)", label: "Simón Bolívar Park", action: "goto", nodeId: "desafio3-nivel3-incorrecto" },
+                { icon: "D)", label: "National Scout Camp", action: "goto", nodeId: "desafio3-nivel3-incorrecto" }
+            ]
+        },
+        "desafio3-nivel3-correcto": {
+            message: "✅ Excellent!\n\nJamCam is held at Comfandi Pance Country Center, a natural space surrounded by mountains, rivers and trails.\n\nAdvance to Level 4.",
+            options: [
+                { icon: "➡️", label: "Level 4", action: "goto", nodeId: "desafio3-nivel4" }
+            ]
+        },
+        "desafio3-nivel3-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel4": {
+            message: "🔹 LEVEL 4 – THE AGE\n\nWhat minimum age must you be at the start of JamCam to be part of the EIS?",
+            options: [
+                { icon: "A)", label: "16 years", action: "goto", nodeId: "desafio3-nivel4-incorrecto" },
+                { icon: "B)", label: "17 years", action: "goto", nodeId: "desafio3-nivel4-incorrecto" },
+                { icon: "C)", label: "18 years", action: "goto", nodeId: "desafio3-nivel4-correcto" },
+                { icon: "D)", label: "21 years", action: "goto", nodeId: "desafio3-nivel4-incorrecto" }
+            ]
+        },
+        "desafio3-nivel4-correcto": {
+            message: "✅ Perfect!\n\nYou must be 18 years or older at the start of JamCam 2025 to be part of the International Service Team.\n\nAdvance to Level 5.",
+            options: [
+                { icon: "➡️", label: "Level 5", action: "goto", nodeId: "desafio3-nivel5" }
+            ]
+        },
+        "desafio3-nivel4-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel5": {
+            message: "🔹 LEVEL 5 – THE PARTICIPANTS\n\nWhat ages are the youth participants of JamCam?",
+            options: [
+                { icon: "A)", label: "10 to 16 years", action: "goto", nodeId: "desafio3-nivel5-incorrecto" },
+                { icon: "B)", label: "11 to 17 years", action: "goto", nodeId: "desafio3-nivel5-correcto" },
+                { icon: "C)", label: "12 to 18 years", action: "goto", nodeId: "desafio3-nivel5-incorrecto" },
+                { icon: "D)", label: "13 to 19 years", action: "goto", nodeId: "desafio3-nivel5-incorrecto" }
+            ]
+        },
+        "desafio3-nivel5-correcto": {
+            message: "✅ Amazing!\n\nYouth participants are children and adolescents between 11 and 17 years old, organized in patrols or teams according to their age.\n\nAdvance to Level 6.",
+            options: [
+                { icon: "➡️", label: "Level 6", action: "goto", nodeId: "desafio3-nivel6" }
+            ]
+        },
+        "desafio3-nivel5-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel6": {
+            message: "🔹 LEVEL 6 – THE INSPIRATION\n\nWhich UN declaration inspires the theme of JamCam 2025?",
+            options: [
+                { icon: "A)", label: "International Year of the Environment", action: "goto", nodeId: "desafio3-nivel6-incorrecto" },
+                { icon: "B)", label: "International Year of Peace and Trust", action: "goto", nodeId: "desafio3-nivel6-correcto" },
+                { icon: "C)", label: "International Year of Youth", action: "goto", nodeId: "desafio3-nivel6-incorrecto" },
+                { icon: "D)", label: "International Year of Cooperation", action: "goto", nodeId: "desafio3-nivel6-incorrecto" }
+            ]
+        },
+        "desafio3-nivel6-correcto": {
+            message: "✅ Fantastic!\n\nJamCam 2025 is inspired by the UN's declaration of 2025 as the International Year of Peace and Trust.\n\nAdvance to Level 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Level 7 (FINAL)", action: "goto", nodeId: "desafio3-nivel7" }
+            ]
+        },
+        "desafio3-nivel6-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel7": {
+            message: "🔹 LEVEL 7 – THE MONUMENT\n\nWhat is Cali's most emblematic monument located on the Cerro de los Cristales?",
+            options: [
+                { icon: "A)", label: "Cali Tower", action: "goto", nodeId: "desafio3-nivel7-incorrecto" },
+                { icon: "B)", label: "Metropolitan Cathedral", action: "goto", nodeId: "desafio3-nivel7-incorrecto" },
+                { icon: "C)", label: "Cristo Rey", action: "goto", nodeId: "desafio3-nivel7-correcto" },
+                { icon: "D)", label: "Cerro de las Tres Cruces", action: "goto", nodeId: "desafio3-nivel7-incorrecto" }
+            ]
+        },
+        "desafio3-nivel7-correcto": {
+            message: "✅ CORRECT! 🎉🏆\n\nYou've completed the Camp Guardians Challenge with all 7 levels!\n\nCristo Rey is a 26-meter high monument that offers a spectacular panoramic view of Cali.\n\n🏁 FINAL INSTRUCTION:\n\n📝 CLAIM YOUR PRIZE HERE:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*The first valid entry will be the winner of the Cholao Store contest.*\n\nAlso go to the WELCOME CENTER to validate your participation.\n\n📍 INFORMATION:\n• Complete all form fields\n• One prize per person\n• Prizes are non-transferable\n• Staff decisions are final\n• Activity valid until prizes run out",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel7-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Camp Guardians Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
             options: [
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]

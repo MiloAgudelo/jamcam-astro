@@ -85,22 +85,35 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
   let isProcessing = false; // Flag para evitar clicks múltiples
 
   // LocalStorage keys for challenge blocking
-  const CHALLENGE_BLOCKED_KEY = 'jamcam_desafio_blocked';
-  const CHALLENGE_BLOCKED_TIME_KEY = 'jamcam_desafio_blocked_time';
+  const CHALLENGE1_BLOCKED_KEY = 'jamcam_desafio1_blocked';
+  const CHALLENGE1_BLOCKED_TIME_KEY = 'jamcam_desafio1_blocked_time';
+  const CHALLENGE2_BLOCKED_KEY = 'jamcam_desafio2_blocked';
+  const CHALLENGE2_BLOCKED_TIME_KEY = 'jamcam_desafio2_blocked_time';
+  const CHALLENGE3_BLOCKED_KEY = 'jamcam_desafio3_blocked';
+  const CHALLENGE3_BLOCKED_TIME_KEY = 'jamcam_desafio3_blocked_time';
 
   // Challenge blocking functions
-  function isChallengeBocked() {
+  function isChallengeBlocked(challengeNumber) {
     try {
-      return localStorage.getItem(CHALLENGE_BLOCKED_KEY) === 'true';
+      const key = challengeNumber === 2 ? CHALLENGE2_BLOCKED_KEY : 
+                   challengeNumber === 3 ? CHALLENGE3_BLOCKED_KEY : 
+                   CHALLENGE1_BLOCKED_KEY;
+      return localStorage.getItem(key) === 'true';
     } catch (e) {
       return false;
     }
   }
 
-  function blockChallenge() {
+  function blockChallenge(challengeNumber) {
     try {
-      localStorage.setItem(CHALLENGE_BLOCKED_KEY, 'true');
-      localStorage.setItem(CHALLENGE_BLOCKED_TIME_KEY, new Date().toISOString());
+      const blockedKey = challengeNumber === 2 ? CHALLENGE2_BLOCKED_KEY : 
+                         challengeNumber === 3 ? CHALLENGE3_BLOCKED_KEY : 
+                         CHALLENGE1_BLOCKED_KEY;
+      const timeKey = challengeNumber === 2 ? CHALLENGE2_BLOCKED_TIME_KEY : 
+                      challengeNumber === 3 ? CHALLENGE3_BLOCKED_TIME_KEY : 
+                      CHALLENGE1_BLOCKED_TIME_KEY;
+      localStorage.setItem(blockedKey, 'true');
+      localStorage.setItem(timeKey, new Date().toISOString());
     } catch (e) {
       console.error('Error blocking challenge:', e);
     }
@@ -166,8 +179,17 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
 
   function showNode(nodeId) {
     // Check if trying to access challenge while blocked
-    if (nodeId.startsWith('desafio-') && nodeId !== 'desafio-bloqueado' && isChallengeBocked()) {
-      nodeId = 'desafio-bloqueado';
+    if (nodeId.startsWith('desafio-') && !nodeId.includes('-bloqueado')) {
+      // Detectar qué desafío es
+      if (isChallengeBlocked(1) && !nodeId.startsWith('desafio2-') && !nodeId.startsWith('desafio3-')) {
+        nodeId = 'desafio-bloqueado';
+      }
+    }
+    if (nodeId.startsWith('desafio2-') && nodeId !== 'desafio2-bloqueado' && isChallengeBlocked(2)) {
+      nodeId = 'desafio2-bloqueado';
+    }
+    if (nodeId.startsWith('desafio3-') && nodeId !== 'desafio3-bloqueado' && isChallengeBlocked(3)) {
+      nodeId = 'desafio3-bloqueado';
     }
 
     const node = chatbot.nodes[nodeId];
@@ -202,8 +224,17 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
 
   function showNodeInstant(nodeId) {
     // Check if trying to access challenge while blocked
-    if (nodeId.startsWith('desafio-') && nodeId !== 'desafio-bloqueado' && isChallengeBocked()) {
-      nodeId = 'desafio-bloqueado';
+    if (nodeId.startsWith('desafio-') && !nodeId.includes('-bloqueado')) {
+      // Detectar qué desafío es
+      if (isChallengeBlocked(1) && !nodeId.startsWith('desafio2-') && !nodeId.startsWith('desafio3-')) {
+        nodeId = 'desafio-bloqueado';
+      }
+    }
+    if (nodeId.startsWith('desafio2-') && nodeId !== 'desafio2-bloqueado' && isChallengeBlocked(2)) {
+      nodeId = 'desafio2-bloqueado';
+    }
+    if (nodeId.startsWith('desafio3-') && nodeId !== 'desafio3-bloqueado' && isChallengeBlocked(3)) {
+      nodeId = 'desafio3-bloqueado';
     }
 
     const node = chatbot.nodes[nodeId];
@@ -420,7 +451,14 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
     if (option.action === 'goto' && option.nodeId) {
       // Block challenge if accessing incorrect answer node
       if (option.nodeId.includes('-incorrecto')) {
-        blockChallenge();
+        // Detectar qué desafío bloquear
+        if (option.nodeId.startsWith('desafio2-')) {
+          blockChallenge(2);
+        } else if (option.nodeId.startsWith('desafio3-')) {
+          blockChallenge(3);
+        } else if (option.nodeId.startsWith('desafio-')) {
+          blockChallenge(1);
+        }
       }
       showNode(option.nodeId);
     } else if (option.action === 'link' && option.url) {

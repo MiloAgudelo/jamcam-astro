@@ -38,3 +38,4 @@ We interviewed Juan Manuel 'Pollo' Salvado, executive director of the foundation
 
 ![Juan Manuel 'Pollo' Salvado, Executive Director of the Scout Foundation of the Americas](/images/news/content/JuanManuelPolloSalvado.jpg)
 
+

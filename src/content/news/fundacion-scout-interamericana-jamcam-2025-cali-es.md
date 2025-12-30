@@ -38,3 +38,4 @@ Entrevistamos a Juan Manuel 'Pollo' Salvado, director ejecutivo de la fundación
 
 ![Juan Manuel 'Pollo' Salvado, Director Ejecutivo de la Fundación Scout Interamericana](/images/news/content/JuanManuelPolloSalvado.jpg)
 
+

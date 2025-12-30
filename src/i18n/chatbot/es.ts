@@ -7,7 +7,7 @@ export default {
         welcome: {
             message: "👋 ¡Hola! Soy Cholao, tu asistente digital en el JamCam 2025.\n\nEstoy aquí para guiarte en actividades, ubicaciones, servicios y apoyo durante todo el evento.\n\n👉 Dime, ¿qué necesitas ahora?",
             options: [
-                { icon: "🦜", label: "Desafío Aves Guardianas", action: "goto", nodeId: "desafio-inicio" },
+                { icon: "🏆", label: "Desafíos JamCam", action: "goto", nodeId: "desafios-menu" },
                 { icon: "🌿", label: "Check in Bienestar", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "Ubicaciones JamCam", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Actividades", action: "goto", nodeId: "actividades" },
@@ -15,6 +15,15 @@ export default {
                 { icon: "ℹ️", label: "Info General", action: "goto", nodeId: "info-general" },
                 { icon: "🗣️", label: "Tu opinión cuenta", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🌍", label: "Datos curiosos", action: "goto", nodeId: "datos-curiosos" }
+            ]
+        },
+        "desafios-menu": {
+            message: "🏆 DESAFÍOS JAMCAM 2025\n\n¡Pon a prueba tus conocimientos y gana premios!\n\nElige uno de los 3 desafíos disponibles:\n\n🦜 **Aves Guardianas** - Descubre las 4 aves y sus valores sagrados\n\n🌈 **Viaje de Cholao** - Conoce la historia ancestral de nuestra guacamaya\n\n⛺ **Guardianes del Campamento** - Demuestra que conoces el JamCam\n\n⚠️ Cada desafío tiene 7 preguntas. Si fallas, ese desafío se bloqueará permanentemente.\n\n¿Qué desafío quieres intentar?",
+            options: [
+                { icon: "🦜", label: "Aves Guardianas", action: "goto", nodeId: "desafio-inicio" },
+                { icon: "🌈", label: "Viaje de Cholao", action: "goto", nodeId: "desafio2-inicio" },
+                { icon: "⛺", label: "Guardianes del Campamento", action: "goto", nodeId: "desafio3-inicio" },
+                { icon: "🔙", label: "Volver al menú", action: "goto", nodeId: "welcome" }
             ]
         },
         "checkin-bienestar": {
@@ -473,13 +482,417 @@ export default {
             ]
         },
         "desafio-nivel3-correcto": {
-            message: "✅ ¡CORRECTO! 🎉\n\n¡Has completado el Desafío de las Aves Guardianas!\n\n🏁 INSTRUCCIÓN FINAL:\n\nDirígete AHORA MISMO al WELCOME CENTER para reclamar tu premio.\n\n*Los primeros en llegar serán los ganadores.*\n\n📍 RECLAMO DEL PREMIO:\n• Validación de identidad\n• Confirmación de respuesta\n• Entrega del premio\n\n🛑 REGLAS:\n• Un premio por persona\n• Premios no transferibles\n• Decisiones del staff son finales\n• Dinámica válida hasta agotar premios",
+            message: "✅ ¡Muy bien!\n\n¡Has avanzado al siguiente nivel! Continúa con el desafío.\n\nAvanza al Nivel 4.",
             options: [
-                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+                { icon: "➡️", label: "Nivel 4", action: "goto", nodeId: "desafio-nivel4" }
             ]
         },
         "desafio-nivel3-incorrecto": {
             message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel4": {
+            message: "🔹 NIVEL 4 – LOS VALORES SAGRADOS\n\n¿Qué ave entregó a Cholao el valor de la solidaridad?",
+            options: [
+                { icon: "A)", label: "Loro de Cabeza Azul", action: "goto", nodeId: "desafio-nivel4-incorrecto" },
+                { icon: "B)", label: "Pato de Moscovia", action: "goto", nodeId: "desafio-nivel4-incorrecto" },
+                { icon: "C)", label: "Tangara Azul Grisácea", action: "goto", nodeId: "desafio-nivel4-correcto" },
+                { icon: "D)", label: "Aní de Pico Liso", action: "goto", nodeId: "desafio-nivel4-incorrecto" }
+            ]
+        },
+        "desafio-nivel4-correcto": {
+            message: "✅ ¡Excelente!\n\nLa Tangara Azul Grisácea ofreció la solidaridad para que los jóvenes disfruten la vida en comunidad.\n\nAvanza al Nivel 5.",
+            options: [
+                { icon: "➡️", label: "Nivel 5", action: "goto", nodeId: "desafio-nivel5" }
+            ]
+        },
+        "desafio-nivel4-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel5": {
+            message: "🔹 NIVEL 5 – EL TEMA OFICIAL\n\n¿Cuál es el tema oficial del JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Unidos por la Naturaleza", action: "goto", nodeId: "desafio-nivel5-incorrecto" },
+                { icon: "B)", label: "Américas Unidas por la Paz", action: "goto", nodeId: "desafio-nivel5-correcto" },
+                { icon: "C)", label: "Juntos por un Futuro Mejor", action: "goto", nodeId: "desafio-nivel5-incorrecto" },
+                { icon: "D)", label: "Scouts sin Fronteras", action: "goto", nodeId: "desafio-nivel5-incorrecto" }
+            ]
+        },
+        "desafio-nivel5-correcto": {
+            message: "✅ ¡Perfecto!\n\n'Américas Unidas por la Paz' es el tema oficial, inspirado en la declaratoria de la ONU del 2025 como el Año Internacional de la Paz y la Confianza.\n\nAvanza al Nivel 6.",
+            options: [
+                { icon: "➡️", label: "Nivel 6", action: "goto", nodeId: "desafio-nivel6" }
+            ]
+        },
+        "desafio-nivel5-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel6": {
+            message: "🔹 NIVEL 6 – LA CIUDAD ANFITRIONA\n\n¿Por qué es conocida mundialmente la ciudad de Cali?",
+            options: [
+                { icon: "A)", label: "Capital del Café", action: "goto", nodeId: "desafio-nivel6-incorrecto" },
+                { icon: "B)", label: "Capital Mundial de la Salsa", action: "goto", nodeId: "desafio-nivel6-correcto" },
+                { icon: "C)", label: "Ciudad de la Eterna Primavera", action: "goto", nodeId: "desafio-nivel6-incorrecto" },
+                { icon: "D)", label: "Puerta de Oro de Colombia", action: "goto", nodeId: "desafio-nivel6-incorrecto" }
+            ]
+        },
+        "desafio-nivel6-correcto": {
+            message: "✅ ¡Increíble!\n\nCali es reconocida como la Capital Mundial de la Salsa, una ciudad vibrante con rica historia y cultura incomparable.\n\nAvanza al Nivel 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Nivel 7 (FINAL)", action: "goto", nodeId: "desafio-nivel7" }
+            ]
+        },
+        "desafio-nivel6-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel7": {
+            message: "🔹 NIVEL 7 – LA ÚLTIMA PRUEBA\n\n¿Qué valor le encargó el Aní de Pico Liso a Cholao?",
+            options: [
+                { icon: "A)", label: "La libertad", action: "goto", nodeId: "desafio-nivel7-incorrecto" },
+                { icon: "B)", label: "La solidaridad", action: "goto", nodeId: "desafio-nivel7-incorrecto" },
+                { icon: "C)", label: "La cooperación", action: "goto", nodeId: "desafio-nivel7-correcto" },
+                { icon: "D)", label: "La empatía", action: "goto", nodeId: "desafio-nivel7-incorrecto" }
+            ]
+        },
+        "desafio-nivel7-correcto": {
+            message: "✅ ¡CORRECTO! 🎉🏆\n\n¡Has completado el Desafío de las Aves Guardianas con los 7 niveles!\n\n🏁 INSTRUCCIÓN FINAL:\n\n📝 RECLAMA TU PREMIO AQUÍ:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*El primer registro válido será el ganador del concurso de Cholao Store.*\n\nDirígete también al WELCOME CENTER para validar tu participación.\n\n📍 INFORMACIÓN:\n• Completa todos los campos del formulario\n• Un premio por persona\n• Premios no transferibles\n• Decisiones del staff son finales\n• Dinámica válida hasta agotar premios",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel7-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-bloqueado": {
+            message: "🔒 Desafío Bloqueado\n\nLo sentimos, ya has participado en el Desafío del Viaje de Cholao con una respuesta incorrecta.\n\nCada participante tiene solo una oportunidad para completar el desafío.\n\n¡Gracias por tu participación y sigue disfrutando del JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-inicio": {
+            message: "🌈 JAMCAM 2025\n\nEL VIAJE DE CHOLAO\n\n✨ El Legado Ancestral ✨\n\n¿Estás listo para descubrir la historia de Cholao?\n\nDeberás responder 7 preguntas correctamente para completar el desafío.",
+            options: [
+                { icon: "🚀", label: "¡Comenzar desafío!", action: "goto", nodeId: "desafio2-nivel1" },
+                { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel1": {
+            message: "🔹 NIVEL 1 – EL NACIMIENTO\n\n¿De qué nació Cholao?",
+            options: [
+                { icon: "A)", label: "De un huevo dorado", action: "goto", nodeId: "desafio2-nivel1-incorrecto" },
+                { icon: "B)", label: "De los sueños y esperanzas de los pueblos de América", action: "goto", nodeId: "desafio2-nivel1-correcto" },
+                { icon: "C)", label: "De las montañas más altas", action: "goto", nodeId: "desafio2-nivel1-incorrecto" },
+                { icon: "D)", label: "De un rayo de sol", action: "goto", nodeId: "desafio2-nivel1-incorrecto" }
+            ]
+        },
+        "desafio2-nivel1-correcto": {
+            message: "✅ ¡Correcto!\n\nCholao nació de todos los sueños y esperanzas que los pueblos de América habían compartido alguna vez.\n\nContinúa al Nivel 2.",
+            options: [
+                { icon: "➡️", label: "Nivel 2", action: "goto", nodeId: "desafio2-nivel2" }
+            ]
+        },
+        "desafio2-nivel1-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel2": {
+            message: "🔹 NIVEL 2 – EL GUARDIÁN\n\n¿Cuánto tiempo llevaba Cholao volando de incógnito observando las culturas de América?",
+            options: [
+                { icon: "A)", label: "Décadas", action: "goto", nodeId: "desafio2-nivel2-incorrecto" },
+                { icon: "B)", label: "Siglos", action: "goto", nodeId: "desafio2-nivel2-correcto" },
+                { icon: "C)", label: "Años", action: "goto", nodeId: "desafio2-nivel2-incorrecto" },
+                { icon: "D)", label: "Milenios", action: "goto", nodeId: "desafio2-nivel2-incorrecto" }
+            ]
+        },
+        "desafio2-nivel2-correcto": {
+            message: "✅ ¡Muy bien!\n\nDurante siglos, Cholao voló de incógnito de norte a sur, observando la evolución de las culturas y aprendiendo de cada tradición.\n\nAvanza al Nivel 3.",
+            options: [
+                { icon: "➡️", label: "Nivel 3", action: "goto", nodeId: "desafio2-nivel3" }
+            ]
+        },
+        "desafio2-nivel2-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel3": {
+            message: "🔹 NIVEL 3 – LOS COLORES\n\n¿Qué representan los colores vibrantes del plumaje de Cholao?",
+            options: [
+                { icon: "A)", label: "Las flores de Colombia", action: "goto", nodeId: "desafio2-nivel3-incorrecto" },
+                { icon: "B)", label: "Los colores de las banderas americanas", action: "goto", nodeId: "desafio2-nivel3-correcto" },
+                { icon: "C)", label: "El arcoíris", action: "goto", nodeId: "desafio2-nivel3-incorrecto" },
+                { icon: "D)", label: "Las aves del continente", action: "goto", nodeId: "desafio2-nivel3-incorrecto" }
+            ]
+        },
+        "desafio2-nivel3-correcto": {
+            message: "✅ ¡Excelente!\n\nLas plumas de Cholao brillan con todos los colores de las banderas americanas, representando la unidad del continente.\n\nAvanza al Nivel 4.",
+            options: [
+                { icon: "➡️", label: "Nivel 4", action: "goto", nodeId: "desafio2-nivel4" }
+            ]
+        },
+        "desafio2-nivel3-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel4": {
+            message: "🔹 NIVEL 4 – LA MISIÓN\n\n¿Qué poder especial tiene el llamado de Cholao?",
+            options: [
+                { icon: "A)", label: "Controlar el clima", action: "goto", nodeId: "desafio2-nivel4-incorrecto" },
+                { icon: "B)", label: "Despertar el recuerdo ancestral de que América es una gran familia", action: "goto", nodeId: "desafio2-nivel4-correcto" },
+                { icon: "C)", label: "Hacer volar a las personas", action: "goto", nodeId: "desafio2-nivel4-incorrecto" },
+                { icon: "D)", label: "Curar enfermedades", action: "goto", nodeId: "desafio2-nivel4-incorrecto" }
+            ]
+        },
+        "desafio2-nivel4-correcto": {
+            message: "✅ ¡Perfecto!\n\nEl llamado de Cholao tiene el poder de despertar en cada corazón joven el recuerdo ancestral de que todas las naciones pertenecen a una misma gran familia: América.\n\nAvanza al Nivel 5.",
+            options: [
+                { icon: "➡️", label: "Nivel 5", action: "goto", nodeId: "desafio2-nivel5" }
+            ]
+        },
+        "desafio2-nivel4-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel5": {
+            message: "🔹 NIVEL 5 – LOS CUATRO VALORES\n\n¿Cuántos valores fundamentales custodiaban las aves guardianas?",
+            options: [
+                { icon: "A)", label: "Tres valores", action: "goto", nodeId: "desafio2-nivel5-incorrecto" },
+                { icon: "B)", label: "Cinco valores", action: "goto", nodeId: "desafio2-nivel5-incorrecto" },
+                { icon: "C)", label: "Cuatro valores", action: "goto", nodeId: "desafio2-nivel5-correcto" },
+                { icon: "D)", label: "Seis valores", action: "goto", nodeId: "desafio2-nivel5-incorrecto" }
+            ]
+        },
+        "desafio2-nivel5-correcto": {
+            message: "✅ ¡Increíble!\n\nLas cuatro aves guardianas custodiaban cuatro valores fundamentales: cooperación, empatía, solidaridad y libertad.\n\nAvanza al Nivel 6.",
+            options: [
+                { icon: "➡️", label: "Nivel 6", action: "goto", nodeId: "desafio2-nivel6" }
+            ]
+        },
+        "desafio2-nivel5-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel6": {
+            message: "🔹 NIVEL 6 – EL TESORO\n\n¿Qué era el tesoro más preciado del continente que Cholao guardaba en su memoria?",
+            options: [
+                { icon: "A)", label: "El oro y las riquezas", action: "goto", nodeId: "desafio2-nivel6-incorrecto" },
+                { icon: "B)", label: "Las historias de unión y hermandad", action: "goto", nodeId: "desafio2-nivel6-correcto" },
+                { icon: "C)", label: "Los templos antiguos", action: "goto", nodeId: "desafio2-nivel6-incorrecto" },
+                { icon: "D)", label: "Las montañas sagradas", action: "goto", nodeId: "desafio2-nivel6-incorrecto" }
+            ]
+        },
+        "desafio2-nivel6-correcto": {
+            message: "✅ ¡Fantástico!\n\nLas historias de unión y hermandad eran el tesoro más preciado del continente, guardadas en la memoria de Cholao.\n\nAvanza al Nivel 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Nivel 7 (FINAL)", action: "goto", nodeId: "desafio2-nivel7" }
+            ]
+        },
+        "desafio2-nivel6-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel7": {
+            message: "🔹 NIVEL 7 – LA TRANSFORMACIÓN\n\n¿Qué pasó cuando Cholao recibió los cuatro valores de las aves guardianas?",
+            options: [
+                { icon: "A)", label: "Perdió sus plumas", action: "goto", nodeId: "desafio2-nivel7-incorrecto" },
+                { icon: "B)", label: "Se volvió invisible", action: "goto", nodeId: "desafio2-nivel7-incorrecto" },
+                { icon: "C)", label: "Sus colores brillaron aún más", action: "goto", nodeId: "desafio2-nivel7-correcto" },
+                { icon: "D)", label: "Creció de tamaño", action: "goto", nodeId: "desafio2-nivel7-incorrecto" }
+            ]
+        },
+        "desafio2-nivel7-correcto": {
+            message: "✅ ¡CORRECTO! 🎉🏆\n\n¡Has completado el Desafío del Viaje de Cholao con los 7 niveles!\n\nCholao guardó los valores en su plumaje haciendo que sus colores brillaran aún más.\n\n🏁 INSTRUCCIÓN FINAL:\n\n📝 RECLAMA TU PREMIO AQUÍ:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*El primer registro válido será el ganador del concurso de Cholao Store.*\n\nDirígete también al WELCOME CENTER para validar tu participación.\n\n📍 INFORMACIÓN:\n• Completa todos los campos del formulario\n• Un premio por persona\n• Premios no transferibles\n• Decisiones del staff son finales\n• Dinámica válida hasta agotar premios",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio2-nivel7-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío del Viaje de Cholao ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-bloqueado": {
+            message: "🔒 Desafío Bloqueado\n\nLo sentimos, ya has participado en el Desafío de los Guardianes del Campamento con una respuesta incorrecta.\n\nCada participante tiene solo una oportunidad para completar el desafío.\n\n¡Gracias por tu participación y sigue disfrutando del JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-inicio": {
+            message: "⛺ JAMCAM 2025\n\nLOS GUARDIANES DEL CAMPAMENTO\n\n✨ Conoce tu Aventura ✨\n\n¿Estás listo para demostrar que conoces el JamCam?\n\nDeberás responder 7 preguntas correctamente sobre el campamento y el evento.",
+            options: [
+                { icon: "🚀", label: "¡Comenzar desafío!", action: "goto", nodeId: "desafio3-nivel1" },
+                { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel1": {
+            message: "🔹 NIVEL 1 – LAS FECHAS\n\n¿Cuándo ingresan los miembros del EIS y CMT al sitio del JamCam?",
+            options: [
+                { icon: "A)", label: "25 de diciembre de 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" },
+                { icon: "B)", label: "26 de diciembre de 2025", action: "goto", nodeId: "desafio3-nivel1-correcto" },
+                { icon: "C)", label: "27 de diciembre de 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" },
+                { icon: "D)", label: "28 de diciembre de 2025", action: "goto", nodeId: "desafio3-nivel1-incorrecto" }
+            ]
+        },
+        "desafio3-nivel1-correcto": {
+            message: "✅ ¡Correcto!\n\nLos miembros del EIS y CMT ingresan el 26 de diciembre de 2025, un día antes del inicio oficial.\n\nContinúa al Nivel 2.",
+            options: [
+                { icon: "➡️", label: "Nivel 2", action: "goto", nodeId: "desafio3-nivel2" }
+            ]
+        },
+        "desafio3-nivel1-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel2": {
+            message: "🔹 NIVEL 2 – EL EQUIPO\n\n¿Qué significa EIS?",
+            options: [
+                { icon: "A)", label: "Equipo Interamericano Scout", action: "goto", nodeId: "desafio3-nivel2-incorrecto" },
+                { icon: "B)", label: "Equipo Internacional de Servicio", action: "goto", nodeId: "desafio3-nivel2-correcto" },
+                { icon: "C)", label: "Escuadrón Internacional de Seguridad", action: "goto", nodeId: "desafio3-nivel2-incorrecto" },
+                { icon: "D)", label: "Equipo Instructor Scout", action: "goto", nodeId: "desafio3-nivel2-incorrecto" }
+            ]
+        },
+        "desafio3-nivel2-correcto": {
+            message: "✅ ¡Muy bien!\n\nEIS significa Equipo Internacional de Servicio, conformado por voluntarios scouts que apoyan el desarrollo del evento.\n\nAvanza al Nivel 3.",
+            options: [
+                { icon: "➡️", label: "Nivel 3", action: "goto", nodeId: "desafio3-nivel3" }
+            ]
+        },
+        "desafio3-nivel2-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel3": {
+            message: "🔹 NIVEL 3 – EL LUGAR\n\n¿Dónde se realiza el JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Parque Nacional Tayrona", action: "goto", nodeId: "desafio3-nivel3-incorrecto" },
+                { icon: "B)", label: "Centro Campestre Comfandi Pance", action: "goto", nodeId: "desafio3-nivel3-correcto" },
+                { icon: "C)", label: "Parque Simón Bolívar", action: "goto", nodeId: "desafio3-nivel3-incorrecto" },
+                { icon: "D)", label: "Campamento Scout Nacional", action: "goto", nodeId: "desafio3-nivel3-incorrecto" }
+            ]
+        },
+        "desafio3-nivel3-correcto": {
+            message: "✅ ¡Excelente!\n\nEl JamCam se realiza en el Centro Campestre Comfandi Pance, un espacio natural rodeado de montañas, ríos y senderos.\n\nAvanza al Nivel 4.",
+            options: [
+                { icon: "➡️", label: "Nivel 4", action: "goto", nodeId: "desafio3-nivel4" }
+            ]
+        },
+        "desafio3-nivel3-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel4": {
+            message: "🔹 NIVEL 4 – LA EDAD\n\n¿Qué edad mínima debes tener al inicio del JamCam para ser parte del EIS?",
+            options: [
+                { icon: "A)", label: "16 años", action: "goto", nodeId: "desafio3-nivel4-incorrecto" },
+                { icon: "B)", label: "17 años", action: "goto", nodeId: "desafio3-nivel4-incorrecto" },
+                { icon: "C)", label: "18 años", action: "goto", nodeId: "desafio3-nivel4-correcto" },
+                { icon: "D)", label: "21 años", action: "goto", nodeId: "desafio3-nivel4-incorrecto" }
+            ]
+        },
+        "desafio3-nivel4-correcto": {
+            message: "✅ ¡Perfecto!\n\nDebes tener 18 años o más al inicio del JamCam 2025 para poder ser parte del Equipo Internacional de Servicio.\n\nAvanza al Nivel 5.",
+            options: [
+                { icon: "➡️", label: "Nivel 5", action: "goto", nodeId: "desafio3-nivel5" }
+            ]
+        },
+        "desafio3-nivel4-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel5": {
+            message: "🔹 NIVEL 5 – LOS PARTICIPANTES\n\n¿Qué edades tienen los participantes juveniles del JamCam?",
+            options: [
+                { icon: "A)", label: "10 a 16 años", action: "goto", nodeId: "desafio3-nivel5-incorrecto" },
+                { icon: "B)", label: "11 a 17 años", action: "goto", nodeId: "desafio3-nivel5-correcto" },
+                { icon: "C)", label: "12 a 18 años", action: "goto", nodeId: "desafio3-nivel5-incorrecto" },
+                { icon: "D)", label: "13 a 19 años", action: "goto", nodeId: "desafio3-nivel5-incorrecto" }
+            ]
+        },
+        "desafio3-nivel5-correcto": {
+            message: "✅ ¡Increíble!\n\nLos participantes juveniles son niños y adolescentes entre 11 y 17 años, organizados en patrullas o equipos según su edad.\n\nAvanza al Nivel 6.",
+            options: [
+                { icon: "➡️", label: "Nivel 6", action: "goto", nodeId: "desafio3-nivel6" }
+            ]
+        },
+        "desafio3-nivel5-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel6": {
+            message: "🔹 NIVEL 6 – LA INSPIRACIÓN\n\n¿En qué declaración de la ONU se inspira el tema del JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Año Internacional del Medio Ambiente", action: "goto", nodeId: "desafio3-nivel6-incorrecto" },
+                { icon: "B)", label: "Año Internacional de la Paz y la Confianza", action: "goto", nodeId: "desafio3-nivel6-correcto" },
+                { icon: "C)", label: "Año Internacional de la Juventud", action: "goto", nodeId: "desafio3-nivel6-incorrecto" },
+                { icon: "D)", label: "Año Internacional de la Cooperación", action: "goto", nodeId: "desafio3-nivel6-incorrecto" }
+            ]
+        },
+        "desafio3-nivel6-correcto": {
+            message: "✅ ¡Fantástico!\n\nEl JamCam 2025 se inspira en la declaratoria de la ONU del 2025 como el Año Internacional de la Paz y la Confianza.\n\nAvanza al Nivel 7 (FINAL).",
+            options: [
+                { icon: "➡️", label: "Nivel 7 (FINAL)", action: "goto", nodeId: "desafio3-nivel7" }
+            ]
+        },
+        "desafio3-nivel6-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel7": {
+            message: "🔹 NIVEL 7 – EL MONUMENTO\n\n¿Cuál es el monumento más emblemático de Cali que se encuentra en el cerro de los Cristales?",
+            options: [
+                { icon: "A)", label: "Torre de Cali", action: "goto", nodeId: "desafio3-nivel7-incorrecto" },
+                { icon: "B)", label: "Catedral Metropolitana", action: "goto", nodeId: "desafio3-nivel7-incorrecto" },
+                { icon: "C)", label: "Cristo Rey", action: "goto", nodeId: "desafio3-nivel7-correcto" },
+                { icon: "D)", label: "Cerro de las Tres Cruces", action: "goto", nodeId: "desafio3-nivel7-incorrecto" }
+            ]
+        },
+        "desafio3-nivel7-correcto": {
+            message: "✅ ¡CORRECTO! 🎉🏆\n\n¡Has completado el Desafío de los Guardianes del Campamento con los 7 niveles!\n\nEl Cristo Rey es un monumento de 26 metros de altura que ofrece una vista panorámica espectacular de Cali.\n\n🏁 INSTRUCCIÓN FINAL:\n\n📝 RECLAMA TU PREMIO AQUÍ:\nhttps://forms.gle/PytYXN9hoELX8dmk8\n\n*El primer registro válido será el ganador del concurso de Cholao Store.*\n\nDirígete también al WELCOME CENTER para validar tu participación.\n\n📍 INFORMACIÓN:\n• Completa todos los campos del formulario\n• Un premio por persona\n• Premios no transferibles\n• Decisiones del staff son finales\n• Dinámica válida hasta agotar premios",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio3-nivel7-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de los Guardianes del Campamento ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
             options: [
                 { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
             ]

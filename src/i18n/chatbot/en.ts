@@ -232,7 +232,7 @@ export default {
         "tu-voz-cuenta": {
             message: "🗣️ Your Opinion Matters\n\nThis space is designed for you to share your experience and perception of JAMCAM.\nThrough brief surveys, you can help us identify what is working well and what we can improve, to continue taking care of everyone's experience.",
             options: [
-                { icon: "✅", label: "Welcome survey", action: "goto", nodeId: "encuesta-bienvenida" },
+                { icon: "📋", label: "Daily survey", action: "goto", nodeId: "encuesta-diaria" },
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },

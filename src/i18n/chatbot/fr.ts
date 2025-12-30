@@ -232,7 +232,7 @@ export default {
         "tu-voz-cuenta": {
             message: "🗣️ Votre opinion compte\n\nCet espace est conçu pour que vous puissiez partager votre expérience et votre perception du JAMCAM.\nGrâce à de brefs sondages, vous pourrez nous aider à identifier ce qui fonctionne bien et ce que nous pouvons améliorer, pour continuer à prendre soin de l'expérience de tous.",
             options: [
-                { icon: "✅", label: "Sondage de bienvenue", action: "goto", nodeId: "encuesta-bienvenida" },
+                { icon: "📋", label: "Sondage quotidien", action: "goto", nodeId: "encuesta-diaria" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },

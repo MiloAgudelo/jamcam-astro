@@ -1,8 +1,9 @@
 ---
+newsId: 'dia2-actividades'
 title: 'Day 2 of JamCam 2025 in Cali, Colombia: how activities and cultural connections were experienced'
 category: 'Experience'
 publishDate: 2025-12-28
-image: '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png'
+image: 'dia2-actividades'
 imageAlt: 'JamCam 2025 participants sharing in the Inter-American Village with stands from different countries of the Americas'
 locale: 'en'
 keywords: ['JamCam 2025', 'Day 2', 'Activities', 'Cali', 'Cultural connections', 'Inter-American Village', 'Scouts', 'Americas', 'SDGs']

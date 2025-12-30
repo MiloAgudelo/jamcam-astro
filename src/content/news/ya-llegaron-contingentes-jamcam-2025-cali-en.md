@@ -1,8 +1,9 @@
 ---
+newsId: 'llegada-contingentes'
 title: 'The contingents have arrived at JamCam 2025 in Cali! Learn the details'
 category: 'Experience'
 publishDate: 2025-12-27
-image: '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png'
+image: 'llegada-contingentes'
 imageAlt: 'Group of young scouts arriving at JamCam 2025 in Cali, setting up their camps'
 locale: 'en'
 keywords: ['JamCam 2025', 'Contingents', 'Cali', 'Camp', 'Comfandi Pance', 'Scouts', 'Americas', 'Experience']

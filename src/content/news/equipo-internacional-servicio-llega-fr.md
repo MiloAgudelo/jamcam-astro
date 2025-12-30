@@ -1,4 +1,5 @@
 ---
+newsId: 'equipo-internacional'
 title: "Le JamCam 2025 Cali accueille l'équipe de bénévoles adultes !"
 category: "Annonce"
 publishDate: 2025-12-26

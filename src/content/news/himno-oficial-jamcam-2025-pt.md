@@ -1,8 +1,9 @@
 ---
+newsId: 'himno-oficial'
 title: 'JamCam 2025 em Cali, Colômbia lança seu hino oficial e várias outras músicas no YouTube'
 category: 'Anúncio'
 publishDate: 2025-12-27
-image: '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png'
+image: 'himno-oficial'
 imageAlt: 'Escoteiros cantando e levantando as mãos com uma bandeira verde no JamCam 2025'
 locale: 'pt'
 keywords: ['JamCam 2025', 'Hino', 'Música', 'YouTube', 'Cumbia', 'Spotify', 'Canções Escoteiras', 'Cali']

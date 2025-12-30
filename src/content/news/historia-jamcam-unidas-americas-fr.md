@@ -1,8 +1,9 @@
 ---
+newsId: 'historia-jamcam'
 title: 'JamCam : une histoire qui unit les Amériques depuis 1965'
 category: 'Annonce'
 publishDate: 2025-06-10
-image: '@news/Historia del JamCam.jpg'
+image: 'historia-jamcam'
 imageAlt: 'Histoire du JamCam depuis 1965 unissant les Amériques'
 locale: 'fr'
 keywords: ['JamCam', 'Histoire', 'JamPan', 'Jamboree', 'Camporee', 'Amériques', 'Scout', '1965', 'Colombie', 'Cali']

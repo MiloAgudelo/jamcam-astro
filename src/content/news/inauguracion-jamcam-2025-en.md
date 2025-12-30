@@ -1,8 +1,9 @@
 ---
+newsId: 'inauguracion'
 title: 'This is how the inauguration of JamCam Interamerican 2025 Cali was experienced!'
 category: 'Experience'
 publishDate: 2025-12-27
-image: '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png'
+image: 'inauguracion'
 imageAlt: 'JamCam 2025 inauguration ceremony with young scouts from across the American continent holding their flags on stage'
 locale: 'en'
 keywords: ['JamCam 2025', 'Inauguration', 'Comfandi Pance', 'Cali', 'Unforgettable experience', 'Scouts', 'Americas', 'Colombian culture']

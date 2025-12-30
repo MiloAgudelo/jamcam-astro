@@ -1,32 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { getTranslations } from '../i18n';
-// Preview images
-import porQueColombiaPreview from '../assets/images/news/preview/Por qué Colombia es la sede ideal.png';
-import historiaJamCamPreview from '../assets/images/news/preview/Historia del JamCam.png';
-import jamcamLlegaColombiaPreview from '../assets/images/news/preview/JamCam 2025 llega a Colombia.png';
-import caliHechaRecibirPreview from '../assets/images/news/preview/Cali hecha para recibir al mundo.png';
-import staffEnAccionPreview from '../assets/images/news/preview/El staff ya está en acción.png';
-import equipoInternacionalPreview from '../assets/images/news/preview/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
-import himnoOficialPreview from '../assets/images/news/preview/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
-import inauguracionPreview from '../assets/images/news/preview/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
-import contingentesPreview from '../assets/images/news/preview/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
-import dia2ActividadesPreview from '../assets/images/news/preview/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
-import standOficialPreview from '../assets/images/news/preview/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png';
-import fundacionScoutPreview from '../assets/images/news/preview/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png';
-// Full images
-import porQueColombiaFull from '../assets/images/news/full/Por qué Colombia es la sede ideal.png';
-import historiaJamCamFull from '../assets/images/news/full/Historia del JamCam.png';
-import jamcamLlegaColombiaFull from '../assets/images/news/full/JamCam 2025 llega a Colombia.png';
-import caliHechaRecibirFull from '../assets/images/news/full/Cali hecha para recibir al mundo.png';
-import staffEnAccionFull from '../assets/images/news/full/El staff ya está en acción.png';
-import equipoInternacionalFull from '../assets/images/news/full/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png';
-import himnoOficialFull from '../assets/images/news/full/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png';
-import inauguracionFull from '../assets/images/news/full/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png';
-import contingentesFull from '../assets/images/news/full/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png';
-import dia2ActividadesFull from '../assets/images/news/full/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png';
-import standOficialFull from '../assets/images/news/full/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png';
-import fundacionScoutFull from '../assets/images/news/full/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png';
+
+// Dynamic image imports using glob
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/news/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
 
 interface Props {
   entry: any; // The full entry from getCollection
@@ -37,7 +14,7 @@ const { entry, locale } = Astro.props;
 const t = getTranslations(locale);
 
 // Extract data from entry
-const { title, category, publishDate, image, imageAlt } = entry.data;
+const { newsId, title, category, publishDate, imageAlt } = entry.data;
 const slug = entry.slug;
 
 // Get category color based on category name
@@ -85,73 +62,26 @@ const getNewsUrl = () => {
   return `/${locale}/news/${slug}`;
 };
 
-// Handle image from src/assets or public - return both preview and full images
-const getImageSources = (imagePath: string) => {
-  if (imagePath.startsWith('@news/')) {
-    const imageMap: Record<string, { preview: any; full: any }> = {
-      '@news/Por qué Colombia es la sede ideal.jpg': {
-        preview: porQueColombiaPreview,
-        full: porQueColombiaFull,
-      },
-      '@news/Historia del JamCam.jpg': {
-        preview: historiaJamCamPreview,
-        full: historiaJamCamFull,
-      },
-      '@news/JamCam 2025 llega a Colombia.JPG': {
-        preview: jamcamLlegaColombiaPreview,
-        full: jamcamLlegaColombiaFull,
-      },
-      '@news/Cali hecha para recibir al mundo.jpg': {
-        preview: caliHechaRecibirPreview,
-        full: caliHechaRecibirFull,
-      },
-      '@news/El staff ya está en acción.JPG': {
-        preview: staffEnAccionPreview,
-        full: staffEnAccionFull,
-      },
-      '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png': {
-        preview: equipoInternacionalPreview,
-        full: equipoInternacionalFull,
-      },
-      '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png': {
-        preview: himnoOficialPreview,
-        full: himnoOficialFull,
-      },
-      '@news/Así se vivió la inauguración del JamCam Interamericano 2025 Cali.png': {
-        preview: inauguracionPreview,
-        full: inauguracionFull,
-      },
-      '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png': {
-        preview: contingentesPreview,
-        full: contingentesFull,
-      },
-      '@news/Día 2 del JamCam 2025 en Cali, Colombia así se vivieron las actividades y conexiones culturales.png': {
-        preview: dia2ActividadesPreview,
-        full: dia2ActividadesFull,
-      },
-      '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png': {
-        preview: standOficialPreview,
-        full: standOficialFull,
-      },
-      '@news/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png': {
-        preview: fundacionScoutPreview,
-        full: fundacionScoutFull,
-      },
-    };
-    return imageMap[imagePath] || { preview: imagePath, full: imagePath };
-  }
-  return { preview: imagePath, full: imagePath };
+// Get image sources dynamically using newsId
+const getImageByNewsId = (newsId: string) => {
+  const previewPath = `../assets/images/news/preview/${newsId}-preview.png`;
+  const fullPath = `../assets/images/news/full/${newsId}-full.png`;
+  
+  const preview = images[previewPath]?.default;
+  const full = images[fullPath]?.default;
+  
+  return { preview, full };
 };
 
-const { preview: previewSrc, full: fullSrc } = getImageSources(image);
-const isImportedImage = typeof previewSrc !== 'string';
+const { preview: previewSrc, full: fullSrc } = getImageByNewsId(newsId);
+const isImportedImage = previewSrc !== undefined && fullSrc !== undefined;
 ---
 
 <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
   <a href={getNewsUrl()} class="block">
     <!-- Image Container with Preview/Full Toggle -->
     <div class="relative w-full aspect-video overflow-hidden">
-      {isImportedImage ? (
+      {isImportedImage && (
         <>
           <!-- Preview Image (visible by default) -->
           <Image 
@@ -170,21 +100,6 @@ const isImportedImage = typeof previewSrc !== 'string';
             loading="lazy"
             width={600}
             height={338}
-          />
-        </>
-      ) : (
-        <>
-          <img 
-            src={previewSrc}
-            alt={imageAlt}
-            class="news-image-preview w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-            loading="lazy"
-          />
-          <img 
-            src={fullSrc}
-            alt={imageAlt}
-            class="news-image-full absolute inset-0 w-full h-full object-cover transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:scale-110"
-            loading="lazy"
           />
         </>
       )}

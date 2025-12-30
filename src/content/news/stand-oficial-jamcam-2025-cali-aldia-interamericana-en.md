@@ -1,8 +1,9 @@
 ---
+newsId: 'stand-oficial'
 title: 'JamCam 2025 Cali Official Stand at the Inter-American Village! Check out the details'
 category: 'Experience'
 publishDate: 2025-12-29
-image: '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png'
+image: 'stand-oficial'
 imageAlt: 'Official JamCam 2025 Cali stand at the Inter-American Village with fraternity and friendship activities among participants'
 locale: 'en'
 keywords: ['JamCam 2025', 'Official stand', 'Inter-American Village', 'Fraternity', 'Friendship', 'Cali', 'Scouts', 'Americas', 'Cholao']

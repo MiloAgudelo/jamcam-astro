@@ -1,8 +1,9 @@
 ---
+newsId: 'himno-oficial'
 title: 'JamCam 2025 in Cali, Colombia launches its official anthem and several more songs on YouTube'
 category: 'Announcement'
 publishDate: 2025-12-27
-image: '@news/JamCam 2025 en Cali, Colombia lanza en YouTube su himno oficial y varias canciones más.png'
+image: 'himno-oficial'
 imageAlt: 'Scouts singing and raising their hands with a green flag at JamCam 2025'
 locale: 'en'
 keywords: ['JamCam 2025', 'Anthem', 'Music', 'YouTube', 'Cumbia', 'Spotify', 'Scout Songs', 'Cali']

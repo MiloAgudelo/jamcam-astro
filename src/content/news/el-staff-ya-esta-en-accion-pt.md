@@ -1,8 +1,9 @@
 ---
+newsId: 'staff-en-accion'
 title: 'JamCam 2025 Cali está em andamento! A equipe já está em ação'
 category: 'Notícia'
 publishDate: 2025-12-25
-image: '@news/El staff ya está en acción.JPG'
+image: 'staff-en-accion'
 imageAlt: 'Voluntária da equipe do JamCam 2025 sorrindo em Comfandi Pance'
 locale: 'pt'
 keywords: ['JamCam 2025', 'Equipe', 'Voluntários', 'Cali', 'Comfandi Pance', 'Preparação', 'Movimento Escoteiro']

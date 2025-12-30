@@ -1,8 +1,9 @@
 ---
+newsId: 'staff-en-accion'
 title: 'JamCam 2025 Cali is underway! The staff is already in action'
 category: 'News'
 publishDate: 2025-12-25
-image: '@news/El staff ya está en acción.JPG'
+image: 'staff-en-accion'
 imageAlt: 'JamCam 2025 staff volunteer smiling at Comfandi Pance'
 locale: 'en'
 keywords: ['JamCam 2025', 'Staff', 'Volunteers', 'Cali', 'Comfandi Pance', 'Preparation', 'Scout Movement']

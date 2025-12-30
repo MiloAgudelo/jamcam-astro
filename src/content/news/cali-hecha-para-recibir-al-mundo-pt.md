@@ -1,8 +1,9 @@
 ---
+newsId: 'cali-recibir-mundo'
 title: 'Cali, uma cidade feita para receber o mundo, é a sede do JamCam 2025'
 category: 'Anúncio'
 publishDate: 2025-11-10
-image: '@news/Cali hecha para recibir al mundo.jpg'
+image: 'cali-recibir-mundo'
 imageAlt: 'Cali, cidade sede do JamCam 2025, preparada para receber o mundo'
 locale: 'pt'
 keywords: ['Cali', 'JamCam 2025', 'Colômbia', 'Valle del Cauca', 'Sede', 'Eventos Internacionais', 'COP16', 'Salsa', 'Turismo']

@@ -1,8 +1,9 @@
 ---
+newsId: 'jamcam-llega-colombia'
 title: 'JamCam 2025 llega a Colombia: Américas unidas por la paz'
 category: 'Anuncio'
 publishDate: 2025-08-15
-image: '@news/JamCam 2025 llega a Colombia.JPG'
+image: 'jamcam-llega-colombia'
 imageAlt: 'JamCam 2025 llega a Colombia, campamento scout interamericano en Cali'
 locale: 'es'
 keywords: ['JamCam 2025', 'Colombia', 'Cali', 'Jamboree', 'Camporee', 'Américas', 'Paz', 'Scout', 'Centro Campestre Comfandi Pance']

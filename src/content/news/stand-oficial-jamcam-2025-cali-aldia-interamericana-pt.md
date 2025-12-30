@@ -1,8 +1,9 @@
 ---
+newsId: 'stand-oficial'
 title: 'Stand oficial JamCam 2025 Cali na Aldeia Interamericana! Confira os detalhes'
 category: 'Experiência'
 publishDate: 2025-12-29
-image: '@news/El stand oficial de JamCam 2025 Cali en la Aldea Interamericana! Consulta los detalles.png'
+image: 'stand-oficial'
 imageAlt: 'Stand oficial do JamCam 2025 Cali na Aldeia Interamericana com atividades de fraternidade e amizade entre participantes'
 locale: 'pt'
 keywords: ['JamCam 2025', 'Stand oficial', 'Aldeia Interamericana', 'Fraternidade', 'Amizade', 'Cali', 'Escoteiros', 'Américas', 'Cholao']

@@ -1,8 +1,9 @@
 ---
+newsId: 'fundacion-scout'
 title: 'La Fundación Scout Interamericana está en el JamCam 2025 en Cali: Entrevistamos a su director ejecutivo'
 category: 'Experiencia'
 publishDate: 2025-12-29
-image: '@news/La Fundación Scout Interamericana está en el JamCam 2025 en Cali Entrevistamos a su director ejecutivo.png'
+image: 'fundacion-scout'
 imageAlt: 'Representantes de la Fundación Scout Interamericana en el JamCam 2025 Cali compartiendo con participantes del evento'
 locale: 'es'
 keywords: ['JamCam 2025', 'Fundación Scout Interamericana', 'Entrevista', 'Cali', 'Scouts', 'Américas', 'Fraternidad']

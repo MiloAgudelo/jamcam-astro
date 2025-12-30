@@ -1,8 +1,9 @@
 ---
+newsId: 'equipo-internacional'
 title: 'JamCam 2025 Cali welcomes the adult volunteer team!'
 category: 'Announcement'
 publishDate: 2025-12-26
-image: '@news/El JamCam 2025 Cali da la bienvenida al equipo de adultos voluntarios.png'
+image: 'equipo-internacional'
 imageAlt: 'International Service Team adult volunteer at Comfandi Pance'
 locale: 'en'
 keywords: ['JamCam 2025', 'International Service Team', 'IST', 'Volunteers', 'Cali', 'Comfandi Pance', 'Cultural Exchange', 'Scout Movement']

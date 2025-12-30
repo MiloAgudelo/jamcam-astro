@@ -1,8 +1,9 @@
 ---
+newsId: 'colombia-sede-ideal'
 title: 'Pourquoi la Colombie est-elle le lieu idéal pour le JamCam 2025?'
 category: 'Annonce'
 publishDate: 2024-12-23
-image: '@news/Por qué Colombia es la sede ideal.jpg'
+image: 'colombia-sede-ideal'
 imageAlt: 'Délégation scoute en visite officielle au Centro Campestre Comfandi Pance pour le JamCam 2025'
 locale: 'fr'
 keywords: ['Colombie', 'Cali', 'Culture', 'Folklore', 'JamCam 2025', 'Lieu', 'Centro Campestre Comfandi Pance']

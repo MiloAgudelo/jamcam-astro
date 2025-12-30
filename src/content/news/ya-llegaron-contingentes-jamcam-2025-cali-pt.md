@@ -1,8 +1,9 @@
 ---
+newsId: 'llegada-contingentes'
 title: 'Os contingentes chegaram ao JamCam 2025 em Cali! Conheça os detalhes'
 category: 'Experiência'
 publishDate: 2025-12-27
-image: '@news/Ya llegaron los contingentes al JamCam 2025 en Cali! Conoce los detalles.png'
+image: 'llegada-contingentes'
 imageAlt: 'Grupo de jovens escoteiros chegando ao JamCam 2025 em Cali, montando seus acampamentos'
 locale: 'pt'
 keywords: ['JamCam 2025', 'Contingentes', 'Cali', 'Acampamento', 'Comfandi Pance', 'Escoteiros', 'Américas', 'Experiência']

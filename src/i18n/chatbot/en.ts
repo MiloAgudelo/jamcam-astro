@@ -277,7 +277,7 @@ export default {
             options: [
                 { icon: "🕒", label: "General Bulletin", action: "goto", nodeId: "info-boletin" },
                 { icon: "📌", label: "Code of Conduct", action: "goto", nodeId: "info-codigo-conducta" },
-                { icon: "☎️", label: "Emergency 911", action: "goto", nodeId: "info-emergencia" },
+                { icon: "☎️", label: "Emergency Line", action: "goto", nodeId: "info-emergencia" },
                 { icon: "🛡️", label: "Safe From Harm", action: "goto", nodeId: "info-safe-from-harm" },
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]

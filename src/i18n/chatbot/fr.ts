@@ -8,7 +8,6 @@ export default {
             message: "👋 Bonjour ! Je suis Cholao, votre assistant numérique au JamCam 2025.\n\nJe suis ici pour vous guider dans les activités, les emplacements, les services et le soutien pendant tout l'événement.\n\n👉 Dites-moi, de quoi avez-vous besoin maintenant ?",
             options: [
                 { icon: "🏆", label: "Défis JamCam", action: "goto", nodeId: "desafios-menu" },
-                { icon: "🌿", label: "Check-in Bien-être", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "Emplacements JamCam", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Activités", action: "goto", nodeId: "actividades" },
                 { icon: "🧠", label: "Listening Ears", action: "goto", nodeId: "listening-ears" },
@@ -24,92 +23,6 @@ export default {
                 { icon: "🌈", label: "Voyage de Cholao", action: "goto", nodeId: "desafio2-inicio" },
                 { icon: "⛺", label: "Gardiens du Campement", action: "goto", nodeId: "desafio3-inicio" },
                 { icon: "🔙", label: "Retour au menu", action: "goto", nodeId: "welcome" }
-            ]
-        },
-        "checkin-bienestar": {
-            message: "🦅 Je suis ici pour t'aider à préparer ton arrivée et faire ton enregistrement préalable.\n\nRendons ce processus rapide et facile.",
-            options: [
-                { icon: "✅", label: "Je suis prêt", action: "goto", nodeId: "checkin-pais" },
-                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
-            ]
-        },
-        "checkin-pais": {
-            message: "🌎 D'abord, dis-moi : de quel pays viens-tu ?",
-            options: [
-                { icon: "🇨🇴", label: "Colombie", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇧🇷", label: "Brésil", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇦🇷", label: "Argentine", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇨🇦", label: "Canada", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇭🇳", label: "Honduras", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇨🇷", label: "Costa Rica", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇲🇽", label: "Mexique", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇨🇱", label: "Chili", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇪🇨", label: "Équateur", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇩🇴", label: "République dominicaine", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇸🇻", label: "El Salvador", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇬🇹", label: "Guatemala", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇳🇮", label: "Nicaragua", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇵🇦", label: "Panama", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇵🇾", label: "Paraguay", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇵🇪", label: "Pérou", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇵🇷", label: "Porto Rico", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇻🇪", label: "Venezuela", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇸🇪", label: "Suède", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇦🇺", label: "Australie", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🇵🇱", label: "Pologne", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🌍", label: "FSI", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🌍", label: "CICE", action: "goto", nodeId: "checkin-rol" },
-                { icon: "🔙", label: "Retour", action: "goto", nodeId: "checkin-bienestar" }
-            ]
-        },
-        "checkin-rol": {
-            message: "🙋 Sélectionne ton rôle dans l'événement :",
-            options: [
-                { icon: "👦", label: "Scout", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "🧑", label: "Éclaireur", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "👨", label: "Rover", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "🤝", label: "EIS / Service", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "👔", label: "Chef de Délégation", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "👤", label: "Adulte Accompagnant", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "📋", label: "Staff", action: "goto", nodeId: "checkin-sintomas" },
-                { icon: "🔙", label: "Retour", action: "goto", nodeId: "checkin-pais" }
-            ]
-        },
-        "checkin-sintomas": {
-            message: "🧑‍⚕️ Symptômes ou malaises",
-            options: [
-                { icon: "😣", label: "Mal de tête", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🤢", label: "Mal d'estomac", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🤮", label: "Nausées", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🌡️", label: "Fièvre", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🌡️", label: "Sensation de fièvre", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "😷", label: "Toux", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "😤", label: "Problème respiratoire", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "😵", label: "Vertiges ou faiblesse", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🩹", label: "Blessure récente", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🤧", label: "Allergie active", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "✅", label: "Aucun", action: "goto", nodeId: "checkin-apoyo" },
-                { icon: "🔙", label: "Retour", action: "goto", nodeId: "checkin-rol" }
-            ]
-        },
-        "checkin-apoyo": {
-            message: "As-tu besoin de Soutien Spécial ?\n\n✨ Si tu as besoin d'un soutien spécial pendant ton arrivée ou ton séjour, je peux transmettre l'information à l'équipe d'Hospitalité et de Protocole.",
-            options: [
-                { icon: "✅", label: "Oui, j'en ai besoin", action: "goto", nodeId: "checkin-apoyo-si" },
-                { icon: "❌", label: "Non, tout va bien", action: "goto", nodeId: "checkin-apoyo-no" },
-                { icon: "🔙", label: "Retour", action: "goto", nodeId: "checkin-sintomas" }
-            ]
-        },
-        "checkin-apoyo-si": {
-            message: "Merci de nous avoir informés.\n\nÀ ton arrivée au Welcome Center, approche-toi de l'équipe de Protocole et d'Hospitalité et indique que tu as demandé un soutien médical dans le check-in de bien-être. Nous t'accompagnerons avec le personnel de santé.",
-            options: [
-                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
-            ]
-        },
-        "checkin-apoyo-no": {
-            message: "Merci de nous avoir informés. Si tu as besoin de soutien plus tard, n'hésite pas à t'approcher du Welcome Center ou de l'équipe de Protocole et d'Hospitalité. Nous sommes là pour t'aider.",
-            options: [
-                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
         ubicaciones: {
@@ -320,7 +233,6 @@ export default {
             message: "🗣️ Votre opinion compte\n\nCet espace est conçu pour que vous puissiez partager votre expérience et votre perception du JAMCAM.\nGrâce à de brefs sondages, vous pourrez nous aider à identifier ce qui fonctionne bien et ce que nous pouvons améliorer, pour continuer à prendre soin de l'expérience de tous.",
             options: [
                 { icon: "✅", label: "Sondage de bienvenue", action: "goto", nodeId: "encuesta-bienvenida" },
-                { icon: "📋", label: "Sondage quotidien", action: "goto", nodeId: "encuesta-diaria" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },

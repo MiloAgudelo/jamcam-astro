@@ -7,6 +7,7 @@ export default {
         welcome: {
             message: "👋 Olá! Sou Cholao, seu assistente digital no JamCam 2025.\n\nEstou aqui para te guiar em atividades, localizações, serviços e apoio durante todo o evento.\n\n👉 Me diga, o que você precisa agora?",
             options: [
+                { icon: "🦜", label: "Desafio Aves Guardiãs", action: "goto", nodeId: "desafio-inicio" },
                 { icon: "🌿", label: "Check-in Bem-estar", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "Localizações JamCam", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Atividades", action: "goto", nodeId: "actividades" },
@@ -405,6 +406,82 @@ export default {
             options: [
                 { icon: "🌍", label: "Outra curiosidade", action: "goto", nodeId: "datos-curiosos-menu" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-bloqueado": {
+            message: "🔒 Desafio Bloqueado\n\nLamentamos, você já participou do Desafio das Aves Guardiãs com uma resposta incorreta.\n\nCada participante tem apenas uma oportunidade para completar o desafio.\n\nObrigado pela sua participação e continue aproveitando o JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-inicio": {
+            message: "🦜 JAMCAM 2025\n\nO DESAFIO DAS AVES GUARDIÃS\n\n✨ Américas Unidas Pela Paz ✨\n\nVocê está pronto para começar esta aventura?\n\nVocê deve responder 3 perguntas corretamente para completar o desafio.",
+            options: [
+                { icon: "🚀", label: "Começar desafio!", action: "goto", nodeId: "desafio-nivel1" },
+                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel1": {
+            message: "🔹 NÍVEL 1 – A ORIGEM\n\nQuem é a arara lendária que guia o JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Anu-preto", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "B)", label: "Cholao", action: "goto", nodeId: "desafio-nivel1-correcto" },
+                { icon: "C)", label: "Pato-do-mato", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "D)", label: "Sanhaço-cinzento", action: "goto", nodeId: "desafio-nivel1-incorrecto" }
+            ]
+        },
+        "desafio-nivel1-correcto": {
+            message: "✅ Correto!\n\nVocê demonstrou conhecer a origem! Cholao é a arara lendária que nos guia nesta aventura.\n\nContinue para o Nível 2.",
+            options: [
+                { icon: "➡️", label: "Nível 2", action: "goto", nodeId: "desafio-nivel2" }
+            ]
+        },
+        "desafio-nivel1-incorrecto": {
+            message: "❌ Resposta incorreta\n\n🔒 O Desafio das Aves Guardiãs foi bloqueado para você.\n\nCada participante tem apenas uma oportunidade para completar o desafio. Obrigado pela sua participação.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel2": {
+            message: "🔹 NÍVEL 2 – AS AVES GUARDIÃS\n\nQue valor está desaparecendo segundo o Papagaio-de-cabeça-azul?",
+            options: [
+                { icon: "A)", label: "A cooperação", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "B)", label: "A liberdade", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "C)", label: "A empatia", action: "goto", nodeId: "desafio-nivel2-correcto" },
+                { icon: "D)", label: "A criatividade", action: "goto", nodeId: "desafio-nivel2-incorrecto" }
+            ]
+        },
+        "desafio-nivel2-correcto": {
+            message: "✅ Muito bem!\n\nVocê ouviu as aves guardiãs! A empatia é o valor que o Papagaio-de-cabeça-azul protege.\n\nAvance para o Nível 3.",
+            options: [
+                { icon: "➡️", label: "Nível 3 (Final)", action: "goto", nodeId: "desafio-nivel3" }
+            ]
+        },
+        "desafio-nivel2-incorrecto": {
+            message: "❌ Resposta incorreta\n\n🔒 O Desafio das Aves Guardiãs foi bloqueado para você.\n\nCada participante tem apenas uma oportunidade para completar o desafio. Obrigado pela sua participação.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3": {
+            message: "🔹 NÍVEL 3 – O VOO FINAL\n\nQuantos dias dura a aventura do JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Quatro dias", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "B)", label: "Cinco dias", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "C)", label: "Seis dias", action: "goto", nodeId: "desafio-nivel3-correcto" },
+                { icon: "D)", label: "Sete dias", action: "goto", nodeId: "desafio-nivel3-incorrecto" }
+            ]
+        },
+        "desafio-nivel3-correcto": {
+            message: "✅ CORRETO! 🎉\n\nVocê completou o Desafio das Aves Guardiãs!\n\n🏁 INSTRUÇÃO FINAL:\n\nVá AGORA MESMO ao WELCOME CENTER para reivindicar seu prêmio.\n\n*Os primeiros a chegar serão os vencedores.*\n\n📍 REIVINDICAÇÃO DO PRÊMIO:\n• Validação de identidade\n• Confirmação da resposta\n• Entrega do prêmio\n\n🛑 REGRAS:\n• Um prêmio por pessoa\n• Prêmios não transferíveis\n• Decisões da equipe são finais\n• Dinâmica válida até esgotar prêmios",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3-incorrecto": {
+            message: "❌ Resposta incorreta\n\n🔒 O Desafio das Aves Guardiãs foi bloqueado para você.\n\nCada participante tem apenas uma oportunidade para completar o desafio. Obrigado pela sua participação.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         }
     }

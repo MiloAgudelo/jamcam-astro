@@ -84,6 +84,28 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
   let messageHistory = []; // Guardar HTML de mensajes para goBack
   let isProcessing = false; // Flag para evitar clicks múltiples
 
+  // LocalStorage keys for challenge blocking
+  const CHALLENGE_BLOCKED_KEY = 'jamcam_desafio_blocked';
+  const CHALLENGE_BLOCKED_TIME_KEY = 'jamcam_desafio_blocked_time';
+
+  // Challenge blocking functions
+  function isChallengeBocked() {
+    try {
+      return localStorage.getItem(CHALLENGE_BLOCKED_KEY) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function blockChallenge() {
+    try {
+      localStorage.setItem(CHALLENGE_BLOCKED_KEY, 'true');
+      localStorage.setItem(CHALLENGE_BLOCKED_TIME_KEY, new Date().toISOString());
+    } catch (e) {
+      console.error('Error blocking challenge:', e);
+    }
+  }
+
   // Initialize chatbot
   function init() {
     // Close button
@@ -143,6 +165,11 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
   }
 
   function showNode(nodeId) {
+    // Check if trying to access challenge while blocked
+    if (nodeId.startsWith('desafio-') && nodeId !== 'desafio-bloqueado' && isChallengeBocked()) {
+      nodeId = 'desafio-bloqueado';
+    }
+
     const node = chatbot.nodes[nodeId];
     if (!node) {
       console.error('Node not found:', nodeId);
@@ -174,6 +201,11 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
   }
 
   function showNodeInstant(nodeId) {
+    // Check if trying to access challenge while blocked
+    if (nodeId.startsWith('desafio-') && nodeId !== 'desafio-bloqueado' && isChallengeBocked()) {
+      nodeId = 'desafio-bloqueado';
+    }
+
     const node = chatbot.nodes[nodeId];
     if (!node) {
       console.error('Node not found:', nodeId);
@@ -386,6 +418,10 @@ const closeId = isFullPage ? 'chatbot-close-page' : 'chatbot-close';
     
     // Ejecutar acción inmediatamente
     if (option.action === 'goto' && option.nodeId) {
+      // Block challenge if accessing incorrect answer node
+      if (option.nodeId.includes('-incorrecto')) {
+        blockChallenge();
+      }
       showNode(option.nodeId);
     } else if (option.action === 'link' && option.url) {
       // Para enlaces tel:, sms:, mailto: usar location.href

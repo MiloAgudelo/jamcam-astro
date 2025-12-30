@@ -7,6 +7,7 @@ export default {
         welcome: {
             message: "👋 Bonjour ! Je suis Cholao, votre assistant numérique au JamCam 2025.\n\nJe suis ici pour vous guider dans les activités, les emplacements, les services et le soutien pendant tout l'événement.\n\n👉 Dites-moi, de quoi avez-vous besoin maintenant ?",
             options: [
+                { icon: "🦜", label: "Défi Oiseaux Gardiens", action: "goto", nodeId: "desafio-inicio" },
                 { icon: "🌿", label: "Check-in Bien-être", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "Emplacements JamCam", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Activités", action: "goto", nodeId: "actividades" },
@@ -405,6 +406,82 @@ export default {
             options: [
                 { icon: "🌍", label: "Autre fait amusant", action: "goto", nodeId: "datos-curiosos-menu" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-bloqueado": {
+            message: "🔒 Défi Bloqué\n\nNous sommes désolés, vous avez déjà participé au Défi des Oiseaux Gardiens avec une réponse incorrecte.\n\nChaque participant n'a qu'une seule opportunité pour terminer le défi.\n\nMerci pour votre participation et continuez à profiter du JamCam 2025 !",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-inicio": {
+            message: "🦜 JAMCAM 2025\n\nLE DÉFI DES OISEAUX GARDIENS\n\n✨ Amériques Unies Pour La Paix ✨\n\nÊtes-vous prêt à commencer cette aventure ?\n\nVous devez répondre correctement à 3 questions pour terminer le défi.",
+            options: [
+                { icon: "🚀", label: "Commencer le défi !", action: "goto", nodeId: "desafio-nivel1" },
+                { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel1": {
+            message: "🔹 NIVEAU 1 – L'ORIGINE\n\nQui est l'ara légendaire qui guide le JamCam 2025 ?",
+            options: [
+                { icon: "A)", label: "Ani à bec lisse", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "B)", label: "Cholao", action: "goto", nodeId: "desafio-nivel1-correcto" },
+                { icon: "C)", label: "Canard musqué", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "D)", label: "Tangara gris-bleu", action: "goto", nodeId: "desafio-nivel1-incorrecto" }
+            ]
+        },
+        "desafio-nivel1-correcto": {
+            message: "✅ Correct !\n\nVous avez démontré que vous connaissez l'origine ! Cholao est l'ara légendaire qui nous guide dans cette aventure.\n\nContinuez au Niveau 2.",
+            options: [
+                { icon: "➡️", label: "Niveau 2", action: "goto", nodeId: "desafio-nivel2" }
+            ]
+        },
+        "desafio-nivel1-incorrecto": {
+            message: "❌ Réponse incorrecte\n\n🔒 Le Défi des Oiseaux Gardiens a été bloqué pour vous.\n\nChaque participant n'a qu'une seule opportunité pour terminer le défi. Merci pour votre participation.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel2": {
+            message: "🔹 NIVEAU 2 – LES OISEAUX GARDIENS\n\nQuelle valeur disparaît selon le Perroquet à tête bleue ?",
+            options: [
+                { icon: "A)", label: "La coopération", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "B)", label: "La liberté", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "C)", label: "L'empathie", action: "goto", nodeId: "desafio-nivel2-correcto" },
+                { icon: "D)", label: "La créativité", action: "goto", nodeId: "desafio-nivel2-incorrecto" }
+            ]
+        },
+        "desafio-nivel2-correcto": {
+            message: "✅ Très bien !\n\nVous avez écouté les oiseaux gardiens ! L'empathie est la valeur que le Perroquet à tête bleue protège.\n\nPassez au Niveau 3.",
+            options: [
+                { icon: "➡️", label: "Niveau 3 (Final)", action: "goto", nodeId: "desafio-nivel3" }
+            ]
+        },
+        "desafio-nivel2-incorrecto": {
+            message: "❌ Réponse incorrecte\n\n🔒 Le Défi des Oiseaux Gardiens a été bloqué pour vous.\n\nChaque participant n'a qu'une seule opportunité pour terminer le défi. Merci pour votre participation.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3": {
+            message: "🔹 NIVEAU 3 – LE VOL FINAL\n\nCombien de jours dure l'aventure du JamCam 2025 ?",
+            options: [
+                { icon: "A)", label: "Quatre jours", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "B)", label: "Cinq jours", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "C)", label: "Six jours", action: "goto", nodeId: "desafio-nivel3-correcto" },
+                { icon: "D)", label: "Sept jours", action: "goto", nodeId: "desafio-nivel3-incorrecto" }
+            ]
+        },
+        "desafio-nivel3-correcto": {
+            message: "✅ CORRECT ! 🎉\n\nVous avez terminé le Défi des Oiseaux Gardiens !\n\n🏁 INSTRUCTION FINALE :\n\nRendez-vous MAINTENANT au WELCOME CENTER pour réclamer votre prix.\n\n*Les premiers arrivés seront les gagnants.*\n\n📍 RÉCLAMATION DU PRIX :\n• Validation d'identité\n• Confirmation de la réponse\n• Remise du prix\n\n🛑 RÈGLES :\n• Un prix par personne\n• Prix non transférables\n• Les décisions du personnel sont finales\n• Activité valide jusqu'à épuisement des prix",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3-incorrecto": {
+            message: "❌ Réponse incorrecte\n\n🔒 Le Défi des Oiseaux Gardiens a été bloqué pour vous.\n\nChaque participant n'a qu'une seule opportunité pour terminer le défi. Merci pour votre participation.",
+            options: [
+                { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         }
     }

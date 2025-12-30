@@ -7,6 +7,7 @@ export default {
         welcome: {
             message: "👋 ¡Hola! Soy Cholao, tu asistente digital en el JamCam 2025.\n\nEstoy aquí para guiarte en actividades, ubicaciones, servicios y apoyo durante todo el evento.\n\n👉 Dime, ¿qué necesitas ahora?",
             options: [
+                { icon: "🦜", label: "Desafío Aves Guardianas", action: "goto", nodeId: "desafio-inicio" },
                 { icon: "🌿", label: "Check in Bienestar", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "Ubicaciones JamCam", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Actividades", action: "goto", nodeId: "actividades" },
@@ -405,6 +406,82 @@ export default {
             options: [
                 { icon: "🌍", label: "Otro dato curioso", action: "goto", nodeId: "datos-curiosos-menu" },
                 { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-bloqueado": {
+            message: "🔒 Desafío Bloqueado\n\nLo sentimos, ya has participado en el Desafío de las Aves Guardianas con una respuesta incorrecta.\n\nCada participante tiene solo una oportunidad para completar el desafío.\n\n¡Gracias por tu participación y sigue disfrutando del JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-inicio": {
+            message: "🦜 JAMCAM 2025\n\nEL DESAFÍO DE LAS AVES GUARDIANAS\n\n✨ Américas Unidas Por La Paz ✨\n\n¿Estás listo para comenzar esta aventura?\n\nDeberás responder 3 preguntas correctamente para completar el desafío.",
+            options: [
+                { icon: "🚀", label: "¡Comenzar desafío!", action: "goto", nodeId: "desafio-nivel1" },
+                { icon: "🔙", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel1": {
+            message: "🔹 NIVEL 1 – EL ORIGEN\n\n¿Quién es la guacamaya legendaria que guía el JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Aní de Pico Liso", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "B)", label: "Cholao", action: "goto", nodeId: "desafio-nivel1-correcto" },
+                { icon: "C)", label: "Pato de Moscovia", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "D)", label: "Tangara Azul Grisácea", action: "goto", nodeId: "desafio-nivel1-incorrecto" }
+            ]
+        },
+        "desafio-nivel1-correcto": {
+            message: "✅ ¡Correcto!\n\n¡Has demostrado conocer el origen! Cholao es la guacamaya legendaria que nos guía en esta aventura.\n\nContinúa al Nivel 2.",
+            options: [
+                { icon: "➡️", label: "Nivel 2", action: "goto", nodeId: "desafio-nivel2" }
+            ]
+        },
+        "desafio-nivel1-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel2": {
+            message: "🔹 NIVEL 2 – LAS AVES GUARDIANAS\n\n¿Qué valor está desapareciendo según el Loro de Cabeza Azul?",
+            options: [
+                { icon: "A)", label: "La cooperación", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "B)", label: "La libertad", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "C)", label: "La empatía", action: "goto", nodeId: "desafio-nivel2-correcto" },
+                { icon: "D)", label: "La creatividad", action: "goto", nodeId: "desafio-nivel2-incorrecto" }
+            ]
+        },
+        "desafio-nivel2-correcto": {
+            message: "✅ ¡Muy bien!\n\n¡Has escuchado a las aves guardianas! La empatía es el valor que el Loro de Cabeza Azul protege.\n\nAvanza al Nivel 3.",
+            options: [
+                { icon: "➡️", label: "Nivel 3 (Final)", action: "goto", nodeId: "desafio-nivel3" }
+            ]
+        },
+        "desafio-nivel2-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3": {
+            message: "🔹 NIVEL 3 – EL VUELO FINAL\n\n¿Cuántos días dura la aventura del JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Cuatro días", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "B)", label: "Cinco días", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "C)", label: "Seis días", action: "goto", nodeId: "desafio-nivel3-correcto" },
+                { icon: "D)", label: "Siete días", action: "goto", nodeId: "desafio-nivel3-incorrecto" }
+            ]
+        },
+        "desafio-nivel3-correcto": {
+            message: "✅ ¡CORRECTO! 🎉\n\n¡Has completado el Desafío de las Aves Guardianas!\n\n🏁 INSTRUCCIÓN FINAL:\n\nDirígete AHORA MISMO al WELCOME CENTER para reclamar tu premio.\n\n*Los primeros en llegar serán los ganadores.*\n\n📍 RECLAMO DEL PREMIO:\n• Validación de identidad\n• Confirmación de respuesta\n• Entrega del premio\n\n🛑 REGLAS:\n• Un premio por persona\n• Premios no transferibles\n• Decisiones del staff son finales\n• Dinámica válida hasta agotar premios",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3-incorrecto": {
+            message: "❌ Respuesta incorrecta\n\n🔒 El Desafío de las Aves Guardianas ha sido bloqueado para ti.\n\nCada participante tiene solo una oportunidad para completar el desafío. Gracias por tu participación.",
+            options: [
+                { icon: "🏠", label: "Menú Principal", action: "goto", nodeId: "welcome" }
             ]
         }
     }

@@ -7,6 +7,7 @@ export default {
         welcome: {
             message: "👋 Hello! I'm Cholao, your digital assistant at JamCam 2025.\n\nI'm here to guide you through activities, locations, services, and support throughout the event.\n\n👉 Tell me, what do you need now?",
             options: [
+                { icon: "🦜", label: "Guardian Birds Challenge", action: "goto", nodeId: "desafio-inicio" },
                 { icon: "🌿", label: "Wellness Check-in", action: "goto", nodeId: "checkin-bienestar" },
                 { icon: "📍", label: "JamCam Locations", action: "goto", nodeId: "ubicaciones" },
                 { icon: "🎯", label: "Activities", action: "goto", nodeId: "actividades" },
@@ -405,6 +406,82 @@ export default {
             options: [
                 { icon: "🌍", label: "Another fun fact", action: "goto", nodeId: "datos-curiosos-menu" },
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-bloqueado": {
+            message: "🔒 Challenge Blocked\n\nWe're sorry, you have already participated in the Guardian Birds Challenge with an incorrect answer.\n\nEach participant has only one opportunity to complete the challenge.\n\nThank you for your participation and continue enjoying JamCam 2025!",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-inicio": {
+            message: "🦜 JAMCAM 2025\n\nTHE GUARDIAN BIRDS CHALLENGE\n\n✨ Americas United For Peace ✨\n\nAre you ready to begin this adventure?\n\nYou must answer 3 questions correctly to complete the challenge.",
+            options: [
+                { icon: "🚀", label: "Start challenge!", action: "goto", nodeId: "desafio-nivel1" },
+                { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel1": {
+            message: "🔹 LEVEL 1 – THE ORIGIN\n\nWho is the legendary macaw that guides JamCam 2025?",
+            options: [
+                { icon: "A)", label: "Smooth-billed Ani", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "B)", label: "Cholao", action: "goto", nodeId: "desafio-nivel1-correcto" },
+                { icon: "C)", label: "Muscovy Duck", action: "goto", nodeId: "desafio-nivel1-incorrecto" },
+                { icon: "D)", label: "Blue-gray Tanager", action: "goto", nodeId: "desafio-nivel1-incorrecto" }
+            ]
+        },
+        "desafio-nivel1-correcto": {
+            message: "✅ Correct!\n\nYou've shown that you know the origin! Cholao is the legendary macaw that guides us on this adventure.\n\nContinue to Level 2.",
+            options: [
+                { icon: "➡️", label: "Level 2", action: "goto", nodeId: "desafio-nivel2" }
+            ]
+        },
+        "desafio-nivel1-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel2": {
+            message: "🔹 LEVEL 2 – THE GUARDIAN BIRDS\n\nWhat value is disappearing according to the Blue-headed Parrot?",
+            options: [
+                { icon: "A)", label: "Cooperation", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "B)", label: "Freedom", action: "goto", nodeId: "desafio-nivel2-incorrecto" },
+                { icon: "C)", label: "Empathy", action: "goto", nodeId: "desafio-nivel2-correcto" },
+                { icon: "D)", label: "Creativity", action: "goto", nodeId: "desafio-nivel2-incorrecto" }
+            ]
+        },
+        "desafio-nivel2-correcto": {
+            message: "✅ Very good!\n\nYou've listened to the guardian birds! Empathy is the value that the Blue-headed Parrot protects.\n\nAdvance to Level 3.",
+            options: [
+                { icon: "➡️", label: "Level 3 (Final)", action: "goto", nodeId: "desafio-nivel3" }
+            ]
+        },
+        "desafio-nivel2-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3": {
+            message: "🔹 LEVEL 3 – THE FINAL FLIGHT\n\nHow many days does the JamCam 2025 adventure last?",
+            options: [
+                { icon: "A)", label: "Four days", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "B)", label: "Five days", action: "goto", nodeId: "desafio-nivel3-incorrecto" },
+                { icon: "C)", label: "Six days", action: "goto", nodeId: "desafio-nivel3-correcto" },
+                { icon: "D)", label: "Seven days", action: "goto", nodeId: "desafio-nivel3-incorrecto" }
+            ]
+        },
+        "desafio-nivel3-correcto": {
+            message: "✅ CORRECT! 🎉\n\nYou've completed the Guardian Birds Challenge!\n\n🏁 FINAL INSTRUCTION:\n\nGo RIGHT NOW to the WELCOME CENTER to claim your prize.\n\n*First to arrive will be the winners.*\n\n📍 PRIZE CLAIM:\n• Identity validation\n• Answer confirmation\n• Prize delivery\n\n🛑 RULES:\n• One prize per person\n• Prizes are non-transferable\n• Staff decisions are final\n• Activity valid until prizes run out",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
+            ]
+        },
+        "desafio-nivel3-incorrecto": {
+            message: "❌ Incorrect answer\n\n🔒 The Guardian Birds Challenge has been blocked for you.\n\nEach participant has only one opportunity to complete the challenge. Thank you for your participation.",
+            options: [
+                { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         }
     }

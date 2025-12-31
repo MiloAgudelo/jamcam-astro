@@ -1,14 +1,14 @@
 ---
 newsId: 'mas-actividades'
-title: 'Plus d'activités au JamCam 2025 Cali, découvrez un nouveau jour !'
+title: 'Plus d`activités au JamCam 2025 Cali, découvrez un nouveau jour !'
 category: 'Expérience'
 publishDate: 2025-12-30
 image: 'mas-actividades'
-imageAlt: 'Participants du JamCam 2025 Cali profitant d'activités extrêmes comme la tyrolienne et l'escalade'
+imageAlt: 'Participants du JamCam 2025 Cali profitant d`activités extrêmes comme la tyrolienne et l`escalade'
 locale: 'fr'
 keywords: ['JamCam 2025', 'Cali', 'activités', 'camp', 'tyrolienne', 'escalade', 'zoo', 'tour Cali', 'Amériques Unies pour la Paix']
 metaTitle: 'Découvrez quelles activités les participants du JamCam 2025 Cali ont faites'
-metaDescription: 'Les activités du JamCam 2025 Cali continuent de couler, découvrez ce que les garçons et les filles de l'événement font tout en apprenant entre différentes cultures.'
+metaDescription: 'Les activités du JamCam 2025 Cali continuent de couler, découvrez ce que les garçons et les filles de l`événement font tout en apprenant entre différentes cultures.'
 ---
 
 # Plus d'activités au JamCam 2025 Cali, découvrez un nouveau jour !

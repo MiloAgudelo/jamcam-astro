@@ -173,6 +173,7 @@ npm run dev
 5. **El newsId debe ser único** - Revisa los archivos existentes para evitar duplicados
 6. **Las imágenes deben existir** - El build fallará si faltan las imágenes con el nombre correcto
 7. **Imágenes dentro del contenido son OPCIONALES** - Puedes agregar imágenes adicionales dentro del texto usando markdown estándar en `public/images/news/content/`
+8. **IMPORTANTE para francés** - Cuando uses apostrofes (') en el frontmatter YAML (como en "l'événement", "d'activités", "à l'intérieur"), debes usar comillas dobles (") en lugar de comillas simples (') para los campos que contengan apostrofes. Ejemplo: `imageAlt: "Participants profitant d'activités"` en lugar de `imageAlt: 'Participants profitant d'activités'`. En el contenido markdown (fuera del frontmatter) los apostrofes funcionan normalmente.
 
 ## IDs Existentes (No Duplicar)
 

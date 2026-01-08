@@ -449,7 +449,7 @@ welcome (PUNTO DE ENTRADA - SIEMPRE EMPIEZA AQUÍ)
 │
 ├── 🗣️ tu-voz-cuenta (Encuestas)
 │   ├── encuesta-bienvenida
-│   └── encuesta-diaria
+│   └── encuesta-final
 │
 └── 🌍 datos-curiosos (Datos sobre Cali y JamCam)
     └── datos-curiosos-menu (Menú de datos)

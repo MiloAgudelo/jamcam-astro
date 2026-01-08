@@ -232,7 +232,7 @@ export default {
         "tu-voz-cuenta": {
             message: "🗣️ Your Opinion Matters\n\nThis space is designed for you to share your experience and perception of JAMCAM.\nThrough brief surveys, you can help us identify what is working well and what we can improve, to continue taking care of everyone's experience.",
             options: [
-                { icon: "📋", label: "Daily survey", action: "goto", nodeId: "encuesta-diaria" },
+                { icon: "📋", label: "Final survey", action: "goto", nodeId: "encuesta-final" },
                 { icon: "🔙", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },
@@ -244,10 +244,10 @@ export default {
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]
         },
-        "encuesta-diaria": {
-            message: "📊 Daily Evaluation Survey\n\nYour daily feedback helps us continuously improve the event.\n\nPlease share your experience of the day.\n\n🔗 https://forms.cloud.microsoft/r/VzQeNiMw29",
+        "encuesta-final": {
+            message: "📊 Final Survey\n\nYour opinion is very important to us. Please complete this final survey to help us improve the JamCam experience.\n\n🔗 https://forms.cloud.microsoft/r/T8WBWr7ad6",
             options: [
-                { icon: "📝", label: "Open survey", action: "link", url: "https://forms.cloud.microsoft/r/VzQeNiMw29" },
+                { icon: "📝", label: "Open survey", action: "link", url: "https://forms.cloud.microsoft/r/T8WBWr7ad6" },
                 { icon: "🔙", label: "Back", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Main Menu", action: "goto", nodeId: "welcome" }
             ]

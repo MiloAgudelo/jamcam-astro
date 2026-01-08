@@ -232,7 +232,7 @@ export default {
         "tu-voz-cuenta": {
             message: "🗣️ Votre opinion compte\n\nCet espace est conçu pour que vous puissiez partager votre expérience et votre perception du JAMCAM.\nGrâce à de brefs sondages, vous pourrez nous aider à identifier ce qui fonctionne bien et ce que nous pouvons améliorer, pour continuer à prendre soin de l'expérience de tous.",
             options: [
-                { icon: "📋", label: "Sondage quotidien", action: "goto", nodeId: "encuesta-diaria" },
+                { icon: "📋", label: "Sondage final", action: "goto", nodeId: "encuesta-final" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
@@ -244,10 +244,10 @@ export default {
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
-        "encuesta-diaria": {
-            message: "📊 Sondage d'évaluation quotidien\n\nVos commentaires quotidiens nous aident à améliorer continuellement l'événement.\n\nVeuillez partager votre expérience de la journée.\n\n🔗 https://forms.cloud.microsoft/r/VzQeNiMw29",
+        "encuesta-final": {
+            message: "📊 Sondage Final\n\nVotre opinion est très importante pour nous. Veuillez compléter ce sondage final pour nous aider à améliorer l'expérience du JamCam.\n\n🔗 https://forms.cloud.microsoft/r/T8WBWr7ad6",
             options: [
-                { icon: "📝", label: "Ouvrir le sondage", action: "link", url: "https://forms.cloud.microsoft/r/VzQeNiMw29" },
+                { icon: "📝", label: "Ouvrir le sondage", action: "link", url: "https://forms.cloud.microsoft/r/T8WBWr7ad6" },
                 { icon: "🔙", label: "Retour", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]

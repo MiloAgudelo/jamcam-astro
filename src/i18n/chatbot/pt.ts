@@ -232,7 +232,7 @@ export default {
         "tu-voz-cuenta": {
             message: "🗣️ Sua opinião conta\n\nEste espaço foi pensado para que você possa compartilhar sua experiência e percepção do JAMCAM.\nAtravés de pesquisas breves, você poderá nos ajudar a identificar o que está funcionando bem e no que podemos melhorar, para continuar cuidando da experiência de todos.",
             options: [
-                { icon: "📋", label: "Pesquisa diária", action: "goto", nodeId: "encuesta-diaria" },
+                { icon: "📋", label: "Pesquisa final", action: "goto", nodeId: "encuesta-final" },
                 { icon: "🔙", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
@@ -244,10 +244,10 @@ export default {
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]
         },
-        "encuesta-diaria": {
-            message: "📊 Pesquisa de avaliação diária\n\nSeu feedback diário nos ajuda a melhorar continuamente o evento.\n\nPor favor, compartilhe sua experiência do dia.\n\n🔗 https://forms.cloud.microsoft/r/VzQeNiMw29",
+        "encuesta-final": {
+            message: "📊 Pesquisa Final\n\nSua opinião é muito importante para nós. Por favor, complete esta pesquisa final para nos ajudar a melhorar a experiência do JamCam.\n\n🔗 https://forms.cloud.microsoft/r/T8WBWr7ad6",
             options: [
-                { icon: "📝", label: "Abrir pesquisa", action: "link", url: "https://forms.cloud.microsoft/r/VzQeNiMw29" },
+                { icon: "📝", label: "Abrir pesquisa", action: "link", url: "https://forms.cloud.microsoft/r/T8WBWr7ad6" },
                 { icon: "🔙", label: "Voltar", action: "goto", nodeId: "tu-voz-cuenta" },
                 { icon: "🏠", label: "Menu Principal", action: "goto", nodeId: "welcome" }
             ]

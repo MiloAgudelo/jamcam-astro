@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/vercel": "^8.2.3",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/sitemap": "^3.6.1",
+    "@astrojs/vercel": "^9.0.3",
     "@tailwindcss/vite": "^4.1.7",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.12.1",
+    "astro": "^5.16.8",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3"

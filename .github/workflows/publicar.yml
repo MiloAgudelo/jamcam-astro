@@ -1,0 +1,42 @@
+# Publica el sitio en Cloudflare Workers (www.jamcam2025.com) al hacer push a master o a mano.
+name: Publicar en Cloudflare
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: publicar-cloudflare
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Instalar la CLI cf
+        run: npm install --global cf@1.0.0-beta.14
+
+      - name: Publicar
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CF_QUIET: '1'
+        run: |
+          node scripts/cf-build-output.mjs
+          cf deploy --prebuilt --message "GitHub Actions ${GITHUB_SHA::7}"

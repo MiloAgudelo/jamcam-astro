@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # vercel
 .vercel/
+
+# Salida para cf deploy
+.cloudflare/
